@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · {{ fecha }}</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>{{ fecha_larga }}</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida {{ hora_corrida }} hs · {{ fuentes_ok }}/{{ fuentes_total }} fuentes respondieron{% if caidas %} · <a href="#fuentes">{{ caidas|length }} caída{{ 's' if caidas|length != 1 }}</a>{% endif %}</div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">{{ kpi.notas|miles }}</div>
+    {% if kpi.delta is not none %}
+      <div class="sub {{ 'up' if kpi.delta > 0 }}">{{ '▲' if kpi.delta > 0 else ('▼' if kpi.delta < 0 else '=') }} {{ '%+.0f'|format(kpi.delta) }}% vs. promedio de {{ kpi.dias_hist }} día{{ 's' if kpi.dias_hist != 1 }} ({{ '%.0f'|format(kpi.prom_notas) }})</div>
+    {% else %}
+      <div class="sub">Sin días previos para comparar todavía</div>
+    {% endif %}
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">{{ kpi.temas }}</div>
+    <div class="sub">{{ temas|selectattr('n_medios', 'ge', 2)|list|length }} cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">{{ kpi.medios }}</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi {{ 'alerta' if kpi.caidas }}"><div class="lbl">Fuentes caídas</div>
+    <div class="val">{% if kpi.caidas %}<span class="icono" aria-hidden="true">!</span>{% endif %}{{ kpi.caidas }}</div>
+    <div class="sub">{% if kpi.caidas %}<a href="#fuentes">ver cuáles</a>{% else %}<span class="estado-ok">✓</span> todas respondieron{% endif %}</div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+{% if top %}
+<section class="top">
+{% for t in top %}
+  {% set rep = t.notas[0] %}
+  <article class="panel card {{ 'primero' if loop.first }}">
+    <div class="card-head">
+      <span class="puesto">{{ loop.index }}</span>
+      <span class="cobertura"><b>{{ t.n_medios }}</b> medio{{ 's' if t.n_medios != 1 }}
+        <span class="pips" aria-hidden="true">{% for _ in range(t.n_medios if t.n_medios < 12 else 12) %}<i></i>{% endfor %}</span>
+        {% if t.notas|length > t.n_medios %}· {{ t.notas|length }} notas{% endif %}</span>
+    </div>
+    <h3><a href="{{ rep.url }}" target="_blank" rel="noopener">{{ t.titulo }}</a></h3>
+    {% if rep.bajada %}<p class="bajada">{{ rep.bajada }}</p>{% endif %}
+    <div class="chips">
+      <span class="chip"><span class="dot {{ clase_camara.get(t.camara, '') }}"></span>{{ t.camara }}</span>
+      <span class="chip">{{ t.tipo }}</span>
+      {% if t.proyecto %}<span class="chip proyecto">{{ t.proyecto }}</span>{% endif %}
+    </div>
+    <div class="medios">
+      {% for n in t.notas %}<a href="{{ n.url }}" target="_blank" rel="noopener" title="{{ n.titulo }}">{{ n.medio }} ↗</a>{% endfor %}
+    </div>
+  </article>
+{% endfor %}
+</section>
+{% else %}
+<div class="panel vacio">No hubo notas sobre el Congreso en las últimas 24 horas.</div>
+{% endif %}
+
+<h2>Agenda legislativa</h2>
+{% if agenda %}
+<section class="agenda">
+{% for d in agenda %}
+  <div class="panel dia">
+    <h4>{% if d.es_hoy %}<span class="hoy-tag">Hoy</span>{% endif %}{{ d.etiqueta|capitalize }}</h4>
+    {% for e in d.sesiones + d.comisiones %}
+    <div class="ev {{ e.tipo }} {{ 'suspendida' if e.suspendida }}">
+      <span class="hora">{{ e.hora }}</span>
+      <span class="tit"><span class="dot {{ clase_camara.get(e.camara, '') }}" title="{{ e.camara }}"></span>
+        <span class="t">{% if e.tipo == 'sesion' %}{{ e.camara }} · {% endif %}{{ e.titulo_mostrar }}</span>
+        {% if e.suspendida %}<span class="tag warn">Suspendida</span>{% endif %}</span>
+      {% if e.temario or e.lugar %}
+      <div class="det">
+        {% if e.tipo == 'sesion' and e.temario %}{{ e.temario_corto }}{% if e.temario_corto != e.temario %}<details><summary>ver temario completo</summary>{{ e.temario }}</details>{% endif %}
+        {% elif e.temario %}<details><summary>{{ e.camara }}{% if e.lugar %} · {{ e.lugar }}{% endif %} · ver temario</summary>{{ e.temario }}{% if e.url and e.url.endswith('.pdf') %} · <a href="{{ e.url }}" target="_blank" rel="noopener">citación</a>{% endif %}</details>
+        {% else %}{{ e.camara }}{% if e.lugar %} · {{ e.lugar }}{% endif %}{% endif %}
+        {% if e.de_corrida_anterior %}<span class="tag">· dato de una corrida anterior</span>{% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+</section>
+{% else %}
+<div class="panel vacio">No hay sesiones ni reuniones de comisión publicadas para los próximos días.</div>
+{% endif %}
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores{% if kpi.prom_notas is not none %} · promedio {{ '%.0f'|format(kpi.prom_notas) }}{% endif %}{% if serie|selectattr('valor', 'none')|list %} · los días sin corrida quedan vacíos{% endif %}</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      {% for s in serie %}
+      <div class="col {{ 'hoy' if s.es_hoy }} {{ 'sin-datos' if s.valor is none }}"
+           data-tip="{{ s.etiqueta }}: {{ s.valor if s.valor is not none else 'sin corrida' }}{{ ' notas' if s.valor is not none }}">
+        {% if s.es_hoy %}<span class="cap">{{ s.valor }}</span>{% endif %}
+        <div class="c" style="height: {{ s.pct if s.valor is not none else 100 }}%"></div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="ejes">{% for s in serie %}<span class="{{ 'hoy' if s.es_hoy }}">{{ 'Hoy' if s.es_hoy else s.etiqueta }}</span>{% endfor %}</div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy{% if hay_promedio %}, con el promedio diario de los 7 días anteriores{% endif %}</div>
+    {% if hay_promedio %}<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>{% endif %}
+    <div class="barras">
+      {% for b in graf_medios %}
+      <span class="lbl" title="{{ b.etiqueta }}">{{ b.etiqueta }}</span>
+      <span class="track" data-tip="{{ b.etiqueta }}: {{ b.valor }} hoy{% if b.prom is not none %} · promedio {{ '%.1f'|format(b.prom) }}{% endif %}">
+        <span class="bar" style="width: {{ b.pct }}%"></span><span class="v">{{ b.valor }}</span>
+        {% if b.prom_pct is not none %}<span class="tick" style="left: calc({{ b.prom_pct }}% - 1px)"></span>{% endif %}
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los {{ graf_temas|length }} temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      {% for b in graf_temas %}
+      <span class="lbl" title="{{ b.etiqueta }}">{{ b.puesto }}. {{ b.etiqueta }}</span>
+      <span class="track" data-tip="{{ b.etiqueta }} — {{ b.valor }} nota{{ 's' if b.valor != 1 }}, {{ b.medios }} medio{{ 's' if b.medios != 1 }}">
+        <span class="bar" style="width: {{ b.pct }}%"></span><span class="v">{{ b.valor }} ({{ b.medios }})</span>
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option>{% for c in camaras_tabla %}<option>{{ c }}</option>{% endfor %}</select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option>{% for c in tipos_tabla %}<option>{{ c }}</option>{% endfor %}</select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option>{% for c in medios_tabla %}<option>{{ c }}</option>{% endfor %}</select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+    {% for t in temas %}{% set i = loop.index %}
+      {% for n in t.notas %}
+      <tr class="{{ 'inicio-tema' if loop.first and i > 1 }}" data-camara="{{ t.camara }}" data-tipo="{{ t.tipo }}" data-medio="{{ n.medio }}" data-texto="{{ (n.titulo ~ ' ' ~ n.bajada ~ ' ' ~ t.proyecto)|lower }}">
+        <td class="tema-col">{% if loop.first %}<b>{{ i }}</b> · {{ t.n_medios }} medio{{ 's' if t.n_medios != 1 }}{% if t.proyecto %}<br>{{ t.proyecto }}{% endif %}{% endif %}</td>
+        <td class="num">{{ hora_ar(n) or '—' }}</td>
+        <td>{{ n.medio }}</td>
+        <td><a href="{{ n.url }}" target="_blank" rel="noopener">{{ n.titulo }}</a>{% if n.bajada %}<div class="baj">{{ n.bajada }}</div>{% endif %}</td>
+        <td><span class="chip"><span class="dot {{ clase_camara.get(t.camara, '') }}"></span>{{ t.camara }}</span></td>
+        <td>{{ t.tipo }}</td>
+      </tr>
+      {% endfor %}
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+{% if notas_x %}
+<h2>En X</h2>
+<section class="panel tuits">
+  {% for n in notas_x %}
+  <div class="tuit"><b>{{ n.autor }}</b> <span class="meta">{{ hora_ar(n) }}</span> · <a href="{{ n.url }}" target="_blank" rel="noopener">{{ n.titulo }}</a></div>
+  {% endfor %}
+</section>
+{% endif %}
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del {{ fecha }} a las {{ hora_corrida }} hs (hora argentina) ·
+    <span class="estado-ok">{{ fuentes_ok }} respondieron bien</span>{% if caidas %} · <span class="estado-mal">{{ caidas|length }} no respondieron</span>{% endif %}{% if parciales %} · {{ parciales|length }} con fallas parciales{% endif %}.
+    {% if caidas or parciales %}
+    <ul>
+      {% for e in caidas %}<li><span class="estado-mal">✕</span> <b>{{ e.medio }}</b>: {{ e.errores|join(' · ')|truncate(220) }}</li>{% endfor %}
+      {% for e in parciales %}<li><span class="tag warn">Parcial</span> <b>{{ e.medio }}</b>: {{ e.errores|join(' · ')|truncate(220) }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% for e in salteadas %}<div class="meta" style="margin-top:6px">{{ e.medio }}: no se consultó ({{ e.errores|join(', ') }}).</div>{% endfor %}
+  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>

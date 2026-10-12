@@ -1,0 +1,17 @@
+# Cuentas de X para el módulo de la API oficial.
+# Desactivado por defecto: para usarlo, poné `activo: true` y exportá X_BEARER_TOKEN.
+# Si falta cualquiera de las dos cosas, el módulo se saltea sin afectar al resto.
+#
+# Solo se cargan cuentas verificadas desde una fuente oficial (el link figura en el sitio
+# de la cámara). Completá los grupos vacíos con las cuentas que quieras seguir.
+
+activo: false
+
+cuentas:
+  camaras:
+    - {usuario: DiputadosAR, nota: "verificada en el home de hcdn.gob.ar"}
+    - {usuario: SenadoArgentina, nota: "verificada en el home de senado.gob.ar"}
+  autoridades: []
+  bloques: []
+  legisladores: []
+  periodistas: []

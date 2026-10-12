@@ -1,0 +1,184 @@
+# Filtro temático y clasificación. Editable.
+#
+# Cómo se compara: título + bajada + palabras del link, en minúscula y sin tildes,
+# como palabra completa. Un `*` al final acepta cualquier terminación
+# ("senador*" = senador, senadora, senadores). "Sesión" y "sesion" son lo mismo.
+#
+# Una nota entra si tiene:
+#   - al menos 1 término FUERTE, o
+#   - al menos 1 PERSONA, o
+#   - al menos 2 términos DÉBILES distintos, o
+#   - mención de un PROYECTO conocido (lista de abajo) o un número de expediente.
+# Antes de buscar se borran del texto las frases de EXCLUIR (congresos de otros
+# países, legislaturas provinciales, congresos partidarios), para que no cuenten.
+
+fuertes:
+  - congreso nacional
+  - congreso de la nacion
+  - el congreso
+  - al congreso
+  - del congreso
+  - en el congreso
+  - diputad*
+  - camara baja
+  - senad*
+  - camara alta
+  - quorum
+  - dictamen*
+  - dictamin*
+  - media sancion
+  - proyecto de ley
+  - proyectos de ley
+  - bicameral
+  - interpelacion
+  - interpelar
+  - juicio politico
+  - pliego*
+  - interbloque*
+  - jefe de bloque
+  - jefa de bloque
+  - sesion especial
+  - sesion ordinaria
+  - sesion informativa
+  - informe de gestion del jefe de gabinete
+  - orden del dia
+  - legislador nacional
+  - legisladora nacional
+  - legisladores nacionales
+  - parlamentari*
+  - promulgase      # Boletín Oficial: promulgación de una ley
+  - observase       # Boletín Oficial: veto (total o parcial)
+
+debiles:
+  - congreso
+  - sesion
+  - sesiona*
+  - comision
+  - comisiones
+  - veto*
+  - veta*
+  - vetar
+  - dnu
+  - decreto de necesidad y urgencia
+  - presupuesto
+  - bloque
+  - bloques
+  - ley
+  - leyes
+  - proyecto
+  - sanciono
+  - recinto
+  - legislador*
+  - impulsa*
+  - tratamiento
+  - votacion*
+  - votos
+  - oficialismo
+  - oposicion
+  - gobernadores
+
+# Expresiones regulares (sobre texto en minúscula y sin tildes) que se borran antes de buscar.
+excluir:
+  # Congresos y parlamentos de otros países
+  - "(congreso|senado|camara de diputados|camara de representantes|parlamento)( de| del)? (los )?(ee ?uu|estados unidos|eua|brasil|brasileno|chile|chileno|peru|peruano|uruguay|uruguayo|paraguay|paraguayo|bolivia|boliviano|colombia|colombiano|mexico|mexicano|espana|espanol|francia|frances|italia|italiano|alemania|aleman|venezuela|venezolano|ecuador|ecuatoriano|reino unido|britanico|europeo|israel|ucrania|rusia)"
+  - "(congreso|senado|camara de representantes) (estadounidense|norteamericano|de washington)"
+  - "congreso de los diputados"   # España
+  - "senador(a|es|as)? (estadounidense|norteamericano|republicano|democrata|brasileno|chileno|uruguayo)"
+  - "diputad(o|a|os|as) (brasilen|chilen|uruguay|peruan|espanol)\\w*"
+  # Legislaturas provinciales y municipales
+  - "(camara de diputados|senado|diputados|senadores)( de la provincia)? (bonaerense|de buenos aires|de la provincia de \\w+|de cordoba|cordobes|de santa fe|santafesin\\w*|de mendoza|mendocin\\w*|de tucuman|tucuman\\w*|de salta|de jujuy|de corrientes|de entre rios|entrerrian\\w*|de misiones|de chaco|del chaco|de catamarca|de san juan|de san luis|de la rioja|de neuquen|de rio negro|de chubut|de santa cruz|de tierra del fuego|de formosa|de la pampa|de santiago del estero|portenos?)"
+  - "(legislatura|concejo deliberante|concejal\\w*)( \\w+){0,3}"
+  - "diputad(o|a|os|as) (provincial|provinciales|bonaerense|bonaerenses)"
+  - "presupuesto (porteno|de la ciudad|bonaerense|provincial|municipal|de la provincia)( \\w+){0,4}"
+  - "senador(a|es|as)? (provincial|provinciales|bonaerense|bonaerenses)"
+  # Congresos que no son el Congreso
+  - "congreso (partidario|del pj|del partido \\w+|de la ucr|del pro|de la libertad avanza|de jovenes|de mas de \\d+|mundial|internacional|latinoamericano|iberoamericano|de medicina|de cardiologia|de \\w+logia|eucaristico|de la lengua|anual)"
+  - "(gran hermano|futbol|torneo|liga|copa|seleccion)( \\w+){0,4} (sesion|bloque|veto)"
+
+# Si la nota no tiene términos FUERTES ni PERSONAS (solo débiles o proyectos) y menciona
+# alguno de estos, se descarta: suele ser política provincial o municipal.
+contexto_local:
+  - legislatura*
+  - porten*
+  - bonaerense*
+  - concejo deliberante
+  - concejal*
+  - municipio*
+  - intendente*
+
+# Nombres de personas (cuentan como término fuerte).
+# `nombre` es el nombre completo como lo escriben los medios. `alias` son variantes
+# (por ejemplo, el apellido solo cuando es inconfundible). Ojo con los apellidos comunes:
+# "Martínez" solo traería cualquier cosa.
+personas:
+  diputados:
+    # Fuente: prensa HCDN ("Martín Menem fue reelegido como presidente de la Cámara").
+    - {nombre: Martin Menem, rol: Presidente de la Cámara}
+    # Fuente: datos.hcdn.gob.ar, "Listado actual de Bloques" (actualizado el 18/05/2026).
+    # ⚠️ Revisar: la composición de bloques es del 07/10/2026 y ya hay un bloque que cambió de
+    # nombre (INNOVACION FEDERAL → ARGENTINA FEDERAL), así que algún presidente puede estar viejo.
+    - {nombre: Gabriel Bornoroni, alias: [Bornoroni], rol: "Jefe de bloque La Libertad Avanza"}
+    - {nombre: German Martinez, rol: "Jefe de bloque Unión por la Patria"}
+    - {nombre: Gisela Scaglia, alias: [Scaglia], rol: "Jefa de bloque Provincias Unidas / interbloque Unidos"}
+    - {nombre: Cristian Ritondo, alias: [Ritondo], rol: "Jefe de bloque PRO / interbloque Fuerza del Cambio"}
+    - {nombre: Alberto Arrua, rol: "Jefe de bloque Innovación Federal (hoy Argentina Federal)"}
+    - {nombre: Pamela Veresay, alias: [Veresay], rol: "Jefa de bloque UCR"}
+    - {nombre: Sebastian Noblega, alias: [Noblega], rol: "Jefe de bloque Elijo Catamarca"}
+    - {nombre: Gladys Medina, rol: "Jefa de bloque Independencia"}
+    - {nombre: Myriam Bregman, alias: [Bregman], rol: "Jefa de bloque PTS-FIT-U"}
+    - {nombre: Maximiliano Ferraro, rol: "Jefe de bloque Coalición Cívica"}
+    - {nombre: Miguel Angel Pichetto, alias: [Pichetto, Miguel Pichetto], rol: "Jefe de bloque Encuentro Federal"}
+    - {nombre: Oscar Zago, rol: "Jefe de bloque MID"}
+    - {nombre: Nancy Picon Martinez, alias: [Picon Martinez], rol: "Jefa de bloque Producción y Trabajo"}
+    - {nombre: Romina Del Pla, alias: [Del Pla], rol: "Jefa de bloque PO-FIT-U"}
+    - {nombre: Marcela Pagano, rol: "Jefa de bloque Coherencia"}
+    - {nombre: Karina Banfi, rol: "Jefa de bloque Adelante Buenos Aires"}
+    - {nombre: Natalia de la Sota, rol: "Jefa de bloque Defendamos Córdoba"}
+    - {nombre: Karina Maureira, rol: "Jefa de bloque La Neuquinidad"}
+    - {nombre: Jose Luis Garrido, rol: "Jefe de bloque Por Santa Cruz"}
+    - {nombre: Jorge Fernandez, rol: "Jefe de bloque Primero San Luis"}
+  senado:
+    # PENDIENTE: el sitio del Senado estaba en mantenimiento al armar este archivo.
+    # Completar con /autoridades y /senadores/listados/agrupados-por-bloques.
+    []
+
+# Clasificación de temas por tipo. Gana el tipo con más coincidencias (los títulos pesan doble);
+# si empatan, decide el orden de esta lista.
+tipos:
+  veto_dnu:
+    etiqueta: Veto / DNU
+    terminos: [veto*, veta*, vetar, dnu, decreto de necesidad y urgencia, decretos de necesidad, observase, insistencia, bicameral de tramite legislativo]
+  sesion:
+    etiqueta: Sesión
+    terminos: [sesion*, sesiona*, quorum, recinto, media sancion, sanciono, sanciona, aprobo, aprobaron, rechazo, votacion*, voto, votaron, orden del dia]
+  comision:
+    etiqueta: Comisión
+    terminos: [comision*, dictamen*, dictamin*, plenario, expositor*, invitad*, audiencia publica, firmas]
+  proyecto:
+    etiqueta: Proyecto
+    terminos: [proyecto*, iniciativa*, presento, presentaron, impulsa, busca modificar, propone]
+  negociacion:
+    etiqueta: Negociación política
+    terminos: [bloque*, interbloque*, gobernador*, negocia*, acuerdo*, aliados, votos, rosca, apoyo*, oposicion, oficialismo, dialoguista*]
+
+# Cámara: términos que cuentan para cada una.
+camaras:
+  Diputados: [diputad*, camara baja, martin menem]
+  Senado: [senad*, camara alta]
+  Ambas: [bicameral, asamblea legislativa, ambas camaras]
+
+# Proyectos conocidos: nombre a mostrar → patrones (regex sobre texto sin tildes).
+# Además se detectan solos los números de expediente (1234-D-2026), "Ley 27.xxx",
+# "Orden del Día 433" y "DNU 70/23".
+proyectos:
+  Presupuesto 2027: ["presupuesto( 20)?27", "presupuesto (general|nacional) (de la administracion nacional )?(para el ejercicio )?(fiscal )?(del ano )?2027"]
+  Inviolabilidad de la propiedad privada: ["inviolabilidad de la propiedad privada", "propiedad privada"]
+  Defensa de la soberanía nacional: ["defensa de la soberania nacional"]
+  Emergencia en discapacidad: ["emergencia (nacional )?en discapacidad", "ley de discapacidad"]
+  Endeudamiento familiar: ["endeudamiento familiar"]
+  Régimen penal juvenil: ["regimen penal juvenil", "baja de (la )?edad de imputabilidad"]
+
+# Agrupamiento de notas en temas: similitud mínima (0 a 1) para considerar que dos notas
+# cuentan la misma noticia. Más bajo = temas más amplios; más alto = más temas separados.
+agrupamiento:
+  umbral: 0.16

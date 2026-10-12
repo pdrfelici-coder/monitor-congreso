@@ -1,0 +1,62 @@
+# Corre el monitor todos los días, guarda el histórico en el repo y publica el informe en GitHub Pages.
+name: Monitor diario
+
+on:
+  schedule:
+    # 09:30 UTC = 06:30 hora argentina. GitHub puede demorar la corrida 5-30 min,
+    # así que se programa media hora antes para tenerlo listo a las 7:00.
+    - cron: "30 9 * * *"
+  workflow_dispatch: {}  # botón "Run workflow" para correrlo a mano
+
+permissions:
+  contents: write  # para commitear datos/ e informes/
+  pages: write
+  id-token: write
+
+concurrency:
+  group: monitor-diario
+  cancel-in-progress: false
+
+jobs:
+  correr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Correr el monitor
+        env:
+          TZ: America/Argentina/Buenos_Aires
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}  # opcional; sin él, el módulo de X se saltea
+        run: python run.py
+
+      - name: Guardar histórico en el repo
+        run: |
+          git config user.name "monitor-congreso[bot]"
+          git config user.email "monitor-congreso@users.noreply.github.com"
+          git add datos informes
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar"
+          else
+            git commit -m "Informe $(TZ=America/Argentina/Buenos_Aires date +%F)"
+            git pull --rebase
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: informes
+      - id: deploy
+        uses: actions/deploy-pages@v4

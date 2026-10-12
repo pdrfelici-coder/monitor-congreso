@@ -1,0 +1,147 @@
+# Fuentes del monitor. Ver SOURCES.md para el relevamiento que justifica cada URL.
+#
+# categoria: oficial | especializado | diario | noticiero
+# feeds: lista de entradas, cada una con
+#   tipo: rss | sitemap | html
+#   url: la URL (en html puede llevar {dd} {mm} {aaaa} si el parser pide varias fechas)
+#   parser: (solo html) nombre del parser en monitor/colectores
+# activa: false para apagar una fuente sin borrarla
+
+fuentes:
+  # ---------------------------------------------------------------- 1. Oficiales
+  - id: hcdn_agenda
+    medio: Diputados (agenda)
+    categoria: oficial
+    feeds:
+      - {tipo: html, parser: hcdn_agenda, url: "https://www.hcdn.gob.ar/comisiones/agenda/"}
+
+  - id: hcdn_prensa
+    medio: Diputados (prensa)
+    categoria: oficial
+    feeds:
+      - {tipo: html, parser: hcdn_prensa, url: "https://www.hcdn.gob.ar/prensa/"}
+
+  - id: senado_agenda
+    medio: Senado (agenda)
+    categoria: oficial
+    feeds:
+      # La página muestra la semana (lun-dom) que contiene la fecha. Se piden esta semana y la próxima.
+      - {tipo: html, parser: senado_agenda, url: "https://www.senado.gob.ar/parlamentario/Agenda/AgendaWeb/{dd},{mm},{aaaa}?agendaCompleta"}
+
+  - id: senado_prensa
+    medio: Senado (prensa)
+    categoria: oficial
+    feeds:
+      - {tipo: html, parser: senado_prensa, url: "https://www.senado.gob.ar/"}
+
+  - id: boletin_oficial
+    medio: Boletín Oficial
+    categoria: oficial
+    feeds:
+      - {tipo: html, parser: boletin_oficial, url: "https://www.boletinoficial.gob.ar/seccion/primera"}
+
+  # ---------------------------------------------------------------- 2. Especializados
+  - id: parlamentario
+    medio: Parlamentario.com
+    categoria: especializado
+    feeds:
+      - {tipo: rss, url: "https://www.parlamentario.com/feed/"}
+
+  - id: lpo
+    medio: La Política Online
+    categoria: especializado
+    feeds:
+      - {tipo: rss, url: "https://www.lapoliticaonline.com/files/rss/politica.xml"}
+
+  - id: letrap
+    medio: Letra P
+    categoria: especializado
+    feeds:
+      - {tipo: sitemap, url: "https://www.letrap.com.ar/sitemap-news.xml"}
+
+  # ---------------------------------------------------------------- 3. Diarios
+  - id: lanacion
+    medio: La Nación
+    categoria: diario
+    feeds:
+      - {tipo: rss, url: "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/politica/?outputType=xml"}
+
+  - id: clarin
+    medio: Clarín
+    categoria: diario
+    feeds:
+      - {tipo: rss, url: "https://www.clarin.com/rss/politica/"}
+      - {tipo: sitemap, url: "https://www.clarin.com/sitemaps/sitemap_google_news.xml"}
+
+  - id: infobae
+    medio: Infobae
+    categoria: diario
+    feeds:
+      - {tipo: rss, url: "https://www.infobae.com/arc/outboundfeeds/rss/category/politica/"}
+
+  - id: pagina12
+    medio: Página/12
+    categoria: diario
+    feeds:
+      # El RSS no tiene categoría Política (404): se usa el general + el sitemap "short".
+      # El breakingnews-sitemap.xml que figura en robots.txt está abandonado (última nota: agosto 2026).
+      - {tipo: rss, url: "https://www.pagina12.com.ar/arc/outboundfeeds/rss/?outputType=xml"}
+      - {tipo: sitemap, url: "https://www.pagina12.com.ar/arc/outboundfeeds/breakingnews-short.xml"}
+
+  - id: ambito
+    medio: Ámbito
+    categoria: diario
+    feeds:
+      - {tipo: rss, url: "https://www.ambito.com/rss/pages/politica.xml"}
+      - {tipo: sitemap, url: "https://www.ambito.com/sitemap-news.xml"}
+
+  - id: cronista
+    medio: El Cronista
+    categoria: diario
+    feeds:
+      - {tipo: rss, url: "https://www.cronista.com/arc/outboundfeeds/rss/?outputType=xml"}
+
+  - id: perfil
+    medio: Perfil
+    categoria: diario
+    feeds:
+      - {tipo: rss, url: "https://www.perfil.com/feed/politica"}
+
+  - id: eldiarioar
+    medio: elDiarioAR
+    categoria: diario
+    feeds:
+      - {tipo: rss, url: "https://www.eldiarioar.com/rss/politica/"}
+
+  - id: tiempoar
+    medio: Tiempo Argentino
+    categoria: diario
+    feeds:
+      # El RSS del sitio está comprometido (spam). Solo listado HTML de la sección.
+      - {tipo: html, parser: tiempoar_seccion, url: "https://www.tiempoar.com.ar/ta_section/politica/"}
+
+  # ---------------------------------------------------------------- 4. Noticieros
+  - id: tn
+    medio: TN
+    categoria: noticiero
+    feeds:
+      - {tipo: rss, url: "https://tn.com.ar/arc/outboundfeeds/rss/category/politica/?outputType=xml"}
+      - {tipo: sitemap, url: "https://tn.com.ar/arc/outboundfeeds/news-sitemap/?outputType=xml"}
+
+  - id: c5n
+    medio: C5N
+    categoria: noticiero
+    feeds:
+      - {tipo: sitemap, url: "https://www.c5n.com/sitemap-news.xml"}
+
+  - id: a24
+    medio: A24
+    categoria: noticiero
+    feeds:
+      - {tipo: sitemap, url: "https://www.a24.com/sitemap-news.xml"}
+
+  - id: lnmas
+    medio: LN+
+    categoria: noticiero
+    feeds:
+      - {tipo: rss, url: "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/lnmas/?outputType=xml"}
