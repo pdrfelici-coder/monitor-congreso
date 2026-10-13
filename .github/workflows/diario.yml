@@ -2,10 +2,17 @@
 name: Monitor diario
 
 on:
+  # GitHub no garantiza el horario de las corridas programadas: con carga las demora horas o
+  # directamente no las lanza (pasó el 12 y el 13/10/2026). Por eso hay varios intentos en
+  # minutos poco usados (no en punto ni y media). El primero que arranca genera el informe del
+  # día; los demás ven que ya existe y no hacen nada. Horarios en UTC (Argentina = UTC-3).
   schedule:
-    # 09:30 UTC = 06:30 hora argentina. GitHub puede demorar la corrida 5-30 min,
-    # así que se programa media hora antes para tenerlo listo a las 7:00.
-    - cron: "30 9 * * *"
+    - cron: "7 8 * * *"    # 05:07 ART
+    - cron: "41 8 * * *"   # 05:41 ART
+    - cron: "13 9 * * *"   # 06:13 ART
+    - cron: "47 9 * * *"   # 06:47 ART
+    - cron: "19 10 * * *"  # 07:19 ART (respaldo)
+    - cron: "11 12 * * *"  # 09:11 ART (último respaldo)
   workflow_dispatch: {}  # botón "Run workflow" para correrlo a mano
 
 permissions:
@@ -18,7 +25,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # ¿Ya hay informe de hoy? Si una corrida programada llega tarde y ya está hecho, no repite.
+  # A mano (Run workflow) siempre corre, para poder regenerarlo.
+  chequeo:
+    runs-on: ubuntu-latest
+    outputs:
+      hecho: ${{ steps.ver.outputs.hecho }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: informes
+      - id: ver
+        run: |
+          hoy=$(TZ=America/Argentina/Buenos_Aires date +%F)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "informes/$hoy.html" ]; then
+            echo "El informe de $hoy ya existe: no se vuelve a correr."
+            echo "hecho=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "hecho=false" >> "$GITHUB_OUTPUT"
+          fi
+
   correr:
+    needs: chequeo
+    if: needs.chequeo.outputs.hecho != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment:

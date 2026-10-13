@@ -55,9 +55,13 @@ Corre en los servidores de GitHub, así que **la computadora puede estar apagada
 3. **Probarlo:** *Actions → Monitor diario → Run workflow*. En unos minutos el informe queda
    publicado en el link de Pages (también aparece en el resumen de la corrida).
 
-A partir de ahí corre solo todos los días a las **06:30 hora argentina**. GitHub a veces demora las
-corridas programadas entre 5 y 30 minutos; por eso se programa antes de las 7:00. Para cambiar el
-horario, editá la línea `cron` en `.github/workflows/diario.yml` (está en hora UTC: Argentina es UTC−3).
+A partir de ahí corre solo todos los días, temprano a la mañana. GitHub **no garantiza** el horario
+de las corridas programadas: con carga las demora horas o no las lanza. Por eso hay varios intentos
+entre las 05:07 y las 07:19 (hora argentina), más un respaldo a las 09:11. El primero que arranca
+genera el informe del día y los demás ven que ya existe y no hacen nada. Los horarios están en las
+líneas `cron` de `.github/workflows/diario.yml`, en hora UTC (Argentina es UTC−3).
+
+Si alguna mañana el informe no está, se puede lanzar a mano: *Actions → Monitor diario → Run workflow*.
 
 Cada corrida guarda en el repositorio la base, los CSV y el informe del día, así que el histórico
 queda versionado.
