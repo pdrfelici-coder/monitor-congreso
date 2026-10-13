@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-10-13</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Martes 13 de octubre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 10:17 hs · 21/21 fuentes respondieron</div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">48</div>
+      <div class="sub up">▲ +41% vs. promedio de 2 días (34)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">28</div>
+    <div class="sub">8 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">16</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi "><div class="lbl">Fuentes caídas</div>
+    <div class="val">0</div>
+    <div class="sub"><span class="estado-ok">✓</span> todas respondieron</div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>5</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+· 6 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/politica/dnu-70-morosos-discapacidad-resignada-llegara-quorum-oposicion-igual-ira-recinto-diputados-exponer-ausentes_0_vdbd2Mazr7.html" target="_blank" rel="noopener">DNU 70, morosos y discapacidad: casi resignada a que no llegará al quórum, la oposición igual irá al recinto de Diputados a exponer a los ausentes</a></h3>
+<p class="bajada">La sesión convocada para este jueves quedó aún más complicada luego de que la Corte repuso la ley de Tierras. El Gobierno negocia con los mandatarios provinciales y a la vez prepara una jugada para este miércoles.</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">DNU 70/23</span>    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/politica/dnu-70-morosos-discapacidad-resignada-llegara-quorum-oposicion-igual-ira-recinto-diputados-exponer-ausentes_0_vdbd2Mazr7.html" target="_blank" rel="noopener" title="DNU 70, morosos y discapacidad: casi resignada a que no llegará al quórum, la oposición igual irá al recinto de Diputados a exponer a los ausentes">Clarín ↗</a><a href="https://www.infobae.com/politica/2026/10/13/ate-convoco-a-un-paro-nacional-para-el-jueves-contra-el-dnu-7023-que-servicios-se-veran-afectados/" target="_blank" rel="noopener" title="ATE convocó a un paro nacional para el jueves contra el DNU 70/23: qué servicios se verán afectados">Infobae ↗</a><a href="https://www.ambito.com/politica/la-oposicion-mide-fuerzas-diputados-buscara-sesionar-temas-sensibles-javier-milei-n6332020" target="_blank" rel="noopener" title="La oposición mide fuerzas en Diputados: buscará sesionar con temas sensibles para Javier Milei">Ámbito ↗</a><a href="https://www.cronista.com/economia-politica/la-ofensiva-contra-el-dnu-70-pierde-fuerza-la-oposicion-sigue-sin-quorum-tras-el-fallo-de-la-corte/" target="_blank" rel="noopener" title="La ofensiva contra el DNU 70 pierde fuerza: la oposición sigue sin quórum tras el fallo de la Corte">El Cronista ↗</a><a href="https://www.pagina12.com.ar/2026/10/12/semana-clave-para-la-vigencia-del-dnu-70-marcha-confirmada-quorum-en-duda/" target="_blank" rel="noopener" title="Semana clave para la vigencia del DNU 70: marcha confirmada, quórum en duda">Página/12 ↗</a><a href="https://www.ambito.com/politica/martin-menem-respaldo-caputo-apunto-contra-la-oposicion-el-dnu-70-y-pidio-eliminar-las-paso-n6332725" target="_blank" rel="noopener" title="Martín Menem respaldó a Caputo, apuntó contra la oposición por el DNU 70 y pidió eliminar las PASO">Ámbito ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.perfil.com/noticias/politica/el-gobierno-define-su-estrategia-en-el-congreso-antes-del-quinto-viaje-de-milei-a-estados-unidos.phtml" target="_blank" rel="noopener">La Mesa Política se reúne antes del quinto viaje de Javier Milei a Estados Unidos con la mira en el Congreso</a></h3>
+<p class="bajada">En las horas previas de la partida de Milei rumbo a Washington, se reúne una vez más el oficialismo. Apuntan a sostener el DNU 70/23 y evitar que la oposición consiga quórum en las próximas sesiones especiales. Leer más</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">DNU 70/23</span>    </div>
+    <div class="medios">
+<a href="https://www.perfil.com/noticias/politica/el-gobierno-define-su-estrategia-en-el-congreso-antes-del-quinto-viaje-de-milei-a-estados-unidos.phtml" target="_blank" rel="noopener" title="La Mesa Política se reúne antes del quinto viaje de Javier Milei a Estados Unidos con la mira en el Congreso">Perfil ↗</a><a href="https://www.eldiarioar.com/politica/mesa-politica-vuelve-reunirse-mira-reforma-electoral-mega-sesion-diputados_1_13581715.html" target="_blank" rel="noopener" title="La mesa política vuelve a reunirse con la mira en la reforma electoral y la mega sesión en Diputados">elDiarioAR ↗</a><a href="https://www.ambito.com/politica/el-gobierno-reune-la-mesa-la-previa-del-viaje-javier-milei-washington-n6332936" target="_blank" rel="noopener" title="El Gobierno reúne a la mesa política en la previa del viaje de Javier Milei a Washington">Ámbito ↗</a><a href="https://tn.com.ar/politica/2026/10/13/el-gobierno-reunira-a-la-mesa-politica-para-frenar-a-la-oposicion-en-el-congreso-y-avanzar-en-las-negociaciones-con-gobernadores/" target="_blank" rel="noopener" title="El Gobierno reunirá a la mesa política para frenar a la oposición en el Congreso y avanzar en las negociaciones con los gobernadores">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.infobae.com/politica/2026/10/12/semana-caliente-en-el-congreso-debate-por-la-ley-de-tierras-presupuesto-2027-marcha-y-sesion-para-derogar-el-dnu-70/" target="_blank" rel="noopener">Semana caliente en el Congreso: debate por la ley de tierras, Presupuesto 2027, marcha y sesión para derogar el DNU 70</a></h3>
+<p class="bajada">Con la presencia del secretario de Hacienda, Carlos Guberman, el oficialismo abrirá el debate del Presupuesto para el año próximo. Avanzaría con las restricciones para la compra de tierras en busca de contener a los socios. La oposición, en tanto, llamó a una sesión para el jueves y espera que la…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.infobae.com/politica/2026/10/12/semana-caliente-en-el-congreso-debate-por-la-ley-de-tierras-presupuesto-2027-marcha-y-sesion-para-derogar-el-dnu-70/" target="_blank" rel="noopener" title="Semana caliente en el Congreso: debate por la ley de tierras, Presupuesto 2027, marcha y sesión para derogar el DNU 70">Infobae ↗</a><a href="https://www.perfil.com/noticias/politica/una-semana-clave-congreso-presupuesto-2027-gobierno-oposicion-presion-calle.phtml" target="_blank" rel="noopener" title="Una semana clave en el Congreso: el Presupuesto 2027 abre la pulseada entre el Gobierno, la oposición y la presión de la calle">Perfil ↗</a><a href="https://www.a24.com/economia/presupuesto-2027-el-gobierno-inicia-el-debate-diputados-la-exposicion-del-secretario-hacienda-n1605581" target="_blank" rel="noopener" title="Presupuesto 2027: el Gobierno inicia el debate en Diputados con la exposición del secretario de Hacienda">A24 ↗</a><a href="https://tn.com.ar/politica/2026/10/12/la-libertad-avanza-abre-el-debate-por-el-presupuesto-2027-en-medio-de-los-reclamos-por-discapacidad-y-financiamiento-universitario/" target="_blank" rel="noopener" title="La Libertad Avanza abre el debate por el Presupuesto 2027 en medio de los reclamos por discapacidad y financiamiento universitario">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+· 4 notas</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/la-oposicion-impulsa-la-convocatoria-a-la-marcha-del-jueves-por-el-financiamiento-universitario-y-la-nid12102026/" target="_blank" rel="noopener">La oposición impulsa la convocatoria a la marcha del jueves por el financiamiento universitario y la ley de tierras</a></h3>
+<p class="bajada">El PJ, el radicalismo, la izquierda, los movimientos sociales y los sindicatos anunciaron su adhesión para el jueves a los reclamos por los fondos para la educación y el mantenimiento de los límites a la venta de territorio a extranjeros</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/la-oposicion-impulsa-la-convocatoria-a-la-marcha-del-jueves-por-el-financiamiento-universitario-y-la-nid12102026/" target="_blank" rel="noopener" title="La oposición impulsa la convocatoria a la marcha del jueves por el financiamiento universitario y la ley de tierras">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/10/11/el-kirchnerismo-confia-en-conseguir-quorum-en-diputados-para-derogar-el-dnu-de-milei/" target="_blank" rel="noopener" title="Luego del fallo de la Corte sobre la Ley de Tierras, el kirchnerismo trabaja para conseguir quórum para la sesión del jueves">TN ↗</a><a href="https://www.infobae.com/politica/2026/10/13/el-congreso-cruzado-por-desconfianzas-y-la-renovada-disputa-por-el-temario-que-disparo-la-ley-de-tierras/" target="_blank" rel="noopener" title="El Congreso, cruzado por desconfianzas y la renovada disputa por el temario que disparó la ley de Tierras">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-nos-unimos-en-oracion-por-su-salud-dijo-el-presidente-por-la-nid12102026/" target="_blank" rel="noopener" title="El pedido de los diputados de Unión por la Patria por la ley de financiamiento">La Nación ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.ambito.com/politica/presupuesto-2027-un-superavit-falso-y-una-acumulacion-deuda-insostenible-n6332771" target="_blank" rel="noopener">Presupuesto 2027: entre un superávit engañoso y una acumulación de deuda insostenible</a></h3>
+<p class="bajada">El proyecto de Presupuesto 2027 prevé una reducción del gasto público del 26,7% respecto de 2023 y un superávit financiero del 0,23% del PBI. Sin embargo, persisten interrogantes sobre la sostenibilidad fiscal, el endeudamiento y el impacto de los recortes en áreas clave como educación…</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Proyecto</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.ambito.com/politica/presupuesto-2027-un-superavit-falso-y-una-acumulacion-deuda-insostenible-n6332771" target="_blank" rel="noopener" title="Presupuesto 2027: entre un superávit engañoso y una acumulación de deuda insostenible">Ámbito ↗</a><a href="https://www.parlamentario.com/2026/10/12/presupuesto-2027-la-opc-preve-equilibrio-fiscal-mayor-presion-tributaria-y-una-suba-del-gasto-social/" target="_blank" rel="noopener" title="Presupuesto 2027: la OPC prevé equilibrio fiscal, mayor presión tributaria y una suba del gasto social">Parlamentario.com ↗</a><a href="https://www.perfil.com/noticias/nea/capitanich-cuestiono-el-presupuesto-2027-por-un-superavit-enganoso-y-recortes-en-obras.phtml" target="_blank" rel="noopener" title="Capitanich cuestionó el Presupuesto 2027 por un “superávit engañoso” y recortes en obras">Perfil ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4><span class="hoy-tag">Hoy</span>Martes 13 de octubre</h4>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Presupuesto y hacienda</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso - Informativa · ver temario</summary>INVITADO. Fue invitado el Secretario de Hacienda del Ministerio de Economía de la Nación, Lic. Carlos J. Guberman a fin de abordar el Mensaje Nro. 0043/2026 y proyecto de ley de fecha 15 de septiembre de 2026, de Presupuesto General de la Administración nacional para el Ejercicio Fiscal del año 2027. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1360/archivo/0T2PF64W05YSW1X9.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Bicameral de fiscalizacion de organos y actividades de seguridad interior - (Ley 24.059 y sus modificatorias Leyes 24.194 y 25.520)</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Salón Arturo Illia - Palacio Legislativo · ver temario</summary>TEMAS VARIOS. Reforma del artículo 25 del Reglamento. Recibirán a personal retirado de la Policía Territorial de la provincia de Tierra del Fuego; y autoridades del Consejo de Seguridad nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1348/archivo/SVFY95GFQ6HGZDH2.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision suspendida">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Comercio</span>
+<span class="tag warn">Suspendida</span></span>
+      <div class="det">
+<details><summary>Diputados · ver temario</summary>INVITADOS. Fueron invitados representantes y dirigentes de entidades del sector de remises, a fin de abordar la situación actual en las distintas regiones del país, diagnósticos, problemáticas y propuestas vinculadas con su desarrollo. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1349/archivo/5479E0DYKY2KR965.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Intereses maritimos, Fluviales, Pesqueros y portuarios</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 2 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados representantes de la Dirección de Tráfico Marítimo, de la Policía de Seguridad de la Navegación y Protección Ambiental de la Prefectura Naval Argentina, a fin de exponer sobre antecedentes funcionales de la Prefectura Naval. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1355/archivo/SNTWPVHAKDKM1TPW.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Comercio, Pequeñas y medianas empresas</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>INVITADOS. Fueron invitados representantes y dirigentes de entidades del sector de remises, a fin de abordar la situación actual en las distintas regiones del país, diagnósticos, problemáticas y propuestas vinculadas con su desarrollo Ver citación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1351/archivo/6AVDXR3Q26WWTNGJ.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 14 de octubre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Bicameral de la defensoria del pueblo</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Salón Arturo Illia - Palacio Legislativo · ver temario</summary>Comité Nacional para la prevención de la tortura y otros tratos o penas crueles, inhumanos o degradantes -Ley 26.827, continuación del proceso de selección e integración. Ver citación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1359/archivo/03N6SJRQXDSJKBCW.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Presupuesto y hacienda</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso - Informativa · ver temario</summary>INVITADOS. Fueron invitados funcionarios a fin de abordar el Mensaje Nro. 0043/2026 y proyecto de ley de fecha 15 de septiembre de 2026, de Presupuesto General de la Administración nacional para el ejercicio fiscal del año 2027. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1361/archivo/RAH3Q2TC4GRJJK42.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">10:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Familias, Niñez y juventudes</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 6 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados especialistas e instituciones, a fin de profundizar el análisis sobre “Presupuesto e Inversión destinada a Familias, Niñez y Juventudes proyectado para el año 2027”. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1352/archivo/9XS8CK74C66A9Y9H.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Deportes</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 4 - Anexo &#34;A&#34; · ver temario</summary>TEMAS VARIOS. Régimen simplificado de integración de los clubes deportivos sociales y comunitarios al sistema institucional del deporte y la actividad física, modificación de la Ley 20.655. Fortalecimiento del régimen de promoción de los clubes de barrio y de pueblo, modificaciones a las leyes 27.098, 27.211 y 27.346. Proyectos de resolución y declaración. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1356/archivo/M8P4SX00HD11SYBT.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">13:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Administradora de la biblioteca del congreso</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Alsina 1835 - 1° piso - CABA · ver temario</summary>TEMAS VARIOS. Designación de autoridades; y otras cuestiones conexas. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1353/archivo/H720RKEQ0FYYE9BY.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">13:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión Administradora de la Biblioteca del Congreso de la Nación</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Sala de reuniones, piso 1, Biblioteca · ver temario</summary>Temario: Cobertura de los cargos de la comisión administradora, reservados en la reunión de fecha 3 de septiembre de 2026. Renovación de las pólizas de seguro vigentes o contratación nueva. Tratamiento sobre el estado de la flota automotor de la Biblioteca del Congreso de la Nación. Reparación de un ascensor del edificio de A. Alsina 1835.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">13:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Prevencion de adicciones y control del narcotrafico, Familias, Niñez y juventudes</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>INVITADO. Fue invitado el Secretario de Políticas Integrales sobre Drogas de la Nación Argentina (SEDRONAR), a fin de abordar la temática vinculada al consumo problemático en niños, niñas y adolescentes. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1350/archivo/BRNKPYMTBHXFTYX6.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Defensa nacional, Legislacion penal, Relaciones exteriores y culto</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso REUNIÓN CONJUNTA · ver temario</summary>Mensaje NRO: 275/2026 y proyecto de ley de Defensa de la Soberanía Nacional. Ver citación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1357/archivo/T024JEYZKN79H32A.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Asuntos constitucionales, Legislacion general</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; REUNIÓN CONJUNTA · ver temario</summary>Proyecto de ley de inviolabilidad de la propiedad privada. Modificación de las leyes 21.499, de Expropiaciones y 24.374, de Regularización Dominial · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1354/archivo/53SDVW25RGDX5BNR.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Jueves 15 de octubre</h4>
+    <div class="ev sesion ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Diputados · Sesión especial</span>
+</span>
+      <div class="det">
+A SOLICITUD DEL DIPUTADO GERMÁN MARTÍNEZ Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Orden del Día 433. Ley sobre Endeudamiento Familiar. Establecimiento. - PE-203/23. Mensaje 0001/24. Comunicación del…<details><summary>ver temario completo</summary>A SOLICITUD DEL DIPUTADO GERMÁN MARTÍNEZ Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Orden del Día 433. Ley sobre Endeudamiento Familiar. Establecimiento. - PE-203/23. Mensaje 0001/24. Comunicación del dictado del Decreto de Necesidad y Urgencia 70/23, sobre Bases para la Reconstrucción de la Economía Argentina. (Nomenclatura de expediente correspondiente al H. Senado). - Orden del Día 350. Ley 27.793, de Emergencia Nacional en Discapacidad. Prórroga hasta el 31 de diciembre de 2027 inclusive.</details>      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Relaciones Exteriores y Culto y de Industria y Comercio</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: expte. PE 854/97 , mensaje N.º 1451/97 y proyecto de ley aprobando el Tratado de Cooperación en materia de Patentes (PCT), elaborado en Washington el 19 de junio de 1970, enmendado el 28 de septiembre de 1979 y modificado el 3 de febrero de 1984, y el Reglamento del Tratado de Cooperación en materia de Patentes (PCT), que entró en vigor el 1 de enero de 1993.</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 34 · los días sin corrida quedan vacíos</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  sin-datos"
+           data-tip="Ma 6: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  sin-datos"
+           data-tip="Mi 7: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  sin-datos"
+           data-tip="Ju 8: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  sin-datos"
+           data-tip="Vi 9: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  sin-datos"
+           data-tip="Sá 10: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 11: 30 notas">
+        <div class="c" style="height: 62.5%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 12: 38 notas">
+        <div class="c" style="height: 79.2%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Ma 13: 48 notas">
+<span class="cap">48</span>        <div class="c" style="height: 100.0%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Ma 6</span><span class="">Mi 7</span><span class="">Ju 8</span><span class="">Vi 9</span><span class="">Sá 10</span><span class="">Do 11</span><span class="">Lu 12</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 8 hoy · promedio 3.0">
+        <span class="bar" style="width: 100.0%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(37.5% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 7 hoy · promedio 3.5">
+        <span class="bar" style="width: 87.5%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(43.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 5 hoy · promedio 2.0">
+        <span class="bar" style="width: 62.5%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(25.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 5 hoy · promedio 1.5">
+        <span class="bar" style="width: 62.5%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(18.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Perfil">Perfil</span>
+      <span class="track" data-tip="Perfil: 4 hoy · promedio 4.0">
+        <span class="bar" style="width: 50.0%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(50.0% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 4 hoy · promedio 4.0">
+        <span class="bar" style="width: 50.0%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(50.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 3 hoy · promedio 2.5">
+        <span class="bar" style="width: 37.5%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(31.2% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 3 hoy · promedio 3.0">
+        <span class="bar" style="width: 37.5%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(37.5% - 1px)"></span>      </span>
+      <span class="lbl" title="Boletín Oficial">Boletín Oficial</span>
+      <span class="track" data-tip="Boletín Oficial: 2 hoy">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2</span>
+      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 1 hoy · promedio 2.0">
+        <span class="bar" style="width: 12.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(25.0% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 1 hoy · promedio 0.5">
+        <span class="bar" style="width: 12.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.2% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 1 hoy">
+        <span class="bar" style="width: 12.5%"></span><span class="v">1</span>
+      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 1 hoy · promedio 0.5">
+        <span class="bar" style="width: 12.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.2% - 1px)"></span>      </span>
+      <span class="lbl" title="LN+">LN+</span>
+      <span class="track" data-tip="LN+: 1 hoy · promedio 0.5">
+        <span class="bar" style="width: 12.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 1 hoy · promedio 0.5">
+        <span class="bar" style="width: 12.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 0.5">
+        <span class="bar" style="width: 12.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.2% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="DNU 70, morosos y discapacidad: casi resignada a que no llegará al quórum, la oposición igual irá al recinto de Diputados a exponer a los ausentes">1. DNU 70, morosos y discapacidad: casi resignada a que no llegará al quórum, la oposición igual irá al recinto de Diputados a exponer a los ausentes</span>
+      <span class="track" data-tip="DNU 70, morosos y discapacidad: casi resignada a que no llegará al quórum, la oposición igual irá al recinto de Diputados a exponer a los ausentes — 6 notas, 5 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">6 (5)</span>
+      </span>
+      <span class="lbl" title="La Mesa Política se reúne antes del quinto viaje de Javier Milei a Estados Unidos con la mira en el Congreso">2. La Mesa Política se reúne antes del quinto viaje de Javier Milei a Estados Unidos con la mira en el Congreso</span>
+      <span class="track" data-tip="La Mesa Política se reúne antes del quinto viaje de Javier Milei a Estados Unidos con la mira en el Congreso — 4 notas, 4 medios">
+        <span class="bar" style="width: 66.7%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Semana caliente en el Congreso: debate por la ley de tierras, Presupuesto 2027, marcha y sesión para derogar el DNU 70">3. Semana caliente en el Congreso: debate por la ley de tierras, Presupuesto 2027, marcha y sesión para derogar el DNU 70</span>
+      <span class="track" data-tip="Semana caliente en el Congreso: debate por la ley de tierras, Presupuesto 2027, marcha y sesión para derogar el DNU 70 — 4 notas, 4 medios">
+        <span class="bar" style="width: 66.7%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="La oposición impulsa la convocatoria a la marcha del jueves por el financiamiento universitario y la ley de tierras">4. La oposición impulsa la convocatoria a la marcha del jueves por el financiamiento universitario y la ley de tierras</span>
+      <span class="track" data-tip="La oposición impulsa la convocatoria a la marcha del jueves por el financiamiento universitario y la ley de tierras — 4 notas, 3 medios">
+        <span class="bar" style="width: 66.7%"></span><span class="v">4 (3)</span>
+      </span>
+      <span class="lbl" title="Presupuesto 2027: entre un superávit engañoso y una acumulación de deuda insostenible">5. Presupuesto 2027: entre un superávit engañoso y una acumulación de deuda insostenible</span>
+      <span class="track" data-tip="Presupuesto 2027: entre un superávit engañoso y una acumulación de deuda insostenible — 3 notas, 3 medios">
+        <span class="bar" style="width: 50.0%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="Elecciones 2027: cuándo se vota para presidente en la Argentina">6. Elecciones 2027: cuándo se vota para presidente en la Argentina</span>
+      <span class="track" data-tip="Elecciones 2027: cuándo se vota para presidente en la Argentina — 3 notas, 2 medios">
+        <span class="bar" style="width: 50.0%"></span><span class="v">3 (2)</span>
+      </span>
+      <span class="lbl" title="El Gobierno promulgó la ley que modifica el régimen de zonas frías">7. El Gobierno promulgó la ley que modifica el régimen de zonas frías</span>
+      <span class="track" data-tip="El Gobierno promulgó la ley que modifica el régimen de zonas frías — 2 notas, 2 medios">
+        <span class="bar" style="width: 33.3%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Uruguay impulsa un proyecto para habilitar la jubilación desde los 60 años: quiénes podrán acceder">8. Uruguay impulsa un proyecto para habilitar la jubilación desde los 60 años: quiénes podrán acceder</span>
+      <span class="track" data-tip="Uruguay impulsa un proyecto para habilitar la jubilación desde los 60 años: quiénes podrán acceder — 2 notas, 2 medios">
+        <span class="bar" style="width: 33.3%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Un diputado de LLA acusó a los &#34;kukas&#34; de &#34;manipular al pueblo con causas que saben que generan revuelo&#34;">9. Un diputado de LLA acusó a los &#34;kukas&#34; de &#34;manipular al pueblo con causas que saben que generan revuelo&#34;</span>
+      <span class="track" data-tip="Un diputado de LLA acusó a los &#34;kukas&#34; de &#34;manipular al pueblo con causas que saben que generan revuelo&#34; — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="El futuro del armado anti Milei: el rol central de las PASO y las trabas para armar un programa común">10. El futuro del armado anti Milei: el rol central de las PASO y las trabas para armar un programa común</span>
+      <span class="track" data-tip="El futuro del armado anti Milei: el rol central de las PASO y las trabas para armar un programa común — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>Boletín Oficial</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>LN+</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Perfil</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="dnu 70, morosos y discapacidad: casi resignada a que no llegará al quórum, la oposición igual irá al recinto de diputados a exponer a los ausentes la sesión convocada para este jueves quedó aún más complicada luego de que la corte repuso la ley de tierras. el gobierno negocia con los mandatarios provinciales y a la vez prepara una jugada para este miércoles. dnu 70/23">
+        <td class="tema-col"><b>1</b> · 5 medios<br>DNU 70/23</td>
+        <td class="num">19:55</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/dnu-70-morosos-discapacidad-resignada-llegara-quorum-oposicion-igual-ira-recinto-diputados-exponer-ausentes_0_vdbd2Mazr7.html" target="_blank" rel="noopener">DNU 70, morosos y discapacidad: casi resignada a que no llegará al quórum, la oposición igual irá al recinto de Diputados a exponer a los ausentes</a><div class="baj">La sesión convocada para este jueves quedó aún más complicada luego de que la Corte repuso la ley de Tierras. El Gobierno negocia con los mandatarios provinciales y a la vez prepara una jugada para este miércoles.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="ate convocó a un paro nacional para el jueves contra el dnu 70/23: qué servicios se verán afectados el gremio anunció una huelga de 24 horas y movilizaciones; en buenos aires marchará al congreso junto con la protesta universitaria. dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">09:08</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/13/ate-convoco-a-un-paro-nacional-para-el-jueves-contra-el-dnu-7023-que-servicios-se-veran-afectados/" target="_blank" rel="noopener">ATE convocó a un paro nacional para el jueves contra el DNU 70/23: qué servicios se verán afectados</a><div class="baj">El gremio anunció una huelga de 24 horas y movilizaciones; en Buenos Aires marchará al Congreso junto con la protesta universitaria.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="la oposición mide fuerzas en diputados: buscará sesionar con temas sensibles para javier milei este jueves se celebra la sesión para avanzar con la prórroga a la emergencia en discapacidad, la ley de desendeudamiento y voltear el dnu 70. tras el pronunciamiento de la corte, que dejó en pie la ley de tierras, además de una jugada libertaria de último momento, las chances de reunir el quorum… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">08:36</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/la-oposicion-mide-fuerzas-diputados-buscara-sesionar-temas-sensibles-javier-milei-n6332020" target="_blank" rel="noopener">La oposición mide fuerzas en Diputados: buscará sesionar con temas sensibles para Javier Milei</a><div class="baj">Este jueves se celebra la sesión para avanzar con la prórroga a la Emergencia en Discapacidad, la ley de desendeudamiento y voltear el DNU 70. Tras el pronunciamiento de la Corte, que dejó en pie la ley de Tierras, además de una jugada libertaria de último momento, las chances de reunir el quorum…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="El Cronista" data-texto="la ofensiva contra el dnu 70 pierde fuerza: la oposición sigue sin quórum tras el fallo de la corte  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">06:00</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/la-ofensiva-contra-el-dnu-70-pierde-fuerza-la-oposicion-sigue-sin-quorum-tras-el-fallo-de-la-corte/" target="_blank" rel="noopener">La ofensiva contra el DNU 70 pierde fuerza: la oposición sigue sin quórum tras el fallo de la Corte</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Página/12" data-texto="semana clave para la vigencia del dnu 70: marcha confirmada, quórum en duda  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">00:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/12/semana-clave-para-la-vigencia-del-dnu-70-marcha-confirmada-quorum-en-duda/" target="_blank" rel="noopener">Semana clave para la vigencia del DNU 70: marcha confirmada, quórum en duda</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="martín menem respaldó a caputo, apuntó contra la oposición por el dnu 70 y pidió eliminar las paso el presidente de la cámara de diputados descartó cambios en el equipo económico, cuestionó la estrategia de la oposición y anticipó que el oficialismo buscará avanzar con la eliminación definitiva de las paso. dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">10:29</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/martin-menem-respaldo-caputo-apunto-contra-la-oposicion-el-dnu-70-y-pidio-eliminar-las-paso-n6332725" target="_blank" rel="noopener">Martín Menem respaldó a Caputo, apuntó contra la oposición por el DNU 70 y pidió eliminar las PASO</a><div class="baj">El presidente de la Cámara de Diputados descartó cambios en el equipo económico, cuestionó la estrategia de la oposición y anticipó que el oficialismo buscará avanzar con la eliminación definitiva de las PASO.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="la mesa política se reúne antes del quinto viaje de javier milei a estados unidos con la mira en el congreso en las horas previas de la partida de milei rumbo a washington, se reúne una vez más el oficialismo. apuntan a sostener el dnu 70/23 y evitar que la oposición consiga quórum en las próximas sesiones especiales. leer más dnu 70/23">
+        <td class="tema-col"><b>2</b> · 4 medios<br>DNU 70/23</td>
+        <td class="num">08:45</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/el-gobierno-define-su-estrategia-en-el-congreso-antes-del-quinto-viaje-de-milei-a-estados-unidos.phtml" target="_blank" rel="noopener">La Mesa Política se reúne antes del quinto viaje de Javier Milei a Estados Unidos con la mira en el Congreso</a><div class="baj">En las horas previas de la partida de Milei rumbo a Washington, se reúne una vez más el oficialismo. Apuntan a sostener el DNU 70/23 y evitar que la oposición consiga quórum en las próximas sesiones especiales. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="la mesa política vuelve a reunirse con la mira en la reforma electoral y la mega sesión en diputados karina milei no viajará washington con el presidente y encabezará un nuevo encuentro con distintos temas a tratar. el foco estará puesto en la sesión prevista para este jueves en diputados y en las negociaciones con las provincias. la mesa política retomará este martes a las 13 sus reuniones en… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">08:12</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/mesa-politica-vuelve-reunirse-mira-reforma-electoral-mega-sesion-diputados_1_13581715.html" target="_blank" rel="noopener">La mesa política vuelve a reunirse con la mira en la reforma electoral y la mega sesión en Diputados</a><div class="baj">Karina Milei no viajará Washington con el Presidente y encabezará un nuevo encuentro con distintos temas a tratar. El foco estará puesto en la sesión prevista para este jueves en Diputados y en las negociaciones con las provincias. La mesa política retomará este martes a las 13 sus reuniones en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="el gobierno reúne a la mesa política en la previa del viaje de javier milei a washington el oficialismo definirá su estrategia para las sesiones del 15 y 21 de octubre en diputados, con el dnu 70/23 y la emergencia en discapacidad entre los principales temas. dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">07:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-gobierno-reune-la-mesa-la-previa-del-viaje-javier-milei-washington-n6332936" target="_blank" rel="noopener">El Gobierno reúne a la mesa política en la previa del viaje de Javier Milei a Washington</a><div class="baj">El oficialismo definirá su estrategia para las sesiones del 15 y 21 de octubre en Diputados, con el DNU 70/23 y la emergencia en discapacidad entre los principales temas.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="el gobierno reunirá a la mesa política para frenar a la oposición en el congreso y avanzar en las negociaciones con los gobernadores  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">05:45</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/13/el-gobierno-reunira-a-la-mesa-politica-para-frenar-a-la-oposicion-en-el-congreso-y-avanzar-en-las-negociaciones-con-gobernadores/" target="_blank" rel="noopener">El Gobierno reunirá a la mesa política para frenar a la oposición en el Congreso y avanzar en las negociaciones con los gobernadores</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="semana caliente en el congreso: debate por la ley de tierras, presupuesto 2027, marcha y sesión para derogar el dnu 70 con la presencia del secretario de hacienda, carlos guberman, el oficialismo abrirá el debate del presupuesto para el año próximo. avanzaría con las restricciones para la compra de tierras en busca de contener a los socios. la oposición, en tanto, llamó a una sesión para el jueves y espera que la… presupuesto 2027">
+        <td class="tema-col"><b>3</b> · 4 medios<br>Presupuesto 2027</td>
+        <td class="num">17:38</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/12/semana-caliente-en-el-congreso-debate-por-la-ley-de-tierras-presupuesto-2027-marcha-y-sesion-para-derogar-el-dnu-70/" target="_blank" rel="noopener">Semana caliente en el Congreso: debate por la ley de tierras, Presupuesto 2027, marcha y sesión para derogar el DNU 70</a><div class="baj">Con la presencia del secretario de Hacienda, Carlos Guberman, el oficialismo abrirá el debate del Presupuesto para el año próximo. Avanzaría con las restricciones para la compra de tierras en busca de contener a los socios. La oposición, en tanto, llamó a una sesión para el jueves y espera que la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="una semana clave en el congreso: el presupuesto 2027 abre la pulseada entre el gobierno, la oposición y la presión de la calle el gobierno busca acelerar las negociaciones por el presupuesto 2027 mientras se multiplican los frentes de conflicto en el congreso. el jueves, una movilización masiva pondrá a prueba el margen de maniobra del oficialismo. leer más presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">05:30</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/una-semana-clave-congreso-presupuesto-2027-gobierno-oposicion-presion-calle.phtml" target="_blank" rel="noopener">Una semana clave en el Congreso: el Presupuesto 2027 abre la pulseada entre el Gobierno, la oposición y la presión de la calle</a><div class="baj">El Gobierno busca acelerar las negociaciones por el Presupuesto 2027 mientras se multiplican los frentes de conflicto en el Congreso. El jueves, una movilización masiva pondrá a prueba el margen de maniobra del oficialismo. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="A24" data-texto="presupuesto 2027: el gobierno inicia el debate en diputados con la exposición del secretario de hacienda  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:57</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/economia/presupuesto-2027-el-gobierno-inicia-el-debate-diputados-la-exposicion-del-secretario-hacienda-n1605581" target="_blank" rel="noopener">Presupuesto 2027: el Gobierno inicia el debate en Diputados con la exposición del secretario de Hacienda</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="la libertad avanza abre el debate por el presupuesto 2027 en medio de los reclamos por discapacidad y financiamiento universitario  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:05</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/12/la-libertad-avanza-abre-el-debate-por-el-presupuesto-2027-en-medio-de-los-reclamos-por-discapacidad-y-financiamiento-universitario/" target="_blank" rel="noopener">La Libertad Avanza abre el debate por el Presupuesto 2027 en medio de los reclamos por discapacidad y financiamiento universitario</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="la oposición impulsa la convocatoria a la marcha del jueves por el financiamiento universitario y la ley de tierras el pj, el radicalismo, la izquierda, los movimientos sociales y los sindicatos anunciaron su adhesión para el jueves a los reclamos por los fondos para la educación y el mantenimiento de los límites a la venta de territorio a extranjeros ">
+        <td class="tema-col"><b>4</b> · 3 medios</td>
+        <td class="num">17:22</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-oposicion-impulsa-la-convocatoria-a-la-marcha-del-jueves-por-el-financiamiento-universitario-y-la-nid12102026/" target="_blank" rel="noopener">La oposición impulsa la convocatoria a la marcha del jueves por el financiamiento universitario y la ley de tierras</a><div class="baj">El PJ, el radicalismo, la izquierda, los movimientos sociales y los sindicatos anunciaron su adhesión para el jueves a los reclamos por los fondos para la educación y el mantenimiento de los límites a la venta de territorio a extranjeros</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="luego del fallo de la corte sobre la ley de tierras, el kirchnerismo trabaja para conseguir quórum para la sesión del jueves  ">
+        <td class="tema-col"></td>
+        <td class="num">07:20</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/11/el-kirchnerismo-confia-en-conseguir-quorum-en-diputados-para-derogar-el-dnu-de-milei/" target="_blank" rel="noopener">Luego del fallo de la Corte sobre la Ley de Tierras, el kirchnerismo trabaja para conseguir quórum para la sesión del jueves</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="el congreso, cruzado por desconfianzas y la renovada disputa por el temario que disparó la ley de tierras el oficialismo apuesta a coronar su jugada contra la sesión opositora en diputados. pero debe atender los recelos de aliados. y clausurar sus intentos de anulación de límites a la venta de tierras a extranjeros. sigue abierta la negociación por las paso, con telón de fondo económico ">
+        <td class="tema-col"></td>
+        <td class="num">03:26</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/13/el-congreso-cruzado-por-desconfianzas-y-la-renovada-disputa-por-el-temario-que-disparo-la-ley-de-tierras/" target="_blank" rel="noopener">El Congreso, cruzado por desconfianzas y la renovada disputa por el temario que disparó la ley de Tierras</a><div class="baj">El oficialismo apuesta a coronar su jugada contra la sesión opositora en Diputados. Pero debe atender los recelos de aliados. Y clausurar sus intentos de anulación de límites a la venta de tierras a extranjeros. Sigue abierta la negociación por las PASO, con telón de fondo económico</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="el pedido de los diputados de unión por la patria por la ley de financiamiento el minuto a minuto de las decisiones del mandatario, las reacciones de la oposición y las declaraciones de los funcionarios ">
+        <td class="tema-col"></td>
+        <td class="num">23:30</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-nos-unimos-en-oracion-por-su-salud-dijo-el-presidente-por-la-nid12102026/" target="_blank" rel="noopener">El pedido de los diputados de Unión por la Patria por la ley de financiamiento</a><div class="baj">El minuto a minuto de las decisiones del mandatario, las reacciones de la oposición y las declaraciones de los funcionarios</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Ámbito" data-texto="presupuesto 2027: entre un superávit engañoso y una acumulación de deuda insostenible el proyecto de presupuesto 2027 prevé una reducción del gasto público del 26,7% respecto de 2023 y un superávit financiero del 0,23% del pbi. sin embargo, persisten interrogantes sobre la sostenibilidad fiscal, el endeudamiento y el impacto de los recortes en áreas clave como educación… presupuesto 2027">
+        <td class="tema-col"><b>5</b> · 3 medios<br>Presupuesto 2027</td>
+        <td class="num">13:44</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/presupuesto-2027-un-superavit-falso-y-una-acumulacion-deuda-insostenible-n6332771" target="_blank" rel="noopener">Presupuesto 2027: entre un superávit engañoso y una acumulación de deuda insostenible</a><div class="baj">El proyecto de Presupuesto 2027 prevé una reducción del gasto público del 26,7% respecto de 2023 y un superávit financiero del 0,23% del PBI. Sin embargo, persisten interrogantes sobre la sostenibilidad fiscal, el endeudamiento y el impacto de los recortes en áreas clave como educación…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="presupuesto 2027: la opc prevé equilibrio fiscal, mayor presión tributaria y una suba del gasto social el informe elaborado por la oficina de presupuesto del congreso sobre el proyecto enviado por el poder ejecutivo destaca la continuidad de la meta de superávit financiero, una recuperación de la actividad económica y un fuerte peso de las prestaciones previsionales dentro del gasto público. también… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">22:15</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/12/presupuesto-2027-la-opc-preve-equilibrio-fiscal-mayor-presion-tributaria-y-una-suba-del-gasto-social/" target="_blank" rel="noopener">Presupuesto 2027: la OPC prevé equilibrio fiscal, mayor presión tributaria y una suba del gasto social</a><div class="baj">El informe elaborado por la Oficina de Presupuesto del Congreso sobre el proyecto enviado por el Poder Ejecutivo destaca la continuidad de la meta de superávit financiero, una recuperación de la actividad económica y un fuerte peso de las prestaciones previsionales dentro del gasto público. También…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Perfil" data-texto="capitanich cuestionó el presupuesto 2027 por un “superávit engañoso” y recortes en obras el senador por chaco advirtió sobre la caída de la inversión nacional y las transferencias a las provincias. también objetó los fondos para universidades y la propuesta de eliminar la actualización automática de las asignaciones sociales. leer más presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">19:58</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/nea/capitanich-cuestiono-el-presupuesto-2027-por-un-superavit-enganoso-y-recortes-en-obras.phtml" target="_blank" rel="noopener">Capitanich cuestionó el Presupuesto 2027 por un “superávit engañoso” y recortes en obras</a><div class="baj">El senador por Chaco advirtió sobre la caída de la inversión nacional y las transferencias a las provincias. También objetó los fondos para universidades y la propuesta de eliminar la actualización automática de las asignaciones sociales. Leer más</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="elecciones 2027: cuándo se vota para presidente en la argentina los comicios del año próximo definirán los principales cargos del poder ejecutivo y la renovación de bancas en el congreso; qué se elige según la jurisdicción; descubrí los detalles ">
+        <td class="tema-col"><b>6</b> · 2 medios</td>
+        <td class="num">08:37</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/elecciones-2027-cuando-se-vota-para-presidente-en-la-argentina-nid03082026/" target="_blank" rel="noopener">Elecciones 2027: cuándo se vota para presidente en la Argentina</a><div class="baj">Los comicios del año próximo definirán los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; qué se elige según la jurisdicción; descubrí los detalles</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="¿cuándo se vota presidente en la argentina? todo sobre las elecciones 2027 la convocatoria electoral del año próximo define los principales cargos del poder ejecutivo y la renovación de bancas en el congreso; los detalles en la nota ">
+        <td class="tema-col"></td>
+        <td class="num">08:37</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/cuando-se-vota-presidente-en-la-argentina-todo-sobre-las-elecciones-2027-nid01092026/" target="_blank" rel="noopener">¿Cuándo se vota presidente en la Argentina? Todo sobre las elecciones 2027</a><div class="baj">La convocatoria electoral del año próximo define los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; los detalles en la nota</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="elecciones 2027: jorge macri evalúa no desdoblarlas con las nacionales el jefe de gobierno porteño aseguró que la ciudad podría no separar los comicios con nación, tal y como ocurrió en 2023. “hay que hablarlo con las otras fuerzas políticas”, remarcó. la entrada elecciones 2027: jorge macri evalúa no desdoblarlas con las nacionales se publicó primero en parlamentario… ">
+        <td class="tema-col"></td>
+        <td class="num">08:28</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/13/elecciones-2027-jorge-macri-evalua-no-desdoblarlas-con-las-nacionales/" target="_blank" rel="noopener">Elecciones 2027: Jorge Macri evalúa no desdoblarlas con las nacionales</a><div class="baj">El jefe de Gobierno porteño aseguró que la Ciudad podría no separar los comicios con Nación, tal y como ocurrió en 2023. “Hay que hablarlo con las otras fuerzas políticas”, remarcó. La entrada Elecciones 2027: Jorge Macri evalúa no desdoblarlas con las nacionales se publicó primero en Parlamentario…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="La Nación" data-texto="el gobierno promulgó la ley que modifica el régimen de zonas frías la iniciativa había sido aprobada a finales de septiembre con 38 votos afirmativos; consiste en la reducción del alcance de subsidios ley 27.828">
+        <td class="tema-col"><b>7</b> · 2 medios<br>Ley 27.828</td>
+        <td class="num">01:32</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-gobierno-promulgo-la-ley-que-modifica-el-regimen-de-zonas-frias-nid13102026/" target="_blank" rel="noopener">El Gobierno promulgó la ley que modifica el régimen de zonas frías</a><div class="baj">La iniciativa había sido aprobada a finales de septiembre con 38 votos afirmativos; consiste en la reducción del alcance de subsidios</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Boletín Oficial" data-texto="ley 27828: modificación. régimen de zona fría ley 27.828">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Boletín Oficial</td>
+        <td><a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/348838/20261013" target="_blank" rel="noopener">Ley 27828: Modificación.</a><div class="baj">Régimen De Zona Fría</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Ámbito" data-texto="uruguay impulsa un proyecto para habilitar la jubilación desde los 60 años: quiénes podrán acceder  ">
+        <td class="tema-col"><b>8</b> · 2 medios</td>
+        <td class="num">17:48</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/uruguay-impulsa-un-proyecto-habilitar-la-jubilacion-los-60-anos-quienes-podran-acceder-n6332847" target="_blank" rel="noopener">Uruguay impulsa un proyecto para habilitar la jubilación desde los 60 años: quiénes podrán acceder</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Clarín" data-texto="uruguay impulsa un proyecto para habilitar la jubilación anticipada a los 60 años  ">
+        <td class="tema-col"></td>
+        <td class="num">15:16</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/uruguay-impulsa-proyecto-habilitar-jubilacion-anticipada-60-anos_0_AExXglgjpT.html" target="_blank" rel="noopener">Uruguay impulsa un proyecto para habilitar la jubilación anticipada a los 60 años</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="un diputado de lla acusó a los &#34;kukas&#34; de &#34;manipular al pueblo con causas que saben que generan revuelo&#34; se trata de juan ignacio fernández quien advirtió que &#34;lo amateur en finanzas que es el 99% de los kukas es sublime&#34; y aseguró que &#34;explotan la ignorancia en ciertos temas para meter miedo&#34;. la entrada un diputado de lla acusó a los &#34;kukas&#34; de &#34;manipular al pueblo con causas que saben que generan… ">
+        <td class="tema-col"><b>9</b> · 1 medio</td>
+        <td class="num">09:10</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/13/un-diputado-de-lla-acuso-a-los-kukas-de-manipular-al-pueblo-con-causas-que-saben-que-generan-revuelo/" target="_blank" rel="noopener">Un diputado de LLA acusó a los &#34;kukas&#34; de &#34;manipular al pueblo con causas que saben que generan revuelo&#34;</a><div class="baj">Se trata de Juan Ignacio Fernández quien advirtió que &#34;lo amateur en finanzas que es el 99% de los kukas es sublime&#34; y aseguró que &#34;explotan la ignorancia en ciertos temas para meter miedo&#34;. La entrada Un diputado de LLA acusó a los &#34;kukas&#34; de &#34;manipular al pueblo con causas que saben que generan…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="el futuro del armado anti milei: el rol central de las paso y las trabas para armar un programa común la posibilidad de un acuerdo amplio de la oposición tiene varias barreras por delante. qué actores políticos lo ven como un proyecto viable ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">08:44</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/13/el-futuro-del-armado-anti-milei-el-rol-central-de-las-paso-y-las-trabas-para-armar-un-programa-comun/" target="_blank" rel="noopener">El futuro del armado anti Milei: el rol central de las PASO y las trabas para armar un programa común</a><div class="baj">La posibilidad de un acuerdo amplio de la oposición tiene varias barreras por delante. Qué actores políticos lo ven como un proyecto viable</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="El Cronista" data-texto="el millonario patrimonio de los senadores: los que más tienen y los que más crecieron  ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">08:00</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/el-millonario-patrimonio-de-los-senadores-los-que-mas-tienen-y-los-que-mas-crecieron/" target="_blank" rel="noopener">El millonario patrimonio de los senadores: los que más tienen y los que más crecieron</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="El Cronista" data-texto="blancos critican proyecto de ley para bajar edad jubilatoria y acusan al gobierno de ignorar la voluntad popular  ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">07:48</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/uruguay/politica-uy/blancos-critican-proyecto-de-ley-para-bajar-edad-jubilatoria-y-acusan-al-gobierno-de-ignorar-la-voluntad-popular/" target="_blank" rel="noopener">Blancos critican proyecto de ley para bajar edad jubilatoria y acusan al gobierno de ignorar la voluntad popular</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="una lista de abogados promete &#34;transparentar el funcionamiento de la justicia&#34; en el consejo de la magistratura ricardo gil lavedra, guillermo lipera y alejandra garcía patrocinan la lista unidad por la abogacía, cuyo candidato es josé biglieri. prometen impulsar el reglamento para los concursos judiciales y rendir cuentas de sus votos en el organismo. el 20 de octubre. 160.000 abogados de todo el país… ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">06:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/lista-abogados-promete-transparentar-funcionamiento-justicia-consejo-magistratura_0_o8rM74lG1m.html" target="_blank" rel="noopener">Una lista de abogados promete &#34;transparentar el funcionamiento de la justicia&#34; en el Consejo de la Magistratura</a><div class="baj">Ricardo Gil Lavedra, Guillermo Lipera y Alejandra García patrocinan la lista Unidad por la Abogacía, cuyo candidato es José Biglieri. Prometen impulsar el reglamento para los concursos judiciales y rendir cuentas de sus votos en el organismo. El 20 de octubre. 160.000 abogados de todo el país…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Sesión" data-medio="Infobae" data-texto="senado: se reúnen los libertarios para limar asperezas y encarar las últimas seis semanas de sesiones ordinarias el cónclave se hará mañana y no hoy, como estaba previsto. tensión con dialoguistas la comisión de acuerdos. en tanto, el jueves se intentará dictaminar el tratado sobre patentes, con el cambio de diputados a favor de laboratorios locales ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">03:39</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/13/senado-se-reunen-los-libertarios-para-limar-asperezas-y-encarar-las-ultimas-seis-semanas-de-sesiones-ordinarias/" target="_blank" rel="noopener">Senado: se reúnen los libertarios para limar asperezas y encarar las últimas seis semanas de sesiones ordinarias</a><div class="baj">El cónclave se hará mañana y no hoy, como estaba previsto. Tensión con dialoguistas la comisión de Acuerdos. En tanto, el jueves se intentará dictaminar el tratado sobre patentes, con el cambio de Diputados a favor de laboratorios locales</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="el dilema del gobierno ante un posible frente anti-milei: la amenaza de un moderado y el factor kicillof en el oficialismo siguen de cerca a la oposición y analiza los escenarios de cara al 2027. la gestión como campaña y los números de milei ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">03:36</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/13/el-dilema-del-gobierno-ante-un-posible-frente-anti-milei-la-amenaza-de-un-moderado-y-el-factor-kicillof/" target="_blank" rel="noopener">El dilema del Gobierno ante un posible frente anti-Milei: la amenaza de un moderado y el factor Kicillof</a><div class="baj">En el oficialismo siguen de cerca a la oposición y analiza los escenarios de cara al 2027. La gestión como campaña y los números de Milei</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="La Nación" data-texto="la corte y las fragilidades de milei el dnu 70 pende de un hilo; el máximo tribunal salvó al presidente del avance opositor en el congreso; malestar económico, malestar con caputo; aysa y el misterio de una privatización; dificultades de santilli con los gobernadores ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">03:29</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-corte-y-las-fragilidades-de-milei-nid13102026/" target="_blank" rel="noopener">La Corte y las fragilidades de Milei</a><div class="baj">El DNU 70 pende de un hilo; el Máximo tribunal salvó al Presidente del avance opositor en el Congreso; malestar económico, malestar con Caputo; Aysa y el misterio de una privatización; dificultades de Santilli con los gobernadores</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="con poco margen, el gobierno busca acelerar acuerdos para evitar las sesiones extraordinarias: dudas en el senado la casa rosada pretende que los proyectos que se presentaron se aprueben antes de que finalice el periodo legislativo habitual. los pedidos a los gobernadores en medio de las negociaciones electorales ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">03:23</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/13/con-poco-margen-el-gobierno-busca-acelerar-acuerdos-para-evitar-las-sesiones-extraordinarias-dudas-en-el-senado/" target="_blank" rel="noopener">Con poco margen, el Gobierno busca acelerar acuerdos para evitar las sesiones extraordinarias: dudas en el Senado</a><div class="baj">La Casa Rosada pretende que los proyectos que se presentaron se aprueben antes de que finalice el periodo legislativo habitual. Los pedidos a los gobernadores en medio de las negociaciones electorales</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Boletín Oficial" data-texto="decreto 1161/2026: promúlgase la ley n° 27.828.  ley 27.828">
+        <td class="tema-col"><b>18</b> · 1 medio<br>Ley 27.828</td>
+        <td class="num">00:00</td>
+        <td>Boletín Oficial</td>
+        <td><a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/348839/20261013" target="_blank" rel="noopener">Decreto 1161/2026: Promúlgase la Ley N° 27.828.</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="pedido de informes por presuntas irregularidades en un préstamo del banco mundial para el sistema riachuelo un diputado mendocino busca que el gobierno explique observaciones realizadas por la auditoría general de la nación sobre la registración contable de fondos destinados a obras de saneamiento en la cuenca matanza-riachuelo. la entrada pedido de informes por presuntas irregularidades en un préstamo… ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">21:41</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/12/pedido-de-informes-por-presuntas-irregularidades-en-un-prestamo-del-banco-mundial-para-el-sistema-riachuelo/" target="_blank" rel="noopener">Pedido de informes por presuntas irregularidades en un préstamo del Banco Mundial para el Sistema Riachuelo</a><div class="baj">Un diputado mendocino busca que el Gobierno explique observaciones realizadas por la Auditoría General de la Nación sobre la registración contable de fondos destinados a obras de saneamiento en la Cuenca Matanza-Riachuelo. La entrada Pedido de informes por presuntas irregularidades en un préstamo…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="TN" data-texto="más de 400 jóvenes del campo se congregaron en el congreso nacional de ateneos cra  ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">19:49</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/campo/2026/10/12/mas-de-400-jovenes-del-campo-se-congregaron-en-el-congreso-nacional-de-ateneos-cra/" target="_blank" rel="noopener">Más de 400 jóvenes del campo se congregaron en el Congreso Nacional de Ateneos CRA</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Política Online" data-texto="iñaki y el librero libertario, los samuráis que prepara milei para el congreso tras la fallida experiencia de tronco el influencer encabeza la gira libertaria por las provincias. andrés mego fue elegido como nuevo vocero. ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">19:41</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/inaki-y-el-librero-libertario-los-nuevos-samurais-que-prepara-milei-para-el-congreso-tras-la-fallida-experiencia-de-tronco-3546/" target="_blank" rel="noopener">Iñaki y el librero libertario, los samuráis que prepara Milei para el Congreso tras la fallida experiencia de Tronco</a><div class="baj">El influencer encabeza la gira libertaria por las provincias. Andrés Mego fue elegido como nuevo vocero.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="LN+" data-texto="reid wiseman, piloto de artemis ii: “la tierra se ve magnífica” días antes de que trump otorgue la medalla espacial del congreso a cada miembro de la tripulación, siguen circulando frases que los astronautas de la nasa pronunciaron en el marco de la misión a la luna ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">16:59</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/lnmas/reid-wiseman-piloto-de-artemis-ii-la-tierra-se-ve-magnifica-nid11102026/" target="_blank" rel="noopener">Reid Wiseman, piloto de Artemis II: “La Tierra se ve magnífica”</a><div class="baj">Días antes de que Trump otorgue la Medalla Espacial del Congreso a cada miembro de la tripulación, siguen circulando frases que los astronautas de la NASA pronunciaron en el marco de la misión a la Luna</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="diputados: arranca una semana intensa, con el presupuesto como tema central y expectativa por la sesión del jueves la cámara de diputados afrontará una semana intensa, marcada por el inicio del tratamiento del presupuesto 2027, el avance de proyectos impulsados por el poder ejecutivo sobre soberanía nacional y propiedad privada, y una sesión especial convocada por la oposición para debatir endeudamiento… presupuesto 2027">
+        <td class="tema-col"><b>23</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">13:54</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/12/diputados-arranca-una-semana-intensa-con-el-presupuesto-como-tema-central-y-expectativa-por-la-sesion-del-jueves/" target="_blank" rel="noopener">Diputados: Arranca una semana intensa, con el Presupuesto como tema central y expectativa por la sesión del jueves</a><div class="baj">La Cámara de Diputados afrontará una semana intensa, marcada por el inicio del tratamiento del Presupuesto 2027, el avance de proyectos impulsados por el Poder Ejecutivo sobre soberanía nacional y propiedad privada, y una sesión especial convocada por la oposición para debatir endeudamiento…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="reforma electoral: los plazos que analiza el gobierno y el pedido que reflotaron los gobernadores en el oficialismo convergen distintas posturas en torno a los tiempos convenientes para tratar la iniciativa que apunta a eliminar las paso. las alianzas y la necesidad de las provincias ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">13:19</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/12/reforma-electoral-los-plazos-que-analiza-el-gobierno-y-el-pedido-que-reflotaron-los-gobernadores/" target="_blank" rel="noopener">Reforma electoral: los plazos que analiza el Gobierno y el pedido que reflotaron los gobernadores</a><div class="baj">En el oficialismo convergen distintas posturas en torno a los tiempos convenientes para tratar la iniciativa que apunta a eliminar las PASO. Las alianzas y la necesidad de las provincias</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Perfil" data-texto="de regreso a octubre: la disputa de milei, el peronismo y el pro por las reglas de 2027 a un año de los comicios, milei busca modificar las reglas electorales, pero todavía necesita votos en el senado. el peronismo discute su interna, el pro intenta preservar una estructura propia y los gobernadores negocian cómo jugar en 2027. leer más ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">13:00</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/de-regreso-a-octubre-la-disputa-de-milei-el-peronismo-y-el-pro-por-las-reglas-de-2027.phtml" target="_blank" rel="noopener">De regreso a octubre: la disputa de Milei, el peronismo y el PRO por las reglas de 2027</a><div class="baj">A un año de los comicios, Milei busca modificar las reglas electorales, pero todavía necesita votos en el Senado. El peronismo discute su interna, el PRO intenta preservar una estructura propia y los gobernadores negocian cómo jugar en 2027. Leer más</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="la oposición dialoguista del senado desafía a karina milei con gestos de rebeldía los aliados vaciaron la semana pasada una reunión de comisión para evitar que una aliada de la hermana del presidente asumiera la presidencia de acuerdos; espínola y abad mantienen frenado el proyecto de súper rigi ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">11:00</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-oposicion-dialoguista-del-senado-desafia-a-karina-milei-con-gestos-de-rebeldia-nid12102026/" target="_blank" rel="noopener">La oposición dialoguista del Senado desafía a Karina Milei con gestos de rebeldía</a><div class="baj">Los aliados vaciaron la semana pasada una reunión de comisión para evitar que una aliada de la hermana del Presidente asumiera la presidencia de Acuerdos; Espínola y Abad mantienen frenado el proyecto de Súper RIGI</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Letra P" data-texto="el diputado diego garciarena cruzó al ministro gabriel katopodis: &#34;promete más de lo mismo&#34;  ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">10:46</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/el-diputado-diego-garciarena-cruzo-al-ministro-gabriel-katopodis-promete-mas-lo-mismo-n5427300" target="_blank" rel="noopener">El diputado Diego Garciarena cruzó al ministro Gabriel Katopodis: &#34;Promete más de lo mismo&#34;</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="el congreso se iluminó de azul por el día de la hispanidad el congreso de la nación se iluminó para conmemorar el día de la hispanidad, fecha que recuerda el avistamiento de tierra realizado por rodrigo de triana el 12 de octubre de 1492, durante el primer viaje de cristóbal colón que marcaría el encuentro ... ">
+        <td class="tema-col"><b>28</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24484/noticias" target="_blank" rel="noopener">EL CONGRESO SE ILUMINÓ DE AZUL POR EL DÍA DE LA HISPANIDAD</a><div class="baj">El Congreso de la Nación se iluminó para conmemorar el Día de la Hispanidad, fecha que recuerda el avistamiento de tierra realizado por Rodrigo de Triana el 12 de octubre de 1492, durante el primer viaje de Cristóbal Colón que marcaría el encuentro ...</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-10-13 a las 10:17 hs (hora argentina) ·
+    <span class="estado-ok">21 respondieron bien</span>.
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
