@@ -1,0 +1,1528 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-10-15</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Jueves 15 de octubre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 10:19 hs · 20/21 fuentes respondieron · <a href="#fuentes">1 caída</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">118</div>
+      <div class="sub up">▲ +146% vs. promedio de 4 días (48)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">49</div>
+    <div class="sub">16 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">16</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>1</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>12</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 14 notas</span>
+    </div>
+    <h3><a href="https://www.ambito.com/politica/lla-reflota-la-ley-tierras-del-kirchnerismo-blindar-el-dnu-70-y-complicar-la-sesion-opositora-n6333817" target="_blank" rel="noopener">LLA reflota la ley de Tierras del kirchnerismo para blindar el DNU 70 y complicar la sesión opositora</a></h3>
+<p class="bajada">En un plenario de comisiones, el oficialismo dejó listo para llevar al recinto el proyecto de Inviolabilidad de la Propiedad Privada, aprobado en el Senado, pero con un cambio: incluye la eliminación del artículo del decreto que deroga la ley que le pone límites a la venta de tierras rurales a…</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Inviolabilidad de la propiedad privada</span>    </div>
+    <div class="medios">
+<a href="https://www.ambito.com/politica/lla-reflota-la-ley-tierras-del-kirchnerismo-blindar-el-dnu-70-y-complicar-la-sesion-opositora-n6333817" target="_blank" rel="noopener" title="LLA reflota la ley de Tierras del kirchnerismo para blindar el DNU 70 y complicar la sesión opositora">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/10/14/el-gobierno-acordo-con-los-aliados-restituir-los-limites-a-la-venta-de-tierras-para-blindar-el-dnu-7023/" target="_blank" rel="noopener" title="El Gobierno acordó con los aliados restituir los límites a la venta de tierras para blindar el DNU 70/23">Infobae ↗</a><a href="https://www.infobae.com/politica/2026/10/15/con-el-quorum-en-duda-la-oposicion-buscara-derogar-el-dnu-70-y-prorrogar-la-emergencia-en-discapacidad/" target="_blank" rel="noopener" title="Con el quórum en duda, la oposición buscará derogar el DNU 70 y prorrogar la emergencia en discapacidad">Infobae ↗</a><a href="https://www.eldiarioar.com/politica/gobierno-mete-restitucion-ley-tierras-proyecto-sturzenegger-desactiva-sesion-opositora_1_13586651.html" target="_blank" rel="noopener" title="El Gobierno mete la restitución de la Ley de Tierras en el proyecto de Sturzenegger y desactiva la sesión opositora">elDiarioAR ↗</a><a href="https://www.perfil.com/noticias/politica/diputados-el-gobierno-apuesta-a-que-la-sesion-opositora-no-llegue-al-quorum-tras-restituir-la-ley-de-tierras-a60.phtml" target="_blank" rel="noopener" title="El Gobierno apuesta a que la sesión para derogar el DNU 70 no llegue al quórum tras restituir la Ley de Tierras">Perfil ↗</a><a href="https://www.perfil.com/noticias/politica/se-dictamino-inviolabilidad-propiedad-privada-tras-restituir-ley-tierras.phtml" target="_blank" rel="noopener" title="Restituyen la Ley de Tierras para blindar el proyecto de Inviolabilidad de la Propiedad Privada">Perfil ↗</a><a href="https://www.lanacion.com.ar/politica/el-gobierno-incluyo-un-capitulo-de-ley-de-tierras-en-el-proyecto-de-propiedad-privada-para-blindar-nid14102026/" target="_blank" rel="noopener" title="El Gobierno repone los límites a la venta de tierras para contener a sus aliados y desactivar la sesión opositora">La Nación ↗</a><a href="https://www.letrap.com.ar/congreso/ley-tierras-la-libertad-avanza-fijo-limites-los-extranjeros-y-le-allana-el-camino-la-corte-suprema-n5427371" target="_blank" rel="noopener" title="Ley de Tierras: el Gobierno restableció los límites a los extranjeros que puso CFK para salvar el DNU 70/23">Letra P ↗</a><a href="https://www.clarin.com/politica/oficialismo-impulsa-restitucion-ley-tierras-proteger-dnu-milei-bloquear-sesion-opositora_0_6wefPGhvsk.html" target="_blank" rel="noopener" title="Para que no se caiga el DNU 70, el oficialismo busca restituir los límites a la compra de tierras por los extranjeros">Clarín ↗</a><a href="https://www.a24.com/politica/el-gobierno-acepto-restituir-los-limites-la-venta-tierras-y-logro-dictamen-la-ley-propiedad-privada-n1606466" target="_blank" rel="noopener" title="El Gobierno aceptó restituir los límites a la venta de tierras y logró dictamen para la ley de Propiedad Privada">A24 ↗</a><a href="https://tn.com.ar/politica/2026/10/14/lla-acepto-restituir-las-restricciones-a-la-venta-de-tierras-a-extranjeros-para-sellar-la-sancion-de-la-ley-de-propiedad-privada/" target="_blank" rel="noopener" title="El oficialismo aceptó restituir las restricciones de la venta de tierras a extranjeros para garantizar la aprobación del proyecto sobre propiedad privada">TN ↗</a><a href="https://www.cronista.com/economia-politica/el-oficialismo-dictamino-propiedad-privada-y-repuso-la-ley-de-tierras-para-salvar-el-dnu-70/" target="_blank" rel="noopener" title="El oficialismo repuso la ley de Tierras dentro de la reforma de Propiedad Privada para salvar el DNU 70/2023">El Cronista ↗</a><a href="https://www.c5n.com/politica/lla-dictamino-la-restitucion-la-ley-tierras-y-busca-desactivar-la-sesion-contra-el-dnu-7023-n251625" target="_blank" rel="noopener" title="LLA dictaminó la restitución de la Ley de Tierras y busca desactivar la sesión contra el DNU 70/23">C5N ↗</a><a href="https://www.parlamentario.com/2026/10/14/con-la-revalidacion-de-la-ley-de-tierras-se-dictamino-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener" title="Con la revalidación de la Ley de Tierras, se dictaminó Inviolabilidad de la Propiedad Privada">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>10</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 11 notas</span>
+    </div>
+    <h3><a href="https://www.perfil.com/noticias/politica/lla-no-logra-firmar-dictamen-por-la-ley-malvinas-y-propone-cambios-que-no-alcanzan-a-la-oposicion-a60.phtml" target="_blank" rel="noopener">El Gobierno no logra firmar dictamen por la Ley Malvinas y propone cambios que &#34;no alcanzan&#34; para la oposición</a></h3>
+<p class="bajada">En el cuarto plenario en Diputados, el oficialismo rechazó dividir la Ley Malvinas. La oposición cuestionó la ausencia de los ministros de Defensa y Cancillería y el proyecto sigue sin dictamen. Leer más</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">DNU 70/2023</span>    </div>
+    <div class="medios">
+<a href="https://www.perfil.com/noticias/politica/lla-no-logra-firmar-dictamen-por-la-ley-malvinas-y-propone-cambios-que-no-alcanzan-a-la-oposicion-a60.phtml" target="_blank" rel="noopener" title="El Gobierno no logra firmar dictamen por la Ley Malvinas y propone cambios que &#34;no alcanzan&#34; para la oposición">Perfil ↗</a><a href="https://www.clarin.com/politica/oposicion-llega-quorum-rechazar-dnu70-seguian-presiones-diputados_0_i88qMiJMt1.html" target="_blank" rel="noopener" title="La oposición no llega con el quórum para rechazar el DNU/70 y seguían las presiones en Diputados">Clarín ↗</a><a href="https://www.pagina12.com.ar/2026/10/15/el-proyecto-de-defensa-de-la-soberania-no-obtuvo-dictamen/" target="_blank" rel="noopener" title="El proyecto de Defensa de la Soberanía no obtuvo dictamen">Página/12 ↗</a><a href="https://www.a24.com/politica/en-medio-la-marcha-federal-universitaria-el-gobierno-y-la-oposicion-miden-fuerzas-diputados-el-dnu-702023-n1606368" target="_blank" rel="noopener" title="En medio de la Marcha Federal Universitaria, el Gobierno y la oposición miden fuerzas en Diputados por el DNU 70/2023">A24 ↗</a><a href="https://www.cronista.com/mexico/actualidad-mx/proyecto-de-reforma-a-la-ley-general-de-educacion-busca-en-diputado-incluir-clases-de-primeros-auxilios-y-rcp-en-las-escuelas/" target="_blank" rel="noopener" title="Proyecto de reforma de la Ley General de Educación en Diputados: buscan incluir clases de primeros auxilios y RCP en las escuelas">El Cronista ↗</a><a href="https://www.parlamentario.com/2026/10/14/ley-malvinas-sin-acuerdos-cerrados-se-postergo-el-dictamen-y-lla-admitio-que-concedera-cambios/" target="_blank" rel="noopener" title="Ley Malvinas: sin acuerdos cerrados, se postergó el dictamen y LLA admitió que concederá cambios">Parlamentario.com ↗</a><a href="https://tn.com.ar/politica/2026/10/14/diputados-se-reanuda-el-debate-por-malvinas-y-el-oficialismo-busca-cerrar-un-acuerdo-con-los-bloques-aliados/" target="_blank" rel="noopener" title="Diputados: no hubo acuerdo en el debate por Malvinas y el oficialismo posterga la firma del dictamen para la próxima semana">TN ↗</a><a href="https://www.clarin.com/politica/ley-malvinas-oficialismo-consigue-dictamen-hara-modificaciones-proyecto_0_RxwsS16xfa.html" target="_blank" rel="noopener" title="Ley Malvinas: el oficialismo no consigue el dictamen y le hará modificaciones al proyecto">Clarín ↗</a><a href="https://www.ambito.com/politica/defensa-la-soberania-nacional-el-gobierno-admitio-que-cambiara-su-proyecto-diputados-falta-apoyos-n6333829" target="_blank" rel="noopener" title="&#34;Defensa de la Soberanía Nacional&#34;: el Gobierno admitió que cambiará su proyecto en Diputados por falta de apoyos">Ámbito ↗</a><a href="https://www.eldiarioar.com/politica/marcha-congreso-educacion-publica-soberania-universidades-sindicatos-organizaciones-sociales-movilizan-jueves_1_13586401.html" target="_blank" rel="noopener" title="Marcha al Congreso por la educación pública y la soberanía: universidades, sindicatos y organizaciones sociales se movilizan este jueves">elDiarioAR ↗</a><a href="https://www.c5n.com/politica/diputados-debate-comisiones-ley-defensa-soberania-miercoles-14-octubre-2026" target="_blank" rel="noopener" title="Sin dictamen a la vista, Diputados continuó con el debate de la Ley de Defensa de la Soberanía">C5N ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>7</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 8 notas</span>
+    </div>
+    <h3><a href="https://www.infobae.com/politica/2026/10/15/murio-norberto-di-prospero-historico-secretario-general-del-gremio-de-trabajadores-del-congreso/" target="_blank" rel="noopener">Murió Norberto Di Próspero, histórico secretario general del gremio de trabajadores del Congreso</a></h3>
+<p class="bajada">El líder de la Asociación del Personal Legislativo falleció a los 61 años, tras más de dos décadas ininterrumpidas al frente de la representación de los empleados parlamentarios. El peronismo y la CGT despidieron al sindicalista</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.infobae.com/politica/2026/10/15/murio-norberto-di-prospero-historico-secretario-general-del-gremio-de-trabajadores-del-congreso/" target="_blank" rel="noopener" title="Murió Norberto Di Próspero, histórico secretario general del gremio de trabajadores del Congreso">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/murio-norberto-di-prospero-el-historico-lider-del-gremio-de-los-trabajadores-del-congreso-nid15102026/" target="_blank" rel="noopener" title="Murió Norberto Di Próspero, el histórico líder del gremio de los trabajadores del Congreso">La Nación ↗</a><a href="https://www.parlamentario.com/2026/10/14/conmocion-en-el-congreso-legisladores-de-todos-los-bloques-despidieron-a-norberto-di-prospero/" target="_blank" rel="noopener" title="Conmoción en el Congreso: legisladores de todos los bloques despidieron a Norberto Di Próspero">Parlamentario.com ↗</a><a href="https://www.pagina12.com.ar/2026/10/15/murio-norberto-di-prospero-historico-referente-del-sindicalismo-parlamentario/" target="_blank" rel="noopener" title="Murió Norberto Di Próspero, histórico referente del sindicalismo parlamentario">Página/12 ↗</a><a href="https://www.ambito.com/politica/murio-norberto-di-prospero-historico-lider-apl-el-congreso-n6333926" target="_blank" rel="noopener" title="Murió Norberto Di Próspero, histórico referente del gremialismo legislativo">Ámbito ↗</a><a href="https://tn.com.ar/politica/2026/10/14/murio-norberto-di-prospero-historico-dirigente-del-gremio-de-trabajadores-del-congreso/" target="_blank" rel="noopener" title="Murió Norberto Di Próspero, histórico dirigente del gremio de trabajadores del Congreso">TN ↗</a><a href="https://www.clarin.com/politica/murio-norberto-di-prospero-secretario-general-asociacion-personal-legislativo_0_cy9oaurOgX.html" target="_blank" rel="noopener" title="Murió Norberto Di Próspero, secretario general de la Asociación del Personal Legislativo">Clarín ↗</a><a href="https://www.parlamentario.com/2026/10/14/murio-norberto-di-prospero-historico-secretario-general-de-apl-y-referente-del-sindicalismo-legislativo/" target="_blank" rel="noopener" title="Murió Norberto Di Próspero, histórico secretario general de APL y referente del sindicalismo legislativo">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>6</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 9 notas</span>
+    </div>
+    <h3><a href="https://www.c5n.com/politica/presupuesto-2027-el-secretario-trabajo-admitio-que-preocupa-la-informalidad-y-defendio-el-proyecto-n251596" target="_blank" rel="noopener">Presupuesto 2027: el secretario de Trabajo admitió que &#34;preocupa la informalidad&#34; y defendió el proyecto</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Proyecto</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.c5n.com/politica/presupuesto-2027-el-secretario-trabajo-admitio-que-preocupa-la-informalidad-y-defendio-el-proyecto-n251596" target="_blank" rel="noopener" title="Presupuesto 2027: el secretario de Trabajo admitió que &#34;preocupa la informalidad&#34; y defendió el proyecto">C5N ↗</a><a href="https://www.clarin.com/politica/presupuesto-2027-advierten-proyecto-elimina-movilidad-automatica-auh-asignaciones-familiares_0_XMeBReethN.html" target="_blank" rel="noopener" title="Presupuesto 2027: advierten que el proyecto elimina la movilidad automática de la AUH y las asignaciones familiares">Clarín ↗</a><a href="https://www.parlamentario.com/2026/10/14/cordero-defendio-el-trabajo-autonomo-y-aseguro-que-muchos-no-quieren-trabajar-en-relacion-de-dependencia/" target="_blank" rel="noopener" title="Cordero defendió el trabajo autónomo y aseguró que “muchos no quieren trabajar en relación de dependencia”">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/10/14/presupuesto-2027-especialistas-en-ninez-alertan-por-la-derogacion-de-las-actualizaciones-automaticas-de-las-asignaciones-familiares/" target="_blank" rel="noopener" title="Presupuesto 2027: especialistas en niñez alertan por la derogación de las actualizaciones automáticas de las asignaciones familiares">Parlamentario.com ↗</a><a href="https://tn.com.ar/politica/2026/10/14/el-gobierno-defendio-el-presupuesto-2027-en-diputados-busca-sostener-el-equilibrio-fiscal/" target="_blank" rel="noopener" title="Presupuesto 2027: el Gobierno defendió el monotributo y hubo cruces por los fondos para discapacidad">TN ↗</a><a href="https://www.clarin.com/politica/diputados-secretario-trabajo-defendio-presupuesto-pidio-ampliar-monotributo-combatir-informalidad_0_nxYG6aDB9I.html" target="_blank" rel="noopener" title="Diputados: el secretario de Trabajo defendió el Presupuesto y pidió ampliar el monotributo para combatir la informalidad">Clarín ↗</a><a href="https://www.ambito.com/politica/julio-cordero-hay-personas-que-no-quieren-trabajar-relacion-dependencia-n6333717" target="_blank" rel="noopener" title="Julio Cordero, secretario de Trabajo: &#34;Hay personas que no quieren trabajar en relación de dependencia&#34;">Ámbito ↗</a><a href="https://www.letrap.com.ar/congreso/presupuesto-2027-julio-cordero-aseguro-que-no-el-empleo-pero-pidio-promover-el-monotributo-n5427351" target="_blank" rel="noopener" title="Presupuesto 2027: Julio Cordero aseguró que no bajó el empleo, pero pidió promover el monotributo">Letra P ↗</a><a href="https://www.parlamentario.com/2026/10/14/nos-preocupa-la-informalidad-afirmo-cordero-y-pidio-sumarse-al-monotributo/" target="_blank" rel="noopener" title="“Nos preocupa la informalidad”, afirmó Cordero y pidió sumarse al monotributo">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>6</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://tn.com.ar/politica/2026/10/15/diputados-la-oposicion-no-tiene-quorum-asegurado-y-acelera-negociaciones-para-la-sesion-en-la-que-busca-rechazar-el-dnu-de-milei/" target="_blank" rel="noopener">Diputados: la oposición aún no tiene quórum asegurado y acelera negociaciones para la sesión en la que busca rechazar el DNU de Milei</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">DNU 70/23</span>    </div>
+    <div class="medios">
+<a href="https://tn.com.ar/politica/2026/10/15/diputados-la-oposicion-no-tiene-quorum-asegurado-y-acelera-negociaciones-para-la-sesion-en-la-que-busca-rechazar-el-dnu-de-milei/" target="_blank" rel="noopener" title="Diputados: la oposición aún no tiene quórum asegurado y acelera negociaciones para la sesión en la que busca rechazar el DNU de Milei">TN ↗</a><a href="https://www.parlamentario.com/2026/10/15/lousteau-presiona-por-el-quorum-y-apunta-a-diputados-del-pj-del-norte-y-sectores-cercanos-a-larreta/" target="_blank" rel="noopener" title="Lousteau presiona por el quórum y apunta a diputados del PJ del Norte y sectores cercanos a Larreta">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/diputados-hoy-vivo-oposicion-busca-derribar-dnu-7023-todavia-dudas-quorum-abrir-sesion_0_Fm3GbMMPOX.html" target="_blank" rel="noopener" title="Diputados hoy, EN VIVO: la oposición busca derribar el DNU 70/23, pero todavía hay dudas sobre el quórum para abrir la sesión">Clarín ↗</a><a href="https://www.infobae.com/politica/2026/10/15/sesion-clave-en-diputados-el-gobierno-confia-en-los-aliados-pero-aun-hay-dudas-sobre-las-chances-de-exito-y-se-ataja/" target="_blank" rel="noopener" title="Sesión clave en Diputados: el Gobierno confía en los aliados para blindar el Decreto 70, aún hay dudas sobre las chances de éxito">Infobae ↗</a><a href="https://www.ambito.com/politica/la-oposicion-pone-prueba-los-aliados-javier-milei-una-sesion-quorum-incierto-n6333666" target="_blank" rel="noopener" title="La oposición pone a prueba a los aliados de Javier Milei en una sesión con quórum incierto">Ámbito ↗</a><a href="https://www.c5n.com/politica/jornada-caliente-sesion-diputados-marcha-universitaria-milei-estados-unidos-15-octubre-2026" target="_blank" rel="noopener" title="Jornada caliente en el Congreso: sesión en Diputados y movilización masiva, con Javier Milei en Estados Unidos">C5N ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4><span class="hoy-tag">Hoy</span>Jueves 15 de octubre</h4>
+    <div class="ev sesion ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Diputados · Sesión especial</span>
+</span>
+      <div class="det">
+A SOLICITUD DEL DIPUTADO GERMÁN MARTÍNEZ Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Orden del Día 433. Ley sobre Endeudamiento Familiar. Establecimiento. - PE-203/23. Mensaje 0001/24. Comunicación del…<details><summary>ver temario completo</summary>A SOLICITUD DEL DIPUTADO GERMÁN MARTÍNEZ Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Orden del Día 433. Ley sobre Endeudamiento Familiar. Establecimiento. - PE-203/23. Mensaje 0001/24. Comunicación del dictado del Decreto de Necesidad y Urgencia 70/23, sobre Bases para la Reconstrucción de la Economía Argentina. (Nomenclatura de expediente correspondiente al H. Senado). - Orden del Día 350. Ley 27.793, de Emergencia Nacional en Discapacidad. Prórroga hasta el 31 de diciembre de 2027 inclusive.</details>      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Reunión de la comisión de labor parlamentaria</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · SALÓN DELIA PARODI · ver temario</summary>A LAS AUTORIDADES Y PRESIDENTES DE BLOQUES A FIN DE COORDINAR EL DESARROLLO DE LA SESIÓN CITADA PARA EL DÍA DE LA FECHA</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Relaciones Exteriores y Culto y de Industria y Comercio</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: expte. PE 854/97, mensaje N.º 1451/97 y proyecto de ley aprobando el Tratado de Cooperación en materia de Patentes (PCT), elaborado en Washington el 19 de junio de 1970, enmendado el 28 de septiembre de 1979 y modificado el 3 de febrero de 1984, y el Reglamento del Tratado de Cooperación en materia de Patentes (PCT), que entró en vigor el 1 de enero de 1993.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:30</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Salud y de Legislación General</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: expte. PE-99/26 - mensaje nº 108/26 y proyecto de ley sobre modificaciones a la ley de salud mental nº 26.657.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Martes 20 de octubre</h4>
+    <div class="ev comision ">
+      <span class="hora">15:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Energia y combustibles</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados expertos quienes expondrán sobre el proyecto de ley por el cual se regulan las actividades de elaboración, almacenaje, comercialización, mezcla y autoconsumo de biocombustibles en el territorio nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1362/archivo/GM7MY3WN89XHVYPG.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión informativa de la Comisión de Coparticipación Federal de Impuestos</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: se recibirá a autoridades y especialistas con el fin de abordar la temática “Repensar la coparticipación: del diseño federal a la realidad de las Provincias”. Expositores: Cdor. Roberto Dib Ashur, ministro de Economía de la Provincia de Salta Dr. Guido Zack, director de Economía de Fundar Lic. Lisandro Nieri, diputado nacional Lic. Luciano Laspina - director ejecutivo de CIPPEC. La actividad requiere inscripción a través del siguiente formulario.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 21 de octubre</h4>
+    <div class="ev sesion ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Diputados · Sesión especial</span>
+</span>
+      <div class="det">
+A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes…<details><summary>ver temario completo</summary>A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes 21.499, de expropiaciones y 24.374, de regularización dominial. - Orden del Día 349. Módulo informático interoperable con el Sistema de Trazabilidad de Medicamentos de Alto Riesgo –MAR– y de sus Ingredientes Farmacéuticos Activos –IFA–. Creación. - Orden del Día 447. Código Penal. Modificaciones sobre Vandalismo Rural. - Orden del Día 442. Inmueble propiedad del Estado nacional, Centro de Acopio y Embarque Barranqueras –CAEB–, en la localidad de Barranqueras, departamento San Fernando, provincia del Chaco. Transferencia a título gratuito a la provincia del Chaco. - Orden del Día…</details>      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 48 · los días sin corrida quedan vacíos</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  sin-datos"
+           data-tip="Ju 8: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  sin-datos"
+           data-tip="Vi 9: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  sin-datos"
+           data-tip="Sá 10: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 11: 30 notas">
+        <div class="c" style="height: 25.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 12: 38 notas">
+        <div class="c" style="height: 32.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 13: 48 notas">
+        <div class="c" style="height: 40.7%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 14: 76 notas">
+        <div class="c" style="height: 64.4%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Ju 15: 118 notas">
+<span class="cap">118</span>        <div class="c" style="height: 100.0%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Ju 8</span><span class="">Vi 9</span><span class="">Sá 10</span><span class="">Do 11</span><span class="">Lu 12</span><span class="">Ma 13</span><span class="">Mi 14</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 21 hoy · promedio 7.5">
+        <span class="bar" style="width: 100.0%"></span><span class="v">21</span>
+<span class="tick" style="left: calc(35.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 17 hoy · promedio 4.8">
+        <span class="bar" style="width: 81.0%"></span><span class="v">17</span>
+<span class="tick" style="left: calc(22.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 14 hoy · promedio 4.5">
+        <span class="bar" style="width: 66.7%"></span><span class="v">14</span>
+<span class="tick" style="left: calc(21.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 9 hoy · promedio 2.5">
+        <span class="bar" style="width: 42.9%"></span><span class="v">9</span>
+<span class="tick" style="left: calc(11.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Perfil">Perfil</span>
+      <span class="track" data-tip="Perfil: 9 hoy · promedio 4.8">
+        <span class="bar" style="width: 42.9%"></span><span class="v">9</span>
+<span class="tick" style="left: calc(22.6% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 9 hoy · promedio 3.0">
+        <span class="bar" style="width: 42.9%"></span><span class="v">9</span>
+<span class="tick" style="left: calc(14.3% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 8 hoy · promedio 3.5">
+        <span class="bar" style="width: 38.1%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(16.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 7 hoy · promedio 1.0">
+        <span class="bar" style="width: 33.3%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(4.8% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 6 hoy · promedio 0.2">
+        <span class="bar" style="width: 28.6%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(1.2% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 5 hoy · promedio 1.0">
+        <span class="bar" style="width: 23.8%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(4.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 4 hoy · promedio 2.2">
+        <span class="bar" style="width: 19.0%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(10.7% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 3 hoy · promedio 2.2">
+        <span class="bar" style="width: 14.3%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(10.7% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 2 hoy · promedio 1.0">
+        <span class="bar" style="width: 9.5%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(4.8% - 1px)"></span>      </span>
+      <span class="lbl" title="LN+">LN+</span>
+      <span class="track" data-tip="LN+: 2 hoy · promedio 0.2">
+        <span class="bar" style="width: 9.5%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(1.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 1.2">
+        <span class="bar" style="width: 4.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.0% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 1 hoy · promedio 0.8">
+        <span class="bar" style="width: 4.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(3.6% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="LLA reflota la ley de Tierras del kirchnerismo para blindar el DNU 70 y complicar la sesión opositora">1. LLA reflota la ley de Tierras del kirchnerismo para blindar el DNU 70 y complicar la sesión opositora</span>
+      <span class="track" data-tip="LLA reflota la ley de Tierras del kirchnerismo para blindar el DNU 70 y complicar la sesión opositora — 14 notas, 12 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">14 (12)</span>
+      </span>
+      <span class="lbl" title="El Gobierno no logra firmar dictamen por la Ley Malvinas y propone cambios que &#34;no alcanzan&#34; para la oposición">2. El Gobierno no logra firmar dictamen por la Ley Malvinas y propone cambios que &#34;no alcanzan&#34; para la oposición</span>
+      <span class="track" data-tip="El Gobierno no logra firmar dictamen por la Ley Malvinas y propone cambios que &#34;no alcanzan&#34; para la oposición — 11 notas, 10 medios">
+        <span class="bar" style="width: 78.6%"></span><span class="v">11 (10)</span>
+      </span>
+      <span class="lbl" title="Murió Norberto Di Próspero, histórico secretario general del gremio de trabajadores del Congreso">3. Murió Norberto Di Próspero, histórico secretario general del gremio de trabajadores del Congreso</span>
+      <span class="track" data-tip="Murió Norberto Di Próspero, histórico secretario general del gremio de trabajadores del Congreso — 8 notas, 7 medios">
+        <span class="bar" style="width: 57.1%"></span><span class="v">8 (7)</span>
+      </span>
+      <span class="lbl" title="Presupuesto 2027: el secretario de Trabajo admitió que &#34;preocupa la informalidad&#34; y defendió el proyecto">4. Presupuesto 2027: el secretario de Trabajo admitió que &#34;preocupa la informalidad&#34; y defendió el proyecto</span>
+      <span class="track" data-tip="Presupuesto 2027: el secretario de Trabajo admitió que &#34;preocupa la informalidad&#34; y defendió el proyecto — 9 notas, 6 medios">
+        <span class="bar" style="width: 64.3%"></span><span class="v">9 (6)</span>
+      </span>
+      <span class="lbl" title="Diputados: la oposición aún no tiene quórum asegurado y acelera negociaciones para la sesión en la que busca rechazar el DNU de Milei">5. Diputados: la oposición aún no tiene quórum asegurado y acelera negociaciones para la sesión en la que busca rechazar el DNU de Milei</span>
+      <span class="track" data-tip="Diputados: la oposición aún no tiene quórum asegurado y acelera negociaciones para la sesión en la que busca rechazar el DNU de Milei — 6 notas, 6 medios">
+        <span class="bar" style="width: 42.9%"></span><span class="v">6 (6)</span>
+      </span>
+      <span class="lbl" title="Marcha Universitaria y contra el DNU 70/2023, en vivo: las últimas noticias de las protestas en Congreso">6. Marcha Universitaria y contra el DNU 70/2023, en vivo: las últimas noticias de las protestas en Congreso</span>
+      <span class="track" data-tip="Marcha Universitaria y contra el DNU 70/2023, en vivo: las últimas noticias de las protestas en Congreso — 7 notas, 5 medios">
+        <span class="bar" style="width: 50.0%"></span><span class="v">7 (5)</span>
+      </span>
+      <span class="lbl" title="Presentaron los cambios de la reforma a la Ley de Salud Mental y quieren llevarlo al recinto la próxima semana">7. Presentaron los cambios de la reforma a la Ley de Salud Mental y quieren llevarlo al recinto la próxima semana</span>
+      <span class="track" data-tip="Presentaron los cambios de la reforma a la Ley de Salud Mental y quieren llevarlo al recinto la próxima semana — 5 notas, 5 medios">
+        <span class="bar" style="width: 35.7%"></span><span class="v">5 (5)</span>
+      </span>
+      <span class="lbl" title="Con la cancha empinada hacia arriba, la oposición intentará voltear el DNU 70/23">8. Con la cancha empinada hacia arriba, la oposición intentará voltear el DNU 70/23</span>
+      <span class="track" data-tip="Con la cancha empinada hacia arriba, la oposición intentará voltear el DNU 70/23 — 4 notas, 4 medios">
+        <span class="bar" style="width: 28.6%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="En Washington, Quirno firmó un protocolo adicional para acelerar la aprobación del acuerdo comercial con EE.UU. en el Congreso">9. En Washington, Quirno firmó un protocolo adicional para acelerar la aprobación del acuerdo comercial con EE.UU. en el Congreso</span>
+      <span class="track" data-tip="En Washington, Quirno firmó un protocolo adicional para acelerar la aprobación del acuerdo comercial con EE.UU. en el Congreso — 4 notas, 4 medios">
+        <span class="bar" style="width: 28.6%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Máximo K dijo que Macri fue “peor” que Milei y dejó una advertencia sobre el RIGI">10. Máximo K dijo que Macri fue “peor” que Milei y dejó una advertencia sobre el RIGI</span>
+      <span class="track" data-tip="Máximo K dijo que Macri fue “peor” que Milei y dejó una advertencia sobre el RIGI — 3 notas, 3 medios">
+        <span class="bar" style="width: 21.4%"></span><span class="v">3 (3)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>LN+</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Perfil</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="lla reflota la ley de tierras del kirchnerismo para blindar el dnu 70 y complicar la sesión opositora en un plenario de comisiones, el oficialismo dejó listo para llevar al recinto el proyecto de inviolabilidad de la propiedad privada, aprobado en el senado, pero con un cambio: incluye la eliminación del artículo del decreto que deroga la ley que le pone límites a la venta de tierras rurales a… inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>1</b> · 12 medios<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">17:26</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/lla-reflota-la-ley-tierras-del-kirchnerismo-blindar-el-dnu-70-y-complicar-la-sesion-opositora-n6333817" target="_blank" rel="noopener">LLA reflota la ley de Tierras del kirchnerismo para blindar el DNU 70 y complicar la sesión opositora</a><div class="baj">En un plenario de comisiones, el oficialismo dejó listo para llevar al recinto el proyecto de Inviolabilidad de la Propiedad Privada, aprobado en el Senado, pero con un cambio: incluye la eliminación del artículo del decreto que deroga la ley que le pone límites a la venta de tierras rurales a…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno acordó con los aliados restituir los límites a la venta de tierras para blindar el dnu 70/23 buscan evitar que la oposición llegue al quórum mañana en la sesión donde pretenden derogar el mega decreto de milei. los libertarios introdujeron un nuevo capítulo al proyecto de inviolabilidad de propiedad privada. volverá a regir el tope del 15% de la norma aprobada por el kirchnerismo en… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">08:08</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/el-gobierno-acordo-con-los-aliados-restituir-los-limites-a-la-venta-de-tierras-para-blindar-el-dnu-7023/" target="_blank" rel="noopener">El Gobierno acordó con los aliados restituir los límites a la venta de tierras para blindar el DNU 70/23</a><div class="baj">Buscan evitar que la oposición llegue al quórum mañana en la sesión donde pretenden derogar el mega decreto de Milei. Los libertarios introdujeron un nuevo capítulo al proyecto de Inviolabilidad de Propiedad Privada. Volverá a regir el tope del 15% de la norma aprobada por el kirchnerismo en…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="con el quórum en duda, la oposición buscará derogar el dnu 70 y prorrogar la emergencia en discapacidad ayer el oficialismo acordó con sus aliados restituir los límites a la venta de tierras para restarle apoyo a la convocatoria. los gobernadores de salta, catamarca y tucumán terminarán de inclinar la balanza. también se tratarán los proyectos sobre endeudamiento familiar y mora inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">08:02</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/con-el-quorum-en-duda-la-oposicion-buscara-derogar-el-dnu-70-y-prorrogar-la-emergencia-en-discapacidad/" target="_blank" rel="noopener">Con el quórum en duda, la oposición buscará derogar el DNU 70 y prorrogar la emergencia en discapacidad</a><div class="baj">Ayer el oficialismo acordó con sus aliados restituir los límites a la venta de tierras para restarle apoyo a la convocatoria. Los gobernadores de Salta, Catamarca y Tucumán terminarán de inclinar la balanza. También se tratarán los proyectos sobre endeudamiento familiar y mora</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="el gobierno mete la restitución de la ley de tierras en el proyecto de sturzenegger y desactiva la sesión opositora la estrategia del gobierno es vaciar la sesión del jueves de su principal incentivo: el rechazo social a la derogación de la ley de tierras. menem modificó el proyecto de inviolabilidad de la propiedad privada e introdujo un artículo que deroga el artículo 154 del dnu y restituye la ley de tierras… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:36</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/gobierno-mete-restitucion-ley-tierras-proyecto-sturzenegger-desactiva-sesion-opositora_1_13586651.html" target="_blank" rel="noopener">El Gobierno mete la restitución de la Ley de Tierras en el proyecto de Sturzenegger y desactiva la sesión opositora</a><div class="baj">La estrategia del Gobierno es vaciar la sesión del jueves de su principal incentivo: el rechazo social a la derogación de la Ley de Tierras. Menem modificó el proyecto de Inviolabilidad de la Propiedad Privada e introdujo un artículo que deroga el artículo 154 del DNU y restituye la Ley de Tierras…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Perfil" data-texto="el gobierno apuesta a que la sesión para derogar el dnu 70 no llegue al quórum tras restituir la ley de tierras con un dictamen que deroga el artículo 154 y repone la norma de 2011, el oficialismo y sus aliados le quitan el argumento a los bloques provinciales que dudan. hasta el momento, la oposición no reuniría el número necesario para activar el recinto. leer más inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">05:31</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/diputados-el-gobierno-apuesta-a-que-la-sesion-opositora-no-llegue-al-quorum-tras-restituir-la-ley-de-tierras-a60.phtml" target="_blank" rel="noopener">El Gobierno apuesta a que la sesión para derogar el DNU 70 no llegue al quórum tras restituir la Ley de Tierras</a><div class="baj">Con un dictamen que deroga el artículo 154 y repone la norma de 2011, el oficialismo y sus aliados le quitan el argumento a los bloques provinciales que dudan. Hasta el momento, la oposición no reuniría el número necesario para activar el recinto. Leer más</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Perfil" data-texto="restituyen la ley de tierras para blindar el proyecto de inviolabilidad de la propiedad privada el oficialismo cedió en el proyecto sobre propiedad privada y restituyó la vigencia de la ley de tierras para destrabar el dictamen. la negociación se dio mientras crece la presión opositora para rechazar el dnu 70/2023 en el recinto. leer más inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">21:03</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/se-dictamino-inviolabilidad-propiedad-privada-tras-restituir-ley-tierras.phtml" target="_blank" rel="noopener">Restituyen la Ley de Tierras para blindar el proyecto de Inviolabilidad de la Propiedad Privada</a><div class="baj">El oficialismo cedió en el proyecto sobre propiedad privada y restituyó la vigencia de la Ley de Tierras para destrabar el dictamen. La negociación se dio mientras crece la presión opositora para rechazar el DNU 70/2023 en el recinto. Leer más</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="el gobierno repone los límites a la venta de tierras para contener a sus aliados y desactivar la sesión opositora el oficialismo los incluyó en el proyecto de propiedad privada para evitar un revés en diputados y blindar el dnu 70/23 de milei inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">20:59</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-gobierno-incluyo-un-capitulo-de-ley-de-tierras-en-el-proyecto-de-propiedad-privada-para-blindar-nid14102026/" target="_blank" rel="noopener">El Gobierno repone los límites a la venta de tierras para contener a sus aliados y desactivar la sesión opositora</a><div class="baj">El oficialismo los incluyó en el proyecto de propiedad privada para evitar un revés en Diputados y blindar el DNU 70/23 de Milei</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Letra P" data-texto="ley de tierras: el gobierno restableció los límites a los extranjeros que puso cfk para salvar el dnu 70/23  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">19:53</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/ley-tierras-la-libertad-avanza-fijo-limites-los-extranjeros-y-le-allana-el-camino-la-corte-suprema-n5427371" target="_blank" rel="noopener">Ley de Tierras: el Gobierno restableció los límites a los extranjeros que puso CFK para salvar el DNU 70/23</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Clarín" data-texto="para que no se caiga el dnu 70, el oficialismo busca restituir los límites a la compra de tierras por los extranjeros  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">19:46</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/oficialismo-impulsa-restitucion-ley-tierras-proteger-dnu-milei-bloquear-sesion-opositora_0_6wefPGhvsk.html" target="_blank" rel="noopener">Para que no se caiga el DNU 70, el oficialismo busca restituir los límites a la compra de tierras por los extranjeros</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="A24" data-texto="el gobierno aceptó restituir los límites a la venta de tierras y logró dictamen para la ley de propiedad privada  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">19:42</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/el-gobierno-acepto-restituir-los-limites-la-venta-tierras-y-logro-dictamen-la-ley-propiedad-privada-n1606466" target="_blank" rel="noopener">El Gobierno aceptó restituir los límites a la venta de tierras y logró dictamen para la ley de Propiedad Privada</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="TN" data-texto="el oficialismo aceptó restituir las restricciones de la venta de tierras a extranjeros para garantizar la aprobación del proyecto sobre propiedad privada  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">19:31</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/14/lla-acepto-restituir-las-restricciones-a-la-venta-de-tierras-a-extranjeros-para-sellar-la-sancion-de-la-ley-de-propiedad-privada/" target="_blank" rel="noopener">El oficialismo aceptó restituir las restricciones de la venta de tierras a extranjeros para garantizar la aprobación del proyecto sobre propiedad privada</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="El Cronista" data-texto="el oficialismo repuso la ley de tierras dentro de la reforma de propiedad privada para salvar el dnu 70/2023  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">18:25</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/el-oficialismo-dictamino-propiedad-privada-y-repuso-la-ley-de-tierras-para-salvar-el-dnu-70/" target="_blank" rel="noopener">El oficialismo repuso la ley de Tierras dentro de la reforma de Propiedad Privada para salvar el DNU 70/2023</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="C5N" data-texto="lla dictaminó la restitución de la ley de tierras y busca desactivar la sesión contra el dnu 70/23  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">18:25</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/lla-dictamino-la-restitucion-la-ley-tierras-y-busca-desactivar-la-sesion-contra-el-dnu-7023-n251625" target="_blank" rel="noopener">LLA dictaminó la restitución de la Ley de Tierras y busca desactivar la sesión contra el DNU 70/23</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="con la revalidación de la ley de tierras, se dictaminó inviolabilidad de la propiedad privada en la previa de la sesión especial que pretende reunir quórum para tratar el dnu 70/2023, el plenario de asuntos constitucionales y legislación general pasó a la firma el proyecto de sturzenegger con modificaciones. en caso de prosperar, volverá al senado, donde dejaron trascender cierta… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">17:54</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/con-la-revalidacion-de-la-ley-de-tierras-se-dictamino-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener">Con la revalidación de la Ley de Tierras, se dictaminó Inviolabilidad de la Propiedad Privada</a><div class="baj">En la previa de la sesión especial que pretende reunir quórum para tratar el DNU 70/2023, el plenario de Asuntos Constitucionales y Legislación General pasó a la firma el proyecto de Sturzenegger con modificaciones. En caso de prosperar, volverá al Senado, donde dejaron trascender cierta…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="el gobierno no logra firmar dictamen por la ley malvinas y propone cambios que &#34;no alcanzan&#34; para la oposición en el cuarto plenario en diputados, el oficialismo rechazó dividir la ley malvinas. la oposición cuestionó la ausencia de los ministros de defensa y cancillería y el proyecto sigue sin dictamen. leer más dnu 70/2023">
+        <td class="tema-col"><b>2</b> · 10 medios<br>DNU 70/2023</td>
+        <td class="num">18:25</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/lla-no-logra-firmar-dictamen-por-la-ley-malvinas-y-propone-cambios-que-no-alcanzan-a-la-oposicion-a60.phtml" target="_blank" rel="noopener">El Gobierno no logra firmar dictamen por la Ley Malvinas y propone cambios que &#34;no alcanzan&#34; para la oposición</a><div class="baj">En el cuarto plenario en Diputados, el oficialismo rechazó dividir la Ley Malvinas. La oposición cuestionó la ausencia de los ministros de Defensa y Cancillería y el proyecto sigue sin dictamen. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="la oposición no llega con el quórum para rechazar el dnu/70 y seguían las presiones en diputados el peronismo junto a los bloques díscolos no tienen los 129 diputados para abrir el debate. el oficialismo esperaba tranquilo porque tiene el apoyo del pro, la ucr y los bloques provinciales. dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">04:01</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/oposicion-llega-quorum-rechazar-dnu70-seguian-presiones-diputados_0_i88qMiJMt1.html" target="_blank" rel="noopener">La oposición no llega con el quórum para rechazar el DNU/70 y seguían las presiones en Diputados</a><div class="baj">El peronismo junto a los bloques díscolos no tienen los 129 diputados para abrir el debate. El oficialismo esperaba tranquilo porque tiene el apoyo del PRO, la UCR y los bloques provinciales.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="el proyecto de defensa de la soberanía no obtuvo dictamen  dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">00:09</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/15/el-proyecto-de-defensa-de-la-soberania-no-obtuvo-dictamen/" target="_blank" rel="noopener">El proyecto de Defensa de la Soberanía no obtuvo dictamen</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="A24" data-texto="en medio de la marcha federal universitaria, el gobierno y la oposición miden fuerzas en diputados por el dnu 70/2023  dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">22:54</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/en-medio-la-marcha-federal-universitaria-el-gobierno-y-la-oposicion-miden-fuerzas-diputados-el-dnu-702023-n1606368" target="_blank" rel="noopener">En medio de la Marcha Federal Universitaria, el Gobierno y la oposición miden fuerzas en Diputados por el DNU 70/2023</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="El Cronista" data-texto="proyecto de reforma de la ley general de educación en diputados: buscan incluir clases de primeros auxilios y rcp en las escuelas el diputado ernesto sánchez rodríguez, del pan, propuso reformar la ley general de educación para incorporar primeros auxilios y reanimación cardiopulmonar en las escuelas y capacitar a futuros docentes. dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">22:43</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/mexico/actualidad-mx/proyecto-de-reforma-a-la-ley-general-de-educacion-busca-en-diputado-incluir-clases-de-primeros-auxilios-y-rcp-en-las-escuelas/" target="_blank" rel="noopener">Proyecto de reforma de la Ley General de Educación en Diputados: buscan incluir clases de primeros auxilios y RCP en las escuelas</a><div class="baj">El diputado Ernesto Sánchez Rodríguez, del PAN, propuso reformar la Ley General de Educación para incorporar primeros auxilios y reanimación cardiopulmonar en las escuelas y capacitar a futuros docentes.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="ley malvinas: sin acuerdos cerrados, se postergó el dictamen y lla admitió que concederá cambios durante el plenario de comisiones de la cámara de diputados, se desarrolló un debate en el que la oposición insistió con dividir la iniciativa, algo rechazado por el oficialismo. negocian modificaciones con aliados. la entrada ley malvinas: sin acuerdos cerrados, se postergó el dictamen y lla… dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">19:33</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/ley-malvinas-sin-acuerdos-cerrados-se-postergo-el-dictamen-y-lla-admitio-que-concedera-cambios/" target="_blank" rel="noopener">Ley Malvinas: sin acuerdos cerrados, se postergó el dictamen y LLA admitió que concederá cambios</a><div class="baj">Durante el plenario de comisiones de la Cámara de Diputados, se desarrolló un debate en el que la oposición insistió con dividir la iniciativa, algo rechazado por el oficialismo. Negocian modificaciones con aliados. La entrada Ley Malvinas: sin acuerdos cerrados, se postergó el dictamen y LLA…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="diputados: no hubo acuerdo en el debate por malvinas y el oficialismo posterga la firma del dictamen para la próxima semana  dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">19:16</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/14/diputados-se-reanuda-el-debate-por-malvinas-y-el-oficialismo-busca-cerrar-un-acuerdo-con-los-bloques-aliados/" target="_blank" rel="noopener">Diputados: no hubo acuerdo en el debate por Malvinas y el oficialismo posterga la firma del dictamen para la próxima semana</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="ley malvinas: el oficialismo no consigue el dictamen y le hará modificaciones al proyecto  dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">19:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/ley-malvinas-oficialismo-consigue-dictamen-hara-modificaciones-proyecto_0_RxwsS16xfa.html" target="_blank" rel="noopener">Ley Malvinas: el oficialismo no consigue el dictamen y le hará modificaciones al proyecto</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="&#34;defensa de la soberanía nacional&#34;: el gobierno admitió que cambiará su proyecto en diputados por falta de apoyos existe consenso para mayores sanciones a las actividades comerciales en malvinas, pero no sobre las reformas de seguridad interior. la oposición gana adeptos para fragmentar el proyecto. dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">18:27</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/defensa-la-soberania-nacional-el-gobierno-admitio-que-cambiara-su-proyecto-diputados-falta-apoyos-n6333829" target="_blank" rel="noopener">&#34;Defensa de la Soberanía Nacional&#34;: el Gobierno admitió que cambiará su proyecto en Diputados por falta de apoyos</a><div class="baj">Existe consenso para mayores sanciones a las actividades comerciales en Malvinas, pero no sobre las reformas de seguridad interior. La oposición gana adeptos para fragmentar el proyecto.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="marcha al congreso por la educación pública y la soberanía: universidades, sindicatos y organizaciones sociales se movilizan este jueves la quinta marcha federal universitaria confluirá con una protesta contra el dnu 70/2023 y en defensa de la ley de tierras. la convocatoria también incluye reclamos por la emergencia en discapacidad y el endeudamiento de las familias. habrá manifestaciones en distintas provincias, mientras la… dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">16:45</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/marcha-congreso-educacion-publica-soberania-universidades-sindicatos-organizaciones-sociales-movilizan-jueves_1_13586401.html" target="_blank" rel="noopener">Marcha al Congreso por la educación pública y la soberanía: universidades, sindicatos y organizaciones sociales se movilizan este jueves</a><div class="baj">La quinta Marcha Federal Universitaria confluirá con una protesta contra el DNU 70/2023 y en defensa de la Ley de Tierras. La convocatoria también incluye reclamos por la emergencia en discapacidad y el endeudamiento de las familias. Habrá manifestaciones en distintas provincias, mientras la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="C5N" data-texto="sin dictamen a la vista, diputados continuó con el debate de la ley de defensa de la soberanía  dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">15:00</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/diputados-debate-comisiones-ley-defensa-soberania-miercoles-14-octubre-2026" target="_blank" rel="noopener">Sin dictamen a la vista, Diputados continuó con el debate de la Ley de Defensa de la Soberanía</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="murió norberto di próspero, histórico secretario general del gremio de trabajadores del congreso el líder de la asociación del personal legislativo falleció a los 61 años, tras más de dos décadas ininterrumpidas al frente de la representación de los empleados parlamentarios. el peronismo y la cgt despidieron al sindicalista ">
+        <td class="tema-col"><b>3</b> · 7 medios</td>
+        <td class="num">22:43</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/murio-norberto-di-prospero-historico-secretario-general-del-gremio-de-trabajadores-del-congreso/" target="_blank" rel="noopener">Murió Norberto Di Próspero, histórico secretario general del gremio de trabajadores del Congreso</a><div class="baj">El líder de la Asociación del Personal Legislativo falleció a los 61 años, tras más de dos décadas ininterrumpidas al frente de la representación de los empleados parlamentarios. El peronismo y la CGT despidieron al sindicalista</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="murió norberto di próspero, el histórico líder del gremio de los trabajadores del congreso el sindicalista de 61 años condujo la asociación del personal legislativo durante más de dos décadas; el sindicato anunció dos días de cierre por duelo y los diputados de unión por la patria expresaron sus condolencias ">
+        <td class="tema-col"></td>
+        <td class="num">09:35</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/murio-norberto-di-prospero-el-historico-lider-del-gremio-de-los-trabajadores-del-congreso-nid15102026/" target="_blank" rel="noopener">Murió Norberto Di Próspero, el histórico líder del gremio de los trabajadores del Congreso</a><div class="baj">El sindicalista de 61 años condujo la Asociación del Personal Legislativo durante más de dos décadas; el sindicato anunció dos días de cierre por duelo y los diputados de Unión por la Patria expresaron sus condolencias</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="conmoción en el congreso: legisladores de todos los bloques despidieron a norberto di próspero diputados, senadores y dirigentes sindicales expresaron su pesar por la muerte del secretario general de la asociación del personal legislativo. desde el oficialismo hasta la oposición destacaron su compromiso con la defensa de los trabajadores del congreso. la entrada conmoción en el congreso… ">
+        <td class="tema-col"></td>
+        <td class="num">22:31</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/conmocion-en-el-congreso-legisladores-de-todos-los-bloques-despidieron-a-norberto-di-prospero/" target="_blank" rel="noopener">Conmoción en el Congreso: legisladores de todos los bloques despidieron a Norberto Di Próspero</a><div class="baj">Diputados, senadores y dirigentes sindicales expresaron su pesar por la muerte del secretario general de la Asociación del Personal Legislativo. Desde el oficialismo hasta la oposición destacaron su compromiso con la defensa de los trabajadores del Congreso. La entrada Conmoción en el Congreso…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Página/12" data-texto="murió norberto di próspero, histórico referente del sindicalismo parlamentario  ">
+        <td class="tema-col"></td>
+        <td class="num">22:27</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/15/murio-norberto-di-prospero-historico-referente-del-sindicalismo-parlamentario/" target="_blank" rel="noopener">Murió Norberto Di Próspero, histórico referente del sindicalismo parlamentario</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="murió norberto di próspero, histórico referente del gremialismo legislativo tenía 61 años y conducía el gremio de los trabajadores legislativos desde 2004. también ocupaba cargos en la cgt y encabezaba la felra. ">
+        <td class="tema-col"></td>
+        <td class="num">21:59</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/murio-norberto-di-prospero-historico-lider-apl-el-congreso-n6333926" target="_blank" rel="noopener">Murió Norberto Di Próspero, histórico referente del gremialismo legislativo</a><div class="baj">Tenía 61 años y conducía el gremio de los trabajadores legislativos desde 2004. También ocupaba cargos en la CGT y encabezaba la FELRA.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="TN" data-texto="murió norberto di próspero, histórico dirigente del gremio de trabajadores del congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">21:51</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/14/murio-norberto-di-prospero-historico-dirigente-del-gremio-de-trabajadores-del-congreso/" target="_blank" rel="noopener">Murió Norberto Di Próspero, histórico dirigente del gremio de trabajadores del Congreso</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Clarín" data-texto="murió norberto di próspero, secretario general de la asociación del personal legislativo tenía 61 años. falleció de forma repentina este miércoles. lideraba el gremio de trabajadores del congreso desde 2004. ">
+        <td class="tema-col"></td>
+        <td class="num">21:11</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/murio-norberto-di-prospero-secretario-general-asociacion-personal-legislativo_0_cy9oaurOgX.html" target="_blank" rel="noopener">Murió Norberto Di Próspero, secretario general de la Asociación del Personal Legislativo</a><div class="baj">Tenía 61 años. Falleció de forma repentina este miércoles. Lideraba el gremio de trabajadores del Congreso desde 2004.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="murió norberto di próspero, histórico secretario general de apl y referente del sindicalismo legislativo el dirigente que durante más de dos décadas condujo la asociación del personal legislativo falleció este miércoles de manera repentina. su figura estuvo estrechamente ligada a la defensa de los trabajadores del congreso y a la construcción de una de las estructuras gremiales más influyentes del… ">
+        <td class="tema-col"></td>
+        <td class="num">20:21</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/murio-norberto-di-prospero-historico-secretario-general-de-apl-y-referente-del-sindicalismo-legislativo/" target="_blank" rel="noopener">Murió Norberto Di Próspero, histórico secretario general de APL y referente del sindicalismo legislativo</a><div class="baj">El dirigente que durante más de dos décadas condujo la Asociación del Personal Legislativo falleció este miércoles de manera repentina. Su figura estuvo estrechamente ligada a la defensa de los trabajadores del Congreso y a la construcción de una de las estructuras gremiales más influyentes del…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="C5N" data-texto="presupuesto 2027: el secretario de trabajo admitió que &#34;preocupa la informalidad&#34; y defendió el proyecto  presupuesto 2027">
+        <td class="tema-col"><b>4</b> · 6 medios<br>Presupuesto 2027</td>
+        <td class="num">15:03</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/presupuesto-2027-el-secretario-trabajo-admitio-que-preocupa-la-informalidad-y-defendio-el-proyecto-n251596" target="_blank" rel="noopener">Presupuesto 2027: el secretario de Trabajo admitió que &#34;preocupa la informalidad&#34; y defendió el proyecto</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Clarín" data-texto="presupuesto 2027: advierten que el proyecto elimina la movilidad automática de la auh y las asignaciones familiares  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">19:58</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/presupuesto-2027-advierten-proyecto-elimina-movilidad-automatica-auh-asignaciones-familiares_0_XMeBReethN.html" target="_blank" rel="noopener">Presupuesto 2027: advierten que el proyecto elimina la movilidad automática de la AUH y las asignaciones familiares</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="cordero defendió el trabajo autónomo y aseguró que “muchos no quieren trabajar en relación de dependencia” durante su exposición en la comisión de presupuesto y hacienda, el secretario de trabajo reivindicó la expansión de formas laborales independientes, sostuvo que los salarios medidos en dólares se triplicaron desde fines de 2023 y afirmó que el estado debe concentrar su asistencia en los sectores… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">19:22</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/cordero-defendio-el-trabajo-autonomo-y-aseguro-que-muchos-no-quieren-trabajar-en-relacion-de-dependencia/" target="_blank" rel="noopener">Cordero defendió el trabajo autónomo y aseguró que “muchos no quieren trabajar en relación de dependencia”</a><div class="baj">Durante su exposición en la Comisión de Presupuesto y Hacienda, el secretario de Trabajo reivindicó la expansión de formas laborales independientes, sostuvo que los salarios medidos en dólares se triplicaron desde fines de 2023 y afirmó que el Estado debe concentrar su asistencia en los sectores…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="presupuesto 2027: especialistas en niñez alertan por la derogación de las actualizaciones automáticas de las asignaciones familiares los representantes de unicef, defensoría de la niñez y asociaciones civiles propusieron eliminar el artículo 17 del presupuesto que propone derogar la eliminación de la movilidad automática y el fin de la actualización de rangos. la entrada presupuesto 2027: especialistas en niñez alertan por la… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">19:17</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/presupuesto-2027-especialistas-en-ninez-alertan-por-la-derogacion-de-las-actualizaciones-automaticas-de-las-asignaciones-familiares/" target="_blank" rel="noopener">Presupuesto 2027: especialistas en niñez alertan por la derogación de las actualizaciones automáticas de las asignaciones familiares</a><div class="baj">Los representantes de UNICEF, Defensoría de la Niñez y Asociaciones Civiles propusieron eliminar el artículo 17 del Presupuesto que propone derogar la eliminación de la movilidad automática y el fin de la actualización de rangos. La entrada Presupuesto 2027: especialistas en niñez alertan por la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="TN" data-texto="presupuesto 2027: el gobierno defendió el monotributo y hubo cruces por los fondos para discapacidad  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:42</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/14/el-gobierno-defendio-el-presupuesto-2027-en-diputados-busca-sostener-el-equilibrio-fiscal/" target="_blank" rel="noopener">Presupuesto 2027: el Gobierno defendió el monotributo y hubo cruces por los fondos para discapacidad</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Clarín" data-texto="diputados: el secretario de trabajo defendió el presupuesto y pidió ampliar el monotributo para combatir la informalidad  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:28</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diputados-secretario-trabajo-defendio-presupuesto-pidio-ampliar-monotributo-combatir-informalidad_0_nxYG6aDB9I.html" target="_blank" rel="noopener">Diputados: el secretario de Trabajo defendió el Presupuesto y pidió ampliar el monotributo para combatir la informalidad</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Ámbito" data-texto="julio cordero, secretario de trabajo: &#34;hay personas que no quieren trabajar en relación de dependencia&#34; en el plenario de debate del presupuesto 2027, el secretario de trabajo respaldó la reforma laboral y planteó que &#34;algunas cosas se cosechan rápido y otras tardan un poco más&#34;. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">15:53</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/julio-cordero-hay-personas-que-no-quieren-trabajar-relacion-dependencia-n6333717" target="_blank" rel="noopener">Julio Cordero, secretario de Trabajo: &#34;Hay personas que no quieren trabajar en relación de dependencia&#34;</a><div class="baj">En el plenario de debate del Presupuesto 2027, el secretario de Trabajo respaldó la reforma laboral y planteó que &#34;algunas cosas se cosechan rápido y otras tardan un poco más&#34;.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Letra P" data-texto="presupuesto 2027: julio cordero aseguró que no bajó el empleo, pero pidió promover el monotributo  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">14:06</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/presupuesto-2027-julio-cordero-aseguro-que-no-el-empleo-pero-pidio-promover-el-monotributo-n5427351" target="_blank" rel="noopener">Presupuesto 2027: Julio Cordero aseguró que no bajó el empleo, pero pidió promover el monotributo</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="“nos preocupa la informalidad”, afirmó cordero y pidió sumarse al monotributo el secretario de trabajo aseguró que el presupuesto 2027 busca “sostener el equilibrio fiscal, la baja inflacionaria, fomentar la generación de empleo y el crecimiento salarial”. además, respaldó la reforma laboral y remarcó: “el trabajo representa un elemento sustancial de inserción social”. la… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:14</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/nos-preocupa-la-informalidad-afirmo-cordero-y-pidio-sumarse-al-monotributo/" target="_blank" rel="noopener">“Nos preocupa la informalidad”, afirmó Cordero y pidió sumarse al monotributo</a><div class="baj">El secretario de Trabajo aseguró que el Presupuesto 2027 busca “sostener el equilibrio fiscal, la baja inflacionaria, fomentar la generación de empleo y el crecimiento salarial”. Además, respaldó la Reforma Laboral y remarcó: “El trabajo representa un elemento sustancial de inserción social”. La…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="diputados: la oposición aún no tiene quórum asegurado y acelera negociaciones para la sesión en la que busca rechazar el dnu de milei  dnu 70/23">
+        <td class="tema-col"><b>5</b> · 6 medios<br>DNU 70/23</td>
+        <td class="num">07:56</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/15/diputados-la-oposicion-no-tiene-quorum-asegurado-y-acelera-negociaciones-para-la-sesion-en-la-que-busca-rechazar-el-dnu-de-milei/" target="_blank" rel="noopener">Diputados: la oposición aún no tiene quórum asegurado y acelera negociaciones para la sesión en la que busca rechazar el DNU de Milei</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="lousteau presiona por el quórum y apunta a diputados del pj del norte y sectores cercanos a larreta el diputado radical sostuvo que aún faltan &#34;entre seis y siete&#34; legisladores para habilitar la sesión convocada para este jueves. reclamó una movilización masiva frente al congreso para respaldar el rechazo al dnu 70/23 y el tratamiento de iniciativas sobre universidades, discapacidad y morosidad… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">10:08</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/15/lousteau-presiona-por-el-quorum-y-apunta-a-diputados-del-pj-del-norte-y-sectores-cercanos-a-larreta/" target="_blank" rel="noopener">Lousteau presiona por el quórum y apunta a diputados del PJ del Norte y sectores cercanos a Larreta</a><div class="baj">El diputado radical sostuvo que aún faltan &#34;entre seis y siete&#34; legisladores para habilitar la sesión convocada para este jueves. Reclamó una movilización masiva frente al Congreso para respaldar el rechazo al DNU 70/23 y el tratamiento de iniciativas sobre universidades, discapacidad y morosidad…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="diputados hoy, en vivo: la oposición busca derribar el dnu 70/23, pero todavía hay dudas sobre el quórum para abrir la sesión el inicio del debate en la cámara baja, en el que también está previsto que se traten los proyectos sobre morosidad familiar y el pedido de prórroga de la emergencia en discapacidad, está previsto para las 14 de este jueves. dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">08:45</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diputados-hoy-vivo-oposicion-busca-derribar-dnu-7023-todavia-dudas-quorum-abrir-sesion_0_Fm3GbMMPOX.html" target="_blank" rel="noopener">Diputados hoy, EN VIVO: la oposición busca derribar el DNU 70/23, pero todavía hay dudas sobre el quórum para abrir la sesión</a><div class="baj">El inicio del debate en la Cámara baja, en el que también está previsto que se traten los proyectos sobre morosidad familiar y el pedido de prórroga de la emergencia en discapacidad, está previsto para las 14 de este jueves.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="sesión clave en diputados: el gobierno confía en los aliados para blindar el decreto 70, aún hay dudas sobre las chances de éxito en las redes se lanzaron a dar la batalla en defensa del dnu. en la libertad avanza calculan en un “80 por ciento” que no esté asegurado el quórum, pero dejaron en suspenso varias actividades, incluida la reunión quincenal con el pro, a la espera de que se confirmen los acuerdos para voltear la… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">08:01</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/sesion-clave-en-diputados-el-gobierno-confia-en-los-aliados-pero-aun-hay-dudas-sobre-las-chances-de-exito-y-se-ataja/" target="_blank" rel="noopener">Sesión clave en Diputados: el Gobierno confía en los aliados para blindar el Decreto 70, aún hay dudas sobre las chances de éxito</a><div class="baj">En las redes se lanzaron a dar la batalla en defensa del DNU. En La Libertad Avanza calculan en un “80 por ciento” que no esté asegurado el quórum, pero dejaron en suspenso varias actividades, incluida la reunión quincenal con el PRO, a la espera de que se confirmen los acuerdos para voltear la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="la oposición pone a prueba a los aliados de javier milei en una sesión con quórum incierto el futuro de la sesión está en manos de los gobernadores de buen trato con la casa rosada. el debate confluye con la quinta marcha federal universitaria. dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/la-oposicion-pone-prueba-los-aliados-javier-milei-una-sesion-quorum-incierto-n6333666" target="_blank" rel="noopener">La oposición pone a prueba a los aliados de Javier Milei en una sesión con quórum incierto</a><div class="baj">El futuro de la sesión está en manos de los gobernadores de buen trato con la Casa Rosada. El debate confluye con la quinta Marcha Federal Universitaria.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="jornada caliente en el congreso: sesión en diputados y movilización masiva, con javier milei en estados unidos  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">23:32</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/jornada-caliente-sesion-diputados-marcha-universitaria-milei-estados-unidos-15-octubre-2026" target="_blank" rel="noopener">Jornada caliente en el Congreso: sesión en Diputados y movilización masiva, con Javier Milei en Estados Unidos</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Infobae" data-texto="marcha universitaria y contra el dnu 70/2023, en vivo: las últimas noticias de las protestas en congreso el reclamo por fondos para la educación superior se renueva esta tarde y tendrá como destino el congreso de la nación. buscará exigir la aplicación “inmediata” de la norma. la oposición intenta ganar una pulseada legislativa dnu 70/2023">
+        <td class="tema-col"><b>6</b> · 5 medios<br>DNU 70/2023</td>
+        <td class="num">09:20</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/marcha-universitaria-y-contra-el-dnu-702023-en-vivo-las-ultimas-noticias-de-las-protestas-en-congreso/" target="_blank" rel="noopener">Marcha Universitaria y contra el DNU 70/2023, en vivo: las últimas noticias de las protestas en Congreso</a><div class="baj">El reclamo por fondos para la educación superior se renueva esta tarde y tendrá como destino el Congreso de la Nación. Buscará exigir la aplicación “inmediata” de la norma. La oposición intenta ganar una pulseada legislativa</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Infobae" data-texto="diputados, en vivo: últimas noticias sobre el rechazo al dnu 70/2023, endeudamiento y emergencia en discapacidad la sesión, que comienza a las 14 horas en el palacio legislativo, tratará varios temas claves. confluye con la “v marcha federal universitaria”, protestas y el paro de ate dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">10:11</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/diputados-en-vivo-ultimas-noticias-sobre-el-rechazo-al-dnu-702023-endeudamiento-y-emergencia-en-discapacidad/" target="_blank" rel="noopener">Diputados, en vivo: últimas noticias sobre el rechazo al DNU 70/2023, endeudamiento y emergencia en discapacidad</a><div class="baj">La sesión, que comienza a las 14 horas en el Palacio Legislativo, tratará varios temas claves. Confluye con la “V Marcha Federal Universitaria”, protestas y el paro de ATE</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="LN+" data-texto="marcha federal universitaria, en vivo: cortes, horarios y últimas noticias del reclamo la uba se concentrará desde las 13 en plaza houssay; a las 14 partirán desde la intersección de córdoba y junín rumbo al congreso, donde a las 16 está previsto el acto central dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">09:51</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/sociedad/marcha-federal-universitaria-en-vivo-cortes-horarios-y-ultimas-noticias-del-reclamo-nid15102026/" target="_blank" rel="noopener">Marcha Federal Universitaria, EN VIVO: cortes, horarios y últimas noticias del reclamo</a><div class="baj">La UBA se concentrará desde las 13 en Plaza Houssay; a las 14 partirán desde la intersección de Córdoba y Junín rumbo al Congreso, donde a las 16 está previsto el acto central</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Clarín" data-texto="quinta marcha federal universitaria por la ley de financiamiento: a qué hora empieza y qué calles de congreso estarán cortadas  dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">09:43</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/quinta-marcha-federal-universitaria-ley-financiamiento-hora-empieza-calles-congreso-cortadas_0_MrHOLS5zSh.html" target="_blank" rel="noopener">Quinta Marcha Federal Universitaria por la Ley de Financiamiento: a qué hora empieza y qué calles de Congreso estarán cortadas</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Ámbito" data-texto="protestas y jornada clave en el congreso en vivo: minuto a minuto de una jornada de alta conflictividad para el gobierno el gobierno afronta un jueves que estará signado por la 5ta marcha federal universitaria, además de movilizaciones por reclamos sindicales y conflictos salariales. además, el minuto a minuto de una jornada clave en el congreso. dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">08:57</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/marcha-federal-universitaria-congreso-diputados-protestas-discapacidad-morosidad-dnu-70-ley-tierras-en-vivo-minuto-a-minuto-15-octubre" target="_blank" rel="noopener">Protestas y jornada clave en el Congreso EN VIVO: minuto a minuto de una jornada de alta conflictividad para el Gobierno</a><div class="baj">El Gobierno afronta un jueves que estará signado por la 5ta Marcha Federal Universitaria, además de movilizaciones por reclamos sindicales y conflictos salariales. Además, el minuto a minuto de una jornada clave en el Congreso.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="C5N" data-texto="quinta marcha federal universitaria: la comunidad educativa se moviliza al congreso por presupuesto y salarios  dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">08:19</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/quinta-marcha-federal-universitaria-vivo-15-octubre-2026" target="_blank" rel="noopener">Quinta Marcha Federal Universitaria: la comunidad educativa se moviliza al Congreso por presupuesto y salarios</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Infobae" data-texto="el mapa de la marcha al congreso, los ejes de los reclamos al gobierno y el operativo de seguridad la protesta, que confluye con la “v marcha federal universitaria”, comenzará con concentraciones desde las 10.30. organizaciones sociales, políticas y sindicales apoyarán la derogación del decreto 70/23, que se tratará en el parlamento. también marcharán por la emergencia en discapacidad. habrá un… dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">08:03</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/el-mapa-de-la-marcha-al-congreso-los-ejes-de-los-reclamos-al-gobierno-y-el-operativo-de-seguridad/" target="_blank" rel="noopener">El mapa de la marcha al Congreso, los ejes de los reclamos al Gobierno y el operativo de seguridad</a><div class="baj">La protesta, que confluye con la “V Marcha Federal Universitaria”, comenzará con concentraciones desde las 10.30. Organizaciones sociales, políticas y sindicales apoyarán la derogación del decreto 70/23, que se tratará en el parlamento. También marcharán por la emergencia en Discapacidad. Habrá un…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="presentaron los cambios de la reforma a la ley de salud mental y quieren llevarlo al recinto la próxima semana bullrich, márquez y arrascaeta dieron una conferencia de prensa donde presentaron la reforma. informaron que hay consenso y quieren ir al recinto la próxima semana. los principales cambios a la ley 26.657. la entrada presentaron los cambios de la reforma a la ley de salud mental y quieren llevarlo… ley 26.657">
+        <td class="tema-col"><b>7</b> · 5 medios<br>Ley 26.657</td>
+        <td class="num">15:34</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/presentaron-los-cambios-de-la-reforma-a-la-ley-de-salud-mental-y-quieren-llevarlo-al-recinto-la-proxima-semana/" target="_blank" rel="noopener">Presentaron los cambios de la reforma a la Ley de Salud Mental y quieren llevarlo al recinto la próxima semana</a><div class="baj">Bullrich, Márquez y Arrascaeta dieron una conferencia de prensa donde presentaron la reforma. Informaron que hay consenso y quieren ir al recinto la próxima semana. Los principales cambios a la Ley 26.657. La entrada Presentaron los cambios de la reforma a la Ley de Salud Mental y quieren llevarlo…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="bullrich presentó diez cambios clave al proyecto para la nueva ley de salud mental  ley 26.657">
+        <td class="tema-col"></td>
+        <td class="num">19:23</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/sociedad/bullrich-presento-cambios-clave-proyecto-nueva-ley-salud-mental_0_pviP4dcflf.html" target="_blank" rel="noopener">Bullrich presentó diez cambios clave al proyecto para la nueva Ley de Salud Mental</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="senado: el oficialismo anunció un acuerdo para avanzar con la ley de salud mental  ley 26.657">
+        <td class="tema-col"></td>
+        <td class="num">18:18</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/14/senado-el-oficialismo-anuncio-un-acuerdo-para-avanzar-con-la-ley-de-salud-mental/" target="_blank" rel="noopener">Senado: el oficialismo anunció un acuerdo para avanzar con la ley de Salud Mental</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="senado: el oficialismo anuncia que logró un acuerdo para avanzar con la reforma a la ley de salud mental en una conferencia de prensa, bullrich y las senadoras márquez y arrascaeta leyeron un borrador de dictamen que podría ser firmado este jueves; se permite la internación involuntaria, pero sigue prohibido establecer manicomios ley 26.657">
+        <td class="tema-col"></td>
+        <td class="num">17:22</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/senado-el-oficialismo-anuncia-que-logro-acuerdo-para-avanzar-con-la-reforma-a-la-ley-de-salud-mental-nid14102026/" target="_blank" rel="noopener">Senado: el oficialismo anuncia que logró un acuerdo para avanzar con la reforma a la ley de salud mental</a><div class="baj">En una conferencia de prensa, Bullrich y las senadoras Márquez y Arrascaeta leyeron un borrador de dictamen que podría ser firmado este jueves; se permite la internación involuntaria, pero sigue prohibido establecer manicomios</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="salud mental: libertarios anunciaron un acuerdo con aliados y buscarán dictaminar mañana la nueva ley la jefa del oficialismo en la cámara alta, patricia bullrich, confirmó los lineamientos que adelantó infobae el fin de semana pasado. en caso de lograr despacho, se intentaría ir al recinto en los próximos días ley 26.657">
+        <td class="tema-col"></td>
+        <td class="num">16:08</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/salud-mental-libertarios-anunciaron-un-acuerdo-con-aliados-y-buscaran-dictaminar-manana-la-nueva-ley/" target="_blank" rel="noopener">Salud mental: libertarios anunciaron un acuerdo con aliados y buscarán dictaminar mañana la nueva ley</a><div class="baj">La jefa del oficialismo en la Cámara alta, Patricia Bullrich, confirmó los lineamientos que adelantó Infobae el fin de semana pasado. En caso de lograr despacho, se intentaría ir al recinto en los próximos días</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="con la cancha empinada hacia arriba, la oposición intentará voltear el dnu 70/23 llegó el día de la sesión pedida por la oposición para tratar el mega decreto de necesidad y urgencia, y los proyectos sobre emergencia en discapacidad y endeudamiento familiar. fuertes dudas de que la sesión pueda arrancar. la entrada con la cancha empinada hacia arriba, la oposición intentará… dnu 70/23">
+        <td class="tema-col"><b>8</b> · 4 medios<br>DNU 70/23</td>
+        <td class="num">00:45</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/15/con-la-cancha-empinada-hacia-arriba-la-oposicion-intentara-voltear-el-dnu-70-23/" target="_blank" rel="noopener">Con la cancha empinada hacia arriba, la oposición intentará voltear el DNU 70/23</a><div class="baj">Llegó el día de la sesión pedida por la oposición para tratar el mega decreto de necesidad y urgencia, y los proyectos sobre Emergencia en Discapacidad y endeudamiento familiar. Fuertes dudas de que la sesión pueda arrancar. La entrada Con la cancha empinada hacia arriba, la oposición intentará…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="El Cronista" data-texto="dnu 70/23: el gobierno busca bloquear el quórum y la oposición cuenta los votos contra milei  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">10:10</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/dnu-7023-el-gobierno-busca-bloquear-el-quorum-y-la-oposicion-cuenta-los-votos-contra-milei/" target="_blank" rel="noopener">DNU 70/23: el Gobierno busca bloquear el quórum y la oposición cuenta los votos contra Milei</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Página/12" data-texto="un tribunal de la plata declaró inconstitucional el capítulo laboral del dnu 70/23 el fallo cuestiona la facultad de legislar por decreto cuando no existe un impedimento para que funcione el congreso. en una causa por despido, declaró la inconstitucionalidad y nulidad insanable del título iv de la norma. dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">09:52</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/15/un-tribunal-de-la-plata-declaro-inconstitucional-el-capitulo-laboral-del-dnu-7023/" target="_blank" rel="noopener">Un tribunal de La Plata declaró inconstitucional el capítulo laboral del DNU 70/23</a><div class="baj">El fallo cuestiona la facultad de legislar por decreto cuando no existe un impedimento para que funcione el Congreso. En una causa por despido, declaró la inconstitucionalidad y nulidad insanable del Título IV de la norma.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Letra P" data-texto="dnu 70/23: la casa rosada teme que la oposición consiga los votos y apunta contra la tropa de raúl jalil  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">20:50</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/dnu-7023-la-casa-rosada-teme-que-la-oposicion-consiga-los-votos-y-apunta-contra-la-tropa-raul-jalil-n5427374" target="_blank" rel="noopener">DNU 70/23: la Casa Rosada teme que la oposición consiga los votos y apunta contra la tropa de Raúl Jalil</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="en washington, quirno firmó un protocolo adicional para acelerar la aprobación del acuerdo comercial con ee.uu. en el congreso el canciller se reunió con el representante comercial, jamieson greer; “reconoce el cumplimiento por parte de la argentina de los compromisos asumidos”, señaló ">
+        <td class="tema-col"><b>9</b> · 4 medios</td>
+        <td class="num">17:10</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/en-washington-quirno-firmo-un-protocolo-adicional-para-acelerar-la-aprobacion-del-acuerdo-comercial-nid14102026/" target="_blank" rel="noopener">En Washington, Quirno firmó un protocolo adicional para acelerar la aprobación del acuerdo comercial con EE.UU. en el Congreso</a><div class="baj">El canciller se reunió con el representante comercial, Jamieson Greer; “Reconoce el cumplimiento por parte de la Argentina de los compromisos asumidos”, señaló</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="TN" data-texto="la argentina y ee.uu. firmaron un protocolo para avanzar con el acuerdo comercial y enviarlo al congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">19:05</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/economia/2026/10/14/la-argentina-y-eeuu-firmaron-un-protocolo-para-avanzar-con-el-acuerdo-comercial-y-enviarlo-al-congreso/" target="_blank" rel="noopener">La Argentina y EE.UU. firmaron un protocolo para avanzar con el acuerdo comercial y enviarlo al Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="A24" data-texto="argentina y estados unidos avanzan con el acuerdo comercial y preparan su envío al congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">18:09</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/argentina-y-estados-unidos-avanzan-el-acuerdo-comercial-y-preparan-su-envio-al-congreso-n1606429" target="_blank" rel="noopener">Argentina y Estados Unidos avanzan con el acuerdo comercial y preparan su envío al Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="en washington, quirno firmó un protocolo para facilitar la aprobación del acuerdo comercial con ee.uu. en el congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">17:05</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/economia/washington-quirno-firmo-protocolo-facilitar-aprobacion-acuerdo-comercial-eeuu-congreso_0_EerBxgJ0Lr.html" target="_blank" rel="noopener">En Washington, Quirno firmó un protocolo para facilitar la aprobación del acuerdo comercial con EE.UU. en el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="máximo k dijo que macri fue “peor” que milei y dejó una advertencia sobre el rigi el diputado nacional calificó al líder del pro como uno de “los peores presidentes” que vio. por otra parte, cuestionó los proyectos de beneficios fiscales a gigantes globales y opinó que habría que hacer con respecto a eso si gana el peronismo. la entrada máximo k dijo que macri fue “peor” que… ">
+        <td class="tema-col"><b>10</b> · 3 medios</td>
+        <td class="num">13:54</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/maximo-k-dijo-que-macri-fue-peor-que-milei-y-dejo-una-advertencia-sobre-el-rigi/" target="_blank" rel="noopener">Máximo K dijo que Macri fue “peor” que Milei y dejó una advertencia sobre el RIGI</a><div class="baj">El diputado nacional calificó al líder del Pro como uno de “los peores presidentes” que vio. Por otra parte, cuestionó los proyectos de beneficios fiscales a gigantes globales y opinó que habría que hacer con respecto a eso si gana el peronismo. La entrada Máximo K dijo que Macri fue “peor” que…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="La Nación" data-texto="máximo kirchner advirtió que si el peronismo gana las elecciones revisará cada uno de los rigi de milei el diputado también admitió que la victoria de un candidato que no responda a los intereses del mercado hace subir el riesgo país ">
+        <td class="tema-col"></td>
+        <td class="num">14:30</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/maximo-kirchner-advirtio-que-si-el-peronismo-gana-las-elecciones-revisara-cada-uno-de-los-rigi-de-nid14102026/" target="_blank" rel="noopener">Máximo Kirchner advirtió que si el peronismo gana las elecciones revisará cada uno de los RIGI de Milei</a><div class="baj">El diputado también admitió que la victoria de un candidato que no responda a los intereses del mercado hace subir el riesgo país</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Perfil" data-texto="máximo kirchner prometió &#34;auditar&#34; las inversiones del rigi y advirtió: &#34;mi candidata es cristina&#34; el diputado nacional dijo que el gobierno de macri fue peor que el de milei y aseguró que durante la presidencia de cristina fernández llegaron más inversiones. leer más ">
+        <td class="tema-col"></td>
+        <td class="num">12:01</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/maximo-kirchner-prometio-auditar-proyecto-por-proyecto-las-inversiones-del-rigi.phtml" target="_blank" rel="noopener">Máximo Kirchner prometió &#34;auditar&#34; las inversiones del RIGI y advirtió: &#34;Mi candidata es Cristina&#34;</a><div class="baj">El diputado nacional dijo que el gobierno de Macri fue peor que el de Milei y aseguró que durante la presidencia de Cristina Fernández llegaron más inversiones. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="TN" data-texto="la oposición criticó la ausencia de caputo en la comisión de presupuesto:“tiene miedo a defender cosas que no le resultan cómodas”  ">
+        <td class="tema-col"><b>11</b> · 2 medios</td>
+        <td class="num">12:32</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/videos/politica/2026/10/14/la-oposicion-critico-la-ausencia-de-caputo-en-la-comision-de-presupuestotiene-miedo-a-defender-cosas-que-no-le-resultan-comodas/" target="_blank" rel="noopener">La oposición criticó la ausencia de Caputo en la comisión de Presupuesto:“Tiene miedo a defender cosas que no le resultan cómodas”</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Página/12" data-texto="un llamado a defender la universidad pública con uñas y dientes decanos y estudiantes llaman a defender la educación pública en la previa de la quinta marcha federal universitaria, que exige el cumplimiento de la ley de financiamiento y de los fallos que ordenan al gobierno actualizar el presupuesto. ">
+        <td class="tema-col"></td>
+        <td class="num">09:31</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/15/un-llamado-a-defender-la-universidad-publica-con-unas-y-dientes/" target="_blank" rel="noopener">Un llamado a defender la universidad pública con uñas y dientes</a><div class="baj">Decanos y estudiantes llaman a defender la educación pública en la previa de la quinta marcha federal universitaria, que exige el cumplimiento de la ley de financiamiento y de los fallos que ordenan al Gobierno actualizar el presupuesto.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="TN" data-texto="la oposición criticó la ausencia de luis caputo en la comisión de presupuesto: &#34;tiene miedo a defender cosas que no le resultan cómodas&#34;  ">
+        <td class="tema-col"></td>
+        <td class="num">12:32</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/14/la-oposicion-critico-la-ausencia-de-caputo-en-la-comision-de-presupuestotiene-miedo-a-defender-cosas-que-no-le-resultan-comodas/" target="_blank" rel="noopener">La oposición criticó la ausencia de Luis Caputo en la comisión de Presupuesto: &#34;Tiene miedo a defender cosas que no le resultan cómodas&#34;</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="sergio uñac: &#34;si la justicia actuara como con cristina, milei debería estar preso&#34; el ex gobernador de san juan y actual senador nacional es el noveno invitado de cara a cara, el ciclo audiovisual de clarín. habla de su relación con la ex presidenta y de su intento por ser el candidato del peronismo en 2027. ">
+        <td class="tema-col"><b>12</b> · 2 medios</td>
+        <td class="num">06:01</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/sergio-unac-justicia-actuara-cristina-milei-deberia-preso_0_HukMtMk3ks.html" target="_blank" rel="noopener">Sergio Uñac: &#34;Si la Justicia actuara como con Cristina, Milei debería estar preso&#34;</a><div class="baj">El ex gobernador de San Juan y actual senador nacional es el noveno invitado de Cara a Cara, el ciclo audiovisual de Clarín. Habla de su relación con la ex presidenta y de su intento por ser el candidato del peronismo en 2027.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Perfil" data-texto="sergio uñac lanzo su campaña presidencial &#34;por los hijos de todos&#34; el ex gobernador peronista y actual senador sanjuanino de candidateó para las próximas elecciones presidenciales. leer más ">
+        <td class="tema-col"></td>
+        <td class="num">14:41</td>
+        <td>Perfil</td>
+        <td><a href="https://noticias.perfil.com/noticias/politica/sergio-unac-lanzo-su-campana-presidencial-por-los-hijos-de-todos.phtml" target="_blank" rel="noopener">Sergio Uñac lanzo su campaña presidencial &#34;por los hijos de todos&#34;</a><div class="baj">El ex gobernador peronista y actual senador sanjuanino de candidateó para las próximas elecciones presidenciales. Leer más</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Infobae" data-texto="el gobierno descontará el día laboral a los estatales que adhieran al paro nacional de ate la huelga de 24 horas de mañana incluirá una movilización al congreso desde las 13:30 y prevé servicios mínimos en hospitales. por la medida de fuerza también podrían verse afectados migraciones, anses, pami, senasa, la cnrt y la anac dnu 70/23">
+        <td class="tema-col"><b>13</b> · 2 medios<br>DNU 70/23</td>
+        <td class="num">12:03</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/el-gobierno-descontara-el-dia-laboral-a-los-estatales-que-adhieran-al-paro-nacional-de-ate/" target="_blank" rel="noopener">El Gobierno descontará el día laboral a los estatales que adhieran al paro nacional de ATE</a><div class="baj">La huelga de 24 horas de mañana incluirá una movilización al Congreso desde las 13:30 y prevé servicios mínimos en hospitales. Por la medida de fuerza también podrían verse afectados Migraciones, ANSES, PAMI, Senasa, la CNRT y la ANAC</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Perfil" data-texto="ate denunció que &#34;el gobierno amenaza con descontar el día de paro a los estatales&#34; el paro de la asociación de trabajadores del estado se llevará a cabo este jueves y tiene por objetivo reclamar &#34;el financiamiento universitario&#34;, &#34;la derogación del dnu 70/23&#34; y defender &#34;la soberanía nacional sobre el territorio y los recursos estratégicos&#34;. leer más dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">05:23</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/ate-denuncio-que-el-gobierno-amenaza-con-descontar-el-dia-de-paro-a-los-estatales.phtml" target="_blank" rel="noopener">ATE denunció que &#34;el gobierno amenaza con descontar el día de paro a los estatales&#34;</a><div class="baj">El paro de la Asociación de trabajadores del Estado se llevará a cabo este jueves y tiene por objetivo reclamar &#34;el financiamiento universitario&#34;, &#34;la derogación del DNU 70/23&#34; y defender &#34;la Soberanía Nacional sobre el territorio y los recursos estratégicos&#34;. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Infobae" data-texto="“¿no sabés qué es un ‘bathroom’?”: el cruce de chicanas entre “bertie” benegas lynch y la oposición en diputados durante el inicio del debate por el presupuesto 2027, el libertario, presidente de la comisión, utilizó un anglicismo para hacer una pausa, los legisladores peronistas se lo cuestionaron y se produjo un intercambio de sarcasmos presupuesto 2027">
+        <td class="tema-col"><b>14</b> · 2 medios<br>Presupuesto 2027</td>
+        <td class="num">16:39</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/no-sabes-que-es-un-bathroom-el-cruce-de-chicanas-entre-bertie-benegas-lynch-y-la-oposicion-en-diputados/" target="_blank" rel="noopener">“¿No sabés qué es un ‘bathroom’?”: el cruce de chicanas entre “Bertie” Benegas Lynch y la oposición en Diputados</a><div class="baj">Durante el inicio del debate por el presupuesto 2027, el libertario, presidente de la comisión, utilizó un anglicismo para hacer una pausa, los legisladores peronistas se lo cuestionaron y se produjo un intercambio de sarcasmos</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="C5N" data-texto="la insólita pregunta en inglés de bertie benegas lynch que generó indignación durante la comisión de presupuesto  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">14:53</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/la-insolita-pregunta-ingles-bertie-benegas-lynch-que-genero-indignacion-la-comision-presupuesto-n251592" target="_blank" rel="noopener">La insólita pregunta en inglés de Bertie Benegas Lynch que generó indignación durante la Comisión de Presupuesto</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="avanza el proceso para conformar el comité nacional para la prevención de la tortura se formalizaron los nombres de los representantes por el senado y la cámara de diputados, durante una reunión de la bicameral de la defensoría del pueblo. el próximo 27 de octubre será la audiencia pública. la entrada avanza el proceso para conformar el comité nacional para la prevención de la… ">
+        <td class="tema-col"><b>15</b> · 2 medios</td>
+        <td class="num">13:51</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/avanza-el-proceso-para-conformar-el-comite-nacional-para-la-prevencion-de-la-tortura/" target="_blank" rel="noopener">Avanza el proceso para conformar el Comité Nacional para la Prevención de la Tortura</a><div class="baj">Se formalizaron los nombres de los representantes por el Senado y la Cámara de Diputados, durante una reunión de la Bicameral de la Defensoría del Pueblo. El próximo 27 de octubre será la audiencia pública. La entrada Avanza el proceso para conformar el Comité Nacional para la Prevención de la…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Comisión" data-medio="Senado (prensa)" data-texto="la bicameral continuó el proceso para integrar el comité nacional para la prevención de la tortura la comisión avanzó en la selección de los 6 representantes parlamentarios y aprobó los lineamientos para normalizar la representación de las ong y habilitar el procedimiento para la designación de sus nuevos representantes.... ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24497/noticias" target="_blank" rel="noopener">LA BICAMERAL CONTINUÓ EL PROCESO PARA INTEGRAR EL COMITÉ NACIONAL PARA LA PREVENCIÓN DE LA TORTURA</a><div class="baj">La comisión avanzó en la selección de los 6 representantes parlamentarios y aprobó los lineamientos para normalizar la representación de las ONG y habilitar el procedimiento para la designación de sus nuevos representantes....</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="paulón denunció a caputo y bausili por las pérdidas vinculadas a las reservas de oro el diputado socialista llevó el caso a la justicia luego de que una auditoría revelara un costo de usd 1.023 millones por coberturas sobre el oro depositado en el exterior. además, reclamó que el banco central entregue la documentación que respaldó esas operaciones. la entrada paulón denunció a… ">
+        <td class="tema-col"><b>16</b> · 2 medios</td>
+        <td class="num">10:55</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/paulon-denuncio-a-caputo-y-bausili-por-las-perdidas-vinculadas-a-las-reservas-de-oro/" target="_blank" rel="noopener">Paulón denunció a Caputo y Bausili por las pérdidas vinculadas a las reservas de oro</a><div class="baj">El diputado socialista llevó el caso a la Justicia luego de que una auditoría revelara un costo de USD 1.023 millones por coberturas sobre el oro depositado en el exterior. Además, reclamó que el Banco Central entregue la documentación que respaldó esas operaciones. La entrada Paulón denunció a…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Ámbito" data-texto="oro: el manejo de las reservas del bcra suma una nueva denuncia penal el diputado esteban paulón presentó una denuncia judicial por las maniobras con las reservas de oro, en medio de los cuestionamientos por el traslado de lingotes al exterior y las pérdidas millonarias registradas en operaciones financieras. ">
+        <td class="tema-col"></td>
+        <td class="num">10:54</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/oro-el-manejo-las-reservas-del-bcra-suma-una-nueva-denuncia-penal-n6333564" target="_blank" rel="noopener">Oro: el manejo de las reservas del BCRA suma una nueva denuncia penal</a><div class="baj">El diputado Esteban Paulón presentó una denuncia judicial por las maniobras con las reservas de oro, en medio de los cuestionamientos por el traslado de lingotes al exterior y las pérdidas millonarias registradas en operaciones financieras.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="elecciones 2027: cuándo se vota para presidente en la argentina los comicios del año próximo definirán los principales cargos del poder ejecutivo y la renovación de bancas en el congreso; qué se elige según la jurisdicción; descubrí los detalles ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">07:27</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/elecciones-2027-cuando-se-vota-para-presidente-en-la-argentina-nid03082026/" target="_blank" rel="noopener">Elecciones 2027: cuándo se vota para presidente en la Argentina</a><div class="baj">Los comicios del año próximo definirán los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; qué se elige según la jurisdicción; descubrí los detalles</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="¿cuándo se vota presidente en la argentina? todo sobre las elecciones 2027 la convocatoria electoral del año próximo define los principales cargos del poder ejecutivo y la renovación de bancas en el congreso; los detalles en la nota ">
+        <td class="tema-col"></td>
+        <td class="num">07:28</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/cuando-se-vota-presidente-en-la-argentina-todo-sobre-las-elecciones-2027-nid01092026/" target="_blank" rel="noopener">¿Cuándo se vota presidente en la Argentina? Todo sobre las elecciones 2027</a><div class="baj">La convocatoria electoral del año próximo define los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; los detalles en la nota</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Infobae" data-texto="el “solitario” de milei está difícil: en la cuenta regresiva al 2027, todos se reprochan la falta de resultados los manotazos de ahogado en el congreso dejan ver que todavía los pactos electorales no están anudados. la economía no repunta y hay tensiones con luis caputo y el karinismo ¿quién asegura la reelección? ¿la política o la economía? el lado b de la campaña anti islam del gordo dan ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">09:49</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/el-solitario-de-milei-esta-dificil-en-la-cuenta-regresiva-al-2027-todos-se-reprochan-la-falta-de-resultados/" target="_blank" rel="noopener">El “solitario” de Milei está difícil: en la cuenta regresiva al 2027, todos se reprochan la falta de resultados</a><div class="baj">Los manotazos de ahogado en el Congreso dejan ver que todavía los pactos electorales no están anudados. La economía no repunta y hay tensiones con Luis Caputo y el karinismo ¿Quién asegura la reelección? ¿La política o la economía? El lado B de la campaña anti islam del Gordo Dan</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Letra P" data-texto="universidades: docentes y gremios marchan al congreso para exigir el financiamiento  ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">08:55</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/universidades-docentes-y-gremios-marchan-al-congreso-exigir-el-financiamiento-n5427385" target="_blank" rel="noopener">Universidades: docentes y gremios marchan al Congreso para exigir el financiamiento</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Perfil" data-texto="natalia de la sota sobre la eventual candidatura de su hermana candelaria: &#34;me parece muy bien&#34; &#34;si su idea es incursionar en política me parece que va a ser muy bueno&#34;, aseguró la diputada nacional. leer más ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">08:53</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/natalia-de-la-sota-sobre-la-eventual-candidatura-de-su-hermana-candelaria-me-parece-muy-bien.phtml" target="_blank" rel="noopener">Natalia de la Sota sobre la eventual candidatura de su hermana Candelaria: &#34;Me parece muy bien&#34;</a><div class="baj">&#34;Si su idea es incursionar en política me parece que va a ser muy bueno&#34;, aseguró la diputada nacional. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="línea f: el gcba analiza las propuestas de la licitación el ejecutivo se encuentra evaluando las propuestas técnicas de dos consorcios compiten por construir un trazado de doce estaciones entre barracas y palermo. la entrada línea f: el gcba analiza las propuestas de la licitación se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">08:02</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/15/linea-f-el-gcba-analiza-las-propuestas-de-la-licitacion/" target="_blank" rel="noopener">Línea F: El GCBA analiza las propuestas de la licitación</a><div class="baj">El ejecutivo se encuentra evaluando las propuestas técnicas de dos consorcios compiten por construir un trazado de doce estaciones entre Barracas y Palermo. La entrada Línea F: El GCBA analiza las propuestas de la licitación se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="LN+" data-texto="reid wiseman, piloto de artemis ii: “la tierra se ve magnífica, realmente majestuosa” días antes de que trump otorgue la medalla espacial del congreso a cada miembro de la tripulación, siguen circulando frases que los astronautas de la nasa pronunciaron en el marco de la misión a la luna ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">07:49</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/lnmas/reid-wiseman-piloto-de-artemis-ii-la-tierra-se-ve-magnifica-realmente-majestuosa-nid15102026/" target="_blank" rel="noopener">Reid Wiseman, piloto de Artemis II: “La Tierra se ve magnífica, realmente majestuosa”</a><div class="baj">Días antes de que Trump otorgue la Medalla Espacial del Congreso a cada miembro de la tripulación, siguen circulando frases que los astronautas de la NASA pronunciaron en el marco de la misión a la Luna</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="la libertad avanza prevé una dura negociación con el pro en pba y acelera su armado partidario en las filas libertarias destacan la voluntad de acordar, pero anticipan que someterán a debate la conducción de los distintos distritos. en el pro hablan de una discusión prematura. el congreso bonaerense que prepara pareja y los criterios de debate ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">02:40</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/15/la-libertad-avanza-preve-una-dura-negociacion-con-el-pro-en-pba-y-acelera-su-armado-partidario/" target="_blank" rel="noopener">La Libertad Avanza prevé una dura negociación con el PRO en PBA y acelera su armado partidario</a><div class="baj">En las filas libertarias destacan la voluntad de acordar, pero anticipan que someterán a debate la conducción de los distintos distritos. En el PRO hablan de una discusión prematura. El congreso bonaerense que prepara Pareja y los criterios de debate</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="el senado debate en comisiones la adhesión al tratado de patentes tras la suspensión de semanas atrás, las comisiones de relaciones exteriores y de industria fueron citadas para este jueves a las 14. el oficialismo buscará avanzar con el dictamen de un proyecto que regresó al senado luego de casi tres décadas. la entrada el senado debate en comisiones la adhesión… ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">00:58</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/15/el-senado-debate-en-comisiones-la-adhesion-al-tratado-de-patentes/" target="_blank" rel="noopener">El Senado debate en comisiones la adhesión al Tratado de Patentes</a><div class="baj">Tras la suspensión de semanas atrás, las comisiones de Relaciones Exteriores y de Industria fueron citadas para este jueves a las 14. El oficialismo buscará avanzar con el dictamen de un proyecto que regresó al Senado luego de casi tres décadas. La entrada El Senado debate en comisiones la adhesión…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="emilio monzó destacó a sergio massa por su capacidad de diálogo y cuestionó al gobierno nacional el expresidente de la cámara de diputados se reunió con jóvenes del frente renovador de la ciudad de buenos aires y resaltó la capacidad del líder del espacio para convertir acuerdos políticos en hechos concretos. también criticó la estrategia de confrontación del oficialismo ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">23:29</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/emilio-monzo-destaco-sergio-massa-su-capacidad-dialogo-y-cuestiono-al-gobierno-nacional-n6333945" target="_blank" rel="noopener">Emilio Monzó destacó a Sergio Massa por su capacidad de diálogo y cuestionó al Gobierno nacional</a><div class="baj">El expresidente de la Cámara de Diputados se reunió con jóvenes del Frente Renovador de la Ciudad de Buenos Aires y resaltó la capacidad del líder del espacio para convertir acuerdos políticos en hechos concretos. También criticó la estrategia de confrontación del oficialismo</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="A24" data-texto="del tesla en el congreso al helicóptero ploteado de amarillo: la nueva polémica del diputado manuel quintar  ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">22:12</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/del-tesla-el-congreso-al-helicoptero-ploteado-amarillo-la-nueva-polemica-del-diputado-manuel-quintar-n1606518" target="_blank" rel="noopener">Del Tesla en el Congreso al helicóptero ploteado de amarillo: la nueva polémica del diputado Manuel Quintar</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="la bicameral de la biblioteca del congreso completó la designación de sus autoridades la comisión que administra la biblioteca del congreso se reunió este miércoles y terminó de definir los cargos que habían quedado pendientes desde septiembre. el cuerpo es presidido por el diputado libertario josé peluc. la entrada la bicameral de la biblioteca del congreso completó la designación… ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">22:06</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/la-bicameral-de-la-biblioteca-del-congreso-completo-la-designacion-de-sus-autoridades/" target="_blank" rel="noopener">La Bicameral de la Biblioteca del Congreso completó la designación de sus autoridades</a><div class="baj">La comisión que administra la Biblioteca del Congreso se reunió este miércoles y terminó de definir los cargos que habían quedado pendientes desde septiembre. El cuerpo es presidido por el diputado libertario José Peluc. La entrada La Bicameral de la Biblioteca del Congreso completó la designación…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Letra P" data-texto="dnu 70/23: la libertad avanza apuesta a bloquear el cuórum con ayuda de sadir, sáenz y jaldo  dnu 70/23">
+        <td class="tema-col"><b>28</b> · 1 medio<br>DNU 70/23</td>
+        <td class="num">21:05</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/dnu-7023-la-libertad-avanza-apuesta-bloquear-el-cuorum-ayuda-sadir-saenz-y-jaldo-n5427380" target="_blank" rel="noopener">DNU 70/23: La Libertad Avanza apuesta a bloquear el cuórum con ayuda de Sadir, Sáenz y Jaldo</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="el titular de la sedronar expuso en diputados sobre consumo problemático en nnya fue durante un plenario de las comisiones de prevención de adicciones y familias, niñez y juventudes, presididas por diputados de unión por la patria. la entrada el titular de la sedronar expuso en diputados sobre consumo problemático en nnya se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">20:24</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/el-titular-de-la-sedronar-expuso-en-diputados-sobre-consumo-problematico-en-nnya/" target="_blank" rel="noopener">El titular de la Sedronar expuso en Diputados sobre consumo problemático en NNyA</a><div class="baj">Fue durante un plenario de las comisiones de Prevención de Adicciones y Familias, Niñez y Juventudes, presididas por diputados de Unión por la Patria. La entrada El titular de la Sedronar expuso en Diputados sobre consumo problemático en NNyA se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Política Online" data-texto="en el congreso afirman que belgrano cargas quedará para el grupo mexicano del magnate larrea en las discusiones del gobernador sáenz con el gobierno por el tren, pareció quedar en evidencia que el grupo mexicano sería el ganador. ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">19:55</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/sospechan-que-el-gobierno-arma-la-licitacion-del-belgrano-cargas-a-medida-del-grupo-mexicano-del-magnate-larrea-8454/" target="_blank" rel="noopener">En el Congreso afirman que Belgrano Cargas quedará para el grupo mexicano del magnate Larrea</a><div class="baj">En las discusiones del gobernador Sáenz con el gobierno por el tren, pareció quedar en evidencia que el grupo mexicano sería el ganador.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el grupo parlamentario de amistad con bolivia recibió al consejero iván mauricio rodríguez leigue ambos funcionarios destacaron la diplomacia parlamentaria que “permite dar continuidad institucional a una agenda que requiere compromiso y trabajo conjunto”. la entrada el grupo parlamentario de amistad con bolivia recibió al consejero iván mauricio rodríguez leigue se publicó primero en… ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">19:51</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/el-grupo-parlamentario-de-amistad-con-bolivia-recibio-al-consejero-ivan-mauricio-rodriguez-leigue/" target="_blank" rel="noopener">El Grupo Parlamentario de Amistad con Bolivia recibió al consejero Iván Mauricio Rodríguez Leigue</a><div class="baj">Ambos funcionarios destacaron la diplomacia parlamentaria que “permite dar continuidad institucional a una agenda que requiere compromiso y trabajo conjunto”. La entrada El Grupo Parlamentario de Amistad con Bolivia recibió al consejero Iván Mauricio Rodríguez Leigue se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="el oficialismo impulsa un ambiciosa megasesión en diputados para bloquear una ofensiva opositora la libertad avanza convocó a debatir el 21 de octubre la prórroga de la emergencia en discapacidad y la iniciativa por morosidad familiar; la finalidad es sumar adeptos y neutralizar la convocatoria de bloques críticos, que intentarán bajar al recinto el próximo jueves. emergencia en discapacidad">
+        <td class="tema-col"><b>32</b> · 1 medio<br>Emergencia en discapacidad</td>
+        <td class="num">19:50</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-oficialismo-impulsa-un-ambiciosa-megasesion-en-diputados-para-bloquear-una-ofensiva-opositora-nid10102026/" target="_blank" rel="noopener">El oficialismo impulsa un ambiciosa megasesión en Diputados para bloquear una ofensiva opositora</a><div class="baj">La Libertad Avanza convocó a debatir el 21 de octubre la prórroga de la emergencia en discapacidad y la iniciativa por morosidad familiar; la finalidad es sumar adeptos y neutralizar la convocatoria de bloques críticos, que intentarán bajar al recinto el próximo jueves.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Perfil" data-texto="la deloredista ferrero toma el mando del bloque ucr: perfil halcón al pj, sin romper puentes institucionales voto unánime para ferrero y respaldo explícito de de loredo. la nueva jefa de bloque asume en medio de la batalla con el pj, con el desafío de sostener la dureza opositora sin clausurar el diálogo legislativo. leer más ">
+        <td class="tema-col"><b>33</b> · 1 medio</td>
+        <td class="num">19:16</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/la-deloredista-ferrero-toma-el-mando-del-bloque-ucr-perfil-halcon-al-pj-sin-romper-puentes-institucionales.phtml" target="_blank" rel="noopener">La deloredista Ferrero toma el mando del bloque UCR: Perfil halcón al PJ, sin romper puentes institucionales</a><div class="baj">Voto unánime para Ferrero y respaldo explícito de De Loredo. La nueva jefa de bloque asume en medio de la batalla con el PJ, con el desafío de sostener la dureza opositora sin clausurar el diálogo legislativo. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Letra P" data-texto="judiciales de chaco piden el juicio político a tres magistrados tras quedar afuera de un aumento salarial  ">
+        <td class="tema-col"><b>34</b> · 1 medio</td>
+        <td class="num">18:25</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/judiciales-chaco-piden-el-juicio-politico-tres-magistrados-quedar-afuera-un-aumento-salarial-n5427368" target="_blank" rel="noopener">Judiciales de Chaco piden el juicio político a tres magistrados tras quedar afuera de un aumento salarial</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Letra P" data-texto="malvinas: maría ibarzabal murphy no convenció a los aliados y se postergó el proyecto de javier milei  ">
+        <td class="tema-col"><b>35</b> · 1 medio</td>
+        <td class="num">17:58</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/malvinas-maria-ibarzabal-murphy-no-convencio-los-aliados-y-se-postergo-el-proyecto-javier-milei-n5427365" target="_blank" rel="noopener">Malvinas: María Ibarzabal Murphy no convenció a los aliados y se postergó el proyecto de Javier Milei</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="la reforma más pedida por milei: qué le falta al gobierno para asegurarse la suspensión de las paso la casa rosada cree que solo faltan unos pocos votos por convencer en el senado. en el medio, la disputa política en la mesa chica del oficialismo genera tensiones por cómo cerrar las negociaciones. los plazos que se prevén ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">17:35</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/la-reforma-mas-pedida-por-milei-que-le-falta-al-gobierno-para-asegurarse-la-suspension-de-las-paso/" target="_blank" rel="noopener">La reforma más pedida por Milei: qué le falta al Gobierno para asegurarse la suspensión de las PASO</a><div class="baj">La Casa Rosada cree que solo faltan unos pocos votos por convencer en el Senado. En el medio, la disputa política en la mesa chica del oficialismo genera tensiones por cómo cerrar las negociaciones. Los plazos que se prevén</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Infobae" data-texto="mar del plata: montenegro recibió a monteoliva para coordinar con nación y provincia medidas ante la crisis de seguridad el intendente y la ministra de seguridad analizaron el despliegue de fuerzas federales. montenegro ya había hablado con kicillof, santilli y javier alonso. ocurre después de su regreso al municipio, tras dejar el senado provincial ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">17:25</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/mar-del-plata-montenegro-recibio-a-monteoliva-para-coordinar-con-nacion-y-provincia-medidas-ante-la-crisis-de-seguridad/" target="_blank" rel="noopener">Mar del Plata: Montenegro recibió a Monteoliva para coordinar con Nación y Provincia medidas ante la crisis de seguridad</a><div class="baj">El intendente y la ministra de Seguridad analizaron el despliegue de fuerzas federales. Montenegro ya había hablado con Kicillof, Santilli y Javier Alonso. Ocurre después de su regreso al municipio, tras dejar el Senado provincial</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="río negro: la libertad avanza puso freno a las autopostulaciones y dejó la candidatura a gobernador en manos de la casa rosada el diputado aníbal tortoriello anunció que competirá por la sucesión de alberto weretilneck, pero la conducción provincial aclaró que no hay definiciones. el senador enzo fullone también aparece en la disputa, con vínculos consolidados con la mesa nacional libertaria ">
+        <td class="tema-col"><b>38</b> · 1 medio</td>
+        <td class="num">17:16</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/rio-negro-la-libertad-avanza-puso-freno-a-las-autopostulaciones-y-dejo-la-candidatura-a-gobernador-en-manos-de-la-casa-rosada/" target="_blank" rel="noopener">Río Negro: La Libertad Avanza puso freno a las autopostulaciones y dejó la candidatura a gobernador en manos de la Casa Rosada</a><div class="baj">El diputado Aníbal Tortoriello anunció que competirá por la sucesión de Alberto Weretilneck, pero la conducción provincial aclaró que no hay definiciones. El senador Enzo Fullone también aparece en la disputa, con vínculos consolidados con la mesa nacional libertaria</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="martín aveiro, diputado mendocino: “el peronismo perdió intendentes y gobernadores cuando cometió errores” el diputado nacional por mendoza explicó su acercamiento a axel kicillof y sostuvo que las derrotas del peronismo en la provincia se debieron a errores de gestión en municipios clave, más que a su vínculo con el kirchnerismo. leer más ">
+        <td class="tema-col"><b>39</b> · 1 medio</td>
+        <td class="num">17:06</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/martin-aveiro-diputado-mendocino-el-peronismo-perdio-intendentes-y-gobernadores-cuando-cometio-errores-modof.phtml" target="_blank" rel="noopener">Martín Aveiro, diputado mendocino: “El peronismo perdió intendentes y gobernadores cuando cometió errores”</a><div class="baj">El diputado nacional por Mendoza explicó su acercamiento a Axel Kicillof y sostuvo que las derrotas del peronismo en la provincia se debieron a errores de gestión en municipios clave, más que a su vínculo con el kirchnerismo. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Ámbito" data-texto="axel kicillof desembarca en la ciudad con agenda productiva y apuntala su espacio en territorio pro el gobernador participará del congreso productivo organizado por el movimiento derecho al futuro. durante dos jornadas, representantes del mundo empresarial, sindical y académico debatirán sobre la actualidad y el futuro de caba. ">
+        <td class="tema-col"><b>40</b> · 1 medio</td>
+        <td class="num">16:39</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/axel-kicillof-desembarca-la-ciudad-agenda-productiva-y-apuntala-su-espacio-territorio-pro-n6333712" target="_blank" rel="noopener">Axel Kicillof desembarca en la Ciudad con agenda productiva y apuntala su espacio en territorio PRO</a><div class="baj">El gobernador participará del Congreso Productivo organizado por el Movimiento Derecho al Futuro. Durante dos jornadas, representantes del mundo empresarial, sindical y académico debatirán sobre la actualidad y el futuro de CABA.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="A24" data-texto="caso loan: detuvieron por falso testimonio al ex chofer de un senador correntino  ">
+        <td class="tema-col"><b>41</b> · 1 medio</td>
+        <td class="num">16:39</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/policiales/caso-loan-detuvieron-falso-testimonio-al-ex-chofer-un-senador-correntino-n1606378" target="_blank" rel="noopener">Caso Loan: detuvieron por falso testimonio al ex chofer de un senador correntino</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="apuestas en línea: la comisión avanzó en el proyecto unificado y convocó a lotería y casinos durante la reunión la presidenta detalló los cuatro pilares de la norma. la ucr presentará modificaciones sobre fiscalías y publicidad, mientras se confirmó la presencia del titular de lotería y casinos para el lunes. la entrada apuestas en línea: la comisión avanzó en el proyecto unificado y… ">
+        <td class="tema-col"><b>42</b> · 1 medio</td>
+        <td class="num">16:00</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/apuestas-en-linea-la-comision-avanzo-en-el-proyecto-unificado-y-convoco-a-loteria-y-casinos/" target="_blank" rel="noopener">Apuestas en línea: la Comisión avanzó en el proyecto unificado y convocó a Lotería y Casinos</a><div class="baj">Durante la reunión la presidenta detalló los cuatro pilares de la norma. La UCR presentará modificaciones sobre fiscalías y publicidad, mientras se confirmó la presencia del titular de Lotería y Casinos para el lunes. La entrada Apuestas en línea: la Comisión avanzó en el proyecto unificado y…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="juicio por loan: detienen a un testigo que vinculó a la tía del nene con la política local  ">
+        <td class="tema-col"><b>43</b> · 1 medio</td>
+        <td class="num">15:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/policiales/juicio-loan-detienen-falso-testimonio-ex-chofer-senador-correntino-respondia-gustavo-valdes_0_vpEkpuBrSu.html" target="_blank" rel="noopener">Juicio por Loan: detienen a un testigo que vinculó a la tía del nene con la política local</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Infobae" data-texto="miguel ángel pichetto habló de la interna del peronismo y avisó al gobierno de milei: “con estos datos de la economía no ganás la elección” el diputado nacional por encuentro republicano federal cuestionó la vigencia del dnu 70, advirtió sobre la situación económica y evaluó las alternativas del peronismo rumbo a las próximas elecciones. en infobae al mediodía, también se refirió a los fallos sobre la ley de tierras y a los nombres que… ">
+        <td class="tema-col"><b>44</b> · 1 medio</td>
+        <td class="num">14:05</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/miguel-angel-pichetto-hablo-de-la-interna-del-peronismo-y-aviso-al-gobierno-de-milei-con-estos-datos-de-la-economia-no-ganas-la-eleccion/" target="_blank" rel="noopener">Miguel Ángel Pichetto habló de la interna del peronismo y avisó al gobierno de Milei: “Con estos datos de la economía no ganás la elección”</a><div class="baj">El diputado nacional por Encuentro Republicano Federal cuestionó la vigencia del DNU 70, advirtió sobre la situación económica y evaluó las alternativas del peronismo rumbo a las próximas elecciones. En Infobae al Mediodía, también se refirió a los fallos sobre la Ley de Tierras y a los nombres que…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="vaccarezza: “tiene prioridad el que va por la ruta, autopista o avenida de mayor jerarquía” la diputada silvina vaccarezza, autora de la norma que modifica ley de tránsito en la provincia que cambió las preferencias de paso señaló que la nueva normativa &#34;ordena a los automovilistas&#34;. la entrada vaccarezza: “tiene prioridad el que va por la ruta, autopista o avenida de mayor jerarquía” se… ">
+        <td class="tema-col"><b>45</b> · 1 medio</td>
+        <td class="num">13:47</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/vaccarezza-tiene-prioridad-el-que-va-por-la-ruta-autopista-o-avenida-de-mayor-jerarquia/" target="_blank" rel="noopener">Vaccarezza: “tiene prioridad el que va por la ruta, autopista o avenida de mayor jerarquía”</a><div class="baj">La diputada Silvina Vaccarezza, autora de la norma que modifica ley de tránsito en la provincia que cambió las preferencias de paso señaló que la nueva normativa &#34;ordena a los automovilistas&#34;. La entrada Vaccarezza: “tiene prioridad el que va por la ruta, autopista o avenida de mayor jerarquía” se…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el caso de roberto funes ugarte llegó al congreso y cordero defendió el régimen laboral vigente la diputada strada interrogó al secretario de trabajo por la situación del conductor televisivo, a quien su empleador le ofreció pasar de relación de dependencia a facturar como monotributista. el funcionario sostuvo que la ley de modernización laboral no modificó los criterios para determinar un… ">
+        <td class="tema-col"><b>46</b> · 1 medio</td>
+        <td class="num">12:58</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/14/el-caso-de-roberto-funes-ugarte-llego-al-congreso-y-cordero-defendio-el-regimen-laboral-vigente/" target="_blank" rel="noopener">El caso de Roberto Funes Ugarte llegó al Congreso y Cordero defendió el régimen laboral vigente</a><div class="baj">La diputada Strada interrogó al secretario de Trabajo por la situación del conductor televisivo, a quien su empleador le ofreció pasar de relación de dependencia a facturar como monotributista. El funcionario sostuvo que la Ley de Modernización Laboral no modificó los criterios para determinar un…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Clarín" data-texto="los republicanos empiezan a dar por perdida la cámara baja de cara a las legislativas  ">
+        <td class="tema-col"><b>47</b> · 1 medio</td>
+        <td class="num">12:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/los-republicanos-empiezan-a-dar-por-perdida-la-camara-baja-de-cara-a-las-legislativas_0_MsH3TbaFJK.html" target="_blank" rel="noopener">Los republicanos empiezan a dar por perdida la Cámara Baja de cara a las legislativas</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="san luis puso a la venta su “palacio embajada” por usd 3 millones: un senador libertario promete recomprarlo por segunda vez, el gobernador claudio poggi quiere rematar el ex palacio lagomarsino, que funciona como la sede de la casa provincial en buenos aires. el legislador bartolomé abdala quiere que el inmueble siga perteneciendo al patrimonio provincial ">
+        <td class="tema-col"><b>48</b> · 1 medio</td>
+        <td class="num">11:49</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/14/san-luis-puso-a-la-venta-su-palacio-embajada-por-usd-3-millones-un-senador-libertario-promete-recomprarlo/" target="_blank" rel="noopener">San Luis puso a la venta su “palacio embajada” por USD 3 millones: un senador libertario promete recomprarlo</a><div class="baj">Por segunda vez, el gobernador Claudio Poggi quiere rematar el ex Palacio Lagomarsino, que funciona como la sede de la casa provincial en Buenos Aires. El legislador Bartolomé Abdala quiere que el inmueble siga perteneciendo al patrimonio provincial</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="ricardo salinas pliego, billonario y empresario mexicano: &#34;un sueldo fijo es lo más cercano a una beca&#34;  ">
+        <td class="tema-col"><b>49</b> · 1 medio</td>
+        <td class="num">10:56</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/internacional/ricardo-salinas-pliego-billonario-mexicano-sueldo-fijo-cercano-beca-defiende-pagar-desempeno_0_4k1joVQ8nI.html" target="_blank" rel="noopener">Ricardo Salinas Pliego, billonario y empresario mexicano: &#34;Un sueldo fijo es lo más cercano a una beca&#34;</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-10-15 a las 10:19 hs (hora argentina) ·
+    <span class="estado-ok">20 respondieron bien</span> · <span class="estado-mal">1 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: no se leyó ningún ítem (¿cambió el formato?)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
