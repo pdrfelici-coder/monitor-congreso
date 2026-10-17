@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-10-17</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Sábado 17 de octubre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 09:07 hs · 20/21 fuentes respondieron · <a href="#fuentes">1 caída</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">66</div>
+      <div class="sub ">▼ -13% vs. promedio de 6 días (76)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">47</div>
+    <div class="sub">10 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">14</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>1</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>6</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 8 notas</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/por-falta-de-quorum-fracaso-la-sesion-convocada-por-la-oposicion-para-voltear-el-dnu-7023-nid15102026/" target="_blank" rel="noopener">Por falta de quorum, fracasó la sesión convocada por la oposición para voltear el DNU 70/23 de Milei</a></h3>
+<p class="bajada">Los bloques críticos no lograron conseguir los avales necesarios para abrir el recinto; el oficialismo logró el apoyo clave de los gobernadores Pullaro, Jaldo y Sadir para bloquear el debate</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">DNU 70/23</span>    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/por-falta-de-quorum-fracaso-la-sesion-convocada-por-la-oposicion-para-voltear-el-dnu-7023-nid15102026/" target="_blank" rel="noopener" title="Por falta de quorum, fracasó la sesión convocada por la oposición para voltear el DNU 70/23 de Milei">La Nación ↗</a><a href="https://www.infobae.com/politica/2026/10/17/el-gobierno-quiere-capitalizar-la-sintonia-con-los-aliados-para-acelerar-con-el-proyecto-de-malvinas/" target="_blank" rel="noopener" title="El Gobierno quiere capitalizar la sintonía con los aliados para acelerar con el proyecto de Malvinas">Infobae ↗</a><a href="https://www.perfil.com/noticias/politica/las-promesas-que-pacto-el-gobierno-para-salvar-el-dnu-70-y-voltear-la-sesion-opositora.phtml" target="_blank" rel="noopener" title="Las promesas que pactó el Gobierno para salvar el DNU 70 y voltear la sesión opositora">Perfil ↗</a><a href="https://www.letrap.com.ar/congreso/dnu-7023-vigente-pragmaticos-vs-troskos-la-interna-la-oposicion-el-fracaso-la-sesion-n5427442" target="_blank" rel="noopener" title="DNU 70/23, vigente: pragmáticos vs. &#34;troskos&#34;, la interna de la oposición por el fracaso de la sesión">Letra P ↗</a><a href="https://www.pagina12.com.ar/2026/10/16/para-santilli-no-dar-quorum-es-trabajar-a-favor-de-los-argentinos/" target="_blank" rel="noopener" title="Para Santilli, “no dar quórum es trabajar a favor de los argentinos”">Página/12 ↗</a><a href="https://www.eldiarioar.com/politica/santilli-celebro-diputados-no-haya-dado-quorum-rechazo-dnu-70-habria-sido-espantoso-sociedad-argentina_1_13592011.html" target="_blank" rel="noopener" title="Santilli celebró que Diputados no haya dado quórum para el rechazo del DNU 70: “Habría sido algo espantoso para la sociedad argentina”">elDiarioAR ↗</a><a href="https://www.perfil.com/noticias/masperfil/diego-santilli-entre-la-negociacion-con-los-gobernadores-y-la-disputa-por-la-billetera-de-caputo.phtml" target="_blank" rel="noopener" title="RDEco: Diego Santilli, entre la negociación con los gobernadores y la disputa por la billetera de Caputo">Perfil ↗</a><a href="https://www.perfil.com/noticias/masperfil/el-gobierno-logro-frenar-el-avance-opositor-contra-el-dnu-7023-y-abrio-otra-negociacion-por-el-presupuesto.phtml" target="_blank" rel="noopener" title="RDEco: El Gobierno logró frenar el avance opositor contra el DNU 70/23 y abrió otra negociación por el Presupuesto">Perfil ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/10/16/arranca-el-debate-de-la-nueva-ley-de-biocombustibles-en-la-camara-de-diputados/" target="_blank" rel="noopener">Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados</a></h3>
+<p class="bajada">El proyecto con media sanción del Senado se tratará en la comisión cabecera, con la participación de invitados, el próximo martes a las 15.30. La entrada Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados se publicó primero en Parlamentario .</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Emergencia en discapacidad</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/10/16/arranca-el-debate-de-la-nueva-ley-de-biocombustibles-en-la-camara-de-diputados/" target="_blank" rel="noopener" title="Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados">Parlamentario.com ↗</a><a href="https://tn.com.ar/campo/2026/10/16/suman-alianzas-provinciales-para-aprobar-la-ley-de-biocombustibles-en-la-camara-de-diputados/" target="_blank" rel="noopener" title="Suman alianzas provinciales para aprobar la ley de biocombustibles en la Cámara de Diputados">TN ↗</a><a href="https://www.infobae.com/politica/2026/10/16/un-grupo-de-gobernadores-se-encamina-a-darle-los-votos-al-oficialismo-para-la-nueva-ley-de-discapacidad/" target="_blank" rel="noopener" title="Un grupo de gobernadores se encamina a darle los votos al oficialismo para la nueva Ley de Discapacidad">Infobae ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.perfil.com/noticias/politica/el-gobierno-tendria-el-numero-para-suspender-las-paso-pero-la-demora-es-interna-el-lugar-de-bullrich-en-la-formula-de-2027-a60.phtml" target="_blank" rel="noopener">El Gobierno tendría los votos para suspender las PASO, pero duda sobre el lugar de Bullrich en la fórmula de 2027</a></h3>
+<p class="bajada">Santilli apela al temor al kirchnerismo, Martín Menem apunta a aprobar la reforma electoral el 20 de noviembre y la Casa Rosada promueve la fórmula Milei-Bullrich, pese a que la senadora advierte que aún no están los votos. Leer más</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.perfil.com/noticias/politica/el-gobierno-tendria-el-numero-para-suspender-las-paso-pero-la-demora-es-interna-el-lugar-de-bullrich-en-la-formula-de-2027-a60.phtml" target="_blank" rel="noopener" title="El Gobierno tendría los votos para suspender las PASO, pero duda sobre el lugar de Bullrich en la fórmula de 2027">Perfil ↗</a><a href="https://www.letrap.com.ar/politica/entre-rios-la-senadora-dominguez-dispara-un-operativo-clamor-suspender-las-paso-provinciales-n5427431" target="_blank" rel="noopener" title="Entre Ríos: la senadora Domínguez dispara un operativo clamor para suspender las PASO provinciales">Letra P ↗</a><a href="https://www.infobae.com/politica/2026/10/16/el-gobierno-gano-en-diputados-pero-siguen-las-dudas-sobre-el-apoyo-para-suspender-las-paso/" target="_blank" rel="noopener" title="El Gobierno ganó en Diputados, pero siguen las dudas sobre el apoyo para suspender las PASO">Infobae ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/10/16/diputados-de-up-quieren-que-el-embajador-de-chile-explique-la-apertura-de-una-ruta-maritima-entre-punta-arenas-y-malvinas/" target="_blank" rel="noopener">Diputados de UP quieren que el embajador de Chile explique la apertura de una ruta marítima entre Punta Arenas y Malvinas</a></h3>
+<p class="bajada">Legisladores peronistas presentaron un proyecto para invitar al embajador chileno en Argentina, Gonzalo Uriarte Herrera, a exponer ante la Comisión de Relaciones Exteriores. Buscan conocer el alcance de la conexión marítima anunciada y si podría ser utilizada para abastecer actividades de…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/10/16/diputados-de-up-quieren-que-el-embajador-de-chile-explique-la-apertura-de-una-ruta-maritima-entre-punta-arenas-y-malvinas/" target="_blank" rel="noopener" title="Diputados de UP quieren que el embajador de Chile explique la apertura de una ruta marítima entre Punta Arenas y Malvinas">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/diputados-peronistas-piden-embajador-chile-explique-apoyo-punta-arenas-malvinas_0_pqbgGQCBlN.html" target="_blank" rel="noopener" title="Diputados peronistas piden que el embajador de Chile explique el apoyo de Punta Arenas a las Malvinas">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/10/16/emotivo-homenaje-en-el-senado-a-los-tripulantes-del-neptune-2-p-103-a-50-anos-de-la-tragedia-antartica/" target="_blank" rel="noopener">Emotivo homenaje en el Senado a los tripulantes del Neptune 2-P-103 a 50 años de la tragedia antártica</a></h3>
+<p class="bajada">La vicepresidenta Victoria Villarruel impulsó un acto conmemorativo para recordar a los 14 integrantes de las Fuerzas Armadas que perdieron la vida en el accidente del avión Neptune 2-P-103 y en las posteriores tareas de búsqueda y rescate en la Antártida. Participaron familiares, camaradas…</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/10/16/emotivo-homenaje-en-el-senado-a-los-tripulantes-del-neptune-2-p-103-a-50-anos-de-la-tragedia-antartica/" target="_blank" rel="noopener" title="Emotivo homenaje en el Senado a los tripulantes del Neptune 2-P-103 a 50 años de la tragedia antártica">Parlamentario.com ↗</a><a href="https://www.senado.gob.ar/prensa/24508/noticias" target="_blank" rel="noopener" title="HOMENAJE A LOS TRIPULANTES DEL NEPTUNE 2-P-103 A 50 AÑOS DEL ACCIDENTE">Senado (prensa) ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4>Martes 20 de octubre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Presupuesto y hacienda</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso - Informativa · ver temario</summary>INVITADOS. Fueron invitados el Secretario de Educación y el Subsecretario de Políticas Universitarias, ambos del Ministerio de Capital Humano a fin de abordar el Mensaje Nro. 0043/2026 y proyecto de ley de fecha 15 de septiembre de 2026, de Presupuesto General de la Administración nacional para el Ejercicio Fiscal del año 2027. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1365/archivo/8WG73728B2T7JFVW.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">13:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Relaciones exteriores y culto, Mercosur</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>Acuerdo de Libre Comercio suscripto entre los Estados miembros de la Asociación Europea de Libre Comercio (AELC) y el Mercosur. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1363/archivo/FTXXSZXD5PH3MJG0.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Energia y combustibles</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados expertos quienes expondrán sobre el proyecto de ley por el cual se regulan las actividades de elaboración, almacenaje, comercialización, mezcla y autoconsumo de biocombustibles en el territorio nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1362/archivo/DB7QVWEXBA9AWJN1.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Defensa nacional, Legislacion penal, Relaciones exteriores y culto</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso REUNIÓN CONJUNTA · ver temario</summary>Mensaje Nro. 275/2026 y proyecto de ley de Defensa de la Soberanía nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1364/archivo/TMPRQP99TKFQH1KX.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión informativa de la Comisión de Coparticipación Federal de Impuestos</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: se recibirá a autoridades y especialistas con el fin de abordar la temática “Repensar la coparticipación: del diseño federal a la realidad de las Provincias”. Expositores: Cdor. Roberto Dib Ashur, ministro de Economía de la Provincia de Salta Dr. Guido Zack, director de Economía de Fundar Lic. Lisandro Nieri, diputado nacional Lic. Luciano Laspina - director ejecutivo de CIPPEC. La actividad requiere inscripción a través del siguiente formulario.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 21 de octubre</h4>
+    <div class="ev sesion ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Diputados · Sesión especial</span>
+</span>
+      <div class="det">
+A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes…<details><summary>ver temario completo</summary>A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes 21.499, de expropiaciones y 24.374, de regularización dominial. - Orden del Día 349. Módulo informático interoperable con el Sistema de Trazabilidad de Medicamentos de Alto Riesgo –MAR– y de sus Ingredientes Farmacéuticos Activos –IFA–. Creación. - Orden del Día 447. Código Penal. Modificaciones sobre Vandalismo Rural. - Orden del Día 442. Inmueble propiedad del Estado nacional, Centro de Acopio y Embarque Barranqueras –CAEB–, en la localidad de Barranqueras, departamento San Fernando, provincia del Chaco. Transferencia a título gratuito a la provincia del Chaco. - Orden del Día…</details>      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Relaciones Exteriores y Culto</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Proyectos de ley: Servicios aéreos: - Expte. PE-271/26 - Mensaje N° 225/26 y proyecto de ley que aprueba el acuerdo sobre servicios aéreos con la República de Finlandia, suscripto en la Ciudad Autónoma de Buenos Aires, el 27 de marzo de 2018. - Expte. PE-273/26 - Mensaje N° 237/26 y proyecto de ley que aprueba el acuerdo con la República del Paraguay sobre servicios aéreos, suscripto en la Cdad. de Buenos Aires - Rep. Argentina, el 27 de noviembre de 2025. Convenio de Estambul: -Expte. PE-234/26 - Mensaje N° 219/26 y proyecto de ley que aprueba el convenio relativo a la importación temporal, celebrado en Estambul -República de Türkiye-, el 26 de junio de 1990. Enmiendas al Convenio de la OMI: -Expte. PE-235/26 - Mensaje N° 220/26 y proyecto de ley que aprueba las enmiendas al…</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Minería, Energía y Combustibles y de Ambiente y Desarrollo Sustentable</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Proyectos de ley: Expte. S-285/25 , Rodas: Reproduce proyecto de ley de presupuestos mínimos de protección ambiental en el cierre de minas. (Ref. 17/2023). Expte. S-257/26 , Fama y Terenzi: Reproduce proyecto de ley que modifica el Código de Minería, respecto de incorporar el título final &#34;Régimen de Cierre de Minas&#34; (Ref. S. 2248/24). Expte. S-525/26 , Corpacci y otros: Proyecto de ley que modifica su similar 1919 y s/m —Código de Minería—, respecto de incorporar el título final &#34;Régimen de Cierre de Minas&#34;.</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 76 · los días sin corrida quedan vacíos</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  sin-datos"
+           data-tip="Sá 10: sin corrida">
+        <div class="c" style="height: 100%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 11: 30 notas">
+        <div class="c" style="height: 20.7%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 12: 38 notas">
+        <div class="c" style="height: 26.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 13: 48 notas">
+        <div class="c" style="height: 33.1%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 14: 76 notas">
+        <div class="c" style="height: 52.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 15: 118 notas">
+        <div class="c" style="height: 81.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 16: 145 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Sá 17: 66 notas">
+<span class="cap">66</span>        <div class="c" style="height: 45.5%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Sá 10</span><span class="">Do 11</span><span class="">Lu 12</span><span class="">Ma 13</span><span class="">Mi 14</span><span class="">Ju 15</span><span class="">Vi 16</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 17 hoy · promedio 11.3">
+        <span class="bar" style="width: 100.0%"></span><span class="v">17</span>
+<span class="tick" style="left: calc(66.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 10 hoy · promedio 8.7">
+        <span class="bar" style="width: 58.8%"></span><span class="v">10</span>
+<span class="tick" style="left: calc(51.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Perfil">Perfil</span>
+      <span class="track" data-tip="Perfil: 9 hoy · promedio 7.3">
+        <span class="bar" style="width: 52.9%"></span><span class="v">9</span>
+<span class="tick" style="left: calc(43.1% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 8 hoy · promedio 8.8">
+        <span class="bar" style="width: 47.1%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(52.0% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 4 hoy · promedio 5.3">
+        <span class="bar" style="width: 23.5%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(31.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 3 hoy · promedio 3.3">
+        <span class="bar" style="width: 17.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(19.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 2 hoy · promedio 3.7">
+        <span class="bar" style="width: 11.8%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(21.6% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 2 hoy · promedio 1.5">
+        <span class="bar" style="width: 11.8%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(8.8% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 2 hoy · promedio 5.0">
+        <span class="bar" style="width: 11.8%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(29.4% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 2 hoy · promedio 1.3">
+        <span class="bar" style="width: 11.8%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(7.8% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 2 hoy · promedio 2.3">
+        <span class="bar" style="width: 11.8%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(13.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 2 hoy · promedio 4.7">
+        <span class="bar" style="width: 11.8%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(27.5% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 2 hoy · promedio 1.5">
+        <span class="bar" style="width: 11.8%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(8.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 1.5">
+        <span class="bar" style="width: 5.9%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(8.8% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Por falta de quorum, fracasó la sesión convocada por la oposición para voltear el DNU 70/23 de Milei">1. Por falta de quorum, fracasó la sesión convocada por la oposición para voltear el DNU 70/23 de Milei</span>
+      <span class="track" data-tip="Por falta de quorum, fracasó la sesión convocada por la oposición para voltear el DNU 70/23 de Milei — 8 notas, 6 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">8 (6)</span>
+      </span>
+      <span class="lbl" title="Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados">2. Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados</span>
+      <span class="track" data-tip="Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados — 3 notas, 3 medios">
+        <span class="bar" style="width: 37.5%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="El Gobierno tendría los votos para suspender las PASO, pero duda sobre el lugar de Bullrich en la fórmula de 2027">3. El Gobierno tendría los votos para suspender las PASO, pero duda sobre el lugar de Bullrich en la fórmula de 2027</span>
+      <span class="track" data-tip="El Gobierno tendría los votos para suspender las PASO, pero duda sobre el lugar de Bullrich en la fórmula de 2027 — 3 notas, 3 medios">
+        <span class="bar" style="width: 37.5%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="Diputados de UP quieren que el embajador de Chile explique la apertura de una ruta marítima entre Punta Arenas y Malvinas">4. Diputados de UP quieren que el embajador de Chile explique la apertura de una ruta marítima entre Punta Arenas y Malvinas</span>
+      <span class="track" data-tip="Diputados de UP quieren que el embajador de Chile explique la apertura de una ruta marítima entre Punta Arenas y Malvinas — 2 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Emotivo homenaje en el Senado a los tripulantes del Neptune 2-P-103 a 50 años de la tragedia antártica">5. Emotivo homenaje en el Senado a los tripulantes del Neptune 2-P-103 a 50 años de la tragedia antártica</span>
+      <span class="track" data-tip="Emotivo homenaje en el Senado a los tripulantes del Neptune 2-P-103 a 50 años de la tragedia antártica — 2 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Máximo Kirchner denunció que el Congreso “volvió a garantizar privilegios a los que más tienen”">6. Máximo Kirchner denunció que el Congreso “volvió a garantizar privilegios a los que más tienen”</span>
+      <span class="track" data-tip="Máximo Kirchner denunció que el Congreso “volvió a garantizar privilegios a los que más tienen” — 2 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Para Menem, en la marcha universitaria “no hubo mucha gente” y “fue muy violenta”">7. Para Menem, en la marcha universitaria “no hubo mucha gente” y “fue muy violenta”</span>
+      <span class="track" data-tip="Para Menem, en la marcha universitaria “no hubo mucha gente” y “fue muy violenta” — 2 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Tras el fracaso de la sesión opositora, el PJ apunta contra el gobernador Melella por la ausencia de su diputado Tita">8. Tras el fracaso de la sesión opositora, el PJ apunta contra el gobernador Melella por la ausencia de su diputado Tita</span>
+      <span class="track" data-tip="Tras el fracaso de la sesión opositora, el PJ apunta contra el gobernador Melella por la ausencia de su diputado Tita — 2 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Piden el juicio político para el juez que absolvió a los sindicalistas que bloquearon San Nicolás">9. Piden el juicio político para el juez que absolvió a los sindicalistas que bloquearon San Nicolás</span>
+      <span class="track" data-tip="Piden el juicio político para el juez que absolvió a los sindicalistas que bloquearon San Nicolás — 2 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Diego Santilli: “Los que deberían estar preocupados son los gobernadores si el kirchnerismo vuelve y gana Kicillof”">10. Diego Santilli: “Los que deberían estar preocupados son los gobernadores si el kirchnerismo vuelve y gana Kicillof”</span>
+      <span class="track" data-tip="Diego Santilli: “Los que deberían estar preocupados son los gobernadores si el kirchnerismo vuelve y gana Kicillof” — 2 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">2 (2)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Perfil</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="por falta de quorum, fracasó la sesión convocada por la oposición para voltear el dnu 70/23 de milei los bloques críticos no lograron conseguir los avales necesarios para abrir el recinto; el oficialismo logró el apoyo clave de los gobernadores pullaro, jaldo y sadir para bloquear el debate dnu 70/23">
+        <td class="tema-col"><b>1</b> · 6 medios<br>DNU 70/23</td>
+        <td class="num">11:02</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/por-falta-de-quorum-fracaso-la-sesion-convocada-por-la-oposicion-para-voltear-el-dnu-7023-nid15102026/" target="_blank" rel="noopener">Por falta de quorum, fracasó la sesión convocada por la oposición para voltear el DNU 70/23 de Milei</a><div class="baj">Los bloques críticos no lograron conseguir los avales necesarios para abrir el recinto; el oficialismo logró el apoyo clave de los gobernadores Pullaro, Jaldo y Sadir para bloquear el debate</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno quiere capitalizar la sintonía con los aliados para acelerar con el proyecto de malvinas tras frenar la ofensiva de la oposición y blindar el dnu 70/23, el oficialismo negocia a contrarreloj para dictaminar este martes y llevar el texto de defensa de la soberanía nacional al recinto al día siguiente. los planteos del pro, la ucr y el mid dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">01:36</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/17/el-gobierno-quiere-capitalizar-la-sintonia-con-los-aliados-para-acelerar-con-el-proyecto-de-malvinas/" target="_blank" rel="noopener">El Gobierno quiere capitalizar la sintonía con los aliados para acelerar con el proyecto de Malvinas</a><div class="baj">Tras frenar la ofensiva de la oposición y blindar el DNU 70/23, el oficialismo negocia a contrarreloj para dictaminar este martes y llevar el texto de Defensa de la Soberanía Nacional al recinto al día siguiente. Los planteos del PRO, la UCR y el MID</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="las promesas que pactó el gobierno para salvar el dnu 70 y voltear la sesión opositora la negociación frenética de lla con los gobernadores dejó a la oposición con 121 presentes, a ocho de los necesarios para activar el recinto. salteños, catamarqueños y cordobeses bajaron al recinto, pero ya sin margen para que la sesión prosperara. el malestar del oficialismo con la suprema corte y… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">00:41</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/las-promesas-que-pacto-el-gobierno-para-salvar-el-dnu-70-y-voltear-la-sesion-opositora.phtml" target="_blank" rel="noopener">Las promesas que pactó el Gobierno para salvar el DNU 70 y voltear la sesión opositora</a><div class="baj">La negociación frenética de LLA con los gobernadores dejó a la oposición con 121 presentes, a ocho de los necesarios para activar el recinto. Salteños, catamarqueños y cordobeses bajaron al recinto, pero ya sin margen para que la sesión prosperara. El malestar del oficialismo con la Suprema Corte y…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Letra P" data-texto="dnu 70/23, vigente: pragmáticos vs. &#34;troskos&#34;, la interna de la oposición por el fracaso de la sesión  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">19:43</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/dnu-7023-vigente-pragmaticos-vs-troskos-la-interna-la-oposicion-el-fracaso-la-sesion-n5427442" target="_blank" rel="noopener">DNU 70/23, vigente: pragmáticos vs. &#34;troskos&#34;, la interna de la oposición por el fracaso de la sesión</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="para santilli, “no dar quórum es trabajar a favor de los argentinos”  dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">17:25</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/16/para-santilli-no-dar-quorum-es-trabajar-a-favor-de-los-argentinos/" target="_blank" rel="noopener">Para Santilli, “no dar quórum es trabajar a favor de los argentinos”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="santilli celebró que diputados no haya dado quórum para el rechazo del dnu 70: “habría sido algo espantoso para la sociedad argentina” el jefe de gabinete, diego santilli, hizo un análisis luego de que no hubiera quórum en diputados para el rechazo del dnu 70/23. celebró el apoyo de los mandatarios provinciales y confió en que también avanzará la reforma electoral. diego santilli celebró que la oposición no reuniera quórum en la… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">11:19</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/santilli-celebro-diputados-no-haya-dado-quorum-rechazo-dnu-70-habria-sido-espantoso-sociedad-argentina_1_13592011.html" target="_blank" rel="noopener">Santilli celebró que Diputados no haya dado quórum para el rechazo del DNU 70: “Habría sido algo espantoso para la sociedad argentina”</a><div class="baj">El jefe de Gabinete, Diego Santilli, hizo un análisis luego de que no hubiera quórum en Diputados para el rechazo del DNU 70/23. Celebró el apoyo de los mandatarios provinciales y confió en que también avanzará la reforma electoral. Diego Santilli celebró que la oposición no reuniera quórum en la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="rdeco: diego santilli, entre la negociación con los gobernadores y la disputa por la billetera de caputo en ronda de economistas, ariel maciel y claudio mardones analizaron el ascenso del jefe de gabinete, su capacidad para tejer acuerdos en el congreso y el desafío de acercar posiciones con las provincias. las tensiones por el presupuesto 2026 y las dudas sobre el alcance del plan económico también… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">10:21</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/masperfil/diego-santilli-entre-la-negociacion-con-los-gobernadores-y-la-disputa-por-la-billetera-de-caputo.phtml" target="_blank" rel="noopener">RDEco: Diego Santilli, entre la negociación con los gobernadores y la disputa por la billetera de Caputo</a><div class="baj">En Ronda de Economistas, Ariel Maciel y Claudio Mardones analizaron el ascenso del jefe de Gabinete, su capacidad para tejer acuerdos en el Congreso y el desafío de acercar posiciones con las provincias. Las tensiones por el Presupuesto 2026 y las dudas sobre el alcance del plan económico también…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="rdeco: el gobierno logró frenar el avance opositor contra el dnu 70/23 y abrió otra negociación por el presupuesto la oposición reunió 121 diputados y quedó a ocho del cuórum necesario para debatir la derogación del decreto. el periodista claudio mardones explicó en ronda de economistas (rdeco) que la falta de número no cierra la posibilidad de volver a tratarlo, mientras el oficialismo busca sostener el dnu en… dnu 70/23">
+        <td class="tema-col"></td>
+        <td class="num">10:11</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/masperfil/el-gobierno-logro-frenar-el-avance-opositor-contra-el-dnu-7023-y-abrio-otra-negociacion-por-el-presupuesto.phtml" target="_blank" rel="noopener">RDEco: El Gobierno logró frenar el avance opositor contra el DNU 70/23 y abrió otra negociación por el Presupuesto</a><div class="baj">La oposición reunió 121 diputados y quedó a ocho del cuórum necesario para debatir la derogación del decreto. El periodista Claudio Mardones explicó en Ronda de Economistas (RDEco) que la falta de número no cierra la posibilidad de volver a tratarlo, mientras el oficialismo busca sostener el DNU en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="arranca el debate de la nueva ley de biocombustibles en la cámara de diputados el proyecto con media sanción del senado se tratará en la comisión cabecera, con la participación de invitados, el próximo martes a las 15.30. la entrada arranca el debate de la nueva ley de biocombustibles en la cámara de diputados se publicó primero en parlamentario . emergencia en discapacidad">
+        <td class="tema-col"><b>2</b> · 3 medios<br>Emergencia en discapacidad</td>
+        <td class="num">15:02</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/arranca-el-debate-de-la-nueva-ley-de-biocombustibles-en-la-camara-de-diputados/" target="_blank" rel="noopener">Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados</a><div class="baj">El proyecto con media sanción del Senado se tratará en la comisión cabecera, con la participación de invitados, el próximo martes a las 15.30. La entrada Arranca el debate de la nueva Ley de Biocombustibles en la Cámara de Diputados se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="suman alianzas provinciales para aprobar la ley de biocombustibles en la cámara de diputados  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">23:03</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/campo/2026/10/16/suman-alianzas-provinciales-para-aprobar-la-ley-de-biocombustibles-en-la-camara-de-diputados/" target="_blank" rel="noopener">Suman alianzas provinciales para aprobar la ley de biocombustibles en la Cámara de Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="un grupo de gobernadores se encamina a darle los votos al oficialismo para la nueva ley de discapacidad los representantes de salta, formosa, misiones y san luis pretenden acordar con el oficialismo y bloquear la continuidad de la emergencia. el jueves se tratará en diputados. el rechazo de economía emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">15:50</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/16/un-grupo-de-gobernadores-se-encamina-a-darle-los-votos-al-oficialismo-para-la-nueva-ley-de-discapacidad/" target="_blank" rel="noopener">Un grupo de gobernadores se encamina a darle los votos al oficialismo para la nueva Ley de Discapacidad</a><div class="baj">Los representantes de Salta, Formosa, Misiones y San Luis pretenden acordar con el oficialismo y bloquear la continuidad de la emergencia. El jueves se tratará en Diputados. El rechazo de Economía</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Perfil" data-texto="el gobierno tendría los votos para suspender las paso, pero duda sobre el lugar de bullrich en la fórmula de 2027 santilli apela al temor al kirchnerismo, martín menem apunta a aprobar la reforma electoral el 20 de noviembre y la casa rosada promueve la fórmula milei-bullrich, pese a que la senadora advierte que aún no están los votos. leer más ">
+        <td class="tema-col"><b>3</b> · 3 medios</td>
+        <td class="num">18:00</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/el-gobierno-tendria-el-numero-para-suspender-las-paso-pero-la-demora-es-interna-el-lugar-de-bullrich-en-la-formula-de-2027-a60.phtml" target="_blank" rel="noopener">El Gobierno tendría los votos para suspender las PASO, pero duda sobre el lugar de Bullrich en la fórmula de 2027</a><div class="baj">Santilli apela al temor al kirchnerismo, Martín Menem apunta a aprobar la reforma electoral el 20 de noviembre y la Casa Rosada promueve la fórmula Milei-Bullrich, pese a que la senadora advierte que aún no están los votos. Leer más</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Letra P" data-texto="entre ríos: la senadora domínguez dispara un operativo clamor para suspender las paso provinciales  ">
+        <td class="tema-col"></td>
+        <td class="num">16:26</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/entre-rios-la-senadora-dominguez-dispara-un-operativo-clamor-suspender-las-paso-provinciales-n5427431" target="_blank" rel="noopener">Entre Ríos: la senadora Domínguez dispara un operativo clamor para suspender las PASO provinciales</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno ganó en diputados, pero siguen las dudas sobre el apoyo para suspender las paso en el oficialismo, algunos creen que el respaldo de los gobernadores al dnu 70 los acerca a la reforma política; otros no ven relación entre un tema y otro. dudas por diputados que sorprendieron al sentarse en sus bancas. hoy santilli buscará retomar el diálogo con mandatarios provinciales ">
+        <td class="tema-col"></td>
+        <td class="num">09:37</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/16/el-gobierno-gano-en-diputados-pero-siguen-las-dudas-sobre-el-apoyo-para-suspender-las-paso/" target="_blank" rel="noopener">El Gobierno ganó en Diputados, pero siguen las dudas sobre el apoyo para suspender las PASO</a><div class="baj">En el oficialismo, algunos creen que el respaldo de los gobernadores al DNU 70 los acerca a la reforma política; otros no ven relación entre un tema y otro. Dudas por diputados que sorprendieron al sentarse en sus bancas. Hoy Santilli buscará retomar el diálogo con mandatarios provinciales</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados de up quieren que el embajador de chile explique la apertura de una ruta marítima entre punta arenas y malvinas legisladores peronistas presentaron un proyecto para invitar al embajador chileno en argentina, gonzalo uriarte herrera, a exponer ante la comisión de relaciones exteriores. buscan conocer el alcance de la conexión marítima anunciada y si podría ser utilizada para abastecer actividades de… ">
+        <td class="tema-col"><b>4</b> · 2 medios</td>
+        <td class="num">23:03</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/diputados-de-up-quieren-que-el-embajador-de-chile-explique-la-apertura-de-una-ruta-maritima-entre-punta-arenas-y-malvinas/" target="_blank" rel="noopener">Diputados de UP quieren que el embajador de Chile explique la apertura de una ruta marítima entre Punta Arenas y Malvinas</a><div class="baj">Legisladores peronistas presentaron un proyecto para invitar al embajador chileno en Argentina, Gonzalo Uriarte Herrera, a exponer ante la Comisión de Relaciones Exteriores. Buscan conocer el alcance de la conexión marítima anunciada y si podría ser utilizada para abastecer actividades de…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Clarín" data-texto="diputados peronistas piden que el embajador de chile explique el apoyo de punta arenas a las malvinas el proyecto de resolución lo elaboró cafiero con legisladores del espacio opositor a su vez, michell propuso dejar sin efectos convenios bilaterales ">
+        <td class="tema-col"></td>
+        <td class="num">17:46</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diputados-peronistas-piden-embajador-chile-explique-apoyo-punta-arenas-malvinas_0_pqbgGQCBlN.html" target="_blank" rel="noopener">Diputados peronistas piden que el embajador de Chile explique el apoyo de Punta Arenas a las Malvinas</a><div class="baj">El proyecto de resolución lo elaboró Cafiero con legisladores del espacio opositor A su vez, Michell propuso dejar sin efectos convenios bilaterales</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="emotivo homenaje en el senado a los tripulantes del neptune 2-p-103 a 50 años de la tragedia antártica la vicepresidenta victoria villarruel impulsó un acto conmemorativo para recordar a los 14 integrantes de las fuerzas armadas que perdieron la vida en el accidente del avión neptune 2-p-103 y en las posteriores tareas de búsqueda y rescate en la antártida. participaron familiares, camaradas… ">
+        <td class="tema-col"><b>5</b> · 2 medios</td>
+        <td class="num">22:23</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/emotivo-homenaje-en-el-senado-a-los-tripulantes-del-neptune-2-p-103-a-50-anos-de-la-tragedia-antartica/" target="_blank" rel="noopener">Emotivo homenaje en el Senado a los tripulantes del Neptune 2-P-103 a 50 años de la tragedia antártica</a><div class="baj">La vicepresidenta Victoria Villarruel impulsó un acto conmemorativo para recordar a los 14 integrantes de las Fuerzas Armadas que perdieron la vida en el accidente del avión Neptune 2-P-103 y en las posteriores tareas de búsqueda y rescate en la Antártida. Participaron familiares, camaradas…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="homenaje a los tripulantes del neptune 2-p-103 a 50 años del accidente el acto conmemorativo recordó a quienes perdieron la vida en cumplimiento de su misión en la antártida. estuvieron presentes familiares, camaradas y autoridades diplomáticas. ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24508/noticias" target="_blank" rel="noopener">HOMENAJE A LOS TRIPULANTES DEL NEPTUNE 2-P-103 A 50 AÑOS DEL ACCIDENTE</a><div class="baj">El acto conmemorativo recordó a quienes perdieron la vida en cumplimiento de su misión en la Antártida. Estuvieron presentes familiares, camaradas y autoridades diplomáticas.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="máximo kirchner denunció que el congreso “volvió a garantizar privilegios a los que más tienen” durante una actividad en resistencia, el diputado nacional cuestionó las políticas de javier milei, defendió a cristina kirchner y advirtió sobre el impacto de la situación económica en las familias, los comerciantes y las pequeñas empresas. la entrada máximo kirchner denunció que el congreso… ">
+        <td class="tema-col"><b>6</b> · 2 medios</td>
+        <td class="num">21:54</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/maximo-kirchner-denuncio-que-el-congreso-volvio-a-garantizar-privilegios-a-los-que-mas-tienen/" target="_blank" rel="noopener">Máximo Kirchner denunció que el Congreso “volvió a garantizar privilegios a los que más tienen”</a><div class="baj">Durante una actividad en Resistencia, el diputado nacional cuestionó las políticas de Javier Milei, defendió a Cristina Kirchner y advirtió sobre el impacto de la situación económica en las familias, los comerciantes y las pequeñas empresas. La entrada Máximo Kirchner denunció que el Congreso…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="cristina kirchner supera por más de seis puntos a javier milei una encuesta exclusiva para página/12 da cuenta de que la expresidenta tiene una imagen positiva del 45,1%. le siguen bullrich y kicillof. en un cómodo cuarto puesto aparece milei con un 38,9%. el trabajo muestra que la oposición creció más que el oficialismo y la avenida del medio es cada vez más… ">
+        <td class="tema-col"></td>
+        <td class="num">22:23</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/17/cristina-kirchner-supera-por-mas-de-seis-puntos-a-javier-milei/" target="_blank" rel="noopener">Cristina Kirchner supera por más de seis puntos a Javier Milei</a><div class="baj">Una encuesta exclusiva para Página/12 da cuenta de que la expresidenta tiene una imagen positiva del 45,1%. Le siguen Bullrich y Kicillof. En un cómodo cuarto puesto aparece Milei con un 38,9%. El trabajo muestra que la oposición creció más que el oficialismo y la avenida del medio es cada vez más…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="para menem, en la marcha universitaria “no hubo mucha gente” y “fue muy violenta” el presidente de la cámara de diputados minimizó la movilización. además, dijo que la sesión promovida por la oposición &#34;no tenía ningún tipo de sentido, más que romper, generar caos y un clima de incertidumbre&#34;. la entrada para menem, en la marcha universitaria “no hubo mucha gente” y “fue muy… ">
+        <td class="tema-col"><b>7</b> · 2 medios</td>
+        <td class="num">11:02</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/para-menem-en-la-marcha-universitaria-no-hubo-mucha-gente-y-fue-muy-violenta/" target="_blank" rel="noopener">Para Menem, en la marcha universitaria “no hubo mucha gente” y “fue muy violenta”</a><div class="baj">El presidente de la Cámara de Diputados minimizó la movilización. Además, dijo que la sesión promovida por la oposición &#34;no tenía ningún tipo de sentido, más que romper, generar caos y un clima de incertidumbre&#34;. La entrada Para Menem, en la marcha universitaria “no hubo mucha gente” y “fue muy…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="silvana giudici: “la marcha universitaria mezclaba las consignas y llevaba a estudiantes detrás de la izquierda violenta” la diputada nacional de la libertad avanza analizó el debate legislativo en torno al dnu 70, la fallida sesión impulsada por el kirchnerismo y la fragmentación interna de la oposición. además, cuestionó con dureza los incidentes violentos registrados frente al congreso y la utilización de… ">
+        <td class="tema-col"></td>
+        <td class="num">16:32</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/silvina-guidici-la-marcha-universitaria-mezclaba-las-consignas-y-llevaba-a-estudiante-detras-de-la-izquierda-violenta-modof.phtml" target="_blank" rel="noopener">Silvana Giudici: “La marcha universitaria mezclaba las consignas y llevaba a estudiantes detrás de la izquierda violenta”</a><div class="baj">La diputada nacional de La Libertad Avanza analizó el debate legislativo en torno al DNU 70, la fallida sesión impulsada por el kirchnerismo y la fragmentación interna de la oposición. Además, cuestionó con dureza los incidentes violentos registrados frente al Congreso y la utilización de…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="tras el fracaso de la sesión opositora, el pj apunta contra el gobernador melella por la ausencia de su diputado tita hubo reproches y sospechas contra el fueguino, que muestra signos de distensión con la casa rosada; también critican a jaldo, aunque asumían que jugaría con los libertarios ">
+        <td class="tema-col"><b>8</b> · 2 medios</td>
+        <td class="num">15:33</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/tras-el-fracaso-de-la-sesion-opositora-el-pj-apunta-contra-el-gobernador-melella-por-la-ausencia-de-nid16102026/" target="_blank" rel="noopener">Tras el fracaso de la sesión opositora, el PJ apunta contra el gobernador Melella por la ausencia de su diputado Tita</a><div class="baj">Hubo reproches y sospechas contra el fueguino, que muestra signos de distensión con la Casa Rosada; también critican a Jaldo, aunque asumían que jugaría con los libertarios</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Política Online" data-texto="melella traicionó al bloque peronista a cambio de fondos para pagar los sueldos su diputado agustín tita no dio quórum en la sesión para voltear el dnu 70, luego que le giraran un atn de 45 mil millones a la isla ">
+        <td class="tema-col"></td>
+        <td class="num">15:51</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/el-faltazo-del-fueguino-tita-a-cambio-de-los-anticipos-financieros-para-que-melella-llegue-a-fin-de-mes-7230/" target="_blank" rel="noopener">Melella traicionó al bloque peronista a cambio de fondos para pagar los sueldos</a><div class="baj">Su diputado Agustín Tita no dio quórum en la sesión para voltear el DNU 70, luego que le giraran un ATN de 45 mil millones a la isla</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="piden el juicio político para el juez que absolvió a los sindicalistas que bloquearon san nicolás fue presentado por el exintendente manuel passaglia; pide que se investigue un posible “mal desempeño e incumplimiento grave de los deberes” ">
+        <td class="tema-col"><b>9</b> · 2 medios</td>
+        <td class="num">11:03</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/piden-el-juicio-politico-para-el-juez-que-absolvio-a-los-sindicalistas-que-bloquearon-san-nicolas-nid16102026/" target="_blank" rel="noopener">Piden el juicio político para el juez que absolvió a los sindicalistas que bloquearon San Nicolás</a><div class="baj">Fue presentado por el exintendente Manuel Passaglia; pide que se investigue un posible “mal desempeño e incumplimiento grave de los deberes”</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="pidieron el juicio político contra el juez que absolvió a un líder de camioneros acusado de extorsión  ">
+        <td class="tema-col"></td>
+        <td class="num">12:04</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/pidieron-juicio-politico-juez-absolvio-lider-camioneros-acusado-extorsion_0_fZaGJK7W7t.html" target="_blank" rel="noopener">Pidieron el juicio político contra el juez que absolvió a un líder de Camioneros acusado de extorsión</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="diego santilli: “los que deberían estar preocupados son los gobernadores si el kirchnerismo vuelve y gana kicillof” el jefe de gabinete advirtió sobre los riesgos de que la oposición regrese al poder y dé marcha atrás con muchos avances que logró el gobierno de milei. además celebró el apoyo de los mandatarios provinciales al dnu 70 y confió en que también avanzará la reforma electoral ">
+        <td class="tema-col"><b>10</b> · 2 medios</td>
+        <td class="num">10:07</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/16/diego-santilli-celebro-el-apoyo-de-los-gobernadores-al-dnu-70-y-confio-en-que-tambien-avanzara-la-reforma-electoral/" target="_blank" rel="noopener">Diego Santilli: “Los que deberían estar preocupados son los gobernadores si el kirchnerismo vuelve y gana Kicillof”</a><div class="baj">El jefe de Gabinete advirtió sobre los riesgos de que la oposición regrese al poder y dé marcha atrás con muchos avances que logró el gobierno de Milei. Además celebró el apoyo de los mandatarios provinciales al DNU 70 y confió en que también avanzará la reforma electoral</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="diego santilli, en modo electoral: &#34;los gobernadores deberían estar preocupados si gana kicillof y vuelve el kirchnerismo&#34;  ">
+        <td class="tema-col"></td>
+        <td class="num">09:24</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/energumenos-violentos-marchan-universidades-dura-critica-santilli-graves-incidentes-frente-congreso_0_XHvL28muN2.html" target="_blank" rel="noopener">Diego Santilli, en modo electoral: &#34;Los gobernadores deberían estar preocupados si gana Kicillof y vuelve el kirchnerismo&#34;</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="trump suspende temporalmente sanciones del congreso contra rusia por &#34;interés nacional&#34;  ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">23:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/trump-suspende-temporalmente-sanciones-del-congreso-contra-rusia-por-interes-nacional_0_ItYGlfc9Yw.html" target="_blank" rel="noopener">Trump suspende temporalmente sanciones del Congreso contra Rusia por &#34;interés nacional&#34;</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="trump exime a rusia de nuevas sanciones aprobadas por el congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">00:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/trump-exime-a-rusia-de-nuevas-sanciones-aprobadas-por-el-congreso_0_VAcnVIvyPS.html" target="_blank" rel="noopener">Trump exime a Rusia de nuevas sanciones aprobadas por el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="El Cronista" data-texto="frente amplio y podemos no sellan una alianza: la izquierda afronta dividida las elecciones del 29-n ambas fuerzas solo pactaron candidaturas conjuntas al congreso en canarias y la comunidad valenciana, mientras que socialistas y la coalición de colau compartirán papeleta en el senado. ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">08:04</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/espana/politica-es/frente-amplio-y-podemos-no-sellan-una-alianza-la-izquierda-afronta-dividida-las-elecciones-del-29-n/" target="_blank" rel="noopener">Frente Amplio y Podemos no sellan una alianza: la izquierda afronta dividida las elecciones del 29-N</a><div class="baj">Ambas fuerzas solo pactaron candidaturas conjuntas al Congreso en Canarias y la Comunidad Valenciana, mientras que socialistas y la coalición de Colau compartirán papeleta en el Senado.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="TN" data-texto="la casa rosada buscará instalar la seguridad como eje de campaña y enviará la reforma del código penal al congreso antes de fin de año  ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">05:55</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/17/el-gobierno-busca-instalar-la-seguridad-como-eje-de-campana-y-enviara-la-reforma-del-codigo-penal-al-congreso-antes-de-fin-de-ano/" target="_blank" rel="noopener">La Casa Rosada buscará instalar la seguridad como eje de campaña y enviará la reforma del Código Penal al Congreso antes de fin de año</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="mauricio macri apoyó a santiago passaglia con un mensaje en redes sociales y después borró el posteo el expresidente elogió la propuesta del intendente de san nicolás de eliminar la tasa de seguridad e higiene si nación también está dispuesto a dejar de cobrar impuesto a los municipios; había señalado que su implementación requería una ley del congreso ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">02:09</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/mauricio-macri-apoyo-a-santiago-passaglia-con-un-mensaje-en-redes-sociales-y-despues-borro-el-posteo-nid17102026/" target="_blank" rel="noopener">Mauricio Macri apoyó a Santiago Passaglia con un mensaje en redes sociales y después borró el posteo</a><div class="baj">El expresidente elogió la propuesta del intendente de San Nicolás de eliminar la tasa de seguridad e higiene si Nación también está dispuesto a dejar de cobrar impuesto a los municipios; había señalado que su implementación requería una ley del Congreso</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="el desafío opositor tras la fallida sesión: construir mayorías en un congreso moldeado por los gobernadores mientras el oficialismo negocia con las provincias, los bloques opositores reconocen que coordinar votos no alcanza si los números dependen de compromisos ajenos al debate legislativo ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">01:09</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/17/el-desafio-opositor-tras-la-fallida-sesion-construir-mayorias-en-un-congreso-moldeado-por-los-gobernadores/" target="_blank" rel="noopener">El desafío opositor tras la fallida sesión: construir mayorías en un Congreso moldeado por los gobernadores</a><div class="baj">Mientras el oficialismo negocia con las provincias, los bloques opositores reconocen que coordinar votos no alcanza si los números dependen de compromisos ajenos al debate legislativo</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="milei se mantiene lejos del ruido local y viaja a españa para sacar provecho de la ola internacional de derecha el presidente continúa enfocándose en lo que ocurre afuera de la argentina y delega las tareas domésticas en su hermana karina. su agenda en europa, mientras en buenos aires el oficialismo buscará obtener otro triunfo en el congreso ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">01:07</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/17/milei-se-mantiene-lejos-del-ruido-local-y-viaja-a-espana-para-sacar-provecho-de-la-ola-internacional-de-derecha/" target="_blank" rel="noopener">Milei se mantiene lejos del ruido local y viaja a España para sacar provecho de la ola internacional de derecha</a><div class="baj">El Presidente continúa enfocándose en lo que ocurre afuera de la Argentina y delega las tareas domésticas en su hermana Karina. Su agenda en Europa, mientras en Buenos Aires el oficialismo buscará obtener otro triunfo en el Congreso</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="el riesgoso camino de un gobierno que encuentra sostén en el desorden opositor y se recuesta en los aliados el ala política, comandada por karina milei, le dio al presidente aire en el congreso. pero la victoria en diputados también expuso la fragilidad que persigue al mileísmo: su principal activo no es propio sino la debilidad del peronismo. las negociaciones con las provincias y la cercanía del… ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">01:06</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/17/el-riesgoso-camino-de-un-gobierno-que-encuentra-sosten-en-el-desorden-opositor-y-se-recuesta-en-los-aliados/" target="_blank" rel="noopener">El riesgoso camino de un Gobierno que encuentra sostén en el desorden opositor y se recuesta en los aliados</a><div class="baj">El ala política, comandada por Karina Milei, le dio al Presidente aire en el Congreso. Pero la victoria en Diputados también expuso la fragilidad que persigue al mileísmo: su principal activo no es propio sino la debilidad del peronismo. Las negociaciones con las provincias y la cercanía del…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Ámbito" data-texto="a un año de las elecciones, el peronismo valora la unidad en el congreso ante la imposibilidad de tratar su agenda el 17 de octubre encuentra a ambos bloques justicialistas en una posición de resistencia casi inamovible, después del triunfo electoral de la libertad avanza en las legislativas 2025. con la mirada en las provincias, buscan instalar un programa por fuera del recinto. ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/a-un-ano-las-elecciones-el-peronismo-valora-la-unidad-el-congreso-la-imposibilidad-tratar-su-agenda-n6334811" target="_blank" rel="noopener">A un año de las elecciones, el peronismo valora la unidad en el Congreso ante la imposibilidad de tratar su agenda</a><div class="baj">El 17 de octubre encuentra a ambos bloques justicialistas en una posición de resistencia casi inamovible, después del triunfo electoral de La Libertad Avanza en las legislativas 2025. Con la mirada en las provincias, buscan instalar un programa por fuera del recinto.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="C5N" data-texto="nancy pazos destrozó el relato económico de javier milei: &#34;gana en el congreso y pierde en la góndola&#34;  ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">23:25</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/nancy-pazos-destrozo-el-relato-economico-javier-milei-gana-el-congreso-y-pierde-la-gondola-n251839" target="_blank" rel="noopener">Nancy Pazos destrozó el relato económico de Javier Milei: &#34;Gana en el Congreso y pierde en la góndola&#34;</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="mayans y martínez encabezaron una multitudinaria vigilia de la lealtad en rosario a horas de un nuevo aniversario del 17 de octubre, dirigentes, militantes, gremialistas y referentes del peronismo santafesino participaron de una masiva actividad organizada por el pj rosario. josé mayans y germán martínez llamaron a fortalecer la unidad y la militancia con vistas a los próximos… ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">23:20</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/mayans-y-martinez-encabezaron-una-multitudinaria-vigilia-de-la-lealtad-en-rosario/" target="_blank" rel="noopener">Mayans y Martínez encabezaron una multitudinaria Vigilia de la Lealtad en Rosario</a><div class="baj">A horas de un nuevo aniversario del 17 de Octubre, dirigentes, militantes, gremialistas y referentes del peronismo santafesino participaron de una masiva actividad organizada por el PJ Rosario. José Mayans y Germán Martínez llamaron a fortalecer la unidad y la militancia con vistas a los próximos…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Página/12" data-texto="se mueve en diputados un proyecto que pone más controles y obligaciones a las empresas de electricidad  ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">23:18</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/17/se-mueve-en-diputados-un-proyecto-que-pone-mas-controles-y-obligaciones-a-las-empresas-de-electricidad/" target="_blank" rel="noopener">Se mueve en Diputados un proyecto que pone más controles y obligaciones a las empresas de electricidad</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="impulsan declarar a resistencia como “capital nacional de la memoria” el senador nacional jorge capitanich presentó un proyecto de ley para otorgar esa distinción a la capital chaqueña en reconocimiento a su papel en los procesos de memoria, verdad y justicia, la preservación de sitios históricos y el juzgamiento de delitos de lesa humanidad. la entrada impulsan… ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">22:42</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/impulsan-declarar-a-resistencia-como-capital-nacional-de-la-memoria/" target="_blank" rel="noopener">Impulsan declarar a Resistencia como “Capital Nacional de la Memoria”</a><div class="baj">El senador nacional Jorge Capitanich presentó un proyecto de ley para otorgar esa distinción a la capital chaqueña en reconocimiento a su papel en los procesos de Memoria, Verdad y Justicia, la preservación de sitios históricos y el juzgamiento de delitos de lesa humanidad. La entrada Impulsan…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Política Online" data-texto="grabois cerró con kicillof y empieza a trabajar en su candidatura presidencial el diputado y líder de patria grande conversó con cristina kirchner su decisión. buscará acercar al gobernador una agenda vinculada a los barrios populares. ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">21:39</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/grabois-cerro-con-kicillof-y-empieza-a-trabajar-en-su-candidatura-presidencial/" target="_blank" rel="noopener">Grabois cerró con Kicillof y empieza a trabajar en su candidatura presidencial</a><div class="baj">El diputado y líder de Patria Grande conversó con Cristina Kirchner su decisión. Buscará acercar al gobernador una agenda vinculada a los barrios populares.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="educación presentó los lineamientos del presupuesto 2027 la ministra de educación, maría de las mercedes miguel, expuso ante la comisión de presupuesto los principales ejes de la inversión educativa para el próximo año. la propuesta prioriza la mejora de los aprendizajes, la formación docente, la transformación digital y obras de infraestructura escolar… presupuesto 2027">
+        <td class="tema-col"><b>24</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">20:48</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/educacion-presento-los-lineamientos-del-presupuesto-2027/" target="_blank" rel="noopener">Educación presentó los lineamientos del Presupuesto 2027</a><div class="baj">La ministra de Educación, María de las Mercedes Miguel, expuso ante la Comisión de Presupuesto los principales ejes de la inversión educativa para el próximo año. La propuesta prioriza la mejora de los aprendizajes, la formación docente, la transformación digital y obras de infraestructura escolar…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="El Cronista" data-texto="argentina se abstuvo de votar contra el colonialismo en medio de su ofensiva por malvinas: qué motivó la decisión la argentina se abstuvo en la cuarta comisión de naciones unidas ante un proyecto impulsado por rusia contra las formas contemporáneas de colonialismo, que se aprobó con 85 votos a favor. la decisión del gobierno respondió a un punto del texto que incluye las medidas económicas unilaterales entre… ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">20:42</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/argentina-se-abstuvo-de-votar-contra-el-colonialismo-en-medio-de-su-ofensiva-por-malvinas-que-motivo-la-decision/" target="_blank" rel="noopener">Argentina se abstuvo de votar contra el colonialismo en medio de su ofensiva por Malvinas: qué motivó la decisión</a><div class="baj">La Argentina se abstuvo en la Cuarta Comisión de Naciones Unidas ante un proyecto impulsado por Rusia contra las formas contemporáneas de colonialismo, que se aprobó con 85 votos a favor. La decisión del Gobierno respondió a un punto del texto que incluye las medidas económicas unilaterales entre…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="C5N" data-texto="marcela pagano encabezó un encuentro del observatorio pyme y alertó por el cierre de empresas  ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">20:25</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/marcela-pagano-encabezo-un-encuentro-del-observatorio-pyme-y-alerto-el-cierre-empresas-n251830" target="_blank" rel="noopener">Marcela Pagano encabezó un encuentro del Observatorio PyME y alertó por el cierre de empresas</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Clarín" data-texto="la carrera para la secretaría de la onu al rojo vivo: el candidato argentino continúa con chances, pero tuvo dos vetos de las potencias, igual que sus rivales la novedad de esta votación es que los miembros permanentes del consejo, las 5 grandes potencias, comenzaron a mostrar a quién prefieren. rafael grossi, jefe de la oiea, tuvo más apoyos y bajó sus votos en contra. pero tuvo dos rechazos de las potencias, al igual que la costarricense grynspan y la… ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">18:26</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/carrera-secretaria-onu-rojo-vivo-candidato-argentino-continua-chances-vetos-potencias-igual-rivales_0_osw4b4g3vO.html" target="_blank" rel="noopener">La carrera para la secretaría de la ONU al rojo vivo: el candidato argentino continúa con chances, pero tuvo dos vetos de las potencias, igual que sus rivales</a><div class="baj">La novedad de esta votación es que los miembros permanentes del Consejo, las 5 grandes potencias, comenzaron a mostrar a quién prefieren. Rafael Grossi, jefe de la OIEA, tuvo más apoyos y bajó sus votos en contra. Pero tuvo dos rechazos de las potencias, al igual que la costarricense Grynspan y la…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Infobae" data-texto="bullrich acusó al procurador penitenciario de trabar el traslado de presos de devoto y exigió que vaya al senado la senadora presentó un proyecto con nueve requerimientos contra ariel cejas meliare, a quien cuestionó por sus actuaciones en el cierre del penal porteño. la justicia rechazó en dos instancias el hábeas corpus colectivo promovido por el organismo ">
+        <td class="tema-col"><b>28</b> · 1 medio</td>
+        <td class="num">17:55</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/16/bullrich-acuso-al-procurador-penitenciario-de-trabar-el-traslado-de-presos-de-devoto-y-exigio-que-fuera-al-senado/" target="_blank" rel="noopener">Bullrich acusó al procurador penitenciario de trabar el traslado de presos de Devoto y exigió que vaya al Senado</a><div class="baj">La senadora presentó un proyecto con nueve requerimientos contra Ariel Cejas Meliare, a quien cuestionó por sus actuaciones en el cierre del penal porteño. La Justicia rechazó en dos instancias el hábeas corpus colectivo promovido por el organismo</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="avanza una iniciativa para garantizar contención social, salud y memoria a víctimas de cromañón la comisión de derechos humanos dio dictamen favorable al proyecto que crea un registro provincial, cobertura en salud mental y actividades de concientización escolar. la entrada avanza una iniciativa para garantizar contención social, salud y memoria a víctimas de cromañón se publicó primero en… ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">17:47</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/avanza-una-iniciativa-para-garantizar-contencion-social-salud-y-memoria-a-victimas-de-cromanon/" target="_blank" rel="noopener">Avanza una iniciativa para garantizar contención social, salud y memoria a víctimas de Cromañón</a><div class="baj">La Comisión de Derechos Humanos dio dictamen favorable al proyecto que crea un registro provincial, cobertura en salud mental y actividades de concientización escolar. La entrada Avanza una iniciativa para garantizar contención social, salud y memoria a víctimas de Cromañón se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="murió “lucho” soria, un histórico integrante de semanario parlamentario fue coordinador general de semanario parlamentario desde 1991 y formó parte de una etapa clave en la consolidación del medio. profesional respetado y compañero entrañable, dejó una huella imborrable entre quienes compartieron con él años de trabajo, al que volvió brevemente en 2017 para renovar un… ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">17:07</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/murio-lucho-soria-un-historico-integrante-de-semanario-parlamentario/" target="_blank" rel="noopener">Murió “Lucho” Soria, un histórico integrante de Semanario Parlamentario</a><div class="baj">Fue coordinador general de Semanario Parlamentario desde 1991 y formó parte de una etapa clave en la consolidación del medio. Profesional respetado y compañero entrañable, dejó una huella imborrable entre quienes compartieron con él años de trabajo, al que volvió brevemente en 2017 para renovar un…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="impulsan una ley para garantizar la conectividad satelital de emergencia ante catástrofes el proyecto de ley fue impulsado por el bloque producción y trabajo de san juan. aclara, el texto presentado, que el mecanismo se aplica únicamente cuando exista una interrupción total o una afectación crítica de las redes terrestres causada por destrucción o caída de antenas, torres u otra… ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">16:33</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/impulsan-una-ley-para-garantizar-la-conectividad-satelital-de-emergencia-ante-catastrofes/" target="_blank" rel="noopener">Impulsan una ley para garantizar la conectividad satelital de emergencia ante catástrofes</a><div class="baj">El proyecto de ley fue impulsado por el bloque Producción y Trabajo de San Juan. Aclara, el texto presentado, que el mecanismo se aplica únicamente cuando exista una interrupción total o una afectación crítica de las redes terrestres causada por destrucción o caída de antenas, torres u otra…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="lla propone crear una comisión bicameral para “controlar las políticas de seguridad” el organismo estaría destinado a controlar, fiscalizar y evaluar de manera permanente las políticas de seguridad implementadas por el poder ejecutivo, la entrada lla propone crear una comisión bicameral para “controlar las políticas de seguridad” se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>32</b> · 1 medio</td>
+        <td class="num">15:50</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/lla-propone-crear-una-comision-bicameral-para-controlar-las-politicas-de-seguridad/" target="_blank" rel="noopener">LLA propone crear una Comisión Bicameral para “controlar las políticas de seguridad”</a><div class="baj">El organismo estaría destinado a controlar, fiscalizar y evaluar de manera permanente las políticas de seguridad implementadas por el Poder Ejecutivo, La entrada LLA propone crear una Comisión Bicameral para “controlar las políticas de seguridad” se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Perfil" data-texto="por qué hay sectores del campo en contra de la ley de inviolabilidad de la propiedad privada gastón borsini, presidente de la confederación general de la producción, explicó las razones del rechazo de las economías regionales al proyecto oficialista de inviolabilidad de la propiedad privada y advirtió sobre el riesgo de entregar zonas fronterizas y recursos estratégicos a capitales… inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>33</b> · 1 medio<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">13:37</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/por-que-hay-sectores-del-campo-en-contra-de-la-ley-de-inviolabilidad-de-la-propiedad-privada-modof.phtml" target="_blank" rel="noopener">Por qué hay sectores del campo en contra de la Ley de Inviolabilidad de la propiedad privada</a><div class="baj">Gastón Borsini, presidente de la Confederación General de la Producción, explicó las razones del rechazo de las economías regionales al proyecto oficialista de inviolabilidad de la propiedad privada y advirtió sobre el riesgo de entregar zonas fronterizas y recursos estratégicos a capitales…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Perfil" data-texto="atacado a piedrazos: sebastián pareja debió refugiarse en el congreso en plena marcha, el legislador libertario fue apedreado por manifestantes. gritos y cruces. leer más ">
+        <td class="tema-col"><b>34</b> · 1 medio</td>
+        <td class="num">13:30</td>
+        <td>Perfil</td>
+        <td><a href="https://noticias.perfil.com/noticias/politica/atacado-a-piedrazos-sebastian-pareja-debio-refugiarse-en-el-anexo-del-congreso.phtml" target="_blank" rel="noopener">Atacado a piedrazos: Sebastián Pareja debió refugiarse en el Congreso</a><div class="baj">En plena marcha, el legislador libertario fue apedreado por manifestantes. Gritos y cruces. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="martínez reivindicó la sesión que no fue: &#34;estuvo tan mal pensada que la corte tuvo que sacar otro fallo&#34; el jefe de unión por la patria aseguró que la política no tiene que moverse por el &#34;tacticismo&#34;, cosa que sí -consideró- hace el máximo tribunal con el dnu 70/23. la entrada martínez reivindicó la sesión que no fue: &#34;estuvo tan mal pensada que la corte tuvo que sacar otro fallo&#34; se publicó primero… dnu 70/23">
+        <td class="tema-col"><b>35</b> · 1 medio<br>DNU 70/23</td>
+        <td class="num">13:28</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/martinez-reivindico-la-sesion-que-no-fue-estuvo-tan-mal-pensada-que-la-corte-tuvo-que-sacar-otro-fallo/" target="_blank" rel="noopener">Martínez reivindicó la sesión que no fue: &#34;Estuvo tan mal pensada que la Corte tuvo que sacar otro fallo&#34;</a><div class="baj">El jefe de Unión por la Patria aseguró que la política no tiene que moverse por el &#34;tacticismo&#34;, cosa que sí -consideró- hace el máximo tribunal con el DNU 70/23. La entrada Martínez reivindicó la sesión que no fue: &#34;Estuvo tan mal pensada que la Corte tuvo que sacar otro fallo&#34; se publicó primero…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="elDiarioAR" data-texto="denuncian que al menos siete trabajadores de prensa fueron baleados durante la represión frente al congreso sipreba y argra señalaron que efectivos de la policía federal y gendarmería dispararon balas de goma contra periodistas y fotógrafos que cubrían la movilización universitaria y contra el dnu 70. los gremios denunciaron ataques deliberados contra la prensa y anunciaron que llevarán los casos ante… ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">13:23</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/denuncian-siete-trabajadores-prensa-baleados-durante-represion-frente-congreso_1_13592547.html" target="_blank" rel="noopener">Denuncian que al menos siete trabajadores de prensa fueron baleados durante la represión frente al Congreso</a><div class="baj">SiPreBA y ARGRA señalaron que efectivos de la Policía Federal y Gendarmería dispararon balas de goma contra periodistas y fotógrafos que cubrían la movilización universitaria y contra el DNU 70. Los gremios denunciaron ataques deliberados contra la prensa y anunciaron que llevarán los casos ante…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="impulsa la implementación de parejas pedagógicas en las escuelas bonaerenses piden sancionar la ley de bienestar emocional en las escuelas de la provincia de buenos aires, y de avanzar en el tratamiento del proyecto de ley de parejas pedagógicas. la entrada impulsa la implementación de parejas pedagógicas en las escuelas bonaerenses se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">13:05</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/impulsa-la-implementacion-de-parejas-pedagogicas-en-las-escuelas-bonaerenses/" target="_blank" rel="noopener">Impulsa la implementación de parejas pedagógicas en las escuelas bonaerenses</a><div class="baj">Piden sancionar la ley de Bienestar Emocional en las escuelas de la provincia de Buenos Aires, y de avanzar en el tratamiento del proyecto de ley de Parejas Pedagógicas. La entrada Impulsa la implementación de parejas pedagógicas en las escuelas bonaerenses se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Ámbito" data-texto="de las redes al congreso: los jóvenes influencers ultraconservadores que ganan poder en brasil  ">
+        <td class="tema-col"><b>38</b> · 1 medio</td>
+        <td class="num">12:44</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/de-las-redes-al-congreso-los-jovenes-influencers-ultraconservadores-que-ganan-poder-brasil-n6334585" target="_blank" rel="noopener">De las redes al Congreso: los jóvenes influencers ultraconservadores que ganan poder en Brasil</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="ferraro cruzó a monteoliva y le exigió explicaciones sobre la presencia de infiltrados en la marcha el diputado de la cc fue uno de los que reaccionó a la acusación de la ministra de seguridad sobre los manifestantes. &#34;deje de generalizar irresponsablemente y ponga sobre la mesa los nombres y apellidos de los violentos&#34;, reclamó. la entrada ferraro cruzó a monteoliva y le exigió explicaciones… ">
+        <td class="tema-col"><b>39</b> · 1 medio</td>
+        <td class="num">11:32</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/ferraro-cruzo-a-monteoliva-y-le-exigio-explicaciones-sobre-la-presencia-de-infiltrados-en-la-marcha/" target="_blank" rel="noopener">Ferraro cruzó a Monteoliva y le exigió explicaciones sobre la presencia de infiltrados en la marcha</a><div class="baj">El diputado de la CC fue uno de los que reaccionó a la acusación de la ministra de Seguridad sobre los manifestantes. &#34;Deje de generalizar irresponsablemente y ponga sobre la mesa los nombres y apellidos de los violentos&#34;, reclamó. La entrada Ferraro cruzó a Monteoliva y le exigió explicaciones…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="el congreso mantuvo una agenda ambiental fragmentada, con avances limitados y un retroceso significativo un relevamiento del círculo de políticas ambientales advierte que los proyectos que logran mayor impulso en el parlamento responden a sectores económicos específicos, mientras que aquellos que tienen como objetivo la prevención y preservación ambiental quedan encajonados. la entrada el congreso… ">
+        <td class="tema-col"><b>40</b> · 1 medio</td>
+        <td class="num">11:22</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/el-congreso-mantuvo-una-agenda-ambiental-fragmentada-con-avances-limitados-y-un-retroceso-significativo/" target="_blank" rel="noopener">El Congreso mantuvo una agenda ambiental fragmentada, con avances limitados y un retroceso significativo</a><div class="baj">Un relevamiento del Círculo de Políticas Ambientales advierte que los proyectos que logran mayor impulso en el Parlamento responden a sectores económicos específicos, mientras que aquellos que tienen como objetivo la prevención y preservación ambiental quedan encajonados. La entrada El Congreso…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Perfil" data-texto="con presión de ee. uu., el oficialismo destrabó el dictamen por el pct que quedó a un paso de convertirse en ley las comisiones de relaciones exteriores e industria firmaron el despacho que habilita la aprobación del tratado de patentes. landau y vance, en la agenda inmediata del la casa rosada. leer más ">
+        <td class="tema-col"><b>41</b> · 1 medio</td>
+        <td class="num">11:01</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/con-presion-de-eeuu-el-gobierno-destrabo-el-dictamen-por-el-pct-que-quedo-a-un-paso-de-convertirse-en-ley.phtml" target="_blank" rel="noopener">Con presión de EE. UU., el oficialismo destrabó el dictamen por el PCT que quedó a un paso de convertirse en ley</a><div class="baj">Las comisiones de Relaciones Exteriores e Industria firmaron el despacho que habilita la aprobación del Tratado de Patentes. Landau y Vance, en la agenda inmediata del la Casa Rosada. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="reclamos por obras, universidades y chicanas en un foro de infraestructura con gobernadores opositores y aliados  ">
+        <td class="tema-col"><b>42</b> · 1 medio</td>
+        <td class="num">10:48</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/santilli-kicillof-gobernadores-cruzan-foro-obras-medio-negociacion-paso-presupuesto_0_d9LFBsXrnu.html" target="_blank" rel="noopener">Reclamos por obras, universidades y chicanas en un foro de infraestructura con gobernadores opositores y aliados</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="último adiós a norberto di próspero en el congreso los restos del histórico secretario general de apl serán velados este viernes en el salón azul del congreso de la nación. la despedida se lleva a cabo entre las 12 y las 18, con la participación de trabajadores legislativos, dirigentes sindicales, legisladores y autoridades parlamentarias. la… ">
+        <td class="tema-col"><b>43</b> · 1 medio</td>
+        <td class="num">10:43</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/16/ultimo-adios-a-norberto-di-prospero-en-el-congreso/" target="_blank" rel="noopener">Último adiós a Norberto Di Próspero en el Congreso</a><div class="baj">Los restos del histórico secretario general de APL serán velados este viernes en el Salón Azul del Congreso de la Nación. La despedida se lleva a cabo entre las 12 y las 18, con la participación de trabajadores legislativos, dirigentes sindicales, legisladores y autoridades parlamentarias. La…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="día 1041: el palacio, la calle, y la suerte de milei la marcha universitaria y la sesión caída en diputados muestran una paradoja: la protesta social frena políticas en la calle, pero aún no logra construir una alternativa de poder. oposición fragmentada mediante, javier milei gana tiempo y conserva la iniciativa. leer más ">
+        <td class="tema-col"><b>44</b> · 1 medio</td>
+        <td class="num">10:33</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/dia-1041-el-palacio-la-calle-y-la-suerte-de-milei-modof.phtml" target="_blank" rel="noopener">Día 1041: El palacio, la calle, y la suerte de Milei</a><div class="baj">La Marcha Universitaria y la sesión caída en Diputados muestran una paradoja: la protesta social frena políticas en la calle, pero aún no logra construir una alternativa de poder. Oposición fragmentada mediante, Javier Milei gana tiempo y conserva la iniciativa. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="lilia lemoine: &#34;me agradaría una fórmula bullrich-milei&#34; la diputada de la libertad avanza se refirió a los incidentes durante la marcha universitaria que se realizó ayer y cuestionó a la oposición. además, evaluó el escenario político hacia 2027 ">
+        <td class="tema-col"><b>45</b> · 1 medio</td>
+        <td class="num">10:14</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/16/lilia-lemoine-me-agradaria-una-formula-bullrich-milei/" target="_blank" rel="noopener">Lilia Lemoine: &#34;Me agradaría una fórmula Bullrich-Milei&#34;</a><div class="baj">La diputada de La Libertad Avanza se refirió a los incidentes durante la marcha universitaria que se realizó ayer y cuestionó a la oposición. Además, evaluó el escenario político hacia 2027</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="la fuerte crítica de santilli por los graves incidentes frente al congreso  ">
+        <td class="tema-col"><b>46</b> · 1 medio</td>
+        <td class="num">09:29</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/energumenos-violentos-marchan-universidades-fuerte-critica-santilli-graves-incidentes-frente-congreso_3_4TyU6ZmYwo.html" target="_blank" rel="noopener">La fuerte crítica de Santilli por los graves incidentes frente al Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Infobae" data-texto="tras la marcha universitaria, yacobitti afirmó: “el gobierno tiene que cumplir una ley que ya votó el congreso en dos instancias” el vicerrector de la uba defendió el carácter pacífico de la movilización y reclamó la aplicación de la ley de financiamiento aprobada por el parlamento. también exigió identificar a los responsables de los incidentes ">
+        <td class="tema-col"><b>47</b> · 1 medio</td>
+        <td class="num">09:13</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/16/tras-la-marcha-universitaria-yacobitti-afirmo-el-gobierno-tiene-que-cumplir-una-ley-que-ya-voto-el-congreso-en-dos-instancias/" target="_blank" rel="noopener">Tras la marcha universitaria, Yacobitti afirmó: “El Gobierno tiene que cumplir una ley que ya votó el Congreso en dos instancias”</a><div class="baj">El vicerrector de la UBA defendió el carácter pacífico de la movilización y reclamó la aplicación de la Ley de Financiamiento aprobada por el Parlamento. También exigió identificar a los responsables de los incidentes</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-10-17 a las 09:07 hs (hora argentina) ·
+    <span class="estado-ok">20 respondieron bien</span> · <span class="estado-mal">1 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: no se leyó ningún ítem (¿cambió el formato?)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
