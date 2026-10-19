@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-10-19</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Lunes 19 de octubre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 12:58 hs · 21/21 fuentes respondieron</div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">30</div>
+      <div class="sub ">▼ -60% vs. promedio de 7 días (75)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">26</div>
+    <div class="sub">2 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">9</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi "><div class="lbl">Fuentes caídas</div>
+    <div class="val">0</div>
+    <div class="sub"><span class="estado-ok">✓</span> todas respondieron</div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/lnmas/alejandra-monteoliva-apunto-contra-los-manifestantes-por-los-incidentes-frente-al-congreso-y-hablo-nid18102026/" target="_blank" rel="noopener">Alejandra Monteoliva acusó a “facciones violentas” por los incidentes frente al Congreso y habló de la visita del Papa</a></h3>
+<p class="bajada">La ministra de Seguridad aseguró que trabajan para identificar a los responsables de los hechos y anticipó que presentarán denuncias ante la Justicia; además, se refirió a la posible visita del Papa y destacó el operativo de traslado de presos a Marcos Paz</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Comisión</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/lnmas/alejandra-monteoliva-apunto-contra-los-manifestantes-por-los-incidentes-frente-al-congreso-y-hablo-nid18102026/" target="_blank" rel="noopener" title="Alejandra Monteoliva acusó a “facciones violentas” por los incidentes frente al Congreso y habló de la visita del Papa">La Nación ↗</a><a href="https://www.ambito.com/politica/denunciaron-alejandra-monteoliva-discriminacion-e-incitacion-la-violencia-contra-los-universitarios-n6335187" target="_blank" rel="noopener" title="Denuncian a funcionarios de Javier Milei por represión en la marcha universitaria y apuntan contra Alejandra Monteoliva">Ámbito ↗</a><a href="https://www.perfil.com/noticias/politica/monteoliva-califico-de-terrorismo-los-incidentes-frente-al-congreso.phtml" target="_blank" rel="noopener" title="Alejandra Monteoliva calificó de “terrorismo” los incidentes frente al Congreso y habló de la visita del Papa">Perfil ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.infobae.com/politica/2026/10/18/de-cara-al-debate-por-el-endeudamiento-familiar-el-gobierno-sostiene-un-discurso-duro-y-considera-que-funciona-para-la-imagen-de-milei/" target="_blank" rel="noopener">De cara al debate por el endeudamiento familiar, el Gobierno sostiene un discurso duro y considera que funciona para la imagen de Milei</a></h3>
+<p class="bajada">El Presidente subió en algunas encuestas que mira y no planean cambiar un ápice. Mientras la oposición ataca con señalamientos sobre la crueldad, la Rosada está convencida de que “decir la verdad” les conviene</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Endeudamiento familiar</span>    </div>
+    <div class="medios">
+<a href="https://www.infobae.com/politica/2026/10/18/de-cara-al-debate-por-el-endeudamiento-familiar-el-gobierno-sostiene-un-discurso-duro-y-considera-que-funciona-para-la-imagen-de-milei/" target="_blank" rel="noopener" title="De cara al debate por el endeudamiento familiar, el Gobierno sostiene un discurso duro y considera que funciona para la imagen de Milei">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/10/18/discapacidad-endeudamiento-familiar-y-malvinas-el-gobierno-busca-este-miercoles-avanzar-con-su-agenda-legislativa/" target="_blank" rel="noopener" title="Discapacidad, endeudamiento familiar y Malvinas: el Gobierno buscará avanzar este miércoles con su agenda legislativa">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+· 2 notas</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/elecciones-2027-cuando-se-vota-para-presidente-en-la-argentina-nid03082026/" target="_blank" rel="noopener">Elecciones 2027: cuándo se vota para presidente en la Argentina</a></h3>
+<p class="bajada">Los comicios del año próximo definirán los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; qué se elige según la jurisdicción; descubrí los detalles</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/elecciones-2027-cuando-se-vota-para-presidente-en-la-argentina-nid03082026/" target="_blank" rel="noopener" title="Elecciones 2027: cuándo se vota para presidente en la Argentina">La Nación ↗</a><a href="https://www.lanacion.com.ar/politica/cuando-se-vota-presidente-en-la-argentina-todo-sobre-las-elecciones-2027-nid01092026/" target="_blank" rel="noopener" title="¿Cuándo se vota presidente en la Argentina? Todo sobre las elecciones 2027">La Nación ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.perfil.com/noticias/modo-fontevecchia/nicolas-massot-creo-que-habra-menos-participacion-electoral-y-el-peronismo-se-recuperara-modof.phtml" target="_blank" rel="noopener">Nicolás Massot: &#34;Creo que habrá menos participación electoral y el peronismo se recuperará&#34;</a></h3>
+<p class="bajada">El diputado de Encuentro Federal analizó el escenario político de cara a los próximos comicios, advirtió sobre el desinterés de los jóvenes en la política y planteó la necesidad de construir una tercera fuerza firme de cara al futuro. Leer más</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.perfil.com/noticias/modo-fontevecchia/nicolas-massot-creo-que-habra-menos-participacion-electoral-y-el-peronismo-se-recuperara-modof.phtml" target="_blank" rel="noopener" title="Nicolás Massot: &#34;Creo que habrá menos participación electoral y el peronismo se recuperará&#34;">Perfil ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/la-iglesia-presiona-al-senado-para-que-avance-con-la-ley-contra-la-ludopatia-nid19102026/" target="_blank" rel="noopener">La Iglesia presiona al Senado para que avance con la ley contra la ludopatía</a></h3>
+<p class="bajada">Pide que se regulen las apuestas online y plantea los daños al tejido social que provocan; alertan que la iniciativa perdería estado parlamentario el mes próximo</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/la-iglesia-presiona-al-senado-para-que-avance-con-la-ley-contra-la-ludopatia-nid19102026/" target="_blank" rel="noopener" title="La Iglesia presiona al Senado para que avance con la ley contra la ludopatía">La Nación ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4>Martes 20 de octubre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Presupuesto y hacienda</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso - Informativa · ver temario</summary>INVITADOS. Fueron invitados el Secretario de Educación y el Subsecretario de Políticas Universitarias, ambos del Ministerio de Capital Humano a fin de abordar el Mensaje Nro. 0043/2026 y proyecto de ley de fecha 15 de septiembre de 2026, de Presupuesto General de la Administración nacional para el Ejercicio Fiscal del año 2027. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1365/archivo/8WG73728B2T7JFVW.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">13:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Relaciones exteriores y culto, Mercosur</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>Acuerdo de Libre Comercio suscripto entre los Estados miembros de la Asociación Europea de Libre Comercio (AELC) y el Mercosur. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1363/archivo/FTXXSZXD5PH3MJG0.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Energia y combustibles</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados expertos quienes expondrán sobre el proyecto de ley por el cual se regulan las actividades de elaboración, almacenaje, comercialización, mezcla y autoconsumo de biocombustibles en el territorio nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1362/archivo/DB7QVWEXBA9AWJN1.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Defensa nacional, Legislacion penal, Relaciones exteriores y culto</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso REUNIÓN CONJUNTA · ver temario</summary>Mensaje Nro. 275/2026 y proyecto de ley de Defensa de la Soberanía nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1364/archivo/TMPRQP99TKFQH1KX.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión informativa de la Comisión de Coparticipación Federal de Impuestos</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: se recibirá a autoridades y especialistas con el fin de abordar la temática “Repensar la coparticipación: del diseño federal a la realidad de las Provincias”. Expositores: Cdor. Roberto Dib Ashur, ministro de Economía de la Provincia de Salta Dr. Guido Zack, director de Economía de Fundar Lic. Lisandro Nieri, diputado nacional Lic. Luciano Laspina - director ejecutivo de CIPPEC. La actividad requiere inscripción a través del siguiente formulario.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 21 de octubre</h4>
+    <div class="ev sesion ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Diputados · Sesión especial</span>
+</span>
+      <div class="det">
+A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes…<details><summary>ver temario completo</summary>A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes 21.499, de expropiaciones y 24.374, de regularización dominial. - Orden del Día 349. Módulo informático interoperable con el Sistema de Trazabilidad de Medicamentos de Alto Riesgo –MAR– y de sus Ingredientes Farmacéuticos Activos –IFA–. Creación. - Orden del Día 447. Código Penal. Modificaciones sobre Vandalismo Rural. - Orden del Día 442. Inmueble propiedad del Estado nacional, Centro de Acopio y Embarque Barranqueras –CAEB–, en la localidad de Barranqueras, departamento San Fernando, provincia del Chaco. Transferencia a título gratuito a la provincia del Chaco. - Orden del Día…</details>      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Relaciones Exteriores y Culto</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Proyectos de ley: Servicios aéreos: - Expte. PE-271/26 - Mensaje N° 225/26 y proyecto de ley que aprueba el acuerdo sobre servicios aéreos con la República de Finlandia, suscripto en la Ciudad Autónoma de Buenos Aires, el 27 de marzo de 2018. - Expte. PE-273/26 - Mensaje N° 237/26 y proyecto de ley que aprueba el acuerdo con la República del Paraguay sobre servicios aéreos, suscripto en la Cdad. de Buenos Aires - Rep. Argentina, el 27 de noviembre de 2025. Convenio de Estambul: -Expte. PE-234/26 - Mensaje N° 219/26 y proyecto de ley que aprueba el convenio relativo a la importación temporal, celebrado en Estambul -República de Türkiye-, el 26 de junio de 1990. Enmiendas al Convenio de la OMI: -Expte. PE-235/26 - Mensaje N° 220/26 y proyecto de ley que aprueba las enmiendas al…</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Minería, Energía y Combustibles y de Ambiente y Desarrollo Sustentable</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Proyectos de ley: Expte. S-285/25 , Rodas: Reproduce proyecto de ley de presupuestos mínimos de protección ambiental en el cierre de minas. (Ref. 17/2023). Expte. S-257/26 , Fama y Terenzi: Reproduce proyecto de ley que modifica el Código de Minería, respecto de incorporar el título final &#34;Régimen de Cierre de Minas&#34; (Ref. S. 2248/24). Expte. S-525/26 , Corpacci y otros: Proyecto de ley que modifica su similar 1919 y s/m —Código de Minería—, respecto de incorporar el título final &#34;Régimen de Cierre de Minas&#34;.</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 75</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Lu 12: 38 notas">
+        <div class="c" style="height: 26.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 13: 48 notas">
+        <div class="c" style="height: 33.1%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 14: 76 notas">
+        <div class="c" style="height: 52.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 15: 118 notas">
+        <div class="c" style="height: 81.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 16: 145 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 17: 66 notas">
+        <div class="c" style="height: 45.5%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 18: 32 notas">
+        <div class="c" style="height: 22.1%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Lu 19: 30 notas">
+<span class="cap">30</span>        <div class="c" style="height: 20.7%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Lu 12</span><span class="">Ma 13</span><span class="">Mi 14</span><span class="">Ju 15</span><span class="">Vi 16</span><span class="">Sá 17</span><span class="">Do 18</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 6 hoy · promedio 12.9">
+        <span class="bar" style="width: 46.7%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(100.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 5 hoy · promedio 4.1">
+        <span class="bar" style="width: 38.9%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(32.2% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 4 hoy · promedio 5.1">
+        <span class="bar" style="width: 31.1%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(40.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 4 hoy · promedio 8.9">
+        <span class="bar" style="width: 31.1%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(68.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Perfil">Perfil</span>
+      <span class="track" data-tip="Perfil: 3 hoy · promedio 7.6">
+        <span class="bar" style="width: 23.3%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(58.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 3 hoy · promedio 9.0">
+        <span class="bar" style="width: 23.3%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(70.0% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 3 hoy · promedio 4.6">
+        <span class="bar" style="width: 23.3%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(35.6% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 1 hoy · promedio 2.4">
+        <span class="bar" style="width: 7.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(18.9% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 1 hoy · promedio 1.9">
+        <span class="bar" style="width: 7.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(14.4% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Alejandra Monteoliva acusó a “facciones violentas” por los incidentes frente al Congreso y habló de la visita del Papa">1. Alejandra Monteoliva acusó a “facciones violentas” por los incidentes frente al Congreso y habló de la visita del Papa</span>
+      <span class="track" data-tip="Alejandra Monteoliva acusó a “facciones violentas” por los incidentes frente al Congreso y habló de la visita del Papa — 3 notas, 3 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="De cara al debate por el endeudamiento familiar, el Gobierno sostiene un discurso duro y considera que funciona para la imagen de Milei">2. De cara al debate por el endeudamiento familiar, el Gobierno sostiene un discurso duro y considera que funciona para la imagen de Milei</span>
+      <span class="track" data-tip="De cara al debate por el endeudamiento familiar, el Gobierno sostiene un discurso duro y considera que funciona para la imagen de Milei — 2 notas, 2 medios">
+        <span class="bar" style="width: 66.7%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Elecciones 2027: cuándo se vota para presidente en la Argentina">3. Elecciones 2027: cuándo se vota para presidente en la Argentina</span>
+      <span class="track" data-tip="Elecciones 2027: cuándo se vota para presidente en la Argentina — 2 notas, 1 medio">
+        <span class="bar" style="width: 66.7%"></span><span class="v">2 (1)</span>
+      </span>
+      <span class="lbl" title="Nicolás Massot: &#34;Creo que habrá menos participación electoral y el peronismo se recuperará&#34;">4. Nicolás Massot: &#34;Creo que habrá menos participación electoral y el peronismo se recuperará&#34;</span>
+      <span class="track" data-tip="Nicolás Massot: &#34;Creo que habrá menos participación electoral y el peronismo se recuperará&#34; — 1 nota, 1 medio">
+        <span class="bar" style="width: 33.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="La Iglesia presiona al Senado para que avance con la ley contra la ludopatía">5. La Iglesia presiona al Senado para que avance con la ley contra la ludopatía</span>
+      <span class="track" data-tip="La Iglesia presiona al Senado para que avance con la ley contra la ludopatía — 1 nota, 1 medio">
+        <span class="bar" style="width: 33.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Por la Ley 27.793, suspenderán la Pensión No Contributiva por Discapacidad a las personas que superen este ingreso mensual">6. Por la Ley 27.793, suspenderán la Pensión No Contributiva por Discapacidad a las personas que superen este ingreso mensual</span>
+      <span class="track" data-tip="Por la Ley 27.793, suspenderán la Pensión No Contributiva por Discapacidad a las personas que superen este ingreso mensual — 1 nota, 1 medio">
+        <span class="bar" style="width: 33.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Con el financiamiento universitario como telón de fondo, Torrendell y Álvarez asistirán a defender el Presupuesto 2027">7. Con el financiamiento universitario como telón de fondo, Torrendell y Álvarez asistirán a defender el Presupuesto 2027</span>
+      <span class="track" data-tip="Con el financiamiento universitario como telón de fondo, Torrendell y Álvarez asistirán a defender el Presupuesto 2027 — 1 nota, 1 medio">
+        <span class="bar" style="width: 33.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Un diputado de La Libertad Avanza propone prohibir los celulares en las cárceles y cobrarles gastos a los presos">8. Un diputado de La Libertad Avanza propone prohibir los celulares en las cárceles y cobrarles gastos a los presos</span>
+      <span class="track" data-tip="Un diputado de La Libertad Avanza propone prohibir los celulares en las cárceles y cobrarles gastos a los presos — 1 nota, 1 medio">
+        <span class="bar" style="width: 33.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="¿Bullrich vice de Milei o se corta sola? Un estudio revela dónde la prefieren sus posibles votantes">9. ¿Bullrich vice de Milei o se corta sola? Un estudio revela dónde la prefieren sus posibles votantes</span>
+      <span class="track" data-tip="¿Bullrich vice de Milei o se corta sola? Un estudio revela dónde la prefieren sus posibles votantes — 1 nota, 1 medio">
+        <span class="bar" style="width: 33.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Apuestas en línea: la Comisión recibe al presidente del Instituto Lotería y Casinos">10. Apuestas en línea: la Comisión recibe al presidente del Instituto Lotería y Casinos</span>
+      <span class="track" data-tip="Apuestas en línea: la Comisión recibe al presidente del Instituto Lotería y Casinos — 1 nota, 1 medio">
+        <span class="bar" style="width: 33.3%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>Parlamentario.com</option><option>Perfil</option><option>TN</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="La Nación" data-texto="alejandra monteoliva acusó a “facciones violentas” por los incidentes frente al congreso y habló de la visita del papa la ministra de seguridad aseguró que trabajan para identificar a los responsables de los hechos y anticipó que presentarán denuncias ante la justicia; además, se refirió a la posible visita del papa y destacó el operativo de traslado de presos a marcos paz ">
+        <td class="tema-col"><b>1</b> · 3 medios</td>
+        <td class="num">23:47</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/lnmas/alejandra-monteoliva-apunto-contra-los-manifestantes-por-los-incidentes-frente-al-congreso-y-hablo-nid18102026/" target="_blank" rel="noopener">Alejandra Monteoliva acusó a “facciones violentas” por los incidentes frente al Congreso y habló de la visita del Papa</a><div class="baj">La ministra de Seguridad aseguró que trabajan para identificar a los responsables de los hechos y anticipó que presentarán denuncias ante la Justicia; además, se refirió a la posible visita del Papa y destacó el operativo de traslado de presos a Marcos Paz</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Ámbito" data-texto="denuncian a funcionarios de javier milei por represión en la marcha universitaria y apuntan contra alejandra monteoliva la denuncia penal es por un posteo en el que la ministra de seguridad vinculó los reclamos universitarios con imágenes de disturbios. en paralelo, la comisión provincial por la memoria pidió investigar a los responsables políticos y operativos del despliegue frente al congreso. ">
+        <td class="tema-col"></td>
+        <td class="num">08:57</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/denunciaron-alejandra-monteoliva-discriminacion-e-incitacion-la-violencia-contra-los-universitarios-n6335187" target="_blank" rel="noopener">Denuncian a funcionarios de Javier Milei por represión en la marcha universitaria y apuntan contra Alejandra Monteoliva</a><div class="baj">La denuncia penal es por un posteo en el que la ministra de Seguridad vinculó los reclamos universitarios con imágenes de disturbios. En paralelo, la Comisión Provincial por la Memoria pidió investigar a los responsables políticos y operativos del despliegue frente al Congreso.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Perfil" data-texto="alejandra monteoliva calificó de “terrorismo” los incidentes frente al congreso y habló de la visita del papa la ministra de seguridad aseguró que identificará a quienes participaron de los disturbios frente al congreso y anticipó que avanzarán con detenciones. también se refirió a la posible visita del papa león xiv. leer más ">
+        <td class="tema-col"></td>
+        <td class="num">08:49</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/monteoliva-califico-de-terrorismo-los-incidentes-frente-al-congreso.phtml" target="_blank" rel="noopener">Alejandra Monteoliva calificó de “terrorismo” los incidentes frente al Congreso y habló de la visita del Papa</a><div class="baj">La ministra de Seguridad aseguró que identificará a quienes participaron de los disturbios frente al Congreso y anticipó que avanzarán con detenciones. También se refirió a la posible visita del papa León XIV. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="de cara al debate por el endeudamiento familiar, el gobierno sostiene un discurso duro y considera que funciona para la imagen de milei el presidente subió en algunas encuestas que mira y no planean cambiar un ápice. mientras la oposición ataca con señalamientos sobre la crueldad, la rosada está convencida de que “decir la verdad” les conviene endeudamiento familiar">
+        <td class="tema-col"><b>2</b> · 2 medios<br>Endeudamiento familiar</td>
+        <td class="num">13:33</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/18/de-cara-al-debate-por-el-endeudamiento-familiar-el-gobierno-sostiene-un-discurso-duro-y-considera-que-funciona-para-la-imagen-de-milei/" target="_blank" rel="noopener">De cara al debate por el endeudamiento familiar, el Gobierno sostiene un discurso duro y considera que funciona para la imagen de Milei</a><div class="baj">El Presidente subió en algunas encuestas que mira y no planean cambiar un ápice. Mientras la oposición ataca con señalamientos sobre la crueldad, la Rosada está convencida de que “decir la verdad” les conviene</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="TN" data-texto="discapacidad, endeudamiento familiar y malvinas: el gobierno buscará avanzar este miércoles con su agenda legislativa  endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">16:04</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/18/discapacidad-endeudamiento-familiar-y-malvinas-el-gobierno-busca-este-miercoles-avanzar-con-su-agenda-legislativa/" target="_blank" rel="noopener">Discapacidad, endeudamiento familiar y Malvinas: el Gobierno buscará avanzar este miércoles con su agenda legislativa</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="elecciones 2027: cuándo se vota para presidente en la argentina los comicios del año próximo definirán los principales cargos del poder ejecutivo y la renovación de bancas en el congreso; qué se elige según la jurisdicción; descubrí los detalles ">
+        <td class="tema-col"><b>3</b> · 1 medio</td>
+        <td class="num">07:56</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/elecciones-2027-cuando-se-vota-para-presidente-en-la-argentina-nid03082026/" target="_blank" rel="noopener">Elecciones 2027: cuándo se vota para presidente en la Argentina</a><div class="baj">Los comicios del año próximo definirán los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; qué se elige según la jurisdicción; descubrí los detalles</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="¿cuándo se vota presidente en la argentina? todo sobre las elecciones 2027 la convocatoria electoral del año próximo define los principales cargos del poder ejecutivo y la renovación de bancas en el congreso; los detalles en la nota ">
+        <td class="tema-col"></td>
+        <td class="num">07:56</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/cuando-se-vota-presidente-en-la-argentina-todo-sobre-las-elecciones-2027-nid01092026/" target="_blank" rel="noopener">¿Cuándo se vota presidente en la Argentina? Todo sobre las elecciones 2027</a><div class="baj">La convocatoria electoral del año próximo define los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; los detalles en la nota</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Perfil" data-texto="nicolás massot: &#34;creo que habrá menos participación electoral y el peronismo se recuperará&#34; el diputado de encuentro federal analizó el escenario político de cara a los próximos comicios, advirtió sobre el desinterés de los jóvenes en la política y planteó la necesidad de construir una tercera fuerza firme de cara al futuro. leer más ">
+        <td class="tema-col"><b>4</b> · 1 medio</td>
+        <td class="num">12:10</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/nicolas-massot-creo-que-habra-menos-participacion-electoral-y-el-peronismo-se-recuperara-modof.phtml" target="_blank" rel="noopener">Nicolás Massot: &#34;Creo que habrá menos participación electoral y el peronismo se recuperará&#34;</a><div class="baj">El diputado de Encuentro Federal analizó el escenario político de cara a los próximos comicios, advirtió sobre el desinterés de los jóvenes en la política y planteó la necesidad de construir una tercera fuerza firme de cara al futuro. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="La Nación" data-texto="la iglesia presiona al senado para que avance con la ley contra la ludopatía pide que se regulen las apuestas online y plantea los daños al tejido social que provocan; alertan que la iniciativa perdería estado parlamentario el mes próximo ">
+        <td class="tema-col"><b>5</b> · 1 medio</td>
+        <td class="num">11:37</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-iglesia-presiona-al-senado-para-que-avance-con-la-ley-contra-la-ludopatia-nid19102026/" target="_blank" rel="noopener">La Iglesia presiona al Senado para que avance con la ley contra la ludopatía</a><div class="baj">Pide que se regulen las apuestas online y plantea los daños al tejido social que provocan; alertan que la iniciativa perdería estado parlamentario el mes próximo</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="por la ley 27.793, suspenderán la pensión no contributiva por discapacidad a las personas que superen este ingreso mensual anses estableció un límite de ingresos para poder mantener el beneficio. ¿cuáles son los requisitos? ley 27.793">
+        <td class="tema-col"><b>6</b> · 1 medio<br>Ley 27.793</td>
+        <td class="num">11:18</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/informacion-gral/por-la-ley-27793-suspenderan-la-pension-no-contributiva-por-discapacidad-a-las-personas-que-superen-este-ingreso-mensual/" target="_blank" rel="noopener">Por la Ley 27.793, suspenderán la Pensión No Contributiva por Discapacidad a las personas que superen este ingreso mensual</a><div class="baj">ANSES estableció un límite de ingresos para poder mantener el beneficio. ¿Cuáles son los requisitos?</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="con el financiamiento universitario como telón de fondo, torrendell y álvarez asistirán a defender el presupuesto 2027 el secretario de educación y el subsecretario de políticas universitarias asistirán a la tercera reunión informativa sobre la &#34;ley de leyes&#34; en la comisión homónima de la cámara de diputados. será este martes, desde las 10. la entrada con el financiamiento universitario como telón de fondo… presupuesto 2027">
+        <td class="tema-col"><b>7</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">10:44</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/19/con-el-financiamiento-universitario-como-telon-de-fondo-torrendell-y-alvarez-asistiran-a-defender-el-presupuesto-2027/" target="_blank" rel="noopener">Con el financiamiento universitario como telón de fondo, Torrendell y Álvarez asistirán a defender el Presupuesto 2027</a><div class="baj">El secretario de Educación y el subsecretario de Políticas Universitarias asistirán a la tercera reunión informativa sobre la &#34;ley de leyes&#34; en la comisión homónima de la Cámara de Diputados. Será este martes, desde las 10. La entrada Con el financiamiento universitario como telón de fondo…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Ámbito" data-texto="un diputado de la libertad avanza propone prohibir los celulares en las cárceles y cobrarles gastos a los presos álvaro martínez presentó un proyecto para modificar la ley de ejecución de la pena. la iniciativa también establece el uso obligatorio de uniformes según la peligrosidad de los internos, un régimen especial de trabajo y un arancel para quienes perciban ingresos. ">
+        <td class="tema-col"><b>8</b> · 1 medio</td>
+        <td class="num">10:36</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/un-diputado-la-libertad-avanza-propone-prohibir-los-celulares-las-carceles-y-cobrarles-gastos-los-presos-n6335248" target="_blank" rel="noopener">Un diputado de La Libertad Avanza propone prohibir los celulares en las cárceles y cobrarles gastos a los presos</a><div class="baj">Álvaro Martínez presentó un proyecto para modificar la ley de Ejecución de la Pena. La iniciativa también establece el uso obligatorio de uniformes según la peligrosidad de los internos, un régimen especial de trabajo y un arancel para quienes perciban ingresos.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Perfil" data-texto="¿bullrich vice de milei o se corta sola? un estudio revela dónde la prefieren sus posibles votantes de qué temas hablan los usuarios de las redes sociales cuando hablan de la senadora. y dónde la prefieren con vistas a las elecciones de 2027. leer más ">
+        <td class="tema-col"><b>9</b> · 1 medio</td>
+        <td class="num">10:31</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/bullrich-vice-de-milei-o-no-un-estudio-revela-como-la-prefieren-en-las-redes.phtml" target="_blank" rel="noopener">¿Bullrich vice de Milei o se corta sola? Un estudio revela dónde la prefieren sus posibles votantes</a><div class="baj">De qué temas hablan los usuarios de las redes sociales cuando hablan de la senadora. Y dónde la prefieren con vistas a las elecciones de 2027. Leer más</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="apuestas en línea: la comisión recibe al presidente del instituto lotería y casinos el encuentro, con sede en el anexo de la cámara baja provincial, forma parte de la ronda de consultas pautada para avanzar en la redacción final del proyecto de ley unificado contra la ludopatía digital. la entrada apuestas en línea: la comisión recibe al presidente del instituto lotería y casinos… ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">09:11</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/19/apuestas-en-linea-la-comision-recibe-al-presidente-del-instituto-loteria-y-casinos/" target="_blank" rel="noopener">Apuestas en línea: la Comisión recibe al presidente del Instituto Lotería y Casinos</a><div class="baj">El encuentro, con sede en el anexo de la Cámara baja provincial, forma parte de la ronda de consultas pautada para avanzar en la redacción final del proyecto de ley unificado contra la ludopatía digital. La entrada Apuestas en línea: la Comisión recibe al presidente del Instituto Lotería y Casinos…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="insisten con el tratamiento de un proyecto para regular los casos de mala praxis veterinaria se trata de la denominada “ley greta”, mediante la cual se busca promover el bienestar animal, su trato digno, los derechos de los tutores y la seguridad en la prestación de los servicios. la entrada insisten con el tratamiento de un proyecto para regular los casos de mala praxis veterinaria se… ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">08:08</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/19/insisten-con-el-tratamiento-de-un-proyecto-para-regular-los-casos-de-mala-praxis-veterinaria/" target="_blank" rel="noopener">Insisten con el tratamiento de un proyecto para regular los casos de mala praxis veterinaria</a><div class="baj">Se trata de la denominada “Ley Greta”, mediante la cual se busca promover el bienestar animal, su trato digno, los derechos de los tutores y la seguridad en la prestación de los servicios. La entrada Insisten con el tratamiento de un proyecto para regular los casos de mala praxis veterinaria se…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="A24" data-texto="por malvinas: el reino unido podría vetar el ingreso de argentina a un organismo económico importante  ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">07:59</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/mundo/por-malvinas-el-reino-unido-podria-vetar-el-ingreso-argentina-un-organismo-economico-importante-n1607699" target="_blank" rel="noopener">Por Malvinas: el Reino Unido podría vetar el ingreso de Argentina a un organismo económico importante</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="vecinos impulsaron una iniciativa popular para reabrir un histórico cine de la paternal se trata del cine teatro taricco, el cuál los vecinos prevén volver a utilizar como cine, teatro, biblioteca y para eventos culturales. la entrada vecinos impulsaron una iniciativa popular para reabrir un histórico cine de la paternal se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">07:55</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/19/vecinos-impulsaron-una-iniciativa-popular-para-reabrir-un-historico-cine-de-la-paternal/" target="_blank" rel="noopener">Vecinos impulsaron una iniciativa popular para reabrir un histórico cine de La Paternal</a><div class="baj">Se trata del Cine Teatro Taricco, el cuál los vecinos prevén volver a utilizar como cine, teatro, biblioteca y para eventos culturales. La entrada Vecinos impulsaron una iniciativa popular para reabrir un histórico cine de La Paternal se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Clarín" data-texto="atropellan y dejan seriamente herida a una diputada en australia: afirman que fue un acto deliberado  ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">07:45</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/atropellan-dejan-seriamente-herida-diputada-australia-afirman-acto-deliberado_0_WBKdVNPztX.html" target="_blank" rel="noopener">Atropellan y dejan seriamente herida a una diputada en Australia: afirman que fue un acto deliberado</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="TN" data-texto="la casa rosada no logra unificar posiciones sobre la ley de discapacidad y mantiene abierta la amenaza de un veto  emergencia en discapacidad">
+        <td class="tema-col"><b>15</b> · 1 medio<br>Emergencia en discapacidad</td>
+        <td class="num">06:08</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/19/la-casa-rosada-no-logra-unificar-posiciones-sobre-la-ley-de-discapacidad-y-mantiene-abierta-la-amenaza-de-un-veto/" target="_blank" rel="noopener">La Casa Rosada no logra unificar posiciones sobre la ley de discapacidad y mantiene abierta la amenaza de un veto</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="aliados buscan posponer la definición del manejo de la estratégica comisión de acuerdos del senado hasta 2027 por allí pasan todos los pliegos judiciales, diplomáticos y ascensos militares. tras el deceso de su ex titular y ex legislador libertario, juan carlos pagotto (la rioja), aparecieron prontos e insistentes llamados que generaron un fuerte desagrado en bloques dialoguistas. sugieren que el radical… ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">03:42</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/19/aliados-buscan-posponer-la-definicion-del-manejo-de-la-estrategica-comision-de-acuerdos-del-senado-hasta-2027/" target="_blank" rel="noopener">Aliados buscan posponer la definición del manejo de la estratégica comisión de Acuerdos del Senado hasta 2027</a><div class="baj">Por allí pasan todos los pliegos judiciales, diplomáticos y ascensos militares. Tras el deceso de su ex titular y ex legislador libertario, Juan Carlos Pagotto (La Rioja), aparecieron prontos e insistentes llamados que generaron un fuerte desagrado en bloques dialoguistas. Sugieren que el radical…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno ajusta sus tiempos entre las negociaciones con los aliados y un calendario legislativo que se achica el oficialismo encara una semana clave y busca destrabar iniciativas en el congreso. los “cisnes negros” que reconfiguraron las prioridades, el viaje de milei a españa y la permanencia de karina milei. la definición del vaticano ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">02:54</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/19/el-gobierno-ajusta-sus-tiempos-entre-las-negociaciones-con-los-aliados-y-un-calendario-legislativo-que-se-achica/" target="_blank" rel="noopener">El Gobierno ajusta sus tiempos entre las negociaciones con los aliados y un calendario legislativo que se achica</a><div class="baj">El oficialismo encara una semana clave y busca destrabar iniciativas en el Congreso. Los “cisnes negros” que reconfiguraron las prioridades, el viaje de Milei a España y la permanencia de Karina Milei. La definición del Vaticano</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="diego santilli: &#34;milei, con paso o sin paso, va a volver a ganar las elecciones&#34; el jefe de gabinete respaldó la reforma electoral impulsada por el gobierno y aseguró que la suspensión o eliminación de las primarias terminará aprobándose en el congreso. también advirtió que el peronismo llegará unido a las próximas elecciones. la curiosa comparación que hizo sobre argentina. ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">01:53</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diego-santilli-milei-paso-paso-va-volver-ganar-elecciones_0_zugF1LqYvp.html" target="_blank" rel="noopener">Diego Santilli: &#34;Milei, con PASO o sin PASO, va a volver a ganar las elecciones&#34;</a><div class="baj">El jefe de Gabinete respaldó la reforma electoral impulsada por el Gobierno y aseguró que la suspensión o eliminación de las primarias terminará aprobándose en el Congreso. También advirtió que el peronismo llegará unido a las próximas elecciones. La curiosa comparación que hizo sobre Argentina.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Sesión" data-medio="Ámbito" data-texto="luego del traspié opositor en diputados, la libertad avanza mide su poderío en el congreso luego del intento fallido de abrir el recinto por parte de la oposición, el oficialismo busca sesionar este miércoles en la cámara baja para aprobar discapacidad, desendeudamiento e inviolabilidad de la propiedad privada. en el senado, los libertarios apuntan a aprobar la reforma de la ley de salud… inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>19</b> · 1 medio<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/luego-del-traspie-opositor-diputados-la-libertad-avanza-mide-su-poderio-el-congreso-n6334612" target="_blank" rel="noopener">Luego del traspié opositor en Diputados, La Libertad Avanza mide su poderío en el Congreso</a><div class="baj">Luego del intento fallido de abrir el recinto por parte de la oposición, el oficialismo busca sesionar este miércoles en la Cámara baja para aprobar Discapacidad, Desendeudamiento e Inviolabilidad de la propiedad privada. En el Senado, los libertarios apuntan a aprobar la reforma de la ley de Salud…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Ámbito" data-texto="charlas de quincho: spa legislativo, sturzenegger plomero, un obelisco intervenido y una visita inesperada a gildo un partido digital con conexión menem y un cruce con la policía porteña. milei de gira y menú estadounidense en la rosada. una diputada ausente y un video inoportuno. kas animados y una motosierra excalibur en el congreso libertario. industriales que juegan al fútbol con una mochila a cuestas… ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/charlas-quincho-spa-legislativo-sturzenegger-plomero-un-obelisco-intervenido-y-una-visita-inesperada-gildo-n6334964" target="_blank" rel="noopener">Charlas de quincho: spa legislativo, Sturzenegger plomero, un Obelisco intervenido y una visita inesperada a Gildo</a><div class="baj">Un partido digital con conexión Menem y un cruce con la Policía porteña. Milei de gira y menú estadounidense en la Rosada. Una diputada ausente y un video inoportuno. Kas animados y una motosierra Excalibur en el Congreso libertario. Industriales que juegan al fútbol con una mochila a cuestas…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Ámbito" data-texto="¿un gobierno de 8 años? la millonaria tentación económica que desvela a javier milei y alarma a la oposición la perspectiva de una economía más ordenada y proyectos de inversión por más de u$s200.000 millones alimenta la disputa anticipada por la presidencia en 2027. en el peronismo crecen las tensiones por las candidaturas, mientras el oficialismo apuesta a consolidar su proyecto. qué hay detrás de la… ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-botin-que-desvela-los-politicos-n6335127" target="_blank" rel="noopener">¿Un gobierno de 8 años? La millonaria tentación económica que desvela a Javier Milei y alarma a la oposición</a><div class="baj">La perspectiva de una economía más ordenada y proyectos de inversión por más de u$s200.000 millones alimenta la disputa anticipada por la presidencia en 2027. En el peronismo crecen las tensiones por las candidaturas, mientras el oficialismo apuesta a consolidar su proyecto. Qué hay detrás de la…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="bregman reivindicó las protestas estudiantiles en europa y denunció el avance del “guerrerismo” la diputada de izquierda vinculó las movilizaciones juveniles en distintos países europeos con la resistencia a los recortes sociales y al incremento del gasto militar. el jueves en la sesión había reivindicado las protestas en europa. la entrada bregman reivindicó las protestas estudiantiles en… ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">22:02</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/18/bregman-reivindico-las-protestas-estudiantiles-en-europa-y-denuncio-el-avance-del-guerrerismo/" target="_blank" rel="noopener">Bregman reivindicó las protestas estudiantiles en Europa y denunció el avance del “guerrerismo”</a><div class="baj">La diputada de izquierda vinculó las movilizaciones juveniles en distintos países europeos con la resistencia a los recortes sociales y al incremento del gasto militar. El jueves en la sesión había reivindicado las protestas en Europa. La entrada Bregman reivindicó las protestas estudiantiles en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="desde up proponen restablecer el subsidio del 50% al gas y revertir los cambios aprobados este año el diputado nacional por río negro marcelo mango, acompañado por los legisladores ana maría ianni, pablo todero, jorge neri araujo hernández, adriana serquis, juan pablo luque y abelardo ferrán, presentó un proyecto de ley para restablecer el régimen de subsidios al consumo residencial de gas para… ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">21:43</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/18/desde-up-proponen-restablecer-el-subsidio-del-50-al-gas-y-revertir-los-cambios-aprobados-este-ano/" target="_blank" rel="noopener">Desde UP proponen restablecer el subsidio del 50% al gas y revertir los cambios aprobados este año</a><div class="baj">El diputado nacional por Río Negro Marcelo Mango, acompañado por los legisladores Ana María Ianni, Pablo Todero, Jorge Neri Araujo Hernández, Adriana Serquis, Juan Pablo Luque y Abelardo Ferrán, presentó un proyecto de ley para restablecer el régimen de subsidios al consumo residencial de gas para…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="TN" data-texto="el gobierno busca enviar en los próximos días el acuerdo comercial con estados unidos al congreso y apura la agenda de propiedad intelectual  ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">18:12</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/18/el-gobierno-acelera-el-envio-del-acuerdo-comercial-con-estados-unidos-al-congreso/" target="_blank" rel="noopener">El Gobierno busca enviar en los próximos días el acuerdo comercial con Estados Unidos al Congreso y apura la agenda de propiedad intelectual</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="la batalla de los laboratorios, otro alerta de los gobernadores y las leyes cerrojo que quiere milei  ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">18:08</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/batalla-laboratorios-alerta-gobernadores-leyes-cerrojo-quiere-milei_0_tJ9OyKrqTF.html" target="_blank" rel="noopener">La batalla de los laboratorios, otro alerta de los gobernadores y las leyes cerrojo que quiere Milei</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="el fracaso para voltear el dnu/70 pegó en la oposición: reproches en el pj y riesgo de quiebre en otro bloque  ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">14:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/fracaso-voltear-dnu70-pego-oposicion-reproches-pj-riesgo-quiebre-bloque_0_rl336GPisn.html" target="_blank" rel="noopener">El fracaso para voltear el DNU/70 pegó en la oposición: reproches en el PJ y riesgo de quiebre en otro bloque</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-10-19 a las 12:58 hs (hora argentina) ·
+    <span class="estado-ok">21 respondieron bien</span>.
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
