@@ -1,0 +1,1315 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-10-21</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Miércoles 21 de octubre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 10:41 hs · 20/21 fuentes respondieron · <a href="#fuentes">1 caída</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">91</div>
+      <div class="sub up">▲ +22% vs. promedio de 7 días (74)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">41</div>
+    <div class="sub">9 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">15</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>1</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>11</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 13 notas</span>
+    </div>
+    <h3><a href="https://www.a24.com/politica/el-gobierno-enfrenta-una-sesion-clave-diputados-la-ley-tierras-discapacidad-y-propiedad-privada-n1608512" target="_blank" rel="noopener">El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">Inviolabilidad de la propiedad privada</span>    </div>
+    <div class="medios">
+<a href="https://www.a24.com/politica/el-gobierno-enfrenta-una-sesion-clave-diputados-la-ley-tierras-discapacidad-y-propiedad-privada-n1608512" target="_blank" rel="noopener" title="El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada">A24 ↗</a><a href="https://www.pagina12.com.ar/2026/10/21/para-las-organizaciones-de-discapacidad-el-proyecto-del-gobierno-no-tiene-nada-de-superador/" target="_blank" rel="noopener" title="Para las organizaciones de discapacidad, el proyecto del gobierno “no tiene nada de superador”">Página/12 ↗</a><a href="https://www.clarin.com/politica/diputados-hoy-vivo-debaten-discapacidad-endeudamiento-familiar-inviolabilidad-propiedad-privada_0_Yf27T2arHZ.html" target="_blank" rel="noopener" title="Diputados hoy, EN VIVO: debaten discapacidad, morosidad familiar y la inviolabilidad de la propiedad privada">Clarín ↗</a><a href="https://www.cronista.com/economia-politica/con-el-quorum-asegurado-el-gobierno-enfrenta-una-sesion-maratonica-propiedad-privada-endeudamiento-y-discapacidad/" target="_blank" rel="noopener" title="Con quórum asegurado, el Gobierno enfrenta una sesión maratónica: Propiedad Privada, endeudamiento y discapacidad">El Cronista ↗</a><a href="https://www.eldiarioar.com/politica/diputados-quorum-garantizado-oficialismo-confiado-sesion-oposicion-apuesta-batacazo_1_13602744.html" target="_blank" rel="noopener" title="Diputados: con el quórum garantizado, el oficialismo va confiado a la sesión y la oposición apuesta al batacazo">elDiarioAR ↗</a><a href="https://www.perfil.com/noticias/politica/diputados-tras-blindar-su-dnu-70-lla-lleva-al-recinto-la-ley-de-tierras-k-discapacidad-y-endeudamiento-a60.phtml" target="_blank" rel="noopener" title="Diputados: tras blindar su DNU 70, LLA lleva al recinto la Ley de Tierras K, Discapacidad y Endeudamiento">Perfil ↗</a><a href="https://tn.com.ar/politica/2026/10/21/diputados-debate-hoy-la-ley-de-propiedad-privada-y-la-restitucion-de-los-limites-a-la-compra-de-tierras-por-extranjeros/" target="_blank" rel="noopener" title="En una megasesión, Diputados debatirá hoy Ley de Tierras, Discapacidad y endeudamiento familiar">TN ↗</a><a href="https://www.infobae.com/politica/2026/10/21/tierras-discapacidad-y-endeudamiento-el-oficialismo-busca-neutralizar-la-agenda-opositora-con-una-mega-sesion/" target="_blank" rel="noopener" title="Tierras, discapacidad y endeudamiento: el oficialismo busca neutralizar la agenda opositora con una mega sesión">Infobae ↗</a><a href="https://www.parlamentario.com/2026/10/21/diputados-se-encamina-a-una-maratonica-sesion-con-discapacidad-y-endeudamiento-familiar-como-pruebas-de-fuego/" target="_blank" rel="noopener" title="Diputados se encamina a una maratónica sesión con discapacidad y endeudamiento familiar como pruebas de fuego">Parlamentario.com ↗</a><a href="https://www.pagina12.com.ar/2026/10/20/diputados-se-viene-una-sesion-maratonica-e-incomoda-para-el-gobierno/" target="_blank" rel="noopener" title="Diputados: Se viene una sesión maratónica e incómoda para el Gobierno">Página/12 ↗</a><a href="https://www.ambito.com/politica/el-oficialismo-lleva-sesion-diputados-su-version-discapacidad-morosidad-e-inviolabilidad-la-propiedad-privada-n6335931" target="_blank" rel="noopener" title="El oficialismo lleva a sesión de Diputados su versión de discapacidad, morosidad e Inviolabilidad de la Propiedad Privada">Ámbito ↗</a><a href="https://www.c5n.com/politica/diputados-debate-discapacidad-morosidad-y-propiedad-privada-se-espera-una-sesion-maratonica-n252132" target="_blank" rel="noopener" title="Diputados debate discapacidad, morosidad y propiedad privada: se espera una sesión maratónica">C5N ↗</a><a href="https://www.clarin.com/politica/gobierno-oposicion-vuelven-medir-fuerzas-diputados-discapacidad-morosidad-ley-tierras_0_PKe9nj95p6.html" target="_blank" rel="noopener" title="El Gobierno y la oposición vuelven a medir fuerzas en Diputados con discapacidad, morosidad y la Ley de Tierras">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>10</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/en-la-mesa-politica-admitieron-que-el-proyecto-de-ley-sobre-discapacidad-genera-divisiones-internas-nid20102026/" target="_blank" rel="noopener">En la mesa política admitieron que el proyecto de ley sobre discapacidad genera divisiones internas</a></h3>
+<p class="bajada">La mesa chica del oficialismo se reunió por más de dos horas en la Casa Rosada y analizó la iniciativa consensuada con Pro y la UCR que se debatirá mañana en Diputados</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/en-la-mesa-politica-admitieron-que-el-proyecto-de-ley-sobre-discapacidad-genera-divisiones-internas-nid20102026/" target="_blank" rel="noopener" title="En la mesa política admitieron que el proyecto de ley sobre discapacidad genera divisiones internas">La Nación ↗</a><a href="https://www.clarin.com/politica/suspension-paso-optimismo-gobierno-division-oposicion-guino-gobernadores-radicales_0_tI2wkVxoUu.html" target="_blank" rel="noopener" title="La suspensión de las PASO: el optimismo del Gobierno, la división de la oposición y el guiño de los gobernadores radicales">Clarín ↗</a><a href="https://www.letrap.com.ar/congreso/sin-aval-la-casa-rosada-el-bloque-la-libertad-avanza-acordo-los-aliados-una-ley-discapacidad-n5427541" target="_blank" rel="noopener" title="Sin aval de la Casa Rosada, el bloque de La Libertad Avanza acordó con los aliados una ley de discapacidad">Letra P ↗</a><a href="https://www.lapoliticaonline.com/politica/menem-suma-gestos-de-autonomia-y-desconcierta-a-la-mesa-politica-con-malvinas-4346/" target="_blank" rel="noopener" title="Menem suma gestos de autonomía y desconcierta a la mesa política">La Política Online ↗</a><a href="https://www.ambito.com/politica/diego-santilli-recibio-al-pro-casa-rosada-avanzar-el-presupuesto-y-la-reforma-electoral-n6336020" target="_blank" rel="noopener" title="Diego Santilli recibió al PRO en Casa Rosada para avanzar con el Presupuesto y la reforma electoral">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/10/20/intensa-jornada-de-reuniones-en-el-gobierno-por-la-reforma-politica-discapacidad-y-acuerdos-electorales-con-aliados/" target="_blank" rel="noopener" title="Malvinas, Discapacidad y alianzas con los gobernadores: los temas que profundizan las divisiones de la mesa política">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/10/20/en-medio-de-tensiones-internas-lla-y-el-pro-vuelven-a-reunirse-para-acercar-posiciones-en-busca-de-un-acuerdo-electoral/" target="_blank" rel="noopener" title="En medio de tensiones internas, LLA y el PRO volvieron a reunirse: hicieron foco en el Presupuesto 2027 y la reforma electoral">TN ↗</a><a href="https://www.cronista.com/economia-politica/la-agenda-de-leyes-que-el-gobierno-busca-destrabar-antes-de-noviembre-para-evitar-turbulencias-politicas/" target="_blank" rel="noopener" title="La agenda de leyes que el Gobierno busca destrabar antes de noviembre para evitar turbulencias políticas">El Cronista ↗</a><a href="https://www.eldiarioar.com/politica/karina-milei-mesa-politica-preparar-sesion-diputados-internas-siguen-abiertas_1_13601676.html" target="_blank" rel="noopener" title="Karina Milei juntó a su mesa política para preparar la sesión de Diputados, pero las internas siguen abiertas">elDiarioAR ↗</a><a href="https://www.parlamentario.com/2026/10/20/con-la-mira-en-la-extensa-sesion-y-la-reforma-electoral-se-volvio-a-reunir-la-mesa-politica/" target="_blank" rel="noopener" title="Con la mira en la extensa sesión y la Reforma Electoral, se volvió a reunir la Mesa Política">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>8</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 10 notas</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/10/20/presupuesto-2027-la-oposicion-pidio-sumar-a-rectores-docentes-y-estudiantes-al-debate-universitario/" target="_blank" rel="noopener">Presupuesto 2027: la oposición pidió sumar a rectores, docentes y estudiantes al debate universitario</a></h3>
+<p class="bajada">Durante el inicio de la discusión del área educativa, diputados de la oposición reclamaron la participación de la comunidad universitaria en el tratamiento del Presupuesto. Además, cuestionaron que el proyecto no contemple las previsiones de la Ley de Financiamiento Universitario y denunciaron el…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/10/20/presupuesto-2027-la-oposicion-pidio-sumar-a-rectores-docentes-y-estudiantes-al-debate-universitario/" target="_blank" rel="noopener" title="Presupuesto 2027: la oposición pidió sumar a rectores, docentes y estudiantes al debate universitario">Parlamentario.com ↗</a><a href="https://www.infobae.com/politica/2026/10/21/una-diputada-incomodo-a-torrendell-por-los-tiempos-de-graduacion-y-las-becas-su-egreso-fue-15-anos-despues/" target="_blank" rel="noopener" title="Una diputada incomodó a Torrendell por los tiempos de graduación y las becas: “Su egreso fue 15 años después”">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/10/20/tension-en-diputados-por-el-presupuesto-universitario-el-oficialismo-buscara-emitir-dictamen-la-semana-proxima/" target="_blank" rel="noopener" title="Tensión en Diputados por el presupuesto universitario: el oficialismo buscará emitir dictamen la semana próxima">TN ↗</a><a href="https://www.c5n.com/politica/diputados-debate-comision-presupuesto-universitario-20-octubre-2027" target="_blank" rel="noopener" title="Presupuesto 2027: Carlos Torrendell defendió las partidas educativas y exigió &#34;transparencia institucional&#34;">C5N ↗</a><a href="https://www.eldiarioar.com/politica/subsecretario-politicas-universitarias-dice-sueldos-docentes-son-privilegio-justifico-no-aplicacion-ley_1_13601671.html" target="_blank" rel="noopener" title="El subsecretario de Políticas Universitarias dice que los sueldos docentes son &#34;un privilegio&#34; y justificó la no aplicación de la Ley">elDiarioAR ↗</a><a href="https://www.infobae.com/politica/2026/10/20/tension-en-diputados-torrendell-cuestiono-a-los-rectores-y-alejandro-alvarez-denuncio-que-la-oposicion-llama-a-la-insurreccion-contra-la-republica/" target="_blank" rel="noopener" title="Tensión en Diputados: Torrendell cuestionó a los rectores y Alejandro Álvarez denunció que la “oposición llama a la insurrección contra la República”">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/torrendell-defendio-la-politica-educativa-en-diputados-y-cuestiono-como-las-universidades-gastan-sus-nid20102026/" target="_blank" rel="noopener" title="Torrendell defendió la política educativa en Diputados y cuestionó cómo las universidades gastan sus recursos">La Nación ↗</a><a href="https://www.parlamentario.com/2026/10/20/torrendell-defendio-el-presupuesto-2027-para-educacion-y-aseguro-que-se-gasto-mucho-pero-no-para-que-los-chicos-aprendieran/" target="_blank" rel="noopener" title="Torrendell defendió el Presupuesto 2027 para Educación y aseguró que “se gastó mucho, pero no para que los chicos aprendieran”">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/marcha-universitaria-secretario-educacion-defendio-gestion-acuso-rectores-tener-acuerdo-casta_0_yHhGT4NJ6r.html" target="_blank" rel="noopener" title="Presupuesto universitario: el Gobierno apuntó contra los rectores y dos diputados casi se van a las manos">Clarín ↗</a><a href="https://www.ambito.com/politica/diputados-debate-el-presupuesto-2027-el-foco-puesto-educacion-n6335740" target="_blank" rel="noopener" title="Diputados debate el Presupuesto 2027 con el foco puesto en educación, en medio del conflicto por ley de Financiamiento Universitario">Ámbito ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>6</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 10 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/videos/tenso-cruce-diputado-k-libertario-debate-universidades_3_GcAe8aS1mg.html" target="_blank" rel="noopener">El tenso cruce entre un diputado K y un libertario durante el debate por Universidades</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Comisión</span>
+    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/videos/tenso-cruce-diputado-k-libertario-debate-universidades_3_GcAe8aS1mg.html" target="_blank" rel="noopener" title="El tenso cruce entre un diputado K y un libertario durante el debate por Universidades">Clarín ↗</a><a href="https://www.ambito.com/politica/se-abrio-el-debate-biocombustibles-diputados-apoyo-mayoritario-las-camaras-productoras-n6336022" target="_blank" rel="noopener" title="Se abrió el debate de biocombustibles en Diputados, con apoyo mayoritario de las cámaras productoras">Ámbito ↗</a><a href="https://www.perfil.com/noticias/politica/el-gobierno-califico-de-privilegio-los-salarios-docentes-y-dos-diputados-casi-terminan-a-las-pinas.phtml" target="_blank" rel="noopener" title="El Gobierno calificó de “privilegio” los salarios docentes y dos diputados casi terminan a las piñas">Perfil ↗</a><a href="https://www.ambito.com/politica/gritos-y-acusaciones-diputados-el-debate-los-fondos-universitarios-n6336001" target="_blank" rel="noopener" title="Gritos y acusaciones en Diputados durante el debate por los fondos universitarios">Ámbito ↗</a><a href="https://www.lanacion.com.ar/politica/el-cruce-entre-dos-diputados-en-la-comision-de-presupuesto-que-casi-termina-a-los-golpes-nid20102026/" target="_blank" rel="noopener" title="El cruce entre dos diputados en la comisión de Presupuesto que casi termina a los golpes">La Nación ↗</a><a href="https://www.infobae.com/politica/2026/10/20/otro-escandalo-en-una-comision-de-diputados-casi-se-pelean-un-libertario-y-un-peronista/" target="_blank" rel="noopener" title="Otro escándalo en una comisión de Diputados: casi se pelean un libertario y un peronista">Infobae ↗</a><a href="https://www.parlamentario.com/2026/10/20/un-diputado-k-se-le-fue-al-humo-a-un-libertario-en-la-comision-de-presupuesto-si-insultan-no-se-puede/" target="_blank" rel="noopener" title="Un diputado K se le fue al humo a un libertario en la Comisión de Presupuesto: &#34;Si insultan no se puede&#34;">Parlamentario.com ↗</a><a href="https://www.clarin.com/videoloop/loop-tenso-cruce-diputado-k-libertario-debate-universidades_3_SC69HcI3Qj.html" target="_blank" rel="noopener" title="Loop. El tenso cruce entre un diputado K y un libertario durante el debate por Universidades">Clarín ↗</a><a href="https://www.clarin.com/politica/pleno-debate-presupuesto-diputado-k-increpo-libertario-insulto-van-manos_0_XqtzjLDHmm.html" target="_blank" rel="noopener" title="En pleno debate del Presupuesto un diputado K increpó a un libertario que lo insultó y casi se van a las manos">Clarín ↗</a><a href="https://www.clarin.com/videos/diputado-k-increpo-libertario_3_rF4f2NksTA.html" target="_blank" rel="noopener" title="Un diputado K increpó a uno libertario">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.eldiarioar.com/politica/patricia-bullrich-le-pidio-gobierno-acuerdo-politico-economia-holgada-gente_1_13602692.html" target="_blank" rel="noopener">Patricia Bullrich le pidió al Gobierno “acuerdo político y una economía más holgada para la gente”</a></h3>
+<p class="bajada">La senadora nacional trazó los ejes prioritarios sobre los que, a su criterio, debe encaminarse el oficialismo. La senadora nacional, Patricia Bullrich se expresó a través de sus redes sociales sobre las proyecciones políticas y económicas de cara al desarrollo del 2026, al pedir por un “acuerdo…</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.eldiarioar.com/politica/patricia-bullrich-le-pidio-gobierno-acuerdo-politico-economia-holgada-gente_1_13602692.html" target="_blank" rel="noopener" title="Patricia Bullrich le pidió al Gobierno “acuerdo político y una economía más holgada para la gente”">elDiarioAR ↗</a><a href="https://www.lanacion.com.ar/politica/patricia-bullrich-se-refirio-a-la-posibilidad-de-ser-candidata-a-presidenta-estoy-preparada-nid20102026/" target="_blank" rel="noopener" title="Patricia Bullrich se refirió a la posibilidad de ser candidata a presidenta: “Estoy preparada”">La Nación ↗</a><a href="https://www.perfil.com/noticias/politica/patricia-bullrich-reconocio-que-el-bolsillo-sera-clave-para-el-gobierno-la-gente-vota-por-la-economia.phtml" target="_blank" rel="noopener" title="Patricia Bullrich reconoció que el bolsillo será clave para el Gobierno: “La gente vota por la economía”">Perfil ↗</a><a href="https://www.letrap.com.ar/congreso/biocombustibles-las-pymes-negocian-el-pro-cambiar-el-proyecto-patricia-bullrich-n5427538" target="_blank" rel="noopener" title="Biocombustibles: las pymes negocian con el PRO para cambiar el proyecto de Patricia Bullrich">Letra P ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4><span class="hoy-tag">Hoy</span>Miércoles 21 de octubre</h4>
+    <div class="ev sesion ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Diputados · Sesión especial</span>
+</span>
+      <div class="det">
+A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes…<details><summary>ver temario completo</summary>A SOLICITUD DEL DIPUTADO GABRIEL BORNORONI Y OTROS DIPUTADOS A fin de considerar el siguiente temario: - Expediente 0032-S-2026. Proyecto de Ley de Inviolabilidad de la Propiedad Privada. Modificación de las leyes 21.499, de expropiaciones y 24.374, de regularización dominial. - Orden del Día 349. Módulo informático interoperable con el Sistema de Trazabilidad de Medicamentos de Alto Riesgo –MAR– y de sus Ingredientes Farmacéuticos Activos –IFA–. Creación. - Orden del Día 447. Código Penal. Modificaciones sobre Vandalismo Rural. - Orden del Día 442. Inmueble propiedad del Estado nacional, Centro de Acopio y Embarque Barranqueras –CAEB–, en la localidad de Barranqueras, departamento San Fernando, provincia del Chaco. Transferencia a título gratuito a la provincia del Chaco. - Orden del Día…</details>      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">10:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Reunión de labor parlamentaria</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · SALÓN DELIA PARODI · ver temario</summary>A LAS AUTORIDADES Y PRESIDENTES DE BLOQUES A FIN DE COORDINAR EL DESARROLLO DE LA SESIÓN CITADA PARA EL MISMO DÍA A LAS 12 HS.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Relaciones Exteriores y Culto</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Servicios aéreos: Expte. PE-271/26 - Mensaje N° 225/26 y proyecto de ley que aprueba el acuerdo sobre servicios aéreos con la República de Finlandia, suscripto en la Ciudad Autónoma de Buenos Aires, el 27 de marzo de 2018. Expte. PE-273/26 - Mensaje N° 237/26 y proyecto de ley que aprueba el acuerdo con la República del Paraguay sobre servicios aéreos, suscripto en la Cdad. de Buenos Aires - Rep. Argentina, el 27 de noviembre de 2025. Convenio de Estambul: Expte. PE-234/26 - Mensaje N° 219/26 y proyecto de ley que aprueba el convenio relativo a la importación temporal, celebrado en Estambul -República de Türkiye-, el 26 de junio de 1990. Enmiendas al Convenio de la OMI: Expte. PE-235/26 - Mensaje N° 220/26 y proyecto de ley que aprueba las enmiendas al convenio constitutivo de la…</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Legislación General y de Población y Desarrollo Humano - Reunión de la Comisión de Población y Desarrollo Humano</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Expte. S-528/25, Cristina: proyecto de ley de promoción de los derechos de las niñas, niños y adolescentes a la dignidad, a la integridad personal y a una vida libre de violencias, a través de protocolos para la prevención, detección y actuación ante situaciones de violencia. Expte. S-190/25, Bensusán: reproduce proyecto de ley que crea el Registro Nacional de Personas Deudoras Alimentarias en Mora (ref. S-9/23). Expte. S-1723/26, Terenzi: proyecto de ley que crea el Registro Nacional Único de Alimentantes Morosos (ReNUAM). A continuación de la plenaria se reunirá la Comisión de Población y Desarrollo Humano para considerar el temario que se encuentra disponible en el micrositio de la comisión.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Minería, Energía y Combustibles y de Ambiente y Desarrollo Sustentable</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: Expte. S-285/25 , Rodas: reproduce proyecto de ley de presupuestos mínimos de protección ambiental en el cierre de minas. (Ref. 17/2023). Expte. S-257/26 , Fama y Terenzi: reproduce proyecto de ley que modifica el Código de Minería, respecto de incorporar el título final &#34;Régimen de Cierre de Minas&#34; (Ref. S. 2248/24). Expte. S-525/26 , Corpacci y otros: proyecto de ley que modifica su similar 1919 y s/m —Código de Minería—, respecto de incorporar el título final &#34;Régimen de Cierre de Minas&#34;.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Martes 27 de octubre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Reunión</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Salón Azul - Palacio Legislativo - H. Yrigoyen 1849 · ver temario</summary>AUDIENCIA PÚBLICA. Tratamiento de las postulaciones remitidas por los bloques parlamentarios y la Subsecretaria de Derechos Humanos del Ministerio de Justicia de la Nación, para integrar el Comité nacional para la Prevención de la Tortura, Ley 26.827, artículo 11, inciso a) y d). · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1367/archivo/SKPVG6MZB7HT2GVV.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Audiencia pública de la Comisión Bicameral de la Defensoría del Pueblo</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: tratamiento de las postulaciones remitidas por los bloques parlamentarios y la Subsecretaría de Derechos Humanos del Ministerio de Justicia de la Nación para integrar el Comité Nacional para la Prevención de la Tortura, ley 26.827, artículo 11, incisos a) y d).</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Defensa nacional, Legislacion penal, Relaciones exteriores y culto</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso REUNIÓN CONJUNTA · ver temario</summary>Mensaje Nro. 275/2026 y proyecto de ley de Defensa de la Soberanía nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1366/archivo/7QS3F6MW29XMD9TB.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 74</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Mi 14: 76 notas">
+        <div class="c" style="height: 52.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 15: 118 notas">
+        <div class="c" style="height: 81.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 16: 145 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 17: 66 notas">
+        <div class="c" style="height: 45.5%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 18: 32 notas">
+        <div class="c" style="height: 22.1%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 19: 30 notas">
+        <div class="c" style="height: 20.7%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 20: 54 notas">
+        <div class="c" style="height: 37.2%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Mi 21: 91 notas">
+<span class="cap">91</span>        <div class="c" style="height: 62.8%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Mi 14</span><span class="">Ju 15</span><span class="">Vi 16</span><span class="">Sá 17</span><span class="">Do 18</span><span class="">Lu 19</span><span class="">Ma 20</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 22 hoy · promedio 14.6">
+        <span class="bar" style="width: 100.0%"></span><span class="v">22</span>
+<span class="tick" style="left: calc(66.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 13 hoy · promedio 9.1">
+        <span class="bar" style="width: 59.1%"></span><span class="v">13</span>
+<span class="tick" style="left: calc(41.6% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 8 hoy · promedio 5.1">
+        <span class="bar" style="width: 36.4%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(23.4% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 7 hoy · promedio 4.4">
+        <span class="bar" style="width: 31.8%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(20.1% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 7 hoy · promedio 8.4">
+        <span class="bar" style="width: 31.8%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(38.3% - 1px)"></span>      </span>
+      <span class="lbl" title="Perfil">Perfil</span>
+      <span class="track" data-tip="Perfil: 6 hoy · promedio 7.4">
+        <span class="bar" style="width: 27.3%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(33.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 6 hoy · promedio 4.6">
+        <span class="bar" style="width: 27.3%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(20.8% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 5 hoy · promedio 1.7">
+        <span class="bar" style="width: 22.7%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(7.8% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 4 hoy · promedio 1.4">
+        <span class="bar" style="width: 18.2%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(6.5% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 3 hoy · promedio 3.0">
+        <span class="bar" style="width: 13.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(13.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 3 hoy · promedio 4.3">
+        <span class="bar" style="width: 13.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(19.5% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 3 hoy · promedio 1.3">
+        <span class="bar" style="width: 13.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(5.8% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 2 hoy · promedio 1.7">
+        <span class="bar" style="width: 9.1%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(7.8% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 1 hoy · promedio 2.0">
+        <span class="bar" style="width: 4.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(9.1% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 1 hoy · promedio 1.1">
+        <span class="bar" style="width: 4.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(5.2% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada">1. El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada</span>
+      <span class="track" data-tip="El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada — 13 notas, 11 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">13 (11)</span>
+      </span>
+      <span class="lbl" title="En la mesa política admitieron que el proyecto de ley sobre discapacidad genera divisiones internas">2. En la mesa política admitieron que el proyecto de ley sobre discapacidad genera divisiones internas</span>
+      <span class="track" data-tip="En la mesa política admitieron que el proyecto de ley sobre discapacidad genera divisiones internas — 10 notas, 10 medios">
+        <span class="bar" style="width: 76.9%"></span><span class="v">10 (10)</span>
+      </span>
+      <span class="lbl" title="Presupuesto 2027: la oposición pidió sumar a rectores, docentes y estudiantes al debate universitario">3. Presupuesto 2027: la oposición pidió sumar a rectores, docentes y estudiantes al debate universitario</span>
+      <span class="track" data-tip="Presupuesto 2027: la oposición pidió sumar a rectores, docentes y estudiantes al debate universitario — 10 notas, 8 medios">
+        <span class="bar" style="width: 76.9%"></span><span class="v">10 (8)</span>
+      </span>
+      <span class="lbl" title="El tenso cruce entre un diputado K y un libertario durante el debate por Universidades">4. El tenso cruce entre un diputado K y un libertario durante el debate por Universidades</span>
+      <span class="track" data-tip="El tenso cruce entre un diputado K y un libertario durante el debate por Universidades — 10 notas, 6 medios">
+        <span class="bar" style="width: 76.9%"></span><span class="v">10 (6)</span>
+      </span>
+      <span class="lbl" title="Patricia Bullrich le pidió al Gobierno “acuerdo político y una economía más holgada para la gente”">5. Patricia Bullrich le pidió al Gobierno “acuerdo político y una economía más holgada para la gente”</span>
+      <span class="track" data-tip="Patricia Bullrich le pidió al Gobierno “acuerdo político y una economía más holgada para la gente” — 4 notas, 4 medios">
+        <span class="bar" style="width: 30.8%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Octubre Rosa: el Congreso se iluminó para concientizar sobre la prevención del cáncer de mama">6. Octubre Rosa: el Congreso se iluminó para concientizar sobre la prevención del cáncer de mama</span>
+      <span class="track" data-tip="Octubre Rosa: el Congreso se iluminó para concientizar sobre la prevención del cáncer de mama — 4 notas, 2 medios">
+        <span class="bar" style="width: 30.8%"></span><span class="v">4 (2)</span>
+      </span>
+      <span class="lbl" title="Diputados introdujeron cambios en el FEFIM y aumentan los fondos de libre disponibilidad">7. Diputados introdujeron cambios en el FEFIM y aumentan los fondos de libre disponibilidad</span>
+      <span class="track" data-tip="Diputados introdujeron cambios en el FEFIM y aumentan los fondos de libre disponibilidad — 2 notas, 2 medios">
+        <span class="bar" style="width: 15.4%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Una diputada australiana fue atropellada y sufrió la amputación de ambas piernas: la policía dijo que fue “un ataque intencional”">8. Una diputada australiana fue atropellada y sufrió la amputación de ambas piernas: la policía dijo que fue “un ataque intencional”</span>
+      <span class="track" data-tip="Una diputada australiana fue atropellada y sufrió la amputación de ambas piernas: la policía dijo que fue “un ataque intencional” — 2 notas, 2 medios">
+        <span class="bar" style="width: 15.4%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Economistas analizaron en el Senado el sistema de coparticipación federal">9. Economistas analizaron en el Senado el sistema de coparticipación federal</span>
+      <span class="track" data-tip="Economistas analizaron en el Senado el sistema de coparticipación federal — 2 notas, 2 medios">
+        <span class="bar" style="width: 15.4%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Diputados regulan el uso de celulares en las escuelas secundarias bonaerenses">10. Diputados regulan el uso de celulares en las escuelas secundarias bonaerenses</span>
+      <span class="track" data-tip="Diputados regulan el uso de celulares en las escuelas secundarias bonaerenses — 2 notas, 1 medio">
+        <span class="bar" style="width: 15.4%"></span><span class="v">2 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Perfil</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="A24" data-texto="el gobierno enfrenta una sesión clave en diputados por la ley de tierras, discapacidad y propiedad privada  inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>1</b> · 11 medios<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">08:35</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/el-gobierno-enfrenta-una-sesion-clave-diputados-la-ley-tierras-discapacidad-y-propiedad-privada-n1608512" target="_blank" rel="noopener">El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Página/12" data-texto="para las organizaciones de discapacidad, el proyecto del gobierno “no tiene nada de superador” sostienen que la ley que impulsa el gobierno es “regresiva” y reclaman que el congreso avance con la prórroga de la emergencia en discapacidad como piso de derechos. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">09:53</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/21/para-las-organizaciones-de-discapacidad-el-proyecto-del-gobierno-no-tiene-nada-de-superador/" target="_blank" rel="noopener">Para las organizaciones de discapacidad, el proyecto del gobierno “no tiene nada de superador”</a><div class="baj">Sostienen que la ley que impulsa el gobierno es “regresiva” y reclaman que el Congreso avance con la prórroga de la emergencia en discapacidad como piso de derechos.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="diputados hoy, en vivo: debaten discapacidad, morosidad familiar y la inviolabilidad de la propiedad privada el oficialismo y la oposición miden fuerzas en el congreso. el gobierno confía en tener los votos para imponer una nueva ley de discapacidad, mientras la oposición busca declarar la emergencia por el endeudamiento durante seis meses. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">08:37</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diputados-hoy-vivo-debaten-discapacidad-endeudamiento-familiar-inviolabilidad-propiedad-privada_0_Yf27T2arHZ.html" target="_blank" rel="noopener">Diputados hoy, EN VIVO: debaten discapacidad, morosidad familiar y la inviolabilidad de la propiedad privada</a><div class="baj">El oficialismo y la oposición miden fuerzas en el Congreso. El Gobierno confía en tener los votos para imponer una nueva ley de discapacidad, mientras la oposición busca declarar la emergencia por el endeudamiento durante seis meses.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="El Cronista" data-texto="con quórum asegurado, el gobierno enfrenta una sesión maratónica: propiedad privada, endeudamiento y discapacidad  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">08:18</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/con-el-quorum-asegurado-el-gobierno-enfrenta-una-sesion-maratonica-propiedad-privada-endeudamiento-y-discapacidad/" target="_blank" rel="noopener">Con quórum asegurado, el Gobierno enfrenta una sesión maratónica: Propiedad Privada, endeudamiento y discapacidad</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="diputados: con el quórum garantizado, el oficialismo va confiado a la sesión y la oposición apuesta al batacazo el recinto de la cámara baja abrirá a las 12 del mediodía. ley de propiedad privada, discapacidad, morosidad, trazabilidad de medicamentos de alto riesgo y vandalismo rural. salvo que aparezca un cisne negro que rompa con todas las expectativas, habrá quórum este miércoles en la sesión especial de… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:10</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/diputados-quorum-garantizado-oficialismo-confiado-sesion-oposicion-apuesta-batacazo_1_13602744.html" target="_blank" rel="noopener">Diputados: con el quórum garantizado, el oficialismo va confiado a la sesión y la oposición apuesta al batacazo</a><div class="baj">El recinto de la Cámara baja abrirá a las 12 del mediodía. Ley de Propiedad Privada, Discapacidad, Morosidad, Trazabilidad de medicamentos de alto riesgo y vandalismo rural. Salvo que aparezca un cisne negro que rompa con todas las expectativas, habrá quórum este miércoles en la sesión especial de…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="diputados: tras blindar su dnu 70, lla lleva al recinto la ley de tierras k, discapacidad y endeudamiento el oficialismo confía en que tendrá quórum y resolverá &#34;de taquito&#34; la restitución de la ley de tierras. en discapacidad, los &#34;dialoguistas&#34; le exigen al gobierno que aclare en el presupuesto 2027 el financiamiento de la ley. tras la presión de trump, la ley malvinas quedó fuera del temario. leer… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">05:30</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/diputados-tras-blindar-su-dnu-70-lla-lleva-al-recinto-la-ley-de-tierras-k-discapacidad-y-endeudamiento-a60.phtml" target="_blank" rel="noopener">Diputados: tras blindar su DNU 70, LLA lleva al recinto la Ley de Tierras K, Discapacidad y Endeudamiento</a><div class="baj">El oficialismo confía en que tendrá quórum y resolverá &#34;de taquito&#34; la restitución de la Ley de Tierras. En Discapacidad, los &#34;dialoguistas&#34; le exigen al Gobierno que aclare en el Presupuesto 2027 el financiamiento de la ley. Tras la presión de Trump, la Ley Malvinas quedó fuera del temario. Leer…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="en una megasesión, diputados debatirá hoy ley de tierras, discapacidad y endeudamiento familiar  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">05:00</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/21/diputados-debate-hoy-la-ley-de-propiedad-privada-y-la-restitucion-de-los-limites-a-la-compra-de-tierras-por-extranjeros/" target="_blank" rel="noopener">En una megasesión, Diputados debatirá hoy Ley de Tierras, Discapacidad y endeudamiento familiar</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="tierras, discapacidad y endeudamiento: el oficialismo busca neutralizar la agenda opositora con una mega sesión los principales puntos del temario fueron motorizados por los bloques críticos a milei, pero la libertad avanza impuso su propia versión de cada proyecto en las comisiones. las bancadas provinciales, como es habitual, tendrán los votos decisivos para inclinar la balanza. negociaciones contrarreloj… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">02:40</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/tierras-discapacidad-y-endeudamiento-el-oficialismo-busca-neutralizar-la-agenda-opositora-con-una-mega-sesion/" target="_blank" rel="noopener">Tierras, discapacidad y endeudamiento: el oficialismo busca neutralizar la agenda opositora con una mega sesión</a><div class="baj">Los principales puntos del temario fueron motorizados por los bloques críticos a Milei, pero La Libertad Avanza impuso su propia versión de cada proyecto en las comisiones. Las bancadas provinciales, como es habitual, tendrán los votos decisivos para inclinar la balanza. Negociaciones contrarreloj…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="diputados se encamina a una maratónica sesión con discapacidad y endeudamiento familiar como pruebas de fuego con el dnu 70/23 fuera de la agenda, la cámara baja debatirá este miércoles una serie de proyectos de fuerte impacto político. el oficialismo confía en sostener una sesión que podría extenderse durante más de veinte horas, mientras la oposición buscará imponer sus propios dictámenes sobre… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">01:13</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/diputados-se-encamina-a-una-maratonica-sesion-con-discapacidad-y-endeudamiento-familiar-como-pruebas-de-fuego/" target="_blank" rel="noopener">Diputados se encamina a una maratónica sesión con discapacidad y endeudamiento familiar como pruebas de fuego</a><div class="baj">Con el DNU 70/23 fuera de la agenda, la Cámara baja debatirá este miércoles una serie de proyectos de fuerte impacto político. El oficialismo confía en sostener una sesión que podría extenderse durante más de veinte horas, mientras la oposición buscará imponer sus propios dictámenes sobre…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Página/12" data-texto="diputados: se viene una sesión maratónica e incómoda para el gobierno  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:09</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/20/diputados-se-viene-una-sesion-maratonica-e-incomoda-para-el-gobierno/" target="_blank" rel="noopener">Diputados: Se viene una sesión maratónica e incómoda para el Gobierno</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="el oficialismo lleva a sesión de diputados su versión de discapacidad, morosidad e inviolabilidad de la propiedad privada el temario también incluye el traspaso de una reforma del código penal por el vandalismo rural y el establecimiento un sistema de trazabilidad de medicamentos de alto riesgo. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-oficialismo-lleva-sesion-diputados-su-version-discapacidad-morosidad-e-inviolabilidad-la-propiedad-privada-n6335931" target="_blank" rel="noopener">El oficialismo lleva a sesión de Diputados su versión de discapacidad, morosidad e Inviolabilidad de la Propiedad Privada</a><div class="baj">El temario también incluye el traspaso de una reforma del Código Penal por el vandalismo rural y el establecimiento un sistema de trazabilidad de medicamentos de alto riesgo.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="diputados debate discapacidad, morosidad y propiedad privada: se espera una sesión maratónica  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">21:23</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/diputados-debate-discapacidad-morosidad-y-propiedad-privada-se-espera-una-sesion-maratonica-n252132" target="_blank" rel="noopener">Diputados debate discapacidad, morosidad y propiedad privada: se espera una sesión maratónica</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="el gobierno y la oposición vuelven a medir fuerzas en diputados con discapacidad, morosidad y la ley de tierras  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">20:42</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/gobierno-oposicion-vuelven-medir-fuerzas-diputados-discapacidad-morosidad-ley-tierras_0_PKe9nj95p6.html" target="_blank" rel="noopener">El Gobierno y la oposición vuelven a medir fuerzas en Diputados con discapacidad, morosidad y la Ley de Tierras</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="en la mesa política admitieron que el proyecto de ley sobre discapacidad genera divisiones internas la mesa chica del oficialismo se reunió por más de dos horas en la casa rosada y analizó la iniciativa consensuada con pro y la ucr que se debatirá mañana en diputados presupuesto 2027">
+        <td class="tema-col"><b>2</b> · 10 medios<br>Presupuesto 2027</td>
+        <td class="num">16:26</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/en-la-mesa-politica-admitieron-que-el-proyecto-de-ley-sobre-discapacidad-genera-divisiones-internas-nid20102026/" target="_blank" rel="noopener">En la mesa política admitieron que el proyecto de ley sobre discapacidad genera divisiones internas</a><div class="baj">La mesa chica del oficialismo se reunió por más de dos horas en la Casa Rosada y analizó la iniciativa consensuada con Pro y la UCR que se debatirá mañana en Diputados</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Clarín" data-texto="la suspensión de las paso: el optimismo del gobierno, la división de la oposición y el guiño de los gobernadores radicales el tema volvió a ser parte de la reunión de la mesa política. desde la casa rosada aseguran que son &#34;muy altas&#34; las chances de suspender las primarias. la clave es el radicalismo, que llega dividido a la discusión. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">06:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/suspension-paso-optimismo-gobierno-division-oposicion-guino-gobernadores-radicales_0_tI2wkVxoUu.html" target="_blank" rel="noopener">La suspensión de las PASO: el optimismo del Gobierno, la división de la oposición y el guiño de los gobernadores radicales</a><div class="baj">El tema volvió a ser parte de la reunión de la Mesa Política. Desde la Casa Rosada aseguran que son &#34;muy altas&#34; las chances de suspender las primarias. La clave es el radicalismo, que llega dividido a la discusión.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Letra P" data-texto="sin aval de la casa rosada, el bloque de la libertad avanza acordó con los aliados una ley de discapacidad  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">21:02</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/sin-aval-la-casa-rosada-el-bloque-la-libertad-avanza-acordo-los-aliados-una-ley-discapacidad-n5427541" target="_blank" rel="noopener">Sin aval de la Casa Rosada, el bloque de La Libertad Avanza acordó con los aliados una ley de discapacidad</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Política Online" data-texto="menem suma gestos de autonomía y desconcierta a la mesa política el riojano imita las mañas de bullrich para discutir los proyectos de malvinas, discapacidad y el presupuesto. en la rosada creen que traba el acuerdo con gobernadores. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">20:52</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/menem-suma-gestos-de-autonomia-y-desconcierta-a-la-mesa-politica-con-malvinas-4346/" target="_blank" rel="noopener">Menem suma gestos de autonomía y desconcierta a la mesa política</a><div class="baj">El riojano imita las mañas de Bullrich para discutir los proyectos de Malvinas, Discapacidad y el Presupuesto. En la Rosada creen que traba el acuerdo con gobernadores.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="diego santilli recibió al pro en casa rosada para avanzar con el presupuesto y la reforma electoral cristian ritondo y fernando de andreis se reunieron con funcionarios en casa rosada. la agenda también incluyó los proyectos de defensa de la soberanía nacional y biocombustibles. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:50</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/diego-santilli-recibio-al-pro-casa-rosada-avanzar-el-presupuesto-y-la-reforma-electoral-n6336020" target="_blank" rel="noopener">Diego Santilli recibió al PRO en Casa Rosada para avanzar con el Presupuesto y la reforma electoral</a><div class="baj">Cristian Ritondo y Fernando de Andreis se reunieron con funcionarios en Casa Rosada. La agenda también incluyó los proyectos de Defensa de la Soberanía Nacional y biocombustibles.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="malvinas, discapacidad y alianzas con los gobernadores: los temas que profundizan las divisiones de la mesa política el reducido círculo se reunió esta tarde en casa rosada. persisten las diferencias internas sobre los tiempos para cerrar acuerdos con los aliados, mientras economía cuestiona las concesiones incorporadas al proyecto de discapacidad. el oficialismo reprogramó el tratamiento de la ley de defensa de… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:31</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/20/intensa-jornada-de-reuniones-en-el-gobierno-por-la-reforma-politica-discapacidad-y-acuerdos-electorales-con-aliados/" target="_blank" rel="noopener">Malvinas, Discapacidad y alianzas con los gobernadores: los temas que profundizan las divisiones de la mesa política</a><div class="baj">El reducido círculo se reunió esta tarde en Casa Rosada. Persisten las diferencias internas sobre los tiempos para cerrar acuerdos con los aliados, mientras Economía cuestiona las concesiones incorporadas al proyecto de discapacidad. El oficialismo reprogramó el tratamiento de la Ley de Defensa de…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="TN" data-texto="en medio de tensiones internas, lla y el pro volvieron a reunirse: hicieron foco en el presupuesto 2027 y la reforma electoral  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:09</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/20/en-medio-de-tensiones-internas-lla-y-el-pro-vuelven-a-reunirse-para-acercar-posiciones-en-busca-de-un-acuerdo-electoral/" target="_blank" rel="noopener">En medio de tensiones internas, LLA y el PRO volvieron a reunirse: hicieron foco en el Presupuesto 2027 y la reforma electoral</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="El Cronista" data-texto="la agenda de leyes que el gobierno busca destrabar antes de noviembre para evitar turbulencias políticas el proyecto de discapacidad acordado con los aliados sigue sin consenso interno sobre cómo encajar en el presupuesto 2027 un costo de $598.912 millones. el oficialismo prepara otra sesión con la reforma del bcra y biocombustibles, mientras la reforma electoral sigue trabada en el senado y en casa… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:01</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/la-agenda-de-leyes-que-el-gobierno-busca-destrabar-antes-de-noviembre-para-evitar-turbulencias-politicas/" target="_blank" rel="noopener">La agenda de leyes que el Gobierno busca destrabar antes de noviembre para evitar turbulencias políticas</a><div class="baj">El proyecto de Discapacidad acordado con los aliados sigue sin consenso interno sobre cómo encajar en el Presupuesto 2027 un costo de $598.912 millones. El oficialismo prepara otra sesión con la reforma del BCRA y biocombustibles, mientras la reforma electoral sigue trabada en el Senado y en Casa…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="karina milei juntó a su mesa política para preparar la sesión de diputados, pero las internas siguen abiertas martín menem repasó los proyectos que llegarán este miércoles al recinto. el encuentro volvió a reunir a los principales funcionarios del gobierno, atravesados por las diferencias sobre las negociaciones con los gobernadores y la estrategia electoral de 2027. karina milei volvió a reunir este… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:17</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/karina-milei-mesa-politica-preparar-sesion-diputados-internas-siguen-abiertas_1_13601676.html" target="_blank" rel="noopener">Karina Milei juntó a su mesa política para preparar la sesión de Diputados, pero las internas siguen abiertas</a><div class="baj">Martín Menem repasó los proyectos que llegarán este miércoles al recinto. El encuentro volvió a reunir a los principales funcionarios del Gobierno, atravesados por las diferencias sobre las negociaciones con los gobernadores y la estrategia electoral de 2027. Karina Milei volvió a reunir este…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="con la mira en la extensa sesión y la reforma electoral, se volvió a reunir la mesa política el encuentro se llevó a cabo en balcarce 50 y hubo renovación de fotografía entre los presentes. el gobierno quiere la suspensión de las paso, pero el tema sigue congelado en el senado. la entrada con la mira en la extensa sesión y la reforma electoral, se volvió a reunir la mesa política se… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">15:05</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/con-la-mira-en-la-extensa-sesion-y-la-reforma-electoral-se-volvio-a-reunir-la-mesa-politica/" target="_blank" rel="noopener">Con la mira en la extensa sesión y la Reforma Electoral, se volvió a reunir la Mesa Política</a><div class="baj">El encuentro se llevó a cabo en Balcarce 50 y hubo renovación de fotografía entre los presentes. El Gobierno quiere la suspensión de las PASO, pero el tema sigue congelado en el Senado. La entrada Con la mira en la extensa sesión y la Reforma Electoral, se volvió a reunir la Mesa Política se…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="presupuesto 2027: la oposición pidió sumar a rectores, docentes y estudiantes al debate universitario durante el inicio de la discusión del área educativa, diputados de la oposición reclamaron la participación de la comunidad universitaria en el tratamiento del presupuesto. además, cuestionaron que el proyecto no contemple las previsiones de la ley de financiamiento universitario y denunciaron el… presupuesto 2027">
+        <td class="tema-col"><b>3</b> · 8 medios<br>Presupuesto 2027</td>
+        <td class="num">12:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/presupuesto-2027-la-oposicion-pidio-sumar-a-rectores-docentes-y-estudiantes-al-debate-universitario/" target="_blank" rel="noopener">Presupuesto 2027: la oposición pidió sumar a rectores, docentes y estudiantes al debate universitario</a><div class="baj">Durante el inicio de la discusión del área educativa, diputados de la oposición reclamaron la participación de la comunidad universitaria en el tratamiento del Presupuesto. Además, cuestionaron que el proyecto no contemple las previsiones de la Ley de Financiamiento Universitario y denunciaron el…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="una diputada incomodó a torrendell por los tiempos de graduación y las becas: “su egreso fue 15 años después” la diputada de provincias unidas confrontó al secretario de educación durante el debate del presupuesto 2027, luego de que se cuestionara el porcentaje de graduados de univesidades públicas presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">01:02</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/una-diputada-incomodo-a-torrendell-por-los-tiempos-de-graduacion-y-las-becas-su-egreso-fue-15-anos-despues/" target="_blank" rel="noopener">Una diputada incomodó a Torrendell por los tiempos de graduación y las becas: “Su egreso fue 15 años después”</a><div class="baj">La diputada de Provincias Unidas confrontó al secretario de Educación durante el debate del Presupuesto 2027, luego de que se cuestionara el porcentaje de graduados de univesidades públicas</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="tensión en diputados por el presupuesto universitario: el oficialismo buscará emitir dictamen la semana próxima  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">20:11</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/20/tension-en-diputados-por-el-presupuesto-universitario-el-oficialismo-buscara-emitir-dictamen-la-semana-proxima/" target="_blank" rel="noopener">Tensión en Diputados por el presupuesto universitario: el oficialismo buscará emitir dictamen la semana próxima</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="C5N" data-texto="presupuesto 2027: carlos torrendell defendió las partidas educativas y exigió &#34;transparencia institucional&#34;  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:13</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/diputados-debate-comision-presupuesto-universitario-20-octubre-2027" target="_blank" rel="noopener">Presupuesto 2027: Carlos Torrendell defendió las partidas educativas y exigió &#34;transparencia institucional&#34;</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="el subsecretario de políticas universitarias dice que los sueldos docentes son &#34;un privilegio&#34; y justificó la no aplicación de la ley alejandro álavarez participó, junto a carlos torrendel, de la defensa del presupuesto educativo, que menem quiere llevar al recinto el 18 de noviembre. el subsecretario de políticas universitarias, alejandro álvarez , fue con los tapones de punta a defender el presupuesto universitario en la cámara… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:08</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/subsecretario-politicas-universitarias-dice-sueldos-docentes-son-privilegio-justifico-no-aplicacion-ley_1_13601671.html" target="_blank" rel="noopener">El subsecretario de Políticas Universitarias dice que los sueldos docentes son &#34;un privilegio&#34; y justificó la no aplicación de la Ley</a><div class="baj">Alejandro Álavarez participó, junto a Carlos Torrendel, de la defensa del presupuesto educativo, que Menem quiere llevar al recinto el 18 de noviembre. El subsecretario de Políticas Universitarias, Alejandro Álvarez , fue con los tapones de punta a defender el presupuesto universitario en la Cámara…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="tensión en diputados: torrendell cuestionó a los rectores y alejandro álvarez denunció que la “oposición llama a la insurrección contra la república” a 5 días de la marcha universitaria, el secretario de educación se presentó en la cámara baja para defender el presupuesto 2027. criticó la creación de altas casas de estudios. luego, el subsecretario de políticas universitarias acusó a los diputados de llevar a los alumnos universitarios “a tirar… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">15:14</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/20/tension-en-diputados-torrendell-cuestiono-a-los-rectores-y-alejandro-alvarez-denuncio-que-la-oposicion-llama-a-la-insurreccion-contra-la-republica/" target="_blank" rel="noopener">Tensión en Diputados: Torrendell cuestionó a los rectores y Alejandro Álvarez denunció que la “oposición llama a la insurrección contra la República”</a><div class="baj">A 5 días de la marcha universitaria, el secretario de Educación se presentó en la Cámara baja para defender el Presupuesto 2027. Criticó la creación de Altas Casas de estudios. Luego, el subsecretario de políticas universitarias acusó a los diputados de llevar a los alumnos universitarios “a tirar…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="torrendell defendió la política educativa en diputados y cuestionó cómo las universidades gastan sus recursos en el debate por el presupuesto 2027, el secretario de educación cuestionó las cifras de matrícula universitaria y los bajos índices de graduación; los rectores reclaman $11 billones, frente a los $7,7 billones previstos por el ejecutivo; apuntó contra la uba presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">12:15</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/torrendell-defendio-la-politica-educativa-en-diputados-y-cuestiono-como-las-universidades-gastan-sus-nid20102026/" target="_blank" rel="noopener">Torrendell defendió la política educativa en Diputados y cuestionó cómo las universidades gastan sus recursos</a><div class="baj">En el debate por el Presupuesto 2027, el secretario de Educación cuestionó las cifras de matrícula universitaria y los bajos índices de graduación; los rectores reclaman $11 billones, frente a los $7,7 billones previstos por el Ejecutivo; apuntó contra la UBA</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="torrendell defendió el presupuesto 2027 para educación y aseguró que “se gastó mucho, pero no para que los chicos aprendieran” ante la comisión de presupuesto, el secretario de educación sostuvo que la crisis educativa es consecuencia de años de políticas ineficientes, cuestionó la relación entre gasto y resultados en todos los niveles del sistema y reclamó mayor transparencia en el uso de los recursos. también puso el… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">12:04</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/torrendell-defendio-el-presupuesto-2027-para-educacion-y-aseguro-que-se-gasto-mucho-pero-no-para-que-los-chicos-aprendieran/" target="_blank" rel="noopener">Torrendell defendió el Presupuesto 2027 para Educación y aseguró que “se gastó mucho, pero no para que los chicos aprendieran”</a><div class="baj">Ante la Comisión de Presupuesto, el secretario de Educación sostuvo que la crisis educativa es consecuencia de años de políticas ineficientes, cuestionó la relación entre gasto y resultados en todos los niveles del sistema y reclamó mayor transparencia en el uso de los recursos. También puso el…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="presupuesto universitario: el gobierno apuntó contra los rectores y dos diputados casi se van a las manos  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:49</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/marcha-universitaria-secretario-educacion-defendio-gestion-acuso-rectores-tener-acuerdo-casta_0_yHhGT4NJ6r.html" target="_blank" rel="noopener">Presupuesto universitario: el Gobierno apuntó contra los rectores y dos diputados casi se van a las manos</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="diputados debate el presupuesto 2027 con el foco puesto en educación, en medio del conflicto por ley de financiamiento universitario  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:28</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/diputados-debate-el-presupuesto-2027-el-foco-puesto-educacion-n6335740" target="_blank" rel="noopener">Diputados debate el Presupuesto 2027 con el foco puesto en educación, en medio del conflicto por ley de Financiamiento Universitario</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Clarín" data-texto="el tenso cruce entre un diputado k y un libertario durante el debate por universidades  ">
+        <td class="tema-col"><b>4</b> · 6 medios</td>
+        <td class="num">14:27</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/tenso-cruce-diputado-k-libertario-debate-universidades_3_GcAe8aS1mg.html" target="_blank" rel="noopener">El tenso cruce entre un diputado K y un libertario durante el debate por Universidades</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Ámbito" data-texto="se abrió el debate de biocombustibles en diputados, con apoyo mayoritario de las cámaras productoras la expectativa del oficialismo es introducirlo a una sesión a finales de noviembre. nuevamente, las pymes industriales de biodiésel exigieron una reforma. ">
+        <td class="tema-col"></td>
+        <td class="num">18:59</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/se-abrio-el-debate-biocombustibles-diputados-apoyo-mayoritario-las-camaras-productoras-n6336022" target="_blank" rel="noopener">Se abrió el debate de biocombustibles en Diputados, con apoyo mayoritario de las cámaras productoras</a><div class="baj">La expectativa del oficialismo es introducirlo a una sesión a finales de noviembre. Nuevamente, las pymes industriales de biodiésel exigieron una reforma.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Perfil" data-texto="el gobierno calificó de “privilegio” los salarios docentes y dos diputados casi terminan a las piñas el financiamiento de las universidades públicas volvió al centro del debate en la comisión de presupuesto y hacienda de diputados, a menos de una semana de la marcha federal universitaria. leer más ">
+        <td class="tema-col"></td>
+        <td class="num">18:59</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/el-gobierno-califico-de-privilegio-los-salarios-docentes-y-dos-diputados-casi-terminan-a-las-pinas.phtml" target="_blank" rel="noopener">El Gobierno calificó de “privilegio” los salarios docentes y dos diputados casi terminan a las piñas</a><div class="baj">El financiamiento de las universidades públicas volvió al centro del debate en la Comisión de Presupuesto y Hacienda de Diputados, a menos de una semana de la Marcha Federal Universitaria. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Ámbito" data-texto="gritos y acusaciones en diputados durante el debate por los fondos universitarios carlos castagneto, de unión por la patria, increpó a andrés leone, de la libertad avanza, por supuestos insultos. otros legisladores intervinieron para separarlos. ">
+        <td class="tema-col"></td>
+        <td class="num">18:12</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/gritos-y-acusaciones-diputados-el-debate-los-fondos-universitarios-n6336001" target="_blank" rel="noopener">Gritos y acusaciones en Diputados durante el debate por los fondos universitarios</a><div class="baj">Carlos Castagneto, de Unión por la Patria, increpó a Andrés Leone, de La Libertad Avanza, por supuestos insultos. Otros legisladores intervinieron para separarlos.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="La Nación" data-texto="el cruce entre dos diputados en la comisión de presupuesto que casi termina a los golpes el tenso cruce verbal tuvo como protagonistas a carlos castagneto (unión por la patria) y andrés leone (la libertad avanza), y requirió la intervención de otros legisladores para calmar los ánimos ">
+        <td class="tema-col"></td>
+        <td class="num">17:56</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-cruce-entre-dos-diputados-en-la-comision-de-presupuesto-que-casi-termina-a-los-golpes-nid20102026/" target="_blank" rel="noopener">El cruce entre dos diputados en la comisión de Presupuesto que casi termina a los golpes</a><div class="baj">El tenso cruce verbal tuvo como protagonistas a Carlos Castagneto (Unión por la Patria) y Andrés Leone (La Libertad Avanza), y requirió la intervención de otros legisladores para calmar los ánimos</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Infobae" data-texto="otro escándalo en una comisión de diputados: casi se pelean un libertario y un peronista en el debate por el presupuesto en educación, andrés leone y carlos castagnetto protagonizaron un fuerte cruce. sus compañeros lograron calmarlos ">
+        <td class="tema-col"></td>
+        <td class="num">16:22</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/20/otro-escandalo-en-una-comision-de-diputados-casi-se-pelean-un-libertario-y-un-peronista/" target="_blank" rel="noopener">Otro escándalo en una comisión de Diputados: casi se pelean un libertario y un peronista</a><div class="baj">En el debate por el presupuesto en Educación, Andrés Leone y Carlos Castagnetto protagonizaron un fuerte cruce. Sus compañeros lograron calmarlos</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="un diputado k se le fue al humo a un libertario en la comisión de presupuesto: &#34;si insultan no se puede&#34; carlos castagneto increpó a andrés leone, luego de acusarlo de insultar a sus pares. el oficialista lo negó. otros legisladores intervinieron para que el asunto no se fuera a las manos. la entrada un diputado k se le fue al humo a un libertario en la comisión de presupuesto: &#34;si insultan no se… ">
+        <td class="tema-col"></td>
+        <td class="num">15:50</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/un-diputado-k-se-le-fue-al-humo-a-un-libertario-en-la-comision-de-presupuesto-si-insultan-no-se-puede/" target="_blank" rel="noopener">Un diputado K se le fue al humo a un libertario en la Comisión de Presupuesto: &#34;Si insultan no se puede&#34;</a><div class="baj">Carlos Castagneto increpó a Andrés Leone, luego de acusarlo de insultar a sus pares. El oficialista lo negó. Otros legisladores intervinieron para que el asunto no se fuera a las manos. La entrada Un diputado K se le fue al humo a un libertario en la Comisión de Presupuesto: &#34;Si insultan no se…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Clarín" data-texto="loop. el tenso cruce entre un diputado k y un libertario durante el debate por universidades  ">
+        <td class="tema-col"></td>
+        <td class="num">15:31</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videoloop/loop-tenso-cruce-diputado-k-libertario-debate-universidades_3_SC69HcI3Qj.html" target="_blank" rel="noopener">Loop. El tenso cruce entre un diputado K y un libertario durante el debate por Universidades</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Clarín" data-texto="en pleno debate del presupuesto un diputado k increpó a un libertario que lo insultó y casi se van a las manos  ">
+        <td class="tema-col"></td>
+        <td class="num">14:41</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/pleno-debate-presupuesto-diputado-k-increpo-libertario-insulto-van-manos_0_XqtzjLDHmm.html" target="_blank" rel="noopener">En pleno debate del Presupuesto un diputado K increpó a un libertario que lo insultó y casi se van a las manos</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Clarín" data-texto="un diputado k increpó a uno libertario  ">
+        <td class="tema-col"></td>
+        <td class="num">14:06</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/diputado-k-increpo-libertario_3_rF4f2NksTA.html" target="_blank" rel="noopener">Un diputado K increpó a uno libertario</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="patricia bullrich le pidió al gobierno “acuerdo político y una economía más holgada para la gente” la senadora nacional trazó los ejes prioritarios sobre los que, a su criterio, debe encaminarse el oficialismo. la senadora nacional, patricia bullrich se expresó a través de sus redes sociales sobre las proyecciones políticas y económicas de cara al desarrollo del 2026, al pedir por un “acuerdo… ">
+        <td class="tema-col"><b>5</b> · 4 medios</td>
+        <td class="num">07:07</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/patricia-bullrich-le-pidio-gobierno-acuerdo-politico-economia-holgada-gente_1_13602692.html" target="_blank" rel="noopener">Patricia Bullrich le pidió al Gobierno “acuerdo político y una economía más holgada para la gente”</a><div class="baj">La senadora nacional trazó los ejes prioritarios sobre los que, a su criterio, debe encaminarse el oficialismo. La senadora nacional, Patricia Bullrich se expresó a través de sus redes sociales sobre las proyecciones políticas y económicas de cara al desarrollo del 2026, al pedir por un “acuerdo…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="patricia bullrich se refirió a la posibilidad de ser candidata a presidenta: “estoy preparada” la senadora nacional dijo que podría encabezar una fórmula presidencial pero que javier milei es quien lidera esa carrera; además, habló sobre los puntos que el gobierno debería mejorar rumbo a las elecciones ">
+        <td class="tema-col"></td>
+        <td class="num">23:46</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/patricia-bullrich-se-refirio-a-la-posibilidad-de-ser-candidata-a-presidenta-estoy-preparada-nid20102026/" target="_blank" rel="noopener">Patricia Bullrich se refirió a la posibilidad de ser candidata a presidenta: “Estoy preparada”</a><div class="baj">La senadora nacional dijo que podría encabezar una fórmula presidencial pero que Javier Milei es quien lidera esa carrera; además, habló sobre los puntos que el Gobierno debería mejorar rumbo a las elecciones</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Perfil" data-texto="patricia bullrich reconoció que el bolsillo será clave para el gobierno: “la gente vota por la economía” la jefa del bloque de la libertad avanza en el senado admitió que todavía hay argentinos a los que les cuesta llegar a fin de mes y planteó que la mejora económica debe sentirse con mayor fuerza en los hogares. sus declaraciones se conocieron después de los cuestionamientos de javier milei a ese… ">
+        <td class="tema-col"></td>
+        <td class="num">23:35</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/patricia-bullrich-reconocio-que-el-bolsillo-sera-clave-para-el-gobierno-la-gente-vota-por-la-economia.phtml" target="_blank" rel="noopener">Patricia Bullrich reconoció que el bolsillo será clave para el Gobierno: “La gente vota por la economía”</a><div class="baj">La jefa del bloque de La Libertad Avanza en el Senado admitió que todavía hay argentinos a los que les cuesta llegar a fin de mes y planteó que la mejora económica debe sentirse con mayor fuerza en los hogares. Sus declaraciones se conocieron después de los cuestionamientos de Javier Milei a ese…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Letra P" data-texto="biocombustibles: las pymes negocian con el pro para cambiar el proyecto de patricia bullrich  ">
+        <td class="tema-col"></td>
+        <td class="num">20:13</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/biocombustibles-las-pymes-negocian-el-pro-cambiar-el-proyecto-patricia-bullrich-n5427538" target="_blank" rel="noopener">Biocombustibles: las pymes negocian con el PRO para cambiar el proyecto de Patricia Bullrich</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="octubre rosa: el congreso se iluminó para concientizar sobre la prevención del cáncer de mama el palacio legislativo se tiñó de rosa en el marco de las actividades por el mes de concientización sobre el cáncer de mama, con el objetivo de promover la detección temprana y reforzar la importancia de los controles médicos periódicos. la entrada octubre rosa: el congreso se iluminó para… ">
+        <td class="tema-col"><b>6</b> · 2 medios</td>
+        <td class="num">20:08</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/octubre-rosa-el-congreso-se-ilumino-para-concientizar-sobre-la-prevencion-del-cancer-de-mama/" target="_blank" rel="noopener">Octubre Rosa: el Congreso se iluminó para concientizar sobre la prevención del cáncer de mama</a><div class="baj">El Palacio Legislativo se tiñó de rosa en el marco de las actividades por el Mes de Concientización sobre el Cáncer de Mama, con el objetivo de promover la detección temprana y reforzar la importancia de los controles médicos periódicos. La entrada Octubre Rosa: el Congreso se iluminó para…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="se llevó a cabo en el senado una jornada de concientización sobre el cáncer de mama fue organizada por las áreas de prosecretaría de coordinación operativa y la dirección general de recursos humanos. participaron médicos especialistas. la entrada se llevó a cabo en el senado una jornada de concientización sobre el cáncer de mama se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">18:02</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/se-llevo-a-cabo-en-el-senado-una-jornada-de-concientizacion-sobre-el-cancer-de-mama/" target="_blank" rel="noopener">Se llevó a cabo en el Senado una jornada de concientización sobre el cáncer de mama</a><div class="baj">Fue organizada por las áreas de Prosecretaría de Coordinación Operativa y la Dirección General de Recursos Humanos. Participaron médicos especialistas. La entrada Se llevó a cabo en el Senado una jornada de concientización sobre el cáncer de mama se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="octubre rosa: el palacio legislativo se iluminó para concientizar sobre el cáncer de mama  ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24522/noticias" target="_blank" rel="noopener">OCTUBRE ROSA: EL PALACIO LEGISLATIVO SE ILUMINÓ PARA CONCIENTIZAR SOBRE EL CÁNCER DE MAMA</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="se realizó una jornada de concientización sobre el cáncer de mama durante el evento especialistas en el tema destacaron la importancia de la prevención, los controles médicos periódicos y el diagnóstico precoz. ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24517/noticias" target="_blank" rel="noopener">SE REALIZÓ UNA JORNADA DE CONCIENTIZACIÓN SOBRE EL CÁNCER DE MAMA</a><div class="baj">Durante el evento especialistas en el tema destacaron la importancia de la prevención, los controles médicos periódicos y el diagnóstico precoz.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados introdujeron cambios en el fefim y aumentan los fondos de libre disponibilidad el fondo de emergencia y fortalecimiento de la inversión municipal creado en negociaciones en torno a la denominada ley de financiamiento 2026 y que asiste a los 135 municipios aumenta sus partidas de libre disponibilidad. la entrada diputados introdujeron cambios en el fefim y aumentan los fondos… ">
+        <td class="tema-col"><b>7</b> · 2 medios</td>
+        <td class="num">16:22</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/diputados-introducirian-cambios-en-el-fefim-y-aumentarian-los-fondos-de-libre-disponibilidad/" target="_blank" rel="noopener">Diputados introdujeron cambios en el FEFIM y aumentan los fondos de libre disponibilidad</a><div class="baj">El Fondo de Emergencia y Fortalecimiento de la Inversión Municipal creado en negociaciones en torno a la denominada Ley de Financiamiento 2026 y que asiste a los 135 municipios aumenta sus partidas de libre disponibilidad. La entrada Diputados introdujeron cambios en el FEFIM y aumentan los fondos…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="El Cronista" data-texto="día clave en diputados: uno por uno, los proyectos que se votan y qué cambios proponen  ">
+        <td class="tema-col"></td>
+        <td class="num">09:52</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/dia-clave-en-diputados-uno-por-uno-los-proyectos-que-se-votan-y-que-cambia-con-cada-iniciativa/" target="_blank" rel="noopener">Día clave en Diputados: uno por uno, los proyectos que se votan y qué cambios proponen</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="TN" data-texto="una diputada australiana fue atropellada y sufrió la amputación de ambas piernas: la policía dijo que fue “un ataque intencional”  ">
+        <td class="tema-col"><b>8</b> · 2 medios</td>
+        <td class="num">07:19</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/10/21/una-diputada-australiana-fue-atropellada-y-sufrio-la-amputacion-de-ambas-piernas-la-policia-dijo-que-fue-un-ataque-intencional/" target="_blank" rel="noopener">Una diputada australiana fue atropellada y sufrió la amputación de ambas piernas: la policía dijo que fue “un ataque intencional”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Otro" data-medio="Clarín" data-texto="australia: la diputada que fue atropellada por un auto sufrió la amputación de sus piernas  ">
+        <td class="tema-col"></td>
+        <td class="num">04:48</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/australia-diputada-atropellada-auto-sufrio-amputacion-piernas_0_VP9sPg1PfF.html" target="_blank" rel="noopener">Australia: la diputada que fue atropellada por un auto sufrió la amputación de sus piernas</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="economistas analizaron en el senado el sistema de coparticipación federal fue en el marco de una reunión informativa de la comisión de coparticipación federal de impuestos que llevó a cabo el encuentro denominado “repensar la coparticipación: del diseño federal a la realidad de las provincias”. la entrada economistas analizaron en el senado el sistema de coparticipación… ">
+        <td class="tema-col"><b>9</b> · 2 medios</td>
+        <td class="num">19:06</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/economistas-analizaron-en-el-senado-el-sistema-de-coparticipacion-federal/" target="_blank" rel="noopener">Economistas analizaron en el Senado el sistema de coparticipación federal</a><div class="baj">Fue en el marco de una reunión informativa de la Comisión de Coparticipación Federal de Impuestos que llevó a cabo el encuentro denominado “Repensar la coparticipación: del diseño federal a la realidad de las provincias”. La entrada Economistas analizaron en el Senado el sistema de coparticipación…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Senado (prensa)" data-texto="reunión informativa de la comisión de coparticipación federal de impuestos expositores del ámbito económico y legislativo presentaron sus posturas en el marco del encuentro: &#34;repensar la coparticipación: del diseño federal a la realidad de las provincias&#34;.... ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24519/noticias" target="_blank" rel="noopener">REUNIÓN INFORMATIVA DE LA COMISIÓN DE COPARTICIPACIÓN FEDERAL DE IMPUESTOS</a><div class="baj">Expositores del ámbito económico y legislativo presentaron sus posturas en el marco del encuentro: &#34;Repensar la coparticipación: del diseño federal a la realidad de las provincias&#34;....</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados regulan el uso de celulares en las escuelas secundarias bonaerenses mientras se espera la reglamentación de la normativa que regula el uso de celulares en las escuelas primarias, los diputados sancionaron una ley similar para la educación secundaria bonaerense. la entrada diputados regulan el uso de celulares en las escuelas secundarias bonaerenses se publicó… ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">17:00</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/diputados-regulan-el-uso-de-celulares-en-las-escuelas-secundarias-bonaerenses/" target="_blank" rel="noopener">Diputados regulan el uso de celulares en las escuelas secundarias bonaerenses</a><div class="baj">Mientras se espera la reglamentación de la normativa que regula el uso de celulares en las escuelas primarias, los diputados sancionaron una ley similar para la educación secundaria bonaerense. La entrada Diputados regulan el uso de celulares en las escuelas secundarias bonaerenses se publicó…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="sancionaron el proyecto de bienestar emocional para las escuelas la legislatura aprobó de manera definitiva la iniciativa que incorpora el bienestar emocional en todos los niveles escolares, tras el respaldo de diputados a los cambios del senado. la entrada sancionaron el proyecto de bienestar emocional para las escuelas se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">17:49</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/sancionaron-el-proyecto-de-bienestar-emocional-para-las-escuelas/" target="_blank" rel="noopener">Sancionaron el proyecto de Bienestar Emocional para las escuelas</a><div class="baj">La Legislatura aprobó de manera definitiva la iniciativa que incorpora el bienestar emocional en todos los niveles escolares, tras el respaldo de Diputados a los cambios del Senado. La entrada Sancionaron el proyecto de Bienestar Emocional para las escuelas se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="en diputados, el secretario de educación defendió su gestión y acusó a los rectores de tener un “acuerdo de casta”  ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">11:32</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/20/diputados-el-gobierno-defendera-el-presupuesto-2027-con-el-financiamiento-universitario-en-el-centro-del-debate/" target="_blank" rel="noopener">En Diputados, el secretario de Educación defendió su gestión y acusó a los rectores de tener un “acuerdo de casta”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="en diputados, el secretario de educación defendió su gestión y acusó a los rectores de tener un “acuerdo de casta”  ">
+        <td class="tema-col"></td>
+        <td class="num">12:25</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/videos/politica/2026/10/20/en-diputados-el-secretario-de-educacion-defendio-su-gestion-y-acuso-a-los-rectores-de-tener-un-acuerdo-de-casta/" target="_blank" rel="noopener">En Diputados, el secretario de Educación defendió su gestión y acusó a los rectores de tener un “acuerdo de casta”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="indemnizaciones: lo que cubre el fal de la ley 27.802 y lo que sigue pagando la empresa  ley 27.802">
+        <td class="tema-col"><b>12</b> · 1 medio<br>Ley 27.802</td>
+        <td class="num">10:18</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/indemnizaciones-lo-que-cubre-el-fal-de-la-ley-27802-y-lo-que-sigue-pagando-la-empresa/" target="_blank" rel="noopener">Indemnizaciones: lo que cubre el FAL de la Ley 27.802 y lo que sigue pagando la empresa</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Otro" data-medio="El Cronista" data-texto="tras la disolución del congreso, los diputados pueden pedir una indemnización de hasta 9600 euros por los días restantes hasta el 29-n la disolución del congreso de los diputados y del senado abrió la puerta a una compensación económica para los parlamentarios. ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">09:30</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/espana/actualidad-es/tras-la-disolucion-del-congreso-los-diputados-pueden-pedir-una-indemnizacion-de-hasta-9600-euros-por-los-dias-restantes-hasta-el-29-n/" target="_blank" rel="noopener">Tras la disolución del Congreso, los diputados pueden pedir una indemnización de hasta 9600 euros por los días restantes hasta el 29-N</a><div class="baj">La disolución del Congreso de los Diputados y del Senado abrió la puerta a una compensación económica para los parlamentarios.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="milei atribuyó la suba del riesgo país a la volatilidad internacional y la oposición: &#34;enfrente están los orcos, una peste que quiere romper todo&#34; en el foro nueva economía de madrid, el jefe de estado arremetió contra “la franquicia argentina del socialismo del siglo xxi”, proyectó una mejora de la calificación crediticia y un crecimiento nunca visto, si la gente lo reelige en los comicios de 2027 ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">09:28</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/milei-atribuyo-la-suba-del-riesgo-pais-a-la-volatilidad-internacional-y-la-oposicion-enfrente-estan-los-orcos-una-peste-que-quiere-romper-todo/" target="_blank" rel="noopener">Milei atribuyó la suba del riesgo país a la volatilidad internacional y la oposición: &#34;Enfrente están los orcos, una peste que quiere romper todo&#34;</a><div class="baj">En el Foro Nueva Economía de Madrid, el jefe de Estado arremetió contra “la franquicia argentina del socialismo del siglo XXI”, proyectó una mejora de la calificación crediticia y un crecimiento nunca visto, si la gente lo reelige en los comicios de 2027</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="¿cuándo se vota presidente en la argentina? todo sobre las elecciones 2027 la convocatoria electoral del año próximo define los principales cargos del poder ejecutivo y la renovación de bancas en el congreso; los detalles en la nota ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">08:33</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/cuando-se-vota-presidente-en-la-argentina-todo-sobre-las-elecciones-2027-nid01092026/" target="_blank" rel="noopener">¿Cuándo se vota presidente en la Argentina? Todo sobre las elecciones 2027</a><div class="baj">La convocatoria electoral del año próximo define los principales cargos del Poder Ejecutivo y la renovación de bancas en el Congreso; los detalles en la nota</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="la legislatura y la unión europea fortalecen la cooperación institucional autoridades de ambas instituciones analizaron proyectos conjuntos e intercambiaron experiencias sobre innovación, inteligencia artificial y agenda cultura. la entrada la legislatura y la unión europea fortalecen la cooperación institucional se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">08:17</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/la-legislatura-y-la-union-europea-fortalecen-la-cooperacion-institucional/" target="_blank" rel="noopener">La Legislatura y la Unión Europea fortalecen la cooperación institucional</a><div class="baj">Autoridades de ambas instituciones analizaron proyectos conjuntos e intercambiaron experiencias sobre innovación, Inteligencia Artificial y agenda cultura. La entrada La Legislatura y la Unión Europea fortalecen la cooperación institucional se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Página/12" data-texto="chile avanza con la reforma antimigratoria de kast la nueva reglamentación permite que la policía ingrese a los domicilios de personas con órdenes de expulsión, previa autorización judicial. mientras tanto, sigue el debate del proyecto de ley que busca tipificar la migración irregular como delito. ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">08:09</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/21/chile-avanza-con-la-reforma-antimigratoria-de-kast/" target="_blank" rel="noopener">Chile avanza con la reforma antimigratoria de Kast</a><div class="baj">La nueva reglamentación permite que la policía ingrese a los domicilios de personas con órdenes de expulsión, previa autorización judicial. Mientras tanto, sigue el debate del proyecto de ley que busca tipificar la migración irregular como delito.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="la respuesta de oscar zago ante un pedido de “acuerdo político” de bullrich el minuto a minuto de las decisiones del presidente, las reacciones de la oposición y las declaraciones de los funcionarios ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">02:40</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-el-mandatario-se-refirio-al-crecimiento-energetico-y-hablo-de-una-nid20102026/" target="_blank" rel="noopener">La respuesta de Oscar Zago ante un pedido de “acuerdo político” de Bullrich</a><div class="baj">El minuto a minuto de las decisiones del Presidente, las reacciones de la oposición y las declaraciones de los funcionarios</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Infobae" data-texto="el gobierno enfrenta otra jornada de incertidumbre política agravada por los ruidos económicos tras los nervios de último minuto por el dnu y universidades la semana pasada, el gobierno enfrenta otro embate con temas sensibles. miradas distintas sobre las perspectivas para la sesión llamada para hoy con endeudamiento, discapacidad y ley de tierras como temas centrales. la discusión por la… ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">02:39</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/el-gobierno-enfrenta-otra-jornada-de-incertidumbre-politica-agravada-por-los-ruidos-economicos/" target="_blank" rel="noopener">El Gobierno enfrenta otra jornada de incertidumbre política agravada por los ruidos económicos</a><div class="baj">Tras los nervios de último minuto por el DNU y universidades la semana pasada, el Gobierno enfrenta otro embate con temas sensibles. Miradas distintas sobre las perspectivas para la sesión llamada para hoy con endeudamiento, discapacidad y ley de tierras como temas centrales. La discusión por la…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="presentaron el libro de natalia zaracho y llamaron a construir un programa para el próximo gobierno peronista la diputada nacional presentó &#34;de cartonera a diputada&#34; en el centro cultural de la cooperación, acompañada por daniela vilar, cristina álvarez rodríguez y teresa garcía. durante el encuentro se debatió sobre la crisis de representación, la unidad del peronismo y la necesidad de definir una… ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">01:30</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/presentaron-el-libro-de-natalia-zaracho-y-llamaron-a-construir-un-programa-para-el-proximo-gobierno-peronista/" target="_blank" rel="noopener">Presentaron el libro de Natalia Zaracho y llamaron a construir un programa para el próximo gobierno peronista</a><div class="baj">La diputada nacional presentó &#34;De cartonera a diputada&#34; en el Centro Cultural de la Cooperación, acompañada por Daniela Vilar, Cristina Álvarez Rodríguez y Teresa García. Durante el encuentro se debatió sobre la crisis de representación, la unidad del peronismo y la necesidad de definir una…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="tras otra reunión, pro espera definiciones del oficialismo por las paso para avanzar en un acuerdo la quinta reunión entre referentes de ambas agrupaciones fue más breve por la agenda del poder ejecutivo y la cámara de diputados; la mira en la suspensión de las primarias y los temas abordados ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">21:07</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/tras-otra-reunion-pro-espera-definiciones-del-oficialismo-por-las-paso-para-avanzar-en-un-acuerdo-nid20102026/" target="_blank" rel="noopener">Tras otra reunión, Pro espera definiciones del oficialismo por las PASO para avanzar en un acuerdo</a><div class="baj">La quinta reunión entre referentes de ambas agrupaciones fue más breve por la agenda del Poder Ejecutivo y la Cámara de Diputados; la mira en la suspensión de las primarias y los temas abordados</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="lla bonaerense avanzó en una propuesta para impulsar “municipios inteligentes” y promover la competencia tributaria el diputado nacional sebastián pareja y el senador provincial diego valenzuela encabezaron una jornada en el congreso dedicada a debatir modelos de gestión municipal basados en la eficiencia administrativa, la reducción de impuestos y la atracción de inversiones. la entrada lla bonaerense avanzó en… ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">19:32</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/lla-bonaerense-avanzo-en-una-propuesta-para-impulsar-municipios-inteligentes-y-promover-la-competencia-tributaria/" target="_blank" rel="noopener">LLA bonaerense avanzó en una propuesta para impulsar “municipios inteligentes” y promover la competencia tributaria</a><div class="baj">El diputado nacional Sebastián Pareja y el senador provincial Diego Valenzuela encabezaron una jornada en el Congreso dedicada a debatir modelos de gestión municipal basados en la eficiencia administrativa, la reducción de impuestos y la atracción de inversiones. La entrada LLA bonaerense avanzó en…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Ámbito" data-texto="doble comando en jujuy: la interpelación a un ministro destapó la pelea entre carlos sadir y gerardo morales  ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">18:55</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/ambito-nacional/doble-comando-jujuy-la-interpelacion-un-ministro-destapo-la-pelea-carlos-sadir-y-gerardo-morales-n6336014" target="_blank" rel="noopener">Doble comando en Jujuy: la interpelación a un ministro destapó la pelea entre Carlos Sadir y Gerardo Morales</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="se estrena un nuevo capítulo de fiestas federales por senado tv en esta oportunidad, el canal institucional va a mostrar lo que fue la la fiesta nacional de la empanada, en la ciudad de famaillá. la entrada se estrena un nuevo capítulo de fiestas federales por senado tv se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">18:13</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/se-estrena-un-nuevo-capitulo-de-fiestas-federales-por-senado-tv/" target="_blank" rel="noopener">Se estrena un nuevo capítulo de Fiestas Federales por Senado TV</a><div class="baj">En esta oportunidad, el canal institucional va a mostrar lo que fue la la Fiesta Nacional de la Empanada, en la ciudad de Famaillá. La entrada Se estrena un nuevo capítulo de Fiestas Federales por Senado TV se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="quedó constituido en la cámara de diputados el grupo parlamentario de amistad con azerbaiyán será presidido por la diputada mendocina lourdes arrieta. la reunión contó con la presencia del embajador ramzi teymurov. la entrada quedó constituido en la cámara de diputados el grupo parlamentario de amistad con azerbaiyán se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">17:59</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/quedo-constituido-en-la-camara-de-diputados-el-grupo-parlamentario-de-amistad-con-azerbaiyan/" target="_blank" rel="noopener">Quedó constituido en la Cámara de Diputados el Grupo Parlamentario de Amistad con Azerbaiyán</a><div class="baj">Será presidido por la diputada mendocina Lourdes Arrieta. La reunión contó con la presencia del embajador Ramzi Teymurov. La entrada Quedó constituido en la Cámara de Diputados el Grupo Parlamentario de Amistad con Azerbaiyán se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="se realizó en el senado la entrega de la distinción &#34;evita compañera&#34; organizado por la presidente de la comisión banca de la mujer, ana marks, en la jornada se destacó a una veintena de mujeres. pedido de la senadora por cfk. la entrada se realizó en el senado la entrega de la distinción &#34;evita compañera&#34; se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">17:56</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/se-realizo-en-el-senado-la-entrega-de-la-distincion-evita-companera/" target="_blank" rel="noopener">Se realizó en el Senado la entrega de la distinción &#34;Evita Compañera&#34;</a><div class="baj">Organizado por la presidente de la Comisión Banca de la Mujer, Ana Marks, en la jornada se destacó a una veintena de mujeres. Pedido de la senadora por CFK. La entrada Se realizó en el Senado la entrega de la distinción &#34;Evita Compañera&#34; se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="texas bate récords de voto anticipado en varios condados en plena pugna por el senado  ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">17:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/texas-bate-records-de-voto-anticipado-en-varios-condados-en-plena-pugna-por-el-senado_0_sLsqzvZjDo.html" target="_blank" rel="noopener">Texas bate récords de voto anticipado en varios condados en plena pugna por el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="biocombustibles: representantes aceiteros dividieron posturas sobre el nuevo marco regulatorio las críticas a la ley 27.640 sancionada en el gobierno del frente de todos fueron unánimes. sin embargo, un sector exigió cambios al dictamen que salió del senado el pasado 17 de septiembre. la libertad avanza planea llevar este texto al recinto el mismo día que el presupuesto 2027. la entrada… presupuesto 2027">
+        <td class="tema-col"><b>28</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">17:44</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/biocombustibles-representantes-aceiteros-dividieron-posturas-sobre-el-nuevo-marco-regulatorio/" target="_blank" rel="noopener">Biocombustibles: Representantes aceiteros dividieron posturas sobre el nuevo marco regulatorio</a><div class="baj">Las críticas a la Ley 27.640 sancionada en el gobierno del Frente de Todos fueron unánimes. Sin embargo, un sector exigió cambios al dictamen que salió del Senado el pasado 17 de septiembre. La Libertad Avanza planea llevar este texto al recinto el mismo día que el Presupuesto 2027. La entrada…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="diplomáticos analizaron ante diputados el acuerdo mercosur y la asociación europea de libre comercio el proyecto, que cuenta con media sanción del senado, se trata de un acuerdo internacional que fue celebrado el 16 de septiembre de 2025 en la ciudad de río de janeiro e involucra la reducción de aranceles y la facilitación del comercio bilateral de bienes, servicios e inversiones entre los países… ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">17:30</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/diplomaticos-analizaron-ante-diputados-el-acuerdo-mercosur-y-la-asociacion-europea-de-libre-comercio/" target="_blank" rel="noopener">Diplomáticos analizaron ante Diputados el acuerdo Mercosur y la Asociación Europea de Libre Comercio</a><div class="baj">El proyecto, que cuenta con media sanción del Senado, se trata de un acuerdo internacional que fue celebrado el 16 de septiembre de 2025 en la ciudad de Río de Janeiro e involucra la reducción de aranceles y la facilitación del comercio bilateral de bienes, servicios e inversiones entre los países…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Perfil" data-texto="condena a oscar gonzález: juez, bornoroni y la ucr de de loredo cruzaron al pj por la &#34;impunidad&#34; el senador habló de una sentencia «vergonzosa», el referente libertario denunció un sistema de poder que protege a dirigentes peronistas y la ucr de de loredo reclamó investigar privilegios y responsabilidades políticas. las millonarias indemnizaciones que también deberá afrontar la provincia. leer… ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">17:26</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/condena-a-oscar-gonzalez-juez-bornoroni-y-la-ucr-de-de-loredo-cruzaron-al-pj-por-la-impunidad.phtml" target="_blank" rel="noopener">Condena a Oscar González: Juez, Bornoroni y la UCR de De Loredo cruzaron al PJ por la &#34;impunidad&#34;</a><div class="baj">El senador habló de una sentencia «vergonzosa», el referente libertario denunció un sistema de poder que protege a dirigentes peronistas y la UCR de De Loredo reclamó investigar privilegios y responsabilidades políticas. Las millonarias indemnizaciones que también deberá afrontar la Provincia. Leer…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Perfil" data-texto="rdc: santiago caputo vinculó la soberanía de malvinas con la supuesta “islamización” del reino unido y generó polémica según indicó el periodista, enrique zattara, en ronda de corresponsales (rdc), es “un enorme disparate señalar que porque una diputada asume con un origen musulmán eso convierte automáticamente al reino unido en un estado islámico”. leer más ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">17:22</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/masperfil/rdc-santiago-caputo-vinculo-la-soberania-de-malvinas-con-la-supuesta-islamizacion-del-reino-unido-y-genero-polemica.phtml" target="_blank" rel="noopener">RDC: Santiago Caputo vinculó la soberanía de Malvinas con la supuesta “islamización” del Reino Unido y generó polémica</a><div class="baj">Según indicó el periodista, Enrique Zattara, en Ronda de Corresponsales (RDC), es “un enorme disparate señalar que porque una diputada asume con un origen musulmán eso convierte automáticamente al Reino Unido en un Estado Islámico”. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Letra P" data-texto="universidades: pullaro y llaryora piden aumentar fondos y le complican a milei la aprobación del presupuesto  ">
+        <td class="tema-col"><b>32</b> · 1 medio</td>
+        <td class="num">16:58</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/universidades-pullaro-y-llaryora-piden-aumentar-fondos-y-le-complican-milei-la-aprobacion-del-presupuesto-n5427520" target="_blank" rel="noopener">Universidades: Pullaro y Llaryora piden aumentar fondos y le complican a Milei la aprobación del Presupuesto</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="sancionan la emergencia económica, financiera y tarifaria de las empresas recuperadas se trata de un proyecto de ley que extiende la declaración por tres años la emergencia económica, financiera y tarifaria de las empresas recuperadas, que en su mayoría conforman cooperativas de trabajo. la entrada sancionan la emergencia económica, financiera y tarifaria de las empresas recuperadas… ">
+        <td class="tema-col"><b>33</b> · 1 medio</td>
+        <td class="num">16:53</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/sancionan-la-emergencia-economica-financiera-y-tarifaria-de-las-empresas-recuperadas/" target="_blank" rel="noopener">Sancionan la emergencia económica, financiera y tarifaria de las empresas recuperadas</a><div class="baj">Se trata de un proyecto de ley que extiende la declaración por tres años la emergencia económica, financiera y tarifaria de las empresas recuperadas, que en su mayoría conforman Cooperativas de Trabajo. La entrada Sancionan la emergencia económica, financiera y tarifaria de las empresas recuperadas…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="sancionan el proyecto de ley para prevenir la “violencia digital” en las escuelas bonaerenses se trata del proyecto de ley denominado “ley ema”, que propone incorporar medidas de prevención, detección y abordaje integral de la violencia digital en todos los niveles y modalidades del sistema educativo provincial. la entrada sancionan el proyecto de ley para prevenir la “violencia digital” en… ">
+        <td class="tema-col"><b>34</b> · 1 medio</td>
+        <td class="num">16:40</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/sancionan-el-proyecto-de-ley-para-prevenir-la-violencia-digital-en-las-escuelas-bonaerenses/" target="_blank" rel="noopener">Sancionan el proyecto de ley para prevenir la “violencia digital” en las escuelas bonaerenses</a><div class="baj">Se trata del proyecto de ley denominado “Ley Ema”, que propone incorporar medidas de prevención, detección y abordaje integral de la violencia digital en todos los niveles y modalidades del sistema educativo provincial. La entrada Sancionan el proyecto de ley para prevenir la “violencia digital” en…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Clarín" data-texto="con el riesgo país por encima de los 700 puntos, karina milei y luis caputo contaron los votos antes de una sesión clave en el congreso  ">
+        <td class="tema-col"><b>35</b> · 1 medio</td>
+        <td class="num">16:19</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/riesgo-pais-encima-700-puntos-karina-milei-luis-caputo-contaron-votos-sesion-clave-congreso_0_lrgy168CBC.html" target="_blank" rel="noopener">Con el riesgo país por encima de los 700 puntos, Karina Milei y Luis Caputo contaron los votos antes de una sesión clave en el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="TN" data-texto="malvinas: el gobierno postergó el debate y busca dictaminar el proyecto la semana próxima  ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">16:04</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/20/malvinas-el-gobierno-postergo-el-debate-y-busca-dictaminar-el-proyecto-la-semana-proxima/" target="_blank" rel="noopener">Malvinas: el Gobierno postergó el debate y busca dictaminar el proyecto la semana próxima</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="trump hará campaña en carolina del norte para intentar retener escaño clave en el senado  ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">14:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/trump-hara-campana-en-carolina-del-norte-para-intentar-retener-escano-clave-en-el-senado_0_iVfJpQK4YF.html" target="_blank" rel="noopener">Trump hará campaña en Carolina del Norte para intentar retener escaño clave en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="álvarez: &#34;los rectores y los sindicatos son los únicos que hasta ahora cierran las universidades&#34; el subsecretario de políticas universitarias defendió el incumplimiento de la ley 27.795 y dijo que el ejecutivo &#34;está a derecho&#34;. negó desfinanciamiento y cargó contra los trabajadores: &#34;piden más salario&#34;. la entrada álvarez: &#34;los rectores y los sindicatos son los únicos que hasta ahora cierran… ley 27.795">
+        <td class="tema-col"><b>38</b> · 1 medio<br>Ley 27.795</td>
+        <td class="num">14:26</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/20/alvarez-los-rectores-y-los-sindicatos-son-los-unicos-que-hasta-ahora-cierran-las-universidades/" target="_blank" rel="noopener">Álvarez: &#34;Los rectores y los sindicatos son los únicos que hasta ahora cierran las universidades&#34;</a><div class="baj">El subsecretario de Políticas Universitarias defendió el incumplimiento de la Ley 27.795 y dijo que el Ejecutivo &#34;está a derecho&#34;. Negó desfinanciamiento y cargó contra los trabajadores: &#34;Piden más salario&#34;. La entrada Álvarez: &#34;Los rectores y los sindicatos son los únicos que hasta ahora cierran…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Clarín" data-texto="la casa blanca vuelve a vetar a la cnn de viajar con trump en el air force one  ">
+        <td class="tema-col"><b>39</b> · 1 medio</td>
+        <td class="num">13:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/la-casa-blanca-vuelve-a-vetar-a-la-cnn-de-viajar-con-trump-en-el-air-force-one_0_mrrtzRJj03.html" target="_blank" rel="noopener">La Casa Blanca vuelve a vetar a la CNN de viajar con Trump en el Air Force One</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="La Nación" data-texto="crece el malestar en el senado por la demora de santilli en concurrir a brindar su informe desde que asumió como jefe de gabinete en junio, nunca concurrió para informar sobre la marcha del gobierno, como marca la constitución; queja formal del kirchnerismo ">
+        <td class="tema-col"><b>40</b> · 1 medio</td>
+        <td class="num">12:08</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/crece-el-malestar-en-el-senado-por-la-demora-de-santilli-en-concurrir-a-brindar-su-informe-nid20102026/" target="_blank" rel="noopener">Crece el malestar en el Senado por la demora de Santilli en concurrir a brindar su informe</a><div class="baj">Desde que asumió como jefe de Gabinete en junio, nunca concurrió para informar sobre la marcha del Gobierno, como marca la Constitución; queja formal del kirchnerismo</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Perfil" data-texto="estévez: &#34;la mayoría se ve obligada a dejar de pensar en el futuro para pensar pura y exclusivamente en la supervivencia&#34; &#34;al menos pónganse a trabajar para llevar un alivio porque la situación es desesperante&#34;, reclamó al gobierno nacional la diputada cordobesa. leer más ">
+        <td class="tema-col"><b>41</b> · 1 medio</td>
+        <td class="num">11:45</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/estevez-la-mayoria-se-ve-obligada-a-dejar-de-pensar-en-el-futuro-para-pensar-pura-y-exclusivamente-en-la-supervivencia.phtml" target="_blank" rel="noopener">Estévez: &#34;La mayoría se ve obligada a dejar de pensar en el futuro para pensar pura y exclusivamente en la supervivencia&#34;</a><div class="baj">&#34;Al menos pónganse a trabajar para llevar un alivio porque la situación es desesperante&#34;, reclamó al Gobierno nacional la diputada cordobesa. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-10-21 a las 10:41 hs (hora argentina) ·
+    <span class="estado-ok">20 respondieron bien</span> · <span class="estado-mal">1 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: no se leyó ningún ítem (¿cambió el formato?)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
