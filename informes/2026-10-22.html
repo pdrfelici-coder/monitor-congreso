@@ -1,0 +1,1504 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-10-22</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Jueves 22 de octubre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 10:43 hs · 18/21 fuentes respondieron · <a href="#fuentes">3 caídas</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">121</div>
+      <div class="sub up">▲ +58% vs. promedio de 7 días (77)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">50</div>
+    <div class="sub">8 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">14</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>3</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>13</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 53 notas</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/10/21/se-debate-en-diputados-el-proyecto-de-propiedad-privada-con-la-restitucion-de-la-ley-de-tierras/" target="_blank" rel="noopener">Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras</a></h3>
+<p class="bajada">La discusión en el recinto de la Cámara baja arrancó a las 13.35. El proyecto también incluye cambios en expropiaciones y desalojos. Con la modificación, el texto deberá volver al Senado. La entrada Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras se…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">Inviolabilidad de la propiedad privada</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/10/21/se-debate-en-diputados-el-proyecto-de-propiedad-privada-con-la-restitucion-de-la-ley-de-tierras/" target="_blank" rel="noopener" title="Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/10/22/durisimas-criticas-de-la-oposicion-por-la-vuelta-a-comision-del-tema-morosidad/" target="_blank" rel="noopener" title="Durísimas críticas de la oposición por la vuelta a comisión del tema morosidad">Parlamentario.com ↗</a><a href="https://www.cronista.com/economia-politica/desalojos-expres-que-cambiaria-para-propietarios-e-inquilinos-con-la-ley-de-propiedad-privada/" target="_blank" rel="noopener" title="Desalojos exprés: qué cambiaría para propietarios e inquilinos con la Ley de Propiedad Privada">El Cronista ↗</a><a href="https://www.ambito.com/politica/como-sigue-la-ley-tierras-despues-la-sesion-diputados-n6336676" target="_blank" rel="noopener" title="Cómo sigue la ley de Tierras después de la sesión de Diputados">Ámbito ↗</a><a href="https://www.pagina12.com.ar/2026/10/22/sin-respuesta-para-las-familias-endeudadas-el-oficialismo-devolvio-el-proyecto-a-comision/" target="_blank" rel="noopener" title="Sin respuesta para las familias endeudadas: el oficialismo devolvió el proyecto a comisión">Página/12 ↗</a><a href="https://www.perfil.com/noticias/politica/lo-que-dejo-la-sesion-en-diputados-acuerdo-general-por-discapacidad-por-que-se-postergo-morosidad-y-la-ayuda-a-milei-en-propiedad-privada.phtml" target="_blank" rel="noopener" title="Diputados: acuerdo mayoritario por Discapacidad, por qué se postergó Morosidad y la doble ayuda cordobesa">Perfil ↗</a><a href="https://www.ambito.com/politica/diputados-freno-el-debate-endeudamiento-familiar-y-devolvio-el-proyecto-comision-n6336636" target="_blank" rel="noopener" title="Diputados frenó el debate sobre endeudamiento familiar y devolvió el proyecto a comisión">Ámbito ↗</a><a href="https://www.perfil.com/noticias/cordoba/ley-de-discapacidad-sin-los-diputados-de-llaryora-el-gobierno-logro-aprobar-su-proyecto-con-el-peronismo.phtml" target="_blank" rel="noopener" title="Ley de Discapacidad: Sin los diputados de Llaryora, el gobierno logró aprobar su proyecto con el peronismo">Perfil ↗</a><a href="https://www.perfil.com/noticias/cordoba/ley-de-discapacidad-como-votaron-los-diputados-cordobeses.phtml" target="_blank" rel="noopener" title="Ley de Discapacidad: cómo votaron los diputados cordobeses">Perfil ↗</a><a href="https://www.parlamentario.com/2026/10/22/macri-celebro-la-aprobacion-del-desalojo-expres-en-diputados/" target="_blank" rel="noopener" title="Macri celebró la aprobación del &#34;desalojo exprés&#34; en Diputados">Parlamentario.com ↗</a><a href="https://www.infobae.com/politica/2026/10/22/con-cambios-de-ultimo-momento-y-apoyo-opositor-el-gobierno-logro-aprobar-una-nueva-ley-de-discapacidad-en-diputados/" target="_blank" rel="noopener" title="Con cambios de último momento y amplio apoyo opositor, el Gobierno aprobó una nueva ley de Discapacidad en Diputados">Infobae ↗</a><a href="https://www.ambito.com/politica/diputados-aprobo-fondos-discapacidad-cuales-son-los-cambios-al-proyecto-del-gobierno-n6336604" target="_blank" rel="noopener" title="Diputados aprobó fondos para discapacidad: cuáles son los cambios al proyecto del Gobierno">Ámbito ↗</a><a href="https://www.perfil.com/noticias/politica/como-voto-cada-diputado-la-ley-de-inviolabilidad-de-la-propiedad-privada-los-nombres-y-el-detalle-de-la-votacion.phtml" target="_blank" rel="noopener" title="Cómo votó cada diputado la Ley de Inviolabilidad de la Propiedad Privada: los nombres y el detalle de la votación">Perfil ↗</a><a href="https://www.eldiarioar.com/politica/plena-madrugada-voto-vuelta-comisiones-proyecto-endeudamiento-familiar_1_13605878.html" target="_blank" rel="noopener" title="En plena madrugada se votó la vuelta a comisiones del proyecto sobre Endeudamiento Familiar">elDiarioAR ↗</a><a href="https://www.a24.com/politica/el-oficialismo-acepto-cambios-y-logro-la-media-sancion-la-ley-discapacidad-morosidad-volvio-comision-n1608677" target="_blank" rel="noopener" title="El oficialismo aceptó cambios y logró la media sanción de la ley de discapacidad: morosidad volvió a comisión">A24 ↗</a><a href="https://www.eldiarioar.com/politica/ley-discapacidad-oficialismo-logro-apoyo-oposicion-diputados-le-dio-media-sancion-proyecto_1_13605772.html" target="_blank" rel="noopener" title="Ley de Discapacidad: el oficialismo logró el apoyo de la oposición y Diputados le dio media sanción al proyecto">elDiarioAR ↗</a><a href="https://tn.com.ar/politica/2026/10/21/diputados-el-oficialismo-consiguio-quorum-para-debatir-la-ley-de-tierras-discapacidad-y-endeudamiento-familiar/" target="_blank" rel="noopener" title="Diputados aprobó los proyectos de propiedad privada y discapacidad, pero el de endeudamiento familiar volvió a comisión">TN ↗</a><a href="https://www.infobae.com/politica/2026/10/22/por-falta-de-consensos-no-se-aprobo-ningun-proyecto-sobre-endeudamiento-familiar-y-el-tema-volvio-a-comision/" target="_blank" rel="noopener" title="Por falta de consensos, no se aprobó ningún proyecto sobre endeudamiento familiar y el tema volvió a comisión">Infobae ↗</a><a href="https://www.clarin.com/politica/endeudamiento-oficialismo-numeros-imponer-proyecto-devolvio-tema-comision_0_IieMkxLcxI.html" target="_blank" rel="noopener" title="Endeudamiento: el oficialismo no tenía los números para imponer su proyecto y devolvió el tema a la comisión">Clarín ↗</a><a href="https://www.perfil.com/noticias/politica/alerta-diputados-debate-la-prorroga-de-la-emergencia-en-discapacidad.phtml" target="_blank" rel="noopener" title="Diputados aprobó las leyes de Propiedad Privada y Discapacidad, pero postergó el debate sobre las deudas familiares">Perfil ↗</a><a href="https://www.lanacion.com.ar/politica/el-oficialismo-reclamo-la-vuelta-a-comision-del-proyecto-de-morosidad-y-levanto-la-sesion-nid22102026/" target="_blank" rel="noopener" title="El oficialismo reclamó la vuelta a comisión del proyecto de morosidad y levantó la sesión">La Nación ↗</a><a href="https://www.infobae.com/politica/2026/10/21/diputados-en-vivo-ultimas-noticias-del-debate-sobre-discapacidad-endeudamiento-familiar-y-propiedad-privada/" target="_blank" rel="noopener" title="Tras una sesión maratónica en Diputados, enviaron nuevamente a comisión el proyecto de endeudamiento familiar">Infobae ↗</a><a href="https://www.c5n.com/politica/diputados-votacion-endeudamiento-familiar-plan-oficialista-22-octubre-2026" target="_blank" rel="noopener" title="Endeudamiento familiar: no hubo acuerdo en Diputados y el proyecto vuelve a comisión">C5N ↗</a><a href="https://www.parlamentario.com/2026/10/22/al-cabo-de-una-sesion-maratonica-diputados-aprobo-la-ley-de-endeudamiento-familiar/" target="_blank" rel="noopener" title="En un tenso final de sesión, Diputados devolvió a comisiones el proyecto sobre endeudamiento familiar">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/diputados-marcha-gobierno-oficialismo-aprobo-tercios-nueva-ley-discapacidad_0_DSp4nPsvpj.html" target="_blank" rel="noopener" title="Diputados: tras la marcha atrás del Gobierno, el oficialismo aprobó por más de dos tercios la nueva ley de Discapacidad">Clarín ↗</a><a href="https://www.c5n.com/politica/sesion-diputados-ley-endeudamiento-familiar-21-octubre-2026" target="_blank" rel="noopener" title="Discapacidad: con amplia mayoría, Diputados dio media sanción a una ley permanente">C5N ↗</a><a href="https://www.ambito.com/politica/el-gobierno-aspira-conseguir-unanimidad-su-proyecto-discapacidad-diputados-y-la-sesion-podria-terminarse-antes-tiempo-n6336495" target="_blank" rel="noopener" title="Holgada aprobación en Diputados a un proyecto para fondos en discapacidad">Ámbito ↗</a><a href="https://www.parlamentario.com/2026/10/22/con-amplio-con-consenso-se-aprobo-la-ley-de-fortalecimiento-al-sistema-de-discapacidad/" target="_blank" rel="noopener" title="Con amplio consenso, se aprobó la Ley de Fortalecimiento al Sistema de Discapacidad">Parlamentario.com ↗</a><a href="https://www.cronista.com/economia-politica/el-oficialismo-alcanzo-un-acuerdo-por-nuevo-regimen-de-discapacidad-la-votacion/" target="_blank" rel="noopener" title="Diputados: el oficialismo aprobó la ley de Discapacidad que intentó desarmar en el Presupuesto">El Cronista ↗</a><a href="https://www.pagina12.com.ar/2026/10/21/volantazo-fenomenal-del-gobierno-se-aprobo-el-proyecto-que-restituye-la-ley-de-tierras/" target="_blank" rel="noopener" title="Volantazo fenomenal del Gobierno: Diputados aprobó el proyecto que restituye la Ley de Tierras">Página/12 ↗</a><a href="https://www.perfil.com/noticias/masperfil/diego-giuliano-cuestiono-en-qr-los-cambios-en-la-ley-de-tierras-y-advirtio-por-el-endeudamiento-de-las-familias.phtml" target="_blank" rel="noopener" title="Diego Giuliano cuestionó en &#34;QR!&#34; los cambios en la ley de tierras y advirtió por el endeudamiento de las familias">Perfil ↗</a><a href="https://www.c5n.com/politica/diputados-debate-discapacidad-morisidad-congreso-sesion-21-octubre-2026" target="_blank" rel="noopener" title="De propiedad privada a morosidad, reviví la maratónica sesión en Diputados">C5N ↗</a><a href="https://www.a24.com/politica/diputados-ya-comenzo-el-debate-tratar-la-ley-tierras-discapacidad-y-morosidad-n1608858" target="_blank" rel="noopener" title="Diputados aprobó la ley de inviolabilidad de la propiedad privada que deberá volver al Senado">A24 ↗</a><a href="https://tn.com.ar/politica/2026/10/21/desalojos-expropiaciones-y-tierras-los-principales-puntos-de-la-ley-de-propiedad-privada-que-se-aprobo-en-diputados/" target="_blank" rel="noopener" title="Desalojos, expropiaciones y tierras: los principales puntos de la ley de propiedad privada que se aprobó en Diputados">TN ↗</a><a href="https://www.letrap.com.ar/congreso/con-ayuda-martin-llaryora-y-larreta-diputados-aprobo-el-proyecto-que-blinda-la-ley-tierras-cfk-n5427573" target="_blank" rel="noopener" title="Con ayuda de Martín Llaryora y Larreta, el oficialismo aprobó el proyecto que blinda la ley de tierras de CFK">Letra P ↗</a><a href="https://www.perfil.com/noticias/nea/propiedad-privada-cuatro-diputados-chaquenos-apoyaron-al-gobierno-y-tres-votaron-en-contra.phtml" target="_blank" rel="noopener" title="Propiedad privada: cuatro diputados chaqueños apoyaron al Gobierno y tres votaron en contra">Perfil ↗</a><a href="https://tn.com.ar/politica/2026/10/21/diputados-aprobo-el-proyecto-de-propiedad-privada-que-restituye-el-limite-de-venta-de-tierras-a-extranjeros/" target="_blank" rel="noopener" title="Diputados aprobó el proyecto de propiedad privada que restituye el límite de venta de tierras a extranjeros">TN ↗</a><a href="https://www.lanacion.com.ar/politica/senado-consiguio-dictamen-el-proyecto-y-los-cambios-a-la-ley-de-salud-mental-quedaron-un-paso-mas-nid21102026/" target="_blank" rel="noopener" title="Senado: consiguió dictamen el proyecto y los cambios a la ley de salud mental quedaron un paso más cerca del recinto">La Nación ↗</a><a href="https://www.infobae.com/politica/2026/10/21/diputados-aprobo-la-ley-de-propiedad-privada-y-reincorporo-las-restricciones-a-la-compra-de-tierras/" target="_blank" rel="noopener" title="Diputados aprobó la ley de Propiedad Privada y reincorporó las restricciones a la compra de tierras">Infobae ↗</a><a href="https://www.eldiarioar.com/politica/ley-tierras-adentro-camara-diputados-aprobo-ley-inviolabilidad-sturzenegger_1_13605007.html" target="_blank" rel="noopener" title="Con la ley de Tierras adentro, la Cámara de Diputados aprobó la ley de Inviolabilidad de Sturzenegger">elDiarioAR ↗</a><a href="https://www.lanacion.com.ar/politica/sesion-maratonica-en-diputados-el-oficialismo-busca-avanzar-con-una-ley-de-discapacidad-que-no-nid21102026/" target="_blank" rel="noopener" title="Con cambios y concesiones, el oficialismo logró aprobar en Diputados su proyecto de propiedad privada">La Nación ↗</a><a href="https://www.lanacion.com.ar/politica/como-voto-cada-diputado-el-proyecto-de-inviolabilidad-de-la-propiedad-privada-nid21102026/" target="_blank" rel="noopener" title="Cómo votó cada diputado el proyecto de inviolabilidad de la propiedad privada">La Nación ↗</a><a href="https://www.ambito.com/politica/el-oficialismo-lleva-sesion-diputados-su-version-discapacidad-morosidad-e-inviolabilidad-la-propiedad-privada-n6335931" target="_blank" rel="noopener" title="Diputados: La Libertad Avanza aprobó el proyecto de Inviolabilidad de la propiedad privada y restablece la ley de Tierras">Ámbito ↗</a><a href="https://www.parlamentario.com/2026/10/21/diputados-devolvio-al-senado-el-proyecto-de-inviolabilidad-de-la-propiedad-privada-con-la-restitucion-de-la-ley-de-tierras/" target="_blank" rel="noopener" title="Diputados devolvió al Senado el proyecto de inviolabilidad de la propiedad privada, con la restitución de la Ley de Tierras">Parlamentario.com ↗</a><a href="https://www.c5n.com/politica/restitucion-la-ley-tierras-diputados-aprobo-la-ley-propiedad-privada-pero-vuelve-al-senado-n252201" target="_blank" rel="noopener" title="Restitución de la Ley de Tierras: Diputados aprobó la ley de Propiedad Privada pero vuelve al Senado">C5N ↗</a><a href="https://www.cronista.com/economia-politica/con-el-quorum-asegurado-el-gobierno-enfrenta-una-sesion-maratonica-propiedad-privada-endeudamiento-y-discapacidad/" target="_blank" rel="noopener" title="Diputados votó restituir la Ley de Tierras, acelerar desalojos y limitar expropiaciones: debaten discapacidad">El Cronista ↗</a><a href="https://www.parlamentario.com/2026/10/21/los-puntos-principales-del-proyecto-de-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener" title="Los puntos principales del proyecto de inviolabilidad de la propiedad privada">Parlamentario.com ↗</a><a href="https://www.infobae.com/politica/2026/10/21/avanza-un-proyecto-de-ley-para-habilitar-el-uso-de-las-pistolas-taser-para-la-policia-bonaerense/" target="_blank" rel="noopener" title="Avanza un proyecto de ley para habilitar el uso de las pistolas Taser para la Policía Bonaerense">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/tension-por-discapacidad-la-iglesia-advierte-sobre-el-dictamen-del-oficialismo-y-reclama-la-prorroga-nid21102026/" target="_blank" rel="noopener" title="Tensión por discapacidad: la Iglesia advierte sobre el dictamen del oficialismo y reclama la prórroga de la ley de emergencia">La Nación ↗</a><a href="https://www.eldiarioar.com/politica/menem-consiguio-quorum-negocia-aliados-ley-discapacidad-consenso_1_13604790.html" target="_blank" rel="noopener" title="Menem consiguió quórum y negocia con los aliados una ley de discapacidad de consenso">elDiarioAR ↗</a><a href="https://www.clarin.com/politica/arranco-sesion-diputados-oficialismo-consiguio-quorum-tratar-ley-tierras-discapacidad-morosidad_0_Tou2dsPca4.html" target="_blank" rel="noopener" title="El oficialismo salvó en Diputados la Ley de Tierras, aprobó Inviolabilidad de la Propiedad Privada y el Senado lo ratificaría">Clarín ↗</a><a href="https://www.a24.com/politica/el-gobierno-enfrenta-una-sesion-clave-diputados-la-ley-tierras-discapacidad-y-propiedad-privada-n1608512" target="_blank" rel="noopener" title="El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada">A24 ↗</a><a href="https://www.c5n.com/politica/segui-debate-vivo-sesion-especial-Diputados-miercoles-21-octubre-2026" target="_blank" rel="noopener" title="Seguí el debate en Diputados: Discapacidad, Morosidad y Ley de Tierras">C5N ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>7</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 8 notas</span>
+    </div>
+    <h3><a href="https://tn.com.ar/campo/2026/10/22/diputados-dio-media-sancion-al-proyecto-que-penaliza-la-intrusion-y-el-vandalismo-rural/" target="_blank" rel="noopener">Diputados dio media sanción al proyecto que penaliza la intrusión y el vandalismo rural</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Proyecto</span>
+<span class="chip proyecto">Endeudamiento familiar</span>    </div>
+    <div class="medios">
+<a href="https://tn.com.ar/campo/2026/10/22/diputados-dio-media-sancion-al-proyecto-que-penaliza-la-intrusion-y-el-vandalismo-rural/" target="_blank" rel="noopener" title="Diputados dio media sanción al proyecto que penaliza la intrusión y el vandalismo rural">TN ↗</a><a href="https://www.ambito.com/politica/reforma-del-codigo-penal-diputados-aprobaron-nuevas-penas-vandalismo-rural-n6336670" target="_blank" rel="noopener" title="Reforma del Código Penal: diputados aprobaron nuevas penas por vandalismo rural">Ámbito ↗</a><a href="https://www.eldiarioar.com/politica/oficialismo-logro-aprobaron-proyecto-busca-incorporar-figura-vandalismo-rural-codigo-penal_1_13606201.html" target="_blank" rel="noopener" title="El oficialismo logró aprobar el proyecto que incorpora la figura del vandalismo rural al Código Penal">elDiarioAR ↗</a><a href="https://www.infobae.com/politica/2026/10/22/la-reaccion-de-la-politica-al-amplio-acuerdo-que-permitio-dar-media-sancion-al-proyecto-de-discapacidad/" target="_blank" rel="noopener" title="La reacción de la política al amplio acuerdo que permitió dar media sanción al proyecto de Discapacidad">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/vandalismo-rural-diputados-aprobo-un-proyecto-que-preve-hasta-ocho-anos-de-prision-para-quienes-nid21102026/" target="_blank" rel="noopener" title="Vandalismo rural: Diputados aprobó un proyecto que prevé hasta 10 años de prisión para quienes provoquen daños a la producción del agro">La Nación ↗</a><a href="https://www.clarin.com/rural/diputados-aprobo-amplia-apoyo-cambios-codigo-penal-endurecer-penas-vandalismo-rural_0_JtFfFPMhpx.html" target="_blank" rel="noopener" title="Diputados aprobó con amplio apoyo los cambios al Código Penal para endurecer las penas por vandalismo rural">Clarín ↗</a><a href="https://www.parlamentario.com/2026/10/21/la-camara-baja-dio-media-sancion-al-proyecto-que-tipifica-el-vandalismo-rural/" target="_blank" rel="noopener" title="La Cámara baja dio media sanción al proyecto que tipifica el vandalismo rural">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/10/21/diputados-arranco-una-maratonica-sesion-con-siete-proyectos-y-pronostico-de-extenderse-hasta-bien-entrada-la-madrugada/" target="_blank" rel="noopener" title="Diputados arrancó una maratónica sesión con siete proyectos y pronóstico de extenderse hasta bien entrada la madrugada">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/10/21/tras-el-caso-del-fentanilo-adulterado-diputados-dio-media-sancion-a-la-creacion-de-un-sistema-de-trazabilidad-de-medicamentos/" target="_blank" rel="noopener">Tras el caso del fentanilo adulterado, Diputados dio media sanción a la creación de un Sistema de Trazabilidad de Medicamentos</a></h3>
+<p class="bajada">El proyecto resultó aprobado con 241 votos afirmativos,1 voto negativo y 5 abstenciones. La iniciativa establece la trazabilidad integral, obligatoria y en tiempo real de todas las especialidades medicinales consideradas Medicamentos de Alto Riesgo. La entrada Tras el caso del fentanilo adulterado…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Sesión</span>
+    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/10/21/tras-el-caso-del-fentanilo-adulterado-diputados-dio-media-sancion-a-la-creacion-de-un-sistema-de-trazabilidad-de-medicamentos/" target="_blank" rel="noopener" title="Tras el caso del fentanilo adulterado, Diputados dio media sanción a la creación de un Sistema de Trazabilidad de Medicamentos">Parlamentario.com ↗</a><a href="https://www.eldiarioar.com/politica/diputados-aprobo-sistema-trazabilidad-medicamentos-alto-riesgo-fentanilo_1_13606167.html" target="_blank" rel="noopener" title="Diputados aprobó un sistema de trazabilidad de medicamentos de alto riesgo, como el fentanilo">elDiarioAR ↗</a><a href="https://www.letrap.com.ar/congreso/desafio-mario-lugones-diputados-aprobo-un-sistema-trazabilidad-medicamentos-evitar-otro-caso-fentanilo-n5427582" target="_blank" rel="noopener" title="Desafío a Mario Lugones: Diputados aprobó un sistema de trazabilidad de medicamentos para evitar otro caso Fentanilo">Letra P ↗</a><a href="https://www.lanacion.com.ar/politica/fentanilo-contaminado-diputados-aprobo-un-proyecto-para-rastrear-medicamentos-y-acelerar-las-alertas-nid21102026/" target="_blank" rel="noopener" title="Fentanilo contaminado: Diputados aprobó un proyecto para rastrear medicamentos y acelerar las alertas sanitarias">La Nación ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+· 4 notas</span>
+    </div>
+    <h3><a href="https://www.letrap.com.ar/congreso/discapacidad-la-libertad-avanza-cedio-cambios-y-logro-aprobar-un-proyecto-nuevo-apoyo-del-peronismo-n5427585" target="_blank" rel="noopener">Discapacidad: La Libertad Avanza cedió cambios y logró aprobar un proyecto nuevo con apoyo del peronismo</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.letrap.com.ar/congreso/discapacidad-la-libertad-avanza-cedio-cambios-y-logro-aprobar-un-proyecto-nuevo-apoyo-del-peronismo-n5427585" target="_blank" rel="noopener" title="Discapacidad: La Libertad Avanza cedió cambios y logró aprobar un proyecto nuevo con apoyo del peronismo">Letra P ↗</a><a href="https://www.lanacion.com.ar/politica/el-oficialismo-logro-el-apoyo-del-peronismo-y-se-encamina-a-aprobar-su-proyecto-de-discapacidad-nid21102026/" target="_blank" rel="noopener" title="El Gobierno consiguió aprobar su proyecto de discapacidad con el respaldo del peronismo">La Nación ↗</a><a href="https://www.perfil.com/noticias/politica/negociaciones-por-discapacidad-en-diputados-lla-suma-cambios-y-el-peronismo-votaria-a-favor.phtml" target="_blank" rel="noopener" title="Negociaciones por Discapacidad en Diputados: LLA suma cambios y el peronismo votaría a favor">Perfil ↗</a><a href="https://www.lanacion.com.ar/politica/discapacidad-el-peronismo-podria-acompanar-el-proyecto-libertario-tras-la-negociacion-de-nuevos-nid21102026/" target="_blank" rel="noopener" title="Discapacidad: el peronismo podría acompañar el proyecto libertario tras la negociación de nuevos cambios">La Nación ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+· 4 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/politica/explosivo-tuit-gordo-dan-martin-menem-volvio-agitar-interna-libertaria_0_gWK30iT3Ik.html" target="_blank" rel="noopener">El explosivo tuit del Gordo Dan contra Martín Menem que volvió a agitar la interna libertaria</a></h3>
+<p class="bajada">Daniel Parisini, referente de Las Fuerzas del Cielo, volvió a poner en escena las diferencias entre el sector que comanda Santiago Caputo y el presidente de la Cámara de Diputados. La disputa por el islam ya había provocado duros cruces dentro del oficialismo y hasta una intervención de Javier…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/politica/explosivo-tuit-gordo-dan-martin-menem-volvio-agitar-interna-libertaria_0_gWK30iT3Ik.html" target="_blank" rel="noopener" title="El explosivo tuit del Gordo Dan contra Martín Menem que volvió a agitar la interna libertaria">Clarín ↗</a><a href="https://www.lanacion.com.ar/politica/escala-la-interna-libertaria-por-el-islam-el-gordo-dan-ataco-a-benegas-lynch-el-procer-de-milei-y-a-nid21102026/" target="_blank" rel="noopener" title="Escala la interna libertaria por el Islam: el Gordo Dan atacó a Benegas Lynch, el “prócer” de Milei, y a Martín Menem">La Nación ↗</a><a href="https://www.lanacion.com.ar/politica/el-tenso-cruce-entre-myriam-bregman-y-luis-petri-por-el-islam-que-involucro-a-martin-menem-nid21102026/" target="_blank" rel="noopener" title="Myriam Bregman y Luis Petri tuvieron un tenso cruce por el islam que involucró a Martín Menem">La Nación ↗</a><a href="https://www.clarin.com/videos/cruce-gritos-ajmechet-bregman-intervencion-menem_3_b4P5VKxSmW.html" target="_blank" rel="noopener" title="El cruce a los gritos entre Ajmechet y Bregman, con intervención de Menem">Clarín ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4>Martes 27 de octubre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Bicameral de la defensoria del pueblo</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Salón Azul - Palacio Legislativo - H. Yrigoyen 1849 · ver temario</summary>AUDIENCIA PÚBLICA. Tratamiento de las postulaciones remitidas por los bloques parlamentarios y la Subsecretaria de Derechos Humanos del Ministerio de Justicia de la Nación, para integrar el Comité nacional para la Prevención de la Tortura, Ley 26.827, artículo 11, inciso a) y d). · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1367/archivo/SKPVG6MZB7HT2GVV.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Vivienda y ordenamiento urbano</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 2 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados expositores, quienes abordarán sobre: Ley de Financiamiento del Régimen de Integración Socio Urbana de los Barrios Populares. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1368/archivo/99BHRA34RYJ2XB4J.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Defensa nacional, Legislacion penal, Relaciones exteriores y culto</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso REUNIÓN CONJUNTA · ver temario</summary>Mensaje Nro. 275/2026 y proyecto de ley de Defensa de la Soberanía nacional. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1366/archivo/7QS3F6MW29XMD9TB.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 77</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Ju 15: 118 notas">
+        <div class="c" style="height: 81.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 16: 145 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 17: 66 notas">
+        <div class="c" style="height: 45.5%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 18: 32 notas">
+        <div class="c" style="height: 22.1%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 19: 30 notas">
+        <div class="c" style="height: 20.7%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 20: 54 notas">
+        <div class="c" style="height: 37.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 21: 91 notas">
+        <div class="c" style="height: 62.8%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Ju 22: 121 notas">
+<span class="cap">121</span>        <div class="c" style="height: 83.4%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Ju 15</span><span class="">Vi 16</span><span class="">Sá 17</span><span class="">Do 18</span><span class="">Lu 19</span><span class="">Ma 20</span><span class="">Mi 21</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 25 hoy · promedio 14.4">
+        <span class="bar" style="width: 100.0%"></span><span class="v">25</span>
+<span class="tick" style="left: calc(57.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Perfil">Perfil</span>
+      <span class="track" data-tip="Perfil: 19 hoy · promedio 7.1">
+        <span class="bar" style="width: 76.0%"></span><span class="v">19</span>
+<span class="tick" style="left: calc(28.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 13 hoy · promedio 9.4">
+        <span class="bar" style="width: 52.0%"></span><span class="v">13</span>
+<span class="tick" style="left: calc(37.7% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 12 hoy · promedio 5.7">
+        <span class="bar" style="width: 48.0%"></span><span class="v">12</span>
+<span class="tick" style="left: calc(22.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 9 hoy · promedio 5.0">
+        <span class="bar" style="width: 36.0%"></span><span class="v">9</span>
+<span class="tick" style="left: calc(20.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 8 hoy · promedio 8.6">
+        <span class="bar" style="width: 32.0%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(34.3% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 6 hoy · promedio 1.7">
+        <span class="bar" style="width: 24.0%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(6.9% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 6 hoy · promedio 5.0">
+        <span class="bar" style="width: 24.0%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(20.0% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 6 hoy · promedio 1.9">
+        <span class="bar" style="width: 24.0%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(7.4% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 4 hoy · promedio 2.4">
+        <span class="bar" style="width: 16.0%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(9.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 4 hoy · promedio 2.9">
+        <span class="bar" style="width: 16.0%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(11.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 4 hoy · promedio 4.3">
+        <span class="bar" style="width: 16.0%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(17.1% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 3 hoy · promedio 1.7">
+        <span class="bar" style="width: 12.0%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(6.9% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 2 hoy · promedio 1.1">
+        <span class="bar" style="width: 8.0%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(4.6% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras">1. Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras</span>
+      <span class="track" data-tip="Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras — 53 notas, 13 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">53 (13)</span>
+      </span>
+      <span class="lbl" title="Diputados dio media sanción al proyecto que penaliza la intrusión y el vandalismo rural">2. Diputados dio media sanción al proyecto que penaliza la intrusión y el vandalismo rural</span>
+      <span class="track" data-tip="Diputados dio media sanción al proyecto que penaliza la intrusión y el vandalismo rural — 8 notas, 7 medios">
+        <span class="bar" style="width: 15.1%"></span><span class="v">8 (7)</span>
+      </span>
+      <span class="lbl" title="Tras el caso del fentanilo adulterado, Diputados dio media sanción a la creación de un Sistema de Trazabilidad de Medicamentos">3. Tras el caso del fentanilo adulterado, Diputados dio media sanción a la creación de un Sistema de Trazabilidad de Medicamentos</span>
+      <span class="track" data-tip="Tras el caso del fentanilo adulterado, Diputados dio media sanción a la creación de un Sistema de Trazabilidad de Medicamentos — 4 notas, 4 medios">
+        <span class="bar" style="width: 7.5%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Discapacidad: La Libertad Avanza cedió cambios y logró aprobar un proyecto nuevo con apoyo del peronismo">4. Discapacidad: La Libertad Avanza cedió cambios y logró aprobar un proyecto nuevo con apoyo del peronismo</span>
+      <span class="track" data-tip="Discapacidad: La Libertad Avanza cedió cambios y logró aprobar un proyecto nuevo con apoyo del peronismo — 4 notas, 3 medios">
+        <span class="bar" style="width: 7.5%"></span><span class="v">4 (3)</span>
+      </span>
+      <span class="lbl" title="El explosivo tuit del Gordo Dan contra Martín Menem que volvió a agitar la interna libertaria">5. El explosivo tuit del Gordo Dan contra Martín Menem que volvió a agitar la interna libertaria</span>
+      <span class="track" data-tip="El explosivo tuit del Gordo Dan contra Martín Menem que volvió a agitar la interna libertaria — 4 notas, 2 medios">
+        <span class="bar" style="width: 7.5%"></span><span class="v">4 (2)</span>
+      </span>
+      <span class="lbl" title="Cómo fue el desenlace de la sesión en la que el oficialismo evitó una derrota">6. Cómo fue el desenlace de la sesión en la que el oficialismo evitó una derrota</span>
+      <span class="track" data-tip="Cómo fue el desenlace de la sesión en la que el oficialismo evitó una derrota — 2 notas, 2 medios">
+        <span class="bar" style="width: 3.8%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Miércoles de marchas contra Milei: ATE va a Olivos, discapacidad se planta en el Congreso y los jubilados redoblan sus reclamos">7. Miércoles de marchas contra Milei: ATE va a Olivos, discapacidad se planta en el Congreso y los jubilados redoblan sus reclamos</span>
+      <span class="track" data-tip="Miércoles de marchas contra Milei: ATE va a Olivos, discapacidad se planta en el Congreso y los jubilados redoblan sus reclamos — 2 notas, 2 medios">
+        <span class="bar" style="width: 3.8%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Fracasó un pedido para incorporar un proyecto para prorrogar la emergencia pediátrica">8. Fracasó un pedido para incorporar un proyecto para prorrogar la emergencia pediátrica</span>
+      <span class="track" data-tip="Fracasó un pedido para incorporar un proyecto para prorrogar la emergencia pediátrica — 2 notas, 2 medios">
+        <span class="bar" style="width: 3.8%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="El gas de Alaska, una apuesta de décadas se cuela en la batalla por el Senado en EE.UU.">9. El gas de Alaska, una apuesta de décadas se cuela en la batalla por el Senado en EE.UU.</span>
+      <span class="track" data-tip="El gas de Alaska, una apuesta de décadas se cuela en la batalla por el Senado en EE.UU. — 1 nota, 1 medio">
+        <span class="bar" style="width: 1.9%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Costos y misterios de los siete viajes que hizo Javier Milei a España">10. Costos y misterios de los siete viajes que hizo Javier Milei a España</span>
+      <span class="track" data-tip="Costos y misterios de los siete viajes que hizo Javier Milei a España — 1 nota, 1 medio">
+        <span class="bar" style="width: 1.9%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Perfil</option><option>Página/12</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="se debate en diputados el proyecto de propiedad privada, con la restitución de la ley de tierras la discusión en el recinto de la cámara baja arrancó a las 13.35. el proyecto también incluye cambios en expropiaciones y desalojos. con la modificación, el texto deberá volver al senado. la entrada se debate en diputados el proyecto de propiedad privada, con la restitución de la ley de tierras se… inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>1</b> · 13 medios<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">14:27</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/se-debate-en-diputados-el-proyecto-de-propiedad-privada-con-la-restitucion-de-la-ley-de-tierras/" target="_blank" rel="noopener">Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras</a><div class="baj">La discusión en el recinto de la Cámara baja arrancó a las 13.35. El proyecto también incluye cambios en expropiaciones y desalojos. Con la modificación, el texto deberá volver al Senado. La entrada Se debate en Diputados el proyecto de propiedad privada, con la restitución de la Ley de Tierras se…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="durísimas críticas de la oposición por la vuelta a comisión del tema morosidad tras la votación que dio por concluida la sesión en la madrugada de este jueves, diputados de la oposición más dura cuestionaron que no se haya dado una respuesta a los endeudados. la entrada durísimas críticas de la oposición por la vuelta a comisión del tema morosidad se publicó primero en… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">10:28</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/durisimas-criticas-de-la-oposicion-por-la-vuelta-a-comision-del-tema-morosidad/" target="_blank" rel="noopener">Durísimas críticas de la oposición por la vuelta a comisión del tema morosidad</a><div class="baj">Tras la votación que dio por concluida la sesión en la madrugada de este jueves, diputados de la oposición más dura cuestionaron que no se haya dado una respuesta a los endeudados. La entrada Durísimas críticas de la oposición por la vuelta a comisión del tema morosidad se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="El Cronista" data-texto="desalojos exprés: qué cambiaría para propietarios e inquilinos con la ley de propiedad privada  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">10:16</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/desalojos-expres-que-cambiaria-para-propietarios-e-inquilinos-con-la-ley-de-propiedad-privada/" target="_blank" rel="noopener">Desalojos exprés: qué cambiaría para propietarios e inquilinos con la Ley de Propiedad Privada</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="cómo sigue la ley de tierras después de la sesión de diputados la cámara baja modificó la iniciativa impulsada por el gobierno y mantuvo las restricciones a la compra de tierras rurales por parte de extranjeros. el proyecto obtuvo media sanción, pero deberá regresar al senado para su aprobación definitiva. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">10:02</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/como-sigue-la-ley-tierras-despues-la-sesion-diputados-n6336676" target="_blank" rel="noopener">Cómo sigue la ley de Tierras después de la sesión de Diputados</a><div class="baj">La Cámara baja modificó la iniciativa impulsada por el Gobierno y mantuvo las restricciones a la compra de tierras rurales por parte de extranjeros. El proyecto obtuvo media sanción, pero deberá regresar al Senado para su aprobación definitiva.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Página/12" data-texto="sin respuesta para las familias endeudadas: el oficialismo devolvió el proyecto a comisión la libertad avanza bloqueó las iniciativas opositoras pero no pudo juntar los votos para impulsar su propio dictamen. el proyecto volvió a comisiones y el oficialismo rechazó establecer una fecha para debatirlo. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">10:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/22/sin-respuesta-para-las-familias-endeudadas-el-oficialismo-devolvio-el-proyecto-a-comision/" target="_blank" rel="noopener">Sin respuesta para las familias endeudadas: el oficialismo devolvió el proyecto a comisión</a><div class="baj">La Libertad Avanza bloqueó las iniciativas opositoras pero no pudo juntar los votos para impulsar su propio dictamen. El proyecto volvió a comisiones y el oficialismo rechazó establecer una fecha para debatirlo.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="diputados: acuerdo mayoritario por discapacidad, por qué se postergó morosidad y la doble ayuda cordobesa la cámara baja aprobó con 237 votos el nuevo régimen de pensiones y prestaciones; devolvió al senado la ley sturzenegger; y el endeudamiento familiar irá otra vez a comisión. leer más inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">09:30</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/lo-que-dejo-la-sesion-en-diputados-acuerdo-general-por-discapacidad-por-que-se-postergo-morosidad-y-la-ayuda-a-milei-en-propiedad-privada.phtml" target="_blank" rel="noopener">Diputados: acuerdo mayoritario por Discapacidad, por qué se postergó Morosidad y la doble ayuda cordobesa</a><div class="baj">La Cámara baja aprobó con 237 votos el nuevo régimen de pensiones y prestaciones; devolvió al Senado la ley Sturzenegger; y el endeudamiento familiar irá otra vez a comisión. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="diputados frenó el debate sobre endeudamiento familiar y devolvió el proyecto a comisión la moción de la libertad avanza se impuso por cuatro votos y postergó el debate sobre la refinanciación de deudas. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">09:28</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/diputados-freno-el-debate-endeudamiento-familiar-y-devolvio-el-proyecto-comision-n6336636" target="_blank" rel="noopener">Diputados frenó el debate sobre endeudamiento familiar y devolvió el proyecto a comisión</a><div class="baj">La moción de La Libertad Avanza se impuso por cuatro votos y postergó el debate sobre la refinanciación de deudas.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="ley de discapacidad: sin los diputados de llaryora, el gobierno logró aprobar su proyecto con el peronismo la cámara baja dio media sanción con 237 votos a favor, 9 en contra y 4 abstenciones. ocho cordobeses rechazaron el texto, a los representantes cordobeses de up se le sumaron de la sota y estévez. el proyecto fija por ley los requisitos de las pensiones y plazos para pagar la deuda con prestadores… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">08:25</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/ley-de-discapacidad-sin-los-diputados-de-llaryora-el-gobierno-logro-aprobar-su-proyecto-con-el-peronismo.phtml" target="_blank" rel="noopener">Ley de Discapacidad: Sin los diputados de Llaryora, el gobierno logró aprobar su proyecto con el peronismo</a><div class="baj">La Cámara baja dio media sanción con 237 votos a favor, 9 en contra y 4 abstenciones. Ocho cordobeses rechazaron el texto, a los representantes cordobeses de UP se le sumaron De La Sota y Estévez. El proyecto fija por ley los requisitos de las pensiones y plazos para pagar la deuda con prestadores…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="ley de discapacidad: cómo votaron los diputados cordobeses diputados dio media sanción al proyecto con 237 votos afirmativos, 9 negativos y 4 abstenciones. ahora pasa al senado. cómo fue el voto de los legisladores por córdoba. leer más inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">08:22</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/ley-de-discapacidad-como-votaron-los-diputados-cordobeses.phtml" target="_blank" rel="noopener">Ley de Discapacidad: cómo votaron los diputados cordobeses</a><div class="baj">Diputados dio media sanción al proyecto con 237 votos afirmativos, 9 negativos y 4 abstenciones. Ahora pasa al Senado. Cómo fue el voto de los legisladores por Córdoba. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="macri celebró la aprobación del &#34;desalojo exprés&#34; en diputados el alcalde porteño destacó el trabajo del pro para avanzar con esa iniciativa y aseveró que &#34;en este país, hace no tantos años, teníamos que discutir si la propiedad privada era efectivamente privada&#34;. la entrada macri celebró la aprobación del &#34;desalojo exprés&#34; en diputados se publicó primero en… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:58</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/macri-celebro-la-aprobacion-del-desalojo-expres-en-diputados/" target="_blank" rel="noopener">Macri celebró la aprobación del &#34;desalojo exprés&#34; en Diputados</a><div class="baj">El alcalde porteño destacó el trabajo del Pro para avanzar con esa iniciativa y aseveró que &#34;en este país, hace no tantos años, teníamos que discutir si la propiedad privada era efectivamente privada&#34;. La entrada Macri celebró la aprobación del &#34;desalojo exprés&#34; en Diputados se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="con cambios de último momento y amplio apoyo opositor, el gobierno aprobó una nueva ley de discapacidad en diputados hubo 237 votos positivos, 9 en contra y 4 abstenciones. el oficialismo descartó el ajuste en el área que dispuso en el presupuesto 2027 y ratificó gran parte del sistema vigente. en un giro pragmático, los libertarios aceptaron los cambios pedidos por la oposición y el proyecto pasará ahora al… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:31</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/22/con-cambios-de-ultimo-momento-y-apoyo-opositor-el-gobierno-logro-aprobar-una-nueva-ley-de-discapacidad-en-diputados/" target="_blank" rel="noopener">Con cambios de último momento y amplio apoyo opositor, el Gobierno aprobó una nueva ley de Discapacidad en Diputados</a><div class="baj">Hubo 237 votos positivos, 9 en contra y 4 abstenciones. El oficialismo descartó el ajuste en el área que dispuso en el Presupuesto 2027 y ratificó gran parte del sistema vigente. En un giro pragmático, los libertarios aceptaron los cambios pedidos por la oposición y el proyecto pasará ahora al…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="diputados aprobó fondos para discapacidad: cuáles son los cambios al proyecto del gobierno la iniciativa obtuvo 237 votos afirmativos, 9 negativos y 4 abstenciones. el texto mantiene las pensiones y suma garantías de salud, financiamiento y protección laboral. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:22</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/diputados-aprobo-fondos-discapacidad-cuales-son-los-cambios-al-proyecto-del-gobierno-n6336604" target="_blank" rel="noopener">Diputados aprobó fondos para discapacidad: cuáles son los cambios al proyecto del Gobierno</a><div class="baj">La iniciativa obtuvo 237 votos afirmativos, 9 negativos y 4 abstenciones. El texto mantiene las pensiones y suma garantías de salud, financiamiento y protección laboral.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="cómo votó cada diputado la ley de inviolabilidad de la propiedad privada: los nombres y el detalle de la votación la cámara de diputados aprobó el proyecto el miércoles 21 de octubre por 124 votos afirmativos, 119 negativos y seis abstenciones. la iniciativa incorporó cambios sobre la ley de tierras, por lo que deberá regresar al senado para su revisión. leer más inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:07</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/como-voto-cada-diputado-la-ley-de-inviolabilidad-de-la-propiedad-privada-los-nombres-y-el-detalle-de-la-votacion.phtml" target="_blank" rel="noopener">Cómo votó cada diputado la Ley de Inviolabilidad de la Propiedad Privada: los nombres y el detalle de la votación</a><div class="baj">La Cámara de Diputados aprobó el proyecto el miércoles 21 de octubre por 124 votos afirmativos, 119 negativos y seis abstenciones. La iniciativa incorporó cambios sobre la Ley de Tierras, por lo que deberá regresar al Senado para su revisión. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="en plena madrugada se votó la vuelta a comisiones del proyecto sobre endeudamiento familiar la sesión había empezado con la aprobación del proyecto de inviolabilidad de la propiedad privada. luego se votaron las leyes de trazabilidad de medicamentos de alto riesgo, vandalismo rural y discapacidad. en un final polémico, y después de más de 15 horas de sesión, la cámara de diputados aprobó… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">06:40</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/plena-madrugada-voto-vuelta-comisiones-proyecto-endeudamiento-familiar_1_13605878.html" target="_blank" rel="noopener">En plena madrugada se votó la vuelta a comisiones del proyecto sobre Endeudamiento Familiar</a><div class="baj">La sesión había empezado con la aprobación del proyecto de Inviolabilidad de la Propiedad Privada. Luego se votaron las leyes de trazabilidad de medicamentos de alto riesgo, vandalismo rural y discapacidad. En un final polémico, y después de más de 15 horas de sesión, la Cámara de Diputados aprobó…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="A24" data-texto="el oficialismo aceptó cambios y logró la media sanción de la ley de discapacidad: morosidad volvió a comisión  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">06:37</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/el-oficialismo-acepto-cambios-y-logro-la-media-sancion-la-ley-discapacidad-morosidad-volvio-comision-n1608677" target="_blank" rel="noopener">El oficialismo aceptó cambios y logró la media sanción de la ley de discapacidad: morosidad volvió a comisión</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="ley de discapacidad: el oficialismo logró el apoyo de la oposición y diputados le dio media sanción al proyecto con el acuerdo de los bloques mayoritarios, la cámara baja aprobó la ley de fortalecimiento, sostenibilidad y eficiencia permanente del sistema de discapacidad con la que se busca superar la ley de emergencia que vence a fin de año. tuvo 237 votos positivos, 9 negativos y cuatro abstenciones. la… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">06:25</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/ley-discapacidad-oficialismo-logro-apoyo-oposicion-diputados-le-dio-media-sancion-proyecto_1_13605772.html" target="_blank" rel="noopener">Ley de Discapacidad: el oficialismo logró el apoyo de la oposición y Diputados le dio media sanción al proyecto</a><div class="baj">Con el acuerdo de los bloques mayoritarios, la Cámara baja aprobó la Ley de Fortalecimiento, Sostenibilidad y Eficiencia Permanente del Sistema de Discapacidad con la que se busca superar la ley de emergencia que vence a fin de año. Tuvo 237 votos positivos, 9 negativos y cuatro abstenciones. La…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="diputados aprobó los proyectos de propiedad privada y discapacidad, pero el de endeudamiento familiar volvió a comisión  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">05:13</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/21/diputados-el-oficialismo-consiguio-quorum-para-debatir-la-ley-de-tierras-discapacidad-y-endeudamiento-familiar/" target="_blank" rel="noopener">Diputados aprobó los proyectos de propiedad privada y discapacidad, pero el de endeudamiento familiar volvió a comisión</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="por falta de consensos, no se aprobó ningún proyecto sobre endeudamiento familiar y el tema volvió a comisión el oficialismo no tenía los votos para avanzar pero pudo bloquear las propuestas de la oposición, que denunció una maniobra para “cajonear” las iniciativas inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">04:46</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/22/por-falta-de-consensos-no-se-aprobo-ningun-proyecto-sobre-endeudamiento-familiar-y-el-tema-volvio-a-comision/" target="_blank" rel="noopener">Por falta de consensos, no se aprobó ningún proyecto sobre endeudamiento familiar y el tema volvió a comisión</a><div class="baj">El oficialismo no tenía los votos para avanzar pero pudo bloquear las propuestas de la oposición, que denunció una maniobra para “cajonear” las iniciativas</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="endeudamiento: el oficialismo no tenía los números para imponer su proyecto y devolvió el tema a la comisión la decisión se tomó después de dos horas y media de debate. la oposición denunció una trampa de los libertarios para cajonear el tema. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">04:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/endeudamiento-oficialismo-numeros-imponer-proyecto-devolvio-tema-comision_0_IieMkxLcxI.html" target="_blank" rel="noopener">Endeudamiento: el oficialismo no tenía los números para imponer su proyecto y devolvió el tema a la comisión</a><div class="baj">La decisión se tomó después de dos horas y media de debate. La oposición denunció una trampa de los libertarios para cajonear el tema.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="diputados aprobó las leyes de propiedad privada y discapacidad, pero postergó el debate sobre las deudas familiares la sesión se extendió hasta la madrugada del jueves y también incluyó proyectos sobre vandalismo rural, trazabilidad de medicamentos de alto riesgo y la transferencia de un inmueble a chaco. el oficialismo consiguió devolver a comisión la iniciativa sobre morosidad por 121 votos contra 117. leer más inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">04:30</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/alerta-diputados-debate-la-prorroga-de-la-emergencia-en-discapacidad.phtml" target="_blank" rel="noopener">Diputados aprobó las leyes de Propiedad Privada y Discapacidad, pero postergó el debate sobre las deudas familiares</a><div class="baj">La sesión se extendió hasta la madrugada del jueves y también incluyó proyectos sobre vandalismo rural, trazabilidad de medicamentos de alto riesgo y la transferencia de un inmueble a Chaco. El oficialismo consiguió devolver a comisión la iniciativa sobre morosidad por 121 votos contra 117. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="el oficialismo reclamó la vuelta a comisión del proyecto de morosidad y levantó la sesión sin los votos para aprobar su iniciativa, el bloque de lla logró postergar el debate con el respaldo clave de los diputados cordobeses inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">04:27</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-oficialismo-reclamo-la-vuelta-a-comision-del-proyecto-de-morosidad-y-levanto-la-sesion-nid22102026/" target="_blank" rel="noopener">El oficialismo reclamó la vuelta a comisión del proyecto de morosidad y levantó la sesión</a><div class="baj">Sin los votos para aprobar su iniciativa, el bloque de LLA logró postergar el debate con el respaldo clave de los diputados cordobeses</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="tras una sesión maratónica en diputados, enviaron nuevamente a comisión el proyecto de endeudamiento familiar luego de la aprobación de la ley inviolabilidad de propiedad privada y la media sanción de discapacidad, la sesión especial se cayó minutos antes de que se votara el proyecto para aliviar a familias endeudadas inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">03:46</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/diputados-en-vivo-ultimas-noticias-del-debate-sobre-discapacidad-endeudamiento-familiar-y-propiedad-privada/" target="_blank" rel="noopener">Tras una sesión maratónica en Diputados, enviaron nuevamente a comisión el proyecto de endeudamiento familiar</a><div class="baj">Luego de la aprobación de la Ley Inviolabilidad de Propiedad Privada y la media sanción de Discapacidad, la sesión especial se cayó minutos antes de que se votara el proyecto para aliviar a familias endeudadas</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="endeudamiento familiar: no hubo acuerdo en diputados y el proyecto vuelve a comisión  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">03:42</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/diputados-votacion-endeudamiento-familiar-plan-oficialista-22-octubre-2026" target="_blank" rel="noopener">Endeudamiento familiar: no hubo acuerdo en Diputados y el proyecto vuelve a comisión</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="en un tenso final de sesión, diputados devolvió a comisiones el proyecto sobre endeudamiento familiar sin consenso, la libertad avanza logró evitar que se tratara el dictamen de minoría. la entrada en un tenso final de sesión, diputados devolvió a comisiones el proyecto sobre endeudamiento familiar se publicó primero en parlamentario . inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">03:32</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/al-cabo-de-una-sesion-maratonica-diputados-aprobo-la-ley-de-endeudamiento-familiar/" target="_blank" rel="noopener">En un tenso final de sesión, Diputados devolvió a comisiones el proyecto sobre endeudamiento familiar</a><div class="baj">Sin consenso, La Libertad Avanza logró evitar que se tratara el dictamen de minoría. La entrada En un tenso final de sesión, Diputados devolvió a comisiones el proyecto sobre endeudamiento familiar se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="diputados: tras la marcha atrás del gobierno, el oficialismo aprobó por más de dos tercios la nueva ley de discapacidad la libertad avanza cedió en más puntos durante el debate en el recinto y con apoyo del peronismo el texto tuvo 237 votos a favor y 9 en contra. ahora lo tiene que tratar el senado para convertirlo en ley. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:48</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diputados-marcha-gobierno-oficialismo-aprobo-tercios-nueva-ley-discapacidad_0_DSp4nPsvpj.html" target="_blank" rel="noopener">Diputados: tras la marcha atrás del Gobierno, el oficialismo aprobó por más de dos tercios la nueva ley de Discapacidad</a><div class="baj">La Libertad Avanza cedió en más puntos durante el debate en el recinto y con apoyo del peronismo el texto tuvo 237 votos a favor y 9 en contra. Ahora lo tiene que tratar el Senado para convertirlo en ley.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="discapacidad: con amplia mayoría, diputados dio media sanción a una ley permanente  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:43</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/sesion-diputados-ley-endeudamiento-familiar-21-octubre-2026" target="_blank" rel="noopener">Discapacidad: con amplia mayoría, Diputados dio media sanción a una ley permanente</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="holgada aprobación en diputados a un proyecto para fondos en discapacidad el gobierno cedió en la mitad de su redacción para conseguir la media sanción. resta que se trate en el senado. también se aprobó la ley de &#34;inviolabilidad de la propiedad privada&#34;, condenas al vandalismo rural y un sistema de trazabilidad de medicamentos de alto riesgo. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:38</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-gobierno-aspira-conseguir-unanimidad-su-proyecto-discapacidad-diputados-y-la-sesion-podria-terminarse-antes-tiempo-n6336495" target="_blank" rel="noopener">Holgada aprobación en Diputados a un proyecto para fondos en discapacidad</a><div class="baj">El Gobierno cedió en la mitad de su redacción para conseguir la media sanción. Resta que se trate en el Senado. También se aprobó la ley de &#34;Inviolabilidad de la Propiedad Privada&#34;, condenas al vandalismo rural y un sistema de trazabilidad de medicamentos de alto riesgo.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="con amplio consenso, se aprobó la ley de fortalecimiento al sistema de discapacidad la oposición celebró el consenso y todo el recinto destacó la labor del misionero oscar herrera ahuad. los cordobeses de provincias unidas, natalia de la sota y gabriela estévez no acompañaron. la entrada con amplio consenso, se aprobó la ley de fortalecimiento al sistema de discapacidad se publicó… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:37</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/con-amplio-con-consenso-se-aprobo-la-ley-de-fortalecimiento-al-sistema-de-discapacidad/" target="_blank" rel="noopener">Con amplio consenso, se aprobó la Ley de Fortalecimiento al Sistema de Discapacidad</a><div class="baj">La oposición celebró el consenso y todo el recinto destacó la labor del misionero Oscar Herrera Ahuad. Los cordobeses de Provincias Unidas, Natalia de la Sota y Gabriela Estévez no acompañaron. La entrada Con amplio consenso, se aprobó la Ley de Fortalecimiento al Sistema de Discapacidad se publicó…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="El Cronista" data-texto="diputados: el oficialismo aprobó la ley de discapacidad que intentó desarmar en el presupuesto diputados acordó un régimen permanente que mantiene la actualización por ipc y la pensión compatible con el empleo. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:34</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/el-oficialismo-alcanzo-un-acuerdo-por-nuevo-regimen-de-discapacidad-la-votacion/" target="_blank" rel="noopener">Diputados: el oficialismo aprobó la ley de Discapacidad que intentó desarmar en el Presupuesto</a><div class="baj">Diputados acordó un régimen permanente que mantiene la actualización por IPC y la pensión compatible con el empleo.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Página/12" data-texto="volantazo fenomenal del gobierno: diputados aprobó el proyecto que restituye la ley de tierras  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:18</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/21/volantazo-fenomenal-del-gobierno-se-aprobo-el-proyecto-que-restituye-la-ley-de-tierras/" target="_blank" rel="noopener">Volantazo fenomenal del Gobierno: Diputados aprobó el proyecto que restituye la Ley de Tierras</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="diego giuliano cuestionó en &#34;qr!&#34; los cambios en la ley de tierras y advirtió por el endeudamiento de las familias el diputado nacional de uxp destacó la restitución de los límites a la compra de tierras rurales por parte de extranjeros y criticó los cambios en expropiaciones y desalojos. además, reclamó que se trate una iniciativa para prevenir los efectos de el niño y advirtió que 20 millones de argentinos… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">23:21</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/masperfil/diego-giuliano-cuestiono-en-qr-los-cambios-en-la-ley-de-tierras-y-advirtio-por-el-endeudamiento-de-las-familias.phtml" target="_blank" rel="noopener">Diego Giuliano cuestionó en &#34;QR!&#34; los cambios en la ley de tierras y advirtió por el endeudamiento de las familias</a><div class="baj">El diputado nacional de UxP destacó la restitución de los límites a la compra de tierras rurales por parte de extranjeros y criticó los cambios en expropiaciones y desalojos. Además, reclamó que se trate una iniciativa para prevenir los efectos de El Niño y advirtió que 20 millones de argentinos…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="de propiedad privada a morosidad, reviví la maratónica sesión en diputados  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">21:07</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/diputados-debate-discapacidad-morisidad-congreso-sesion-21-octubre-2026" target="_blank" rel="noopener">De propiedad privada a morosidad, reviví la maratónica sesión en Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="A24" data-texto="diputados aprobó la ley de inviolabilidad de la propiedad privada que deberá volver al senado  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">20:41</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/diputados-ya-comenzo-el-debate-tratar-la-ley-tierras-discapacidad-y-morosidad-n1608858" target="_blank" rel="noopener">Diputados aprobó la ley de inviolabilidad de la propiedad privada que deberá volver al Senado</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="desalojos, expropiaciones y tierras: los principales puntos de la ley de propiedad privada que se aprobó en diputados  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">20:31</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/21/desalojos-expropiaciones-y-tierras-los-principales-puntos-de-la-ley-de-propiedad-privada-que-se-aprobo-en-diputados/" target="_blank" rel="noopener">Desalojos, expropiaciones y tierras: los principales puntos de la ley de propiedad privada que se aprobó en Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Letra P" data-texto="con ayuda de martín llaryora y larreta, el oficialismo aprobó el proyecto que blinda la ley de tierras de cfk  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">19:30</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/con-ayuda-martin-llaryora-y-larreta-diputados-aprobo-el-proyecto-que-blinda-la-ley-tierras-cfk-n5427573" target="_blank" rel="noopener">Con ayuda de Martín Llaryora y Larreta, el oficialismo aprobó el proyecto que blinda la ley de tierras de CFK</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="propiedad privada: cuatro diputados chaqueños apoyaron al gobierno y tres votaron en contra los representantes radicales y libertarios respaldaron la iniciativa, mientras que unión por la patria se opuso. los cambios sobre tierras rurales obligan a un nuevo tratamiento en el senado. leer más inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">18:55</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/nea/propiedad-privada-cuatro-diputados-chaquenos-apoyaron-al-gobierno-y-tres-votaron-en-contra.phtml" target="_blank" rel="noopener">Propiedad privada: cuatro diputados chaqueños apoyaron al Gobierno y tres votaron en contra</a><div class="baj">Los representantes radicales y libertarios respaldaron la iniciativa, mientras que Unión por la Patria se opuso. Los cambios sobre tierras rurales obligan a un nuevo tratamiento en el Senado. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="diputados aprobó el proyecto de propiedad privada que restituye el límite de venta de tierras a extranjeros  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">18:24</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/21/diputados-aprobo-el-proyecto-de-propiedad-privada-que-restituye-el-limite-de-venta-de-tierras-a-extranjeros/" target="_blank" rel="noopener">Diputados aprobó el proyecto de propiedad privada que restituye el límite de venta de tierras a extranjeros</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="senado: consiguió dictamen el proyecto y los cambios a la ley de salud mental quedaron un paso más cerca del recinto un grupo de senadores peronistas críticos al kirchnerismo presentó un dictamen en minoría y, así, el tema podrá tratarse en la próxima sesión; el oficialismo todavía no tiene garantizados los votos inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">18:02</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/senado-consiguio-dictamen-el-proyecto-y-los-cambios-a-la-ley-de-salud-mental-quedaron-un-paso-mas-nid21102026/" target="_blank" rel="noopener">Senado: consiguió dictamen el proyecto y los cambios a la ley de salud mental quedaron un paso más cerca del recinto</a><div class="baj">Un grupo de senadores peronistas críticos al kirchnerismo presentó un dictamen en minoría y, así, el tema podrá tratarse en la próxima sesión; el oficialismo todavía no tiene garantizados los votos</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="diputados aprobó la ley de propiedad privada y reincorporó las restricciones a la compra de tierras la libertad avanza cedió en la derogación de las restricciones a la venta de campos a extranjeros, luego de que ese punto quedara vinculado al decreto de necesidad y urgencia inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">17:59</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/diputados-aprobo-la-ley-de-propiedad-privada-y-reincorporo-las-restricciones-a-la-compra-de-tierras/" target="_blank" rel="noopener">Diputados aprobó la ley de Propiedad Privada y reincorporó las restricciones a la compra de tierras</a><div class="baj">La Libertad Avanza cedió en la derogación de las restricciones a la venta de campos a extranjeros, luego de que ese punto quedara vinculado al decreto de necesidad y urgencia</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="con la ley de tierras adentro, la cámara de diputados aprobó la ley de inviolabilidad de sturzenegger no quedó casi nada de la versión original, pero el oficialismo logró aprobar la ley con 124 votos a favor, 119 en contra y 6 abstenciones. el capítulo que restituyó la ley de tierras fue aprobado casi por unanimidad. ahora la iniciativa gira al senado que definirá si se aceptan los cambios. no… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">17:53</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/ley-tierras-adentro-camara-diputados-aprobo-ley-inviolabilidad-sturzenegger_1_13605007.html" target="_blank" rel="noopener">Con la ley de Tierras adentro, la Cámara de Diputados aprobó la ley de Inviolabilidad de Sturzenegger</a><div class="baj">No quedó casi nada de la versión original, pero el oficialismo logró aprobar la ley con 124 votos a favor, 119 en contra y 6 abstenciones. El capítulo que restituyó la Ley de Tierras fue aprobado casi por unanimidad. Ahora la iniciativa gira al Senado que definirá si se aceptan los cambios. No…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="con cambios y concesiones, el oficialismo logró aprobar en diputados su proyecto de propiedad privada la iniciativa endurece los requisitos para las expropiaciones y agiliza los desalojos; los libertarios tuvieron que aceptar la continuidad de la ley de tierras kirchnerista, que inicialmente pretendían derogar; el texto volverá al senado; la sesión continúa con el debate sobre discapacidad inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">17:27</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/sesion-maratonica-en-diputados-el-oficialismo-busca-avanzar-con-una-ley-de-discapacidad-que-no-nid21102026/" target="_blank" rel="noopener">Con cambios y concesiones, el oficialismo logró aprobar en Diputados su proyecto de propiedad privada</a><div class="baj">La iniciativa endurece los requisitos para las expropiaciones y agiliza los desalojos; los libertarios tuvieron que aceptar la continuidad de la ley de tierras kirchnerista, que inicialmente pretendían derogar; el texto volverá al Senado; la sesión continúa con el debate sobre discapacidad</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="cómo votó cada diputado el proyecto de inviolabilidad de la propiedad privada  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">17:23</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/como-voto-cada-diputado-el-proyecto-de-inviolabilidad-de-la-propiedad-privada-nid21102026/" target="_blank" rel="noopener">Cómo votó cada diputado el proyecto de inviolabilidad de la propiedad privada</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="diputados: la libertad avanza aprobó el proyecto de inviolabilidad de la propiedad privada y restablece la ley de tierras con 124 votos a favor, 119 en contra y 6 abstenciones, el oficialismo aprobó y giró al senado la iniciativa impulsada por el ministro de desregulación, federico sturzenegger, que en su versión original buscaba derogar la iniciativa que le pone tope a la venta de tierras en manos de extranjeros. el… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">17:02</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-oficialismo-lleva-sesion-diputados-su-version-discapacidad-morosidad-e-inviolabilidad-la-propiedad-privada-n6335931" target="_blank" rel="noopener">Diputados: La Libertad Avanza aprobó el proyecto de Inviolabilidad de la propiedad privada y restablece la ley de Tierras</a><div class="baj">Con 124 votos a favor, 119 en contra y 6 abstenciones, el oficialismo aprobó y giró al Senado la iniciativa impulsada por el ministro de Desregulación, Federico Sturzenegger, que en su versión original buscaba derogar la iniciativa que le pone tope a la venta de tierras en manos de extranjeros. El…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="diputados devolvió al senado el proyecto de inviolabilidad de la propiedad privada, con la restitución de la ley de tierras en una votación ajustada, el oficialismo logró aprobar la iniciativa con 124 votos positivos, 119 negativos y 6 abstenciones. las idas y vueltas en torno a los límites para la venta de tierras a extranjeros, marcadas por los fallos de la corte. la entrada diputados devolvió al senado el proyecto de… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">16:42</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/diputados-devolvio-al-senado-el-proyecto-de-inviolabilidad-de-la-propiedad-privada-con-la-restitucion-de-la-ley-de-tierras/" target="_blank" rel="noopener">Diputados devolvió al Senado el proyecto de inviolabilidad de la propiedad privada, con la restitución de la Ley de Tierras</a><div class="baj">En una votación ajustada, el oficialismo logró aprobar la iniciativa con 124 votos positivos, 119 negativos y 6 abstenciones. Las idas y vueltas en torno a los límites para la venta de tierras a extranjeros, marcadas por los fallos de la Corte. La entrada Diputados devolvió al Senado el proyecto de…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="restitución de la ley de tierras: diputados aprobó la ley de propiedad privada pero vuelve al senado  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">16:30</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/restitucion-la-ley-tierras-diputados-aprobo-la-ley-propiedad-privada-pero-vuelve-al-senado-n252201" target="_blank" rel="noopener">Restitución de la Ley de Tierras: Diputados aprobó la ley de Propiedad Privada pero vuelve al Senado</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="El Cronista" data-texto="diputados votó restituir la ley de tierras, acelerar desalojos y limitar expropiaciones: debaten discapacidad martín menem aseguró que milei no vetará lo que se apruebe e incorporaron más cambios que pidió misiones en discapacidad. se llevaron el compromiso de santilli para pagar la deuda con los prestadores. primero, se discute propiedad privada: restituyen la ley de tierras derogada por el dnu 70 inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">16:27</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/con-el-quorum-asegurado-el-gobierno-enfrenta-una-sesion-maratonica-propiedad-privada-endeudamiento-y-discapacidad/" target="_blank" rel="noopener">Diputados votó restituir la Ley de Tierras, acelerar desalojos y limitar expropiaciones: debaten discapacidad</a><div class="baj">Martín Menem aseguró que Milei no vetará lo que se apruebe e incorporaron más cambios que pidió Misiones en Discapacidad. Se llevaron el compromiso de Santilli para pagar la deuda con los prestadores. Primero, se discute Propiedad Privada: restituyen la Ley de Tierras derogada por el DNU 70</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="los puntos principales del proyecto de inviolabilidad de la propiedad privada la iniciativa tratada en la cámara de diputados incluye cambios en expropiaciones, desalojos y el registro de la propiedad inmueble. además, restituye la ley de tierras. la entrada los puntos principales del proyecto de inviolabilidad de la propiedad privada se publicó primero en parlamentario . inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">16:16</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/los-puntos-principales-del-proyecto-de-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener">Los puntos principales del proyecto de inviolabilidad de la propiedad privada</a><div class="baj">La iniciativa tratada en la Cámara de Diputados incluye cambios en expropiaciones, desalojos y el Registro de la Propiedad Inmueble. Además, restituye la Ley de Tierras. La entrada Los puntos principales del proyecto de inviolabilidad de la propiedad privada se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="avanza un proyecto de ley para habilitar el uso de las pistolas taser para la policía bonaerense la iniciativa propuesta por el massimo consiguió el dictamen por unanimidad en la comisión de seguridad y asuntos penitenciarios, y se tratará en la legislatura provincial. el debate que se abrió dentro del pj inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">15:45</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/avanza-un-proyecto-de-ley-para-habilitar-el-uso-de-las-pistolas-taser-para-la-policia-bonaerense/" target="_blank" rel="noopener">Avanza un proyecto de ley para habilitar el uso de las pistolas Taser para la Policía Bonaerense</a><div class="baj">La iniciativa propuesta por el massimo consiguió el dictamen por unanimidad en la Comisión de Seguridad y Asuntos Penitenciarios, y se tratará en la Legislatura provincial. El debate que se abrió dentro del PJ</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="tensión por discapacidad: la iglesia advierte sobre el dictamen del oficialismo y reclama la prórroga de la ley de emergencia la comisión de pastoral social fijó su postura tras una reunión con diputados libertarios; la lista de reclamos al ejecutivo inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">15:36</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/tension-por-discapacidad-la-iglesia-advierte-sobre-el-dictamen-del-oficialismo-y-reclama-la-prorroga-nid21102026/" target="_blank" rel="noopener">Tensión por discapacidad: la Iglesia advierte sobre el dictamen del oficialismo y reclama la prórroga de la ley de emergencia</a><div class="baj">La Comisión de Pastoral Social fijó su postura tras una reunión con diputados libertarios; la lista de reclamos al Ejecutivo</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="menem consiguió quórum y negocia con los aliados una ley de discapacidad de consenso el riojano jugó con pragmatismo y consiguió abrir el recinto. la clave de la sesión, que se extenderá hasta la madrugada, es la nueva ley de discapacidad, que incluye muchos de los puntos de la ley de emergencia sancionada el año pasado. la oposición analiza la posibilidad de acompañar la… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">15:28</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/menem-consiguio-quorum-negocia-aliados-ley-discapacidad-consenso_1_13604790.html" target="_blank" rel="noopener">Menem consiguió quórum y negocia con los aliados una ley de discapacidad de consenso</a><div class="baj">El riojano jugó con pragmatismo y consiguió abrir el recinto. La clave de la sesión, que se extenderá hasta la madrugada, es la nueva ley de discapacidad, que incluye muchos de los puntos de la ley de emergencia sancionada el año pasado. La oposición analiza la posibilidad de acompañar la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="el oficialismo salvó en diputados la ley de tierras, aprobó inviolabilidad de la propiedad privada y el senado lo ratificaría  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">13:06</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/arranco-sesion-diputados-oficialismo-consiguio-quorum-tratar-ley-tierras-discapacidad-morosidad_0_Tou2dsPca4.html" target="_blank" rel="noopener">El oficialismo salvó en Diputados la Ley de Tierras, aprobó Inviolabilidad de la Propiedad Privada y el Senado lo ratificaría</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="A24" data-texto="el gobierno enfrenta una sesión clave en diputados por la ley de tierras, discapacidad y propiedad privada  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">12:28</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/el-gobierno-enfrenta-una-sesion-clave-diputados-la-ley-tierras-discapacidad-y-propiedad-privada-n1608512" target="_blank" rel="noopener">El Gobierno enfrenta una sesión clave en Diputados por la Ley de Tierras, discapacidad y propiedad privada</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="seguí el debate en diputados: discapacidad, morosidad y ley de tierras  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">11:59</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/segui-debate-vivo-sesion-especial-Diputados-miercoles-21-octubre-2026" target="_blank" rel="noopener">Seguí el debate en Diputados: Discapacidad, Morosidad y Ley de Tierras</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="TN" data-texto="diputados dio media sanción al proyecto que penaliza la intrusión y el vandalismo rural  endeudamiento familiar">
+        <td class="tema-col"><b>2</b> · 7 medios<br>Endeudamiento familiar</td>
+        <td class="num">09:45</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/campo/2026/10/22/diputados-dio-media-sancion-al-proyecto-que-penaliza-la-intrusion-y-el-vandalismo-rural/" target="_blank" rel="noopener">Diputados dio media sanción al proyecto que penaliza la intrusión y el vandalismo rural</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Ámbito" data-texto="reforma del código penal: diputados aprobaron nuevas penas por vandalismo rural el congreso dio media sanción a un proyecto que incorpora nuevas figuras delictivas para proteger la producción agropecuaria. la iniciativa contempla penas de prisión y multas económicas para quienes ingresen ilegalmente a establecimientos rurales o provoquen daños en cultivos, ganado e… endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">09:57</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/reforma-del-codigo-penal-diputados-aprobaron-nuevas-penas-vandalismo-rural-n6336670" target="_blank" rel="noopener">Reforma del Código Penal: diputados aprobaron nuevas penas por vandalismo rural</a><div class="baj">El Congreso dio media sanción a un proyecto que incorpora nuevas figuras delictivas para proteger la producción agropecuaria. La iniciativa contempla penas de prisión y multas económicas para quienes ingresen ilegalmente a establecimientos rurales o provoquen daños en cultivos, ganado e…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="elDiarioAR" data-texto="el oficialismo logró aprobar el proyecto que incorpora la figura del vandalismo rural al código penal el proyecto establece será reprimido con prisión de un 1 mes a un 1 año, el que entrare en establecimiento rural, o sus dependencias, contra la voluntad expresa o presunta de quien tenga derecho de excluirlo. la cámara de diputados aprobó un proyecto que busca incorporar la figura del vandalismo… endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">07:55</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/oficialismo-logro-aprobaron-proyecto-busca-incorporar-figura-vandalismo-rural-codigo-penal_1_13606201.html" target="_blank" rel="noopener">El oficialismo logró aprobar el proyecto que incorpora la figura del vandalismo rural al Código Penal</a><div class="baj">El proyecto establece será reprimido con prisión de un 1 mes a un 1 año, el que entrare en establecimiento rural, o sus dependencias, contra la voluntad expresa o presunta de quien tenga derecho de excluirlo. La Cámara de Diputados aprobó un proyecto que busca incorporar la figura del vandalismo…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Infobae" data-texto="la reacción de la política al amplio acuerdo que permitió dar media sanción al proyecto de discapacidad la cámara de diputados aprobó esta madrugada la iniciativa que busca reemplazar la emergencia vigente por un régimen estable. ahora, el proyecto será enviado al senado para que su tratamiento endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">05:14</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/22/la-reaccion-de-la-politica-al-amplio-acuerdo-que-permitio-dar-media-sancion-al-proyecto-de-discapacidad/" target="_blank" rel="noopener">La reacción de la política al amplio acuerdo que permitió dar media sanción al proyecto de Discapacidad</a><div class="baj">La Cámara de Diputados aprobó esta madrugada la iniciativa que busca reemplazar la emergencia vigente por un régimen estable. Ahora, el proyecto será enviado al Senado para que su tratamiento</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="La Nación" data-texto="vandalismo rural: diputados aprobó un proyecto que prevé hasta 10 años de prisión para quienes provoquen daños a la producción del agro la iniciativa obtuvo 162 votos a favor, 77 en contra y una abstención endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">20:32</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/vandalismo-rural-diputados-aprobo-un-proyecto-que-preve-hasta-ocho-anos-de-prision-para-quienes-nid21102026/" target="_blank" rel="noopener">Vandalismo rural: Diputados aprobó un proyecto que prevé hasta 10 años de prisión para quienes provoquen daños a la producción del agro</a><div class="baj">La iniciativa obtuvo 162 votos a favor, 77 en contra y una abstención</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Clarín" data-texto="diputados aprobó con amplio apoyo los cambios al código penal para endurecer las penas por vandalismo rural  endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">19:49</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/rural/diputados-aprobo-amplia-apoyo-cambios-codigo-penal-endurecer-penas-vandalismo-rural_0_JtFfFPMhpx.html" target="_blank" rel="noopener">Diputados aprobó con amplio apoyo los cambios al Código Penal para endurecer las penas por vandalismo rural</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="la cámara baja dio media sanción al proyecto que tipifica el vandalismo rural la iniciativa, aprobada por 162 votos a favor, 77 en contra y 1 abstención, fue promovida por un diputado del pro. sufrió cambios que se anunciaron en el recinto, y algunos legisladores de la oposición acompañaron. la entrada la cámara baja dio media sanción al proyecto que tipifica el vandalismo… endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">19:44</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/la-camara-baja-dio-media-sancion-al-proyecto-que-tipifica-el-vandalismo-rural/" target="_blank" rel="noopener">La Cámara baja dio media sanción al proyecto que tipifica el vandalismo rural</a><div class="baj">La iniciativa, aprobada por 162 votos a favor, 77 en contra y 1 abstención, fue promovida por un diputado del Pro. Sufrió cambios que se anunciaron en el recinto, y algunos legisladores de la oposición acompañaron. La entrada La Cámara baja dio media sanción al proyecto que tipifica el vandalismo…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados arrancó una maratónica sesión con siete proyectos y pronóstico de extenderse hasta bien entrada la madrugada la cámara baja inició una jornada que promete extenderse al menos 17 horas, con debates sobre propiedad de tierras rurales, trazabilidad de medicamentos, vandalismo rural, discapacidad y endeudamiento familiar. los dos temas emplazados en su momento fueron ubicados al final del temario, por lo que… endeudamiento familiar">
+        <td class="tema-col"></td>
+        <td class="num">12:20</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/diputados-arranco-una-maratonica-sesion-con-siete-proyectos-y-pronostico-de-extenderse-hasta-bien-entrada-la-madrugada/" target="_blank" rel="noopener">Diputados arrancó una maratónica sesión con siete proyectos y pronóstico de extenderse hasta bien entrada la madrugada</a><div class="baj">La Cámara baja inició una jornada que promete extenderse al menos 17 horas, con debates sobre propiedad de tierras rurales, trazabilidad de medicamentos, vandalismo rural, discapacidad y endeudamiento familiar. Los dos temas emplazados en su momento fueron ubicados al final del temario, por lo que…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="tras el caso del fentanilo adulterado, diputados dio media sanción a la creación de un sistema de trazabilidad de medicamentos el proyecto resultó aprobado con 241 votos afirmativos,1 voto negativo y 5 abstenciones. la iniciativa establece la trazabilidad integral, obligatoria y en tiempo real de todas las especialidades medicinales consideradas medicamentos de alto riesgo. la entrada tras el caso del fentanilo adulterado… ">
+        <td class="tema-col"><b>3</b> · 4 medios</td>
+        <td class="num">21:11</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/tras-el-caso-del-fentanilo-adulterado-diputados-dio-media-sancion-a-la-creacion-de-un-sistema-de-trazabilidad-de-medicamentos/" target="_blank" rel="noopener">Tras el caso del fentanilo adulterado, Diputados dio media sanción a la creación de un Sistema de Trazabilidad de Medicamentos</a><div class="baj">El proyecto resultó aprobado con 241 votos afirmativos,1 voto negativo y 5 abstenciones. La iniciativa establece la trazabilidad integral, obligatoria y en tiempo real de todas las especialidades medicinales consideradas Medicamentos de Alto Riesgo. La entrada Tras el caso del fentanilo adulterado…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="diputados aprobó un sistema de trazabilidad de medicamentos de alto riesgo, como el fentanilo el proyecto sancionado en la cámara baja busca “establecer el deber de notificación inmediata por parte de las instituciones de salud públicas y privadas respecto del uso de medicamentos de alto riesgo, la ocurrencia de brotes infecciosos intrahospitalarios y la aparición de eventos adversos graves… ">
+        <td class="tema-col"></td>
+        <td class="num">07:44</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/diputados-aprobo-sistema-trazabilidad-medicamentos-alto-riesgo-fentanilo_1_13606167.html" target="_blank" rel="noopener">Diputados aprobó un sistema de trazabilidad de medicamentos de alto riesgo, como el fentanilo</a><div class="baj">El proyecto sancionado en la Cámara baja busca “establecer el deber de notificación inmediata por parte de las instituciones de salud públicas y privadas respecto del uso de medicamentos de alto riesgo, la ocurrencia de brotes infecciosos intrahospitalarios y la aparición de eventos adversos graves…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Letra P" data-texto="desafío a mario lugones: diputados aprobó un sistema de trazabilidad de medicamentos para evitar otro caso fentanilo  ">
+        <td class="tema-col"></td>
+        <td class="num">21:00</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/desafio-mario-lugones-diputados-aprobo-un-sistema-trazabilidad-medicamentos-evitar-otro-caso-fentanilo-n5427582" target="_blank" rel="noopener">Desafío a Mario Lugones: Diputados aprobó un sistema de trazabilidad de medicamentos para evitar otro caso Fentanilo</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="fentanilo contaminado: diputados aprobó un proyecto para rastrear medicamentos y acelerar las alertas sanitarias establece controles desde la fabricación hasta la aplicación a los pacientes y obliga a la anmat a activar alertas sanitarias en un plazo máximo de seis horas; la oposición acompañó, pero advirtió que la iniciativa no resuelve las fallas de fiscalización ">
+        <td class="tema-col"></td>
+        <td class="num">18:34</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/fentanilo-contaminado-diputados-aprobo-un-proyecto-para-rastrear-medicamentos-y-acelerar-las-alertas-nid21102026/" target="_blank" rel="noopener">Fentanilo contaminado: Diputados aprobó un proyecto para rastrear medicamentos y acelerar las alertas sanitarias</a><div class="baj">Establece controles desde la fabricación hasta la aplicación a los pacientes y obliga a la Anmat a activar alertas sanitarias en un plazo máximo de seis horas; la oposición acompañó, pero advirtió que la iniciativa no resuelve las fallas de fiscalización</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Letra P" data-texto="discapacidad: la libertad avanza cedió cambios y logró aprobar un proyecto nuevo con apoyo del peronismo  presupuesto 2027">
+        <td class="tema-col"><b>4</b> · 3 medios<br>Presupuesto 2027</td>
+        <td class="num">01:27</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/discapacidad-la-libertad-avanza-cedio-cambios-y-logro-aprobar-un-proyecto-nuevo-apoyo-del-peronismo-n5427585" target="_blank" rel="noopener">Discapacidad: La Libertad Avanza cedió cambios y logró aprobar un proyecto nuevo con apoyo del peronismo</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="el gobierno consiguió aprobar su proyecto de discapacidad con el respaldo del peronismo con 237 votos a favor, el bloque de la libertad avanza logró avanzar con su iniciativa después de una jornada marcada por negociaciones a contra reloj y varias concesiones a los espacios opositores presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">08:56</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-oficialismo-logro-el-apoyo-del-peronismo-y-se-encamina-a-aprobar-su-proyecto-de-discapacidad-nid21102026/" target="_blank" rel="noopener">El Gobierno consiguió aprobar su proyecto de discapacidad con el respaldo del peronismo</a><div class="baj">Con 237 votos a favor, el bloque de La Libertad Avanza logró avanzar con su iniciativa después de una jornada marcada por negociaciones a contra reloj y varias concesiones a los espacios opositores</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Perfil" data-texto="negociaciones por discapacidad en diputados: lla suma cambios y el peronismo votaría a favor martín menem habría acordado con organizaciones del colectivo y el diputado dialoguista herrera ahuad cambios que le exigían al proyecto oficialista: pago a prestadores, requisitos para las pensiones y partidas en el presupuesto 2027. en el kirchnerismo votarían a favor para presionar al senado y… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:11</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/negociaciones-por-discapacidad-en-diputados-lla-suma-cambios-y-el-peronismo-votaria-a-favor.phtml" target="_blank" rel="noopener">Negociaciones por Discapacidad en Diputados: LLA suma cambios y el peronismo votaría a favor</a><div class="baj">Martín Menem habría acordado con organizaciones del colectivo y el diputado dialoguista Herrera Ahuad cambios que le exigían al proyecto oficialista: pago a prestadores, requisitos para las pensiones y partidas en el Presupuesto 2027. En el kirchnerismo votarían a favor para presionar al Senado y…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="discapacidad: el peronismo podría acompañar el proyecto libertario tras la negociación de nuevos cambios el oficialismo analiza sumar correcciones propuestas por el misionero oscar herrera ahuad y respaldadas por la oposición dura; en el pj discuten si insisten con la emergencia o avalan una salida negociada que tome buena parte de sus reclamos y blinde la norma con dos tercios presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">17:02</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/discapacidad-el-peronismo-podria-acompanar-el-proyecto-libertario-tras-la-negociacion-de-nuevos-nid21102026/" target="_blank" rel="noopener">Discapacidad: el peronismo podría acompañar el proyecto libertario tras la negociación de nuevos cambios</a><div class="baj">El oficialismo analiza sumar correcciones propuestas por el misionero Oscar Herrera Ahuad y respaldadas por la oposición dura; en el PJ discuten si insisten con la emergencia o avalan una salida negociada que tome buena parte de sus reclamos y blinde la norma con dos tercios</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="el explosivo tuit del gordo dan contra martín menem que volvió a agitar la interna libertaria daniel parisini, referente de las fuerzas del cielo, volvió a poner en escena las diferencias entre el sector que comanda santiago caputo y el presidente de la cámara de diputados. la disputa por el islam ya había provocado duros cruces dentro del oficialismo y hasta una intervención de javier… ">
+        <td class="tema-col"><b>5</b> · 2 medios</td>
+        <td class="num">20:34</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/explosivo-tuit-gordo-dan-martin-menem-volvio-agitar-interna-libertaria_0_gWK30iT3Ik.html" target="_blank" rel="noopener">El explosivo tuit del Gordo Dan contra Martín Menem que volvió a agitar la interna libertaria</a><div class="baj">Daniel Parisini, referente de Las Fuerzas del Cielo, volvió a poner en escena las diferencias entre el sector que comanda Santiago Caputo y el presidente de la Cámara de Diputados. La disputa por el islam ya había provocado duros cruces dentro del oficialismo y hasta una intervención de Javier…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="escala la interna libertaria por el islam: el gordo dan atacó a benegas lynch, el “prócer” de milei, y a martín menem el propagandista daniel parisini repudió un mensaje del referente libertario, quien pidió no vincular el terrorismo con la religión ">
+        <td class="tema-col"></td>
+        <td class="num">20:28</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/escala-la-interna-libertaria-por-el-islam-el-gordo-dan-ataco-a-benegas-lynch-el-procer-de-milei-y-a-nid21102026/" target="_blank" rel="noopener">Escala la interna libertaria por el Islam: el Gordo Dan atacó a Benegas Lynch, el “prócer” de Milei, y a Martín Menem</a><div class="baj">El propagandista Daniel Parisini repudió un mensaje del referente libertario, quien pidió no vincular el terrorismo con la religión</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="myriam bregman y luis petri tuvieron un tenso cruce por el islam que involucró a martín menem la legisladora del frente de izquierda apuntó al exministro de defensa de milei que habló de una “pérdida de valores” en europa; el rol del presidente de la cámara ">
+        <td class="tema-col"></td>
+        <td class="num">18:50</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-tenso-cruce-entre-myriam-bregman-y-luis-petri-por-el-islam-que-involucro-a-martin-menem-nid21102026/" target="_blank" rel="noopener">Myriam Bregman y Luis Petri tuvieron un tenso cruce por el islam que involucró a Martín Menem</a><div class="baj">La legisladora del Frente de Izquierda apuntó al exministro de Defensa de Milei que habló de una “pérdida de valores” en Europa; el rol del presidente de la cámara</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="el cruce a los gritos entre ajmechet y bregman, con intervención de menem  ">
+        <td class="tema-col"></td>
+        <td class="num">18:28</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/cruce-gritos-ajmechet-bregman-intervencion-menem_3_b4P5VKxSmW.html" target="_blank" rel="noopener">El cruce a los gritos entre Ajmechet y Bregman, con intervención de Menem</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="cómo fue el desenlace de la sesión en la que el oficialismo evitó una derrota silvana giudici fue la encargada de cerrar su discurso de cierre del debate con una moción con la que pidió volver el tema a comisión, propuesta que se aprobó por un margen ajustado. la entrada cómo fue el desenlace de la sesión en la que el oficialismo evitó una derrota se publicó primero en… ">
+        <td class="tema-col"><b>6</b> · 2 medios</td>
+        <td class="num">04:12</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/como-fue-el-desenlace-de-la-sesion-en-la-que-el-oficialismo-evito-una-derrota/" target="_blank" rel="noopener">Cómo fue el desenlace de la sesión en la que el oficialismo evitó una derrota</a><div class="baj">Silvana Giudici fue la encargada de cerrar su discurso de cierre del debate con una moción con la que pidió volver el tema a comisión, propuesta que se aprobó por un margen ajustado. La entrada Cómo fue el desenlace de la sesión en la que el oficialismo evitó una derrota se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="discapacidad: el oficialismo tuvo que dar marcha atrás para evitar otra derrota martín menem aceptó las modificaciones negociadas por herrera ahuad y unión por la patria. el texto incorpora fondos y garantías para las prestaciones. la amenaza del veto de milei sigue latente. ">
+        <td class="tema-col"></td>
+        <td class="num">00:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/22/discapacidad-el-oficialismo-tuvo-que-dar-marcha-atras-para-evitar-otra-derrota/" target="_blank" rel="noopener">Discapacidad: El oficialismo tuvo que dar marcha atrás para evitar otra derrota</a><div class="baj">Martín Menem aceptó las modificaciones negociadas por Herrera Ahuad y Unión por la Patria. El texto incorpora fondos y garantías para las prestaciones. La amenaza del veto de Milei sigue latente.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Perfil" data-texto="miércoles de marchas contra milei: ate va a olivos, discapacidad se planta en el congreso y los jubilados redoblan sus reclamos mientras el presidente está en españa, distintas organizaciones sociales y sindicales saldrán a la calle para rechazar el recorte de personal, exigir garantías para las prestaciones sociales y reclamar una recomposición de los ingresos frente a la inflación. leer más ">
+        <td class="tema-col"><b>7</b> · 2 medios</td>
+        <td class="num">10:57</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/miercoles-de-marchas-contra-milei-ate-va-a-olivos-discapacidad-se-planta-en-el-congreso-y-los-jubilados-redoblan-sus-reclamos.phtml" target="_blank" rel="noopener">Miércoles de marchas contra Milei: ATE va a Olivos, discapacidad se planta en el Congreso y los jubilados redoblan sus reclamos</a><div class="baj">Mientras el presidente está en España, distintas organizaciones sociales y sindicales saldrán a la calle para rechazar el recorte de personal, exigir garantías para las prestaciones sociales y reclamar una recomposición de los ingresos frente a la inflación. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Página/12" data-texto="el actor juan palomino marchó con los jubilados en el congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">21:03</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/21/el-actor-juan-palomino-marcho-con-los-jubilados-en-el-congreso/" target="_blank" rel="noopener">El actor Juan Palomino marchó con los jubilados en el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="fracasó un pedido para incorporar un proyecto para prorrogar la emergencia pediátrica fue solicitado por el diputado pablo yedlin, quien hizo mención especial a la situación del garrahan. el oficialismo sentó su postura. tampoco tuvo éxito un pedido sobre el programa remediar. la entrada fracasó un pedido para incorporar un proyecto para prorrogar la emergencia pediátrica se publicó… ">
+        <td class="tema-col"><b>8</b> · 2 medios</td>
+        <td class="num">13:24</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/fracaso-un-pedido-para-incorporar-un-proyecto-para-prorrogar-la-emergencia-pediatrica/" target="_blank" rel="noopener">Fracasó un pedido para incorporar un proyecto para prorrogar la emergencia pediátrica</a><div class="baj">Fue solicitado por el diputado Pablo Yedlin, quien hizo mención especial a la situación del Garrahan. El oficialismo sentó su postura. Tampoco tuvo éxito un pedido sobre el programa Remediar. La entrada Fracasó un pedido para incorporar un proyecto para prorrogar la emergencia pediátrica se publicó…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="C5N" data-texto="el gobierno aceptó incorporar cambios en el proyecto de soberanía nacional y lo llevará a diputados  ">
+        <td class="tema-col"></td>
+        <td class="num">18:41</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/el-gobierno-acepto-incorporar-cambios-el-proyecto-soberania-nacional-y-lo-llevara-diputados-n252219" target="_blank" rel="noopener">El Gobierno aceptó incorporar cambios en el proyecto de Soberanía Nacional y lo llevará a Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="el gas de alaska, una apuesta de décadas se cuela en la batalla por el senado en ee.uu.  ">
+        <td class="tema-col"><b>9</b> · 1 medio</td>
+        <td class="num">10:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-gas-de-alaska-una-apuesta-de-decadas-se-cuela-en-la-batalla-por-el-senado-en-ee-uu_0_liW63D2P83.html" target="_blank" rel="noopener">El gas de Alaska, una apuesta de décadas se cuela en la batalla por el Senado en EE.UU.</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="costos y misterios de los siete viajes que hizo javier milei a españa después de estados unidos, fue el país más visitado por el presidente; no fue recibido en la moncloa, el congreso ni el palacio real, pero participó en actos privados y de la ultraderecha ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">09:35</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/costos-y-misterios-de-los-siete-viajes-que-hizo-javier-milei-a-espana-nid22102026/" target="_blank" rel="noopener">Costos y misterios de los siete viajes que hizo Javier Milei a España</a><div class="baj">Después de Estados Unidos, fue el país más visitado por el Presidente; no fue recibido en La Moncloa, el Congreso ni el Palacio Real, pero participó en actos privados y de la ultraderecha</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="el pj prepara una nueva cumbre de unidad para ajustar la postura por las paso y el presupuesto el encuentro, similar al que tuvo lugar en agosto en el hotel emperador, se concretaría en breve. distintas posturas respecto a si el gobierno tiene los votos para suspender las primarias ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">09:12</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/22/el-pj-prepara-una-nueva-cumbre-de-unidad-para-ajustar-la-postura-por-las-paso-y-el-presupuesto/" target="_blank" rel="noopener">El PJ prepara una nueva cumbre de unidad para ajustar la postura por las PASO y el Presupuesto</a><div class="baj">El encuentro, similar al que tuvo lugar en agosto en el Hotel Emperador, se concretaría en breve. Distintas posturas respecto a si el Gobierno tiene los votos para suspender las Primarias</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Perfil" data-texto="&#34;la vida se va a extender a 200 años&#34; y el &#34;paraíso terrenal&#34;: las definiciones de la diputada libertaria laura soldano la representante cordobesa habló ante adultos mayores durante una recorrida por el sur de córdoba. vinculó el rumbo del gobierno con una vida más larga y con mayor seguridad. leer más ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">09:01</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/la-vida-se-va-a-extender-a-200-anos-y-el-paraiso-terrenal-las-definiciones-de-la-diputada-libertaria-laura-soldano.phtml" target="_blank" rel="noopener">&#34;La vida se va a extender a 200 años&#34; y el &#34;paraíso terrenal&#34;: Las definiciones de la diputada libertaria Laura Soldano</a><div class="baj">La representante cordobesa habló ante adultos mayores durante una recorrida por el sur de Córdoba. Vinculó el rumbo del Gobierno con una vida más larga y con mayor seguridad. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="qué dicen las últimas encuestas sobre las elecciones en estados unidos: el poder de trump en el congreso, en la cuerda floja  ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">07:50</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/internacionales/que-dicen-las-ultimas-encuestas-sobre-las-elecciones-en-estados-unidos-el-poder-de-trump-en-el-congreso-en-la-cuerda-floja/" target="_blank" rel="noopener">Qué dicen las últimas encuestas sobre las elecciones en Estados Unidos: el poder de Trump en el Congreso, en la cuerda floja</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="pilar ramírez volvió a ratificar el rumbo económico de la gestión de milei la jefa del bloque lla expresó su apoyo al mandatario y aseguró que &#34;no recuperás una economía destruida en tres años y este presidente lo está haciendo”. la entrada pilar ramírez volvió a ratificar el rumbo económico de la gestión de milei se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">07:45</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/pilar-ramirez-volvio-a-ratificar-el-rumbo-economico-de-la-gestion-de-milei/" target="_blank" rel="noopener">Pilar Ramírez volvió a ratificar el rumbo económico de la gestión de Milei</a><div class="baj">La jefa del bloque LLA expresó su apoyo al mandatario y aseguró que &#34;no recuperás una economía destruida en tres años y este presidente lo está haciendo”. La entrada Pilar Ramírez volvió a ratificar el rumbo económico de la gestión de Milei se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="lejos de milei, en la coalición cívica niegan un acuerdo con el peronismo y buscan sobrevivir a la polarización el partido fundado por elisa carrió corre el riesgo de perder representación parlamentaria. los legisladores admiten el panorama complicado y empiezan a explorar opciones. la variante bullrich. ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">06:01</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/lejos-milei-coalicion-civica-niegan-acuerdo-peronismo-buscan-sobrevivir-polarizacion_0_zMUul7bqcy.html" target="_blank" rel="noopener">Lejos de Milei, en la Coalición Cívica niegan un acuerdo con el peronismo y buscan sobrevivir a la polarización</a><div class="baj">El partido fundado por Elisa Carrió corre el riesgo de perder representación parlamentaria. Los legisladores admiten el panorama complicado y empiezan a explorar opciones. La variante Bullrich.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="TN" data-texto="discapacidad: cómo influyeron la iglesia, las organizaciones y los gobernadores en el acuerdo que logró el oficialismo  ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">05:00</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/22/discapacidad-como-influyeron-la-iglesia-las-organizaciones-y-los-gobernadores-en-el-acuerdo-que-logro-el-oficialismo/" target="_blank" rel="noopener">Discapacidad: cómo influyeron la Iglesia, las organizaciones y los gobernadores en el acuerdo que logró el oficialismo</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="región centro: reclamo conjunto por obras y competitividad los gobernadores de entre ríos, santa fe y córdoba coincidieron en la necesidad de impulsar una agenda común para fortalecer la infraestructura, mejorar la logística y potenciar la competitividad de una región que concentra cerca de la mitad de la producción agropecuaria del país. la entrada región… ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">01:27</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/region-centro-reclamo-conjunto-por-obras-y-competitividad/" target="_blank" rel="noopener">Región Centro: reclamo conjunto por obras y competitividad</a><div class="baj">Los gobernadores de Entre Ríos, Santa Fe y Córdoba coincidieron en la necesidad de impulsar una agenda común para fortalecer la infraestructura, mejorar la logística y potenciar la competitividad de una región que concentra cerca de la mitad de la producción agropecuaria del país. La entrada Región…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="TN" data-texto="una diputada australiana fue atropellada y sufrió la amputación de ambas piernas: la policía dijo que fue “un ataque intencional”  ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">01:19</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/10/21/una-diputada-australiana-fue-atropellada-y-sufrio-la-amputacion-de-ambas-piernas-la-policia-dijo-que-fue-un-ataque-intencional/" target="_blank" rel="noopener">Una diputada australiana fue atropellada y sufrió la amputación de ambas piernas: la policía dijo que fue “un ataque intencional”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="la legislatura porteña y la unión europea profundizan la cooperación institucional autoridades de la legislatura de la ciudad y representantes de la unión europea mantuvieron un encuentro de trabajo para avanzar en proyectos conjuntos vinculados con la innovación, la inteligencia artificial, el intercambio de buenas prácticas parlamentarias y la agenda cultural. la entrada la… ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">00:34</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/la-legislatura-portena-y-la-union-europea-profundizan-la-cooperacion-institucional/" target="_blank" rel="noopener">La Legislatura porteña y la Unión Europea profundizan la cooperación institucional</a><div class="baj">Autoridades de la Legislatura de la Ciudad y representantes de la Unión Europea mantuvieron un encuentro de trabajo para avanzar en proyectos conjuntos vinculados con la innovación, la inteligencia artificial, el intercambio de buenas prácticas parlamentarias y la agenda cultural. La entrada La…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Perfil" data-texto="el &#34;espíritu papal&#34; descomprime la guerra entre el pj y la ucr: la unicameral vuelve al recinto el 28 la sesión del 28 de octubre marcará el regreso al recinto tras semanas de alta tensión. el oficialismo y la oposición buscan bajar la espuma al conflicto político, pero persisten los cuestionamientos por la parálisis legislativa. leer más ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">00:22</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/cordoba/el-espiritu-papal-descomprime-la-guerra-entre-el-pj-y-la-ucr-la-unicameral-vuelve-al-recinto-el-28.phtml" target="_blank" rel="noopener">El &#34;espíritu papal&#34; descomprime la guerra entre el PJ y la UCR: la Unicameral vuelve al recinto el 28</a><div class="baj">La sesión del 28 de octubre marcará el regreso al recinto tras semanas de alta tensión. El oficialismo y la oposición buscan bajar la espuma al conflicto político, pero persisten los cuestionamientos por la parálisis legislativa. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="valdés apuntó contra la corte por la venta de tierras a extranjeros y pidió investigar operaciones tras un controvertido fallo el diputado nacional cuestionó una decisión del máximo tribunal vinculada a una causa impulsada por el cecim la plata y reclamó conocer qué operaciones inmobiliarias se concretaron durante los nueve días que transcurrieron entre dos resoluciones judiciales. además, solicitó informes a los registros… ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">00:17</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/22/valdes-apunto-contra-la-corte-por-la-venta-de-tierras-a-extranjeros-y-pidio-investigar-operaciones-tras-un-controvertido-fallo/" target="_blank" rel="noopener">Valdés apuntó contra la Corte por la venta de tierras a extranjeros y pidió investigar operaciones tras un controvertido fallo</a><div class="baj">El diputado nacional cuestionó una decisión del máximo tribunal vinculada a una causa impulsada por el CECIM La Plata y reclamó conocer qué operaciones inmobiliarias se concretaron durante los nueve días que transcurrieron entre dos resoluciones judiciales. Además, solicitó informes a los registros…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="candidatos al senado por michigan, el-sayed y rogers, chocan por trump e irán en debate  ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">23:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/candidatos-al-senado-por-michigan-el-sayed-y-rogers-chocan-por-trump-e-iran-en-debate_0_S4oQcmHvhn.html" target="_blank" rel="noopener">Candidatos al Senado por Michigan, El-Sayed y Rogers, chocan por Trump e Irán en debate</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="el senado comenzó a debatir un régimen para regular el cierre de minas las comisiones de minería y de ambiente iniciaron el análisis de dos proyectos que buscan incorporar al código de minería un marco normativo para la etapa final de los yacimientos, con obligaciones ambientales, financieras y mecanismos de control para las empresas. la entrada el senado comenzó a… ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">23:12</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/el-senado-comenzo-a-debatir-un-regimen-para-regular-el-cierre-de-minas/" target="_blank" rel="noopener">El Senado comenzó a debatir un régimen para regular el cierre de minas</a><div class="baj">Las comisiones de Minería y de Ambiente iniciaron el análisis de dos proyectos que buscan incorporar al Código de Minería un marco normativo para la etapa final de los yacimientos, con obligaciones ambientales, financieras y mecanismos de control para las empresas. La entrada El Senado comenzó a…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="media sanción a la transferencia de inmuebles a la provincia del chaco la iniciativa propone transferir el inmueble del centro de acopio y embarque barranqueras –caeb–, ex junta nacional de granos, ubicado en la localidad de barranqueras, departamento san fernando, provincia del chaco. la entrada media sanción a la transferencia de inmuebles a la provincia del chaco… ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">20:52</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/media-sancion-a-la-transferencia-de-inmuebles-a-la-provincia-del-chaco/" target="_blank" rel="noopener">Media sanción a la transferencia de inmuebles a la provincia del Chaco</a><div class="baj">La iniciativa propone transferir el inmueble del Centro de Acopio y Embarque Barranqueras –CAEB–, ex Junta Nacional de Granos, ubicado en la localidad de Barranqueras, departamento San Fernando, provincia del Chaco. La entrada Media sanción a la transferencia de inmuebles a la provincia del Chaco…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="La Política Online" data-texto="milei se brotó contra clarín porque patricia blanqueó sus aspiraciones presidenciales en tn la senadora dijo que &#34;está preparada&#34; para ser presidenta. en privado dice que en 2027 juega &#34;sí o sí&#34;. ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">20:08</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/milei-se-broto-contra-clarin-porque-patricia-blanqueo-sus-aspiraciones-presidenciales-en-tn-842/" target="_blank" rel="noopener">Milei se brotó contra Clarín porque Patricia blanqueó sus aspiraciones presidenciales en TN</a><div class="baj">La senadora dijo que &#34;está preparada&#34; para ser presidenta. En privado dice que en 2027 juega &#34;sí o sí&#34;.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="análisis ap: muchos estados que decidirán el control del senado registran aumento de voto anticipado  ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">19:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/analisis-ap-muchos-estados-que-decidiran-el-control-del-senado-registran-aumento-de-voto-anticipado_0_pcKeKicxjL.html" target="_blank" rel="noopener">Análisis AP: Muchos estados que decidirán el control del Senado registran aumento de voto anticipado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="buscan avanzar con una ley de protección de la niñez y un registro nacional de deudores alimentarios en un plenario de comisiones del senado se debatieron iniciativas vinculadas a la prevención de la violencia contra niños y adolescentes y a la unificación de la información sobre incumplimiento de cuotas alimentarias. luego, la comisión de población y desarrollo humano analizó más de una veintena… ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">19:04</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/buscan-avanzar-con-una-ley-de-proteccion-de-la-ninez-y-un-registro-nacional-de-deudores-alimentarios/" target="_blank" rel="noopener">Buscan avanzar con una ley de protección de la niñez y un registro nacional de deudores alimentarios</a><div class="baj">En un plenario de comisiones del Senado se debatieron iniciativas vinculadas a la prevención de la violencia contra niños y adolescentes y a la unificación de la información sobre incumplimiento de cuotas alimentarias. Luego, la Comisión de Población y Desarrollo Humano analizó más de una veintena…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="relaciones exteriores avanzó con cuatro acuerdos internacionales y recibió a funcionarios del gobierno la comisión del senado analizó convenios vinculados al transporte aéreo, el comercio exterior y la participación argentina en organismos internacionales. tras las exposiciones de funcionarios nacionales, las iniciativas quedaron en condiciones de ser firmadas por los legisladores. la entrada… ">
+        <td class="tema-col"><b>28</b> · 1 medio</td>
+        <td class="num">18:57</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/relaciones-exteriores-avanzo-con-cuatro-acuerdos-internacionales-y-recibio-a-funcionarios-del-gobierno/" target="_blank" rel="noopener">Relaciones Exteriores avanzó con cuatro acuerdos internacionales y recibió a funcionarios del Gobierno</a><div class="baj">La comisión del Senado analizó convenios vinculados al transporte aéreo, el comercio exterior y la participación argentina en organismos internacionales. Tras las exposiciones de funcionarios nacionales, las iniciativas quedaron en condiciones de ser firmadas por los legisladores. La entrada…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="salud mental: senadores del pj díscolo firmaron un dictamen de minoría y permiten que el tema llegue al recinto los ahora ex kirchneristas guillermo andrada, carolina moisés y sandra mendoza retuvieron la rúbrica de un despacho hasta esta tarde. consumado dicho acto, el del oficialismo y aliados se convirtió en el de mayoría que, no obstante, tiene varias disidencias y nadie asegura votos de cara a una… ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">18:33</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/21/salud-mental-senadores-del-pj-discolo-firmaron-un-dictamen-de-minoria-y-permiten-que-el-tema-llegue-al-recinto/" target="_blank" rel="noopener">Salud mental: senadores del PJ díscolo firmaron un dictamen de minoría y permiten que el tema llegue al recinto</a><div class="baj">Los ahora ex kirchneristas Guillermo Andrada, Carolina Moisés y Sandra Mendoza retuvieron la rúbrica de un despacho hasta esta tarde. Consumado dicho acto, el del oficialismo y aliados se convirtió en el de mayoría que, no obstante, tiene varias disidencias y nadie asegura votos de cara a una…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Perfil" data-texto="karina milei se reunió con el embajador de estados unidos antes de la llegada de dos funcionarios de trump la secretaria general de la presidencia y peter lamelas analizaron la relación bilateral, las inversiones y el contexto político y económico argentino. el encuentro se produjo antes de la visita de christopher landau y juan pablo segura, en medio de las diferencias por el proyecto de ley de defensa… ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">17:13</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/karina-milei-se-reunio-con-el-embajador-de-estados-unidos-antes-de-la-llegada-de-dos-funcionarios-de-trump.phtml" target="_blank" rel="noopener">Karina Milei se reunió con el embajador de Estados Unidos antes de la llegada de dos funcionarios de Trump</a><div class="baj">La secretaria general de la Presidencia y Peter Lamelas analizaron la relación bilateral, las inversiones y el contexto político y económico argentino. El encuentro se produjo antes de la visita de Christopher Landau y Juan Pablo Segura, en medio de las diferencias por el proyecto de Ley de Defensa…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="promueven el compre nacional en la plataforma del bapro la iniciativa busca que provincia compras sea una herramienta estratégica para promover el consumo de productos nacionales y contribuir al sostenimiento del entramado industrial. la entrada promueven el compre nacional en la plataforma del bapro se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">17:11</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/promueven-el-compre-nacional-en-la-plataforma-del-bapro/" target="_blank" rel="noopener">Promueven el Compre Nacional en la plataforma del BAPRO</a><div class="baj">La iniciativa busca que Provincia Compras sea una herramienta estratégica para promover el consumo de productos nacionales y contribuir al sostenimiento del entramado industrial. La entrada Promueven el Compre Nacional en la plataforma del BAPRO se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Perfil" data-texto="presidente del frente renovador sobre candidaturas 2027 y 2031: &#34;massa tiene tiempo, pero la argentina no&#34; el diputado nacional y presidente del frente renovador aseguró que el exministro de economía trabaja de forma &#34;artesanal&#34; por la unidad del peronismo y lo postuló como el mejor candidato para 2027. leer más ">
+        <td class="tema-col"><b>32</b> · 1 medio</td>
+        <td class="num">17:00</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/presidente-del-frente-renovador-sobre-candidaturas-2027-y-2031-massa-tiene-tiempo-pero-la-argentina-no-modof.phtml" target="_blank" rel="noopener">Presidente del Frente Renovador sobre candidaturas 2027 y 2031: &#34;Massa tiene tiempo, pero la Argentina no&#34;</a><div class="baj">El diputado nacional y presidente del Frente Renovador aseguró que el exministro de Economía trabaja de forma &#34;artesanal&#34; por la unidad del peronismo y lo postuló como el mejor candidato para 2027. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Política Online" data-texto="tras una licitación exprés, el gobierno le adjudica a live nation la misa del papa por 8300 millones la empresa fue la única oferente para organizar la misa y la vigilia de jóvenes en palermo. ">
+        <td class="tema-col"><b>33</b> · 1 medio</td>
+        <td class="num">16:00</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/visita-del-papa-nacion-lanzo-una-licitacion-por-8300-millones-y-solo-dio-5-dias-para-presentar-los-pliegos-8743/" target="_blank" rel="noopener">Tras una licitación exprés, el gobierno le adjudica a Live Nation la misa del Papa por 8300 millones</a><div class="baj">La empresa fue la única oferente para organizar la Misa y la Vigilia de Jóvenes en Palermo.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="elecciones en estados unidos: en alaska, dan sullivan apoya a dan sullivan contra dan sullivan por un escaño en el senado  ">
+        <td class="tema-col"><b>34</b> · 1 medio</td>
+        <td class="num">15:56</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/elecciones-estados-unidos-alaska-dan-sullivan-apoya-dan-sullivan-dan-sullivan-escano-senado_0_wMJKJZUC08.html" target="_blank" rel="noopener">Elecciones en Estados Unidos: en Alaska, Dan Sullivan apoya a Dan Sullivan contra Dan Sullivan por un escaño en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="para luayza: “es importante que se avance con el uso de las armas menos letales” “esperemos que prontamente las comisiones continúen debatiendo este expediente y que en breve se aprueben en el recinto”, dijo el diputado de nuevos aires. la entrada para luayza: “es importante que se avance con el uso de las armas menos letales” se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>35</b> · 1 medio</td>
+        <td class="num">15:53</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/para-luayza-es-importante-que-se-avance-con-el-uso-de-las-armas-menos-letales/" target="_blank" rel="noopener">Para Luayza: “es importante que se avance con el uso de las armas menos letales”</a><div class="baj">“Esperemos que prontamente las comisiones continúen debatiendo este expediente y que en breve se aprueben en el recinto”, dijo el diputado de Nuevos Aires. La entrada Para Luayza: “es importante que se avance con el uso de las armas menos letales” se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="el massismo forzó la aprobación de &#34;las taser&#34; con dispares apoyos del bloque de up una propuesta histórica del fr para la provincia de buenos aires dio un importante primer a partir de obtener despacho favorable en la comisión de seguridad de la cámara de diputados. la entrada el massismo forzó la aprobación de &#34;las taser&#34; con dispares apoyos del bloque de up se publicó primero… ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">15:44</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/el-massismo-forzo-la-aprobacion-de-las-taser-con-dispares-apoyos-del-bloque-de-up/" target="_blank" rel="noopener">El massismo forzó la aprobación de &#34;las Taser&#34; con dispares apoyos del bloque de UP</a><div class="baj">Una propuesta histórica del FR para la provincia de Buenos Aires dio un importante primer a partir de obtener despacho favorable en la Comisión de Seguridad de la Cámara de Diputados. La entrada El massismo forzó la aprobación de &#34;las Taser&#34; con dispares apoyos del bloque de UP se publicó primero…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Letra P" data-texto="discapacidad: up quiere apoyar el acuerdo de martín menem con aliados para presionar a la casa rosada  ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">15:43</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/discapacidad-up-quiere-apoyar-el-acuerdo-martin-menem-aliados-presionar-la-casa-rosada-n5427554" target="_blank" rel="noopener">Discapacidad: UP quiere apoyar el acuerdo de Martín Menem con aliados para presionar a la Casa Rosada</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="patricia bullrich advirtió sobre el aislamiento de javier milei y pidió un acuerdo político la jefa del bloque de la libertad avanza en el senado pidió acelerar las negociaciones con gobernadores y sectores del peronismo no kirchnerista para garantizar la gobernabilidad. ">
+        <td class="tema-col"><b>38</b> · 1 medio</td>
+        <td class="num">14:56</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/patricia-bullrich-advirtio-el-aislamiento-javier-milei-y-pidio-un-acuerdo-politico-n6336407" target="_blank" rel="noopener">Patricia Bullrich advirtió sobre el aislamiento de Javier Milei y pidió un acuerdo político</a><div class="baj">La jefa del bloque de La Libertad Avanza en el Senado pidió acelerar las negociaciones con gobernadores y sectores del peronismo no kirchnerista para garantizar la gobernabilidad.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Ámbito" data-texto="viajes al exterior, $5 millones en efectivo y favores políticos: los nuevos sobornos que complican a diego spagnuolo un nuevo dictamen fiscal reconstruyó cómo el empresario miguel ángel calvete habría financiado un viaje del exdirector de la agencia nacional de discapacidad a israel, con pasajes, hoteles y seguro médico. también detectó transferencias vinculadas a la compra de los tickets y la intervención de una… ">
+        <td class="tema-col"><b>39</b> · 1 medio</td>
+        <td class="num">14:41</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/viajes-al-exterior-5-millones-efectivo-y-favores-politicos-los-nuevos-sobornos-que-complican-diego-spagnuolo-n6336406" target="_blank" rel="noopener">Viajes al exterior, $5 millones en efectivo y favores políticos: los nuevos sobornos que complican a Diego Spagnuolo</a><div class="baj">Un nuevo dictamen fiscal reconstruyó cómo el empresario Miguel Ángel Calvete habría financiado un viaje del exdirector de la Agencia Nacional de Discapacidad a Israel, con pasajes, hoteles y seguro médico. También detectó transferencias vinculadas a la compra de los tickets y la intervención de una…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Perfil" data-texto="sin sancionar leyes estructurales, la cámara de diputados bonaerense sesionó sólo seis veces en el año los diputados de la provincia aprobaron más de 550 declaraciones simbólicas de fiestas municipales y beneplácitos, pero ninguna norma o reforma de peso. la interna entre el kirchnerismo y el kicillofismo, clave en la parálisis legislativa. leer más ">
+        <td class="tema-col"><b>40</b> · 1 medio</td>
+        <td class="num">14:27</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/politica/paralisis-legislativa-pba-camara-diputados-bonaerense-sesiono-solo-seis-veces-a60.phtml" target="_blank" rel="noopener">Sin sancionar leyes estructurales, la Cámara de Diputados bonaerense sesionó sólo seis veces en el año</a><div class="baj">Los diputados de la provincia aprobaron más de 550 declaraciones simbólicas de fiestas municipales y beneplácitos, pero ninguna norma o reforma de peso. La interna entre el kirchnerismo y el kicillofismo, clave en la parálisis legislativa. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Perfil" data-texto="oscar zago: &#34;bullrich manifestó estar en contra con la línea oficial con discapacidad y eso hizo estallar la interna libertaria&#34; el presidente del bloque del mid cuestionó el &#34;doble discurso&#34; de los legisladores que responden a patricia bullrich de cara al debate en diputados para reformar el régimen de discapacidad. además, propuso una vía intermedia para aliviar el endeudamiento de las familias sin intervenir de forma… ">
+        <td class="tema-col"><b>41</b> · 1 medio</td>
+        <td class="num">14:02</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/oscar-zago-bullrich-manifesto-estar-en-contra-con-la-linea-oficial-con-discapacidad-y-eso-hizo-estallar-la-interna-libertaria-modof.phtml" target="_blank" rel="noopener">Oscar Zago: &#34;Bullrich manifestó estar en contra con la línea oficial con Discapacidad y eso hizo estallar la interna libertaria&#34;</a><div class="baj">El presidente del bloque del MID cuestionó el &#34;doble discurso&#34; de los legisladores que responden a Patricia Bullrich de cara al debate en Diputados para reformar el régimen de discapacidad. Además, propuso una vía intermedia para aliviar el endeudamiento de las familias sin intervenir de forma…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Perfil" data-texto="desmienten que lilita carrió evalúe ser candidata de kicillof en caba en redes sociales, el legislador maximiliano ferraro de la coalición cívica negó una alianza entre la dirigente y el gobernador bonaerense. leer más ">
+        <td class="tema-col"><b>42</b> · 1 medio</td>
+        <td class="num">13:46</td>
+        <td>Perfil</td>
+        <td><a href="https://noticias.perfil.com/noticias/politica/desmienten-que-lilita-carrio-evalue-ser-candidata-de-kicillof-en-caba.phtml" target="_blank" rel="noopener">Desmienten que Lilita Carrió evalúe ser candidata de Kicillof en CABA</a><div class="baj">En redes sociales, el legislador Maximiliano Ferraro de la Coalición Cívica negó una alianza entre la dirigente y el gobernador bonaerense. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Perfil" data-texto="quién es el funcionario que habló de &#34;estudiantes eternos&#34; y tardó 15 años en recibirse en la comisión de presupuesto y hacienda de la cámara de diputados, la legisladora mariela coletta interpeló al secretario de educación de javier milei. leer más ">
+        <td class="tema-col"><b>43</b> · 1 medio</td>
+        <td class="num">13:44</td>
+        <td>Perfil</td>
+        <td><a href="https://noticias.perfil.com/noticias/politica/quien-es-el-funcionario-que-hablo-de-estudiantes-eternos-y-tardo-15-anos-en-recibirse.phtml" target="_blank" rel="noopener">Quién es el funcionario que habló de &#34;estudiantes eternos&#34; y tardó 15 años en recibirse</a><div class="baj">En la Comisión de Presupuesto y Hacienda de la Cámara de Diputados, la legisladora Mariela Coletta interpeló al secretario de Educación de Javier Milei. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="no prosperó un apartamiento de reglamento sobre la ley segovia, pero hubo un compromiso para tratarla la semana próxima la iniciativa busca impedir que la prescripción beneficie a acusados de abuso sexual infantil que permanezcan prófugos o rebeldes. pese al respaldo de legisladores de distintos bloques y al compromiso de avanzar en comisión, la cámara rechazó el apartamiento de reglamento por 121 votos a favor y… ">
+        <td class="tema-col"><b>44</b> · 1 medio</td>
+        <td class="num">12:56</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/no-prospero-un-apartamiento-de-reglamento-sobre-la-ley-segovia-pero-hubo-un-compromiso-para-tratarla-la-semana-proxima/" target="_blank" rel="noopener">No prosperó un apartamiento de reglamento sobre la Ley Segovia, pero hubo un compromiso para tratarla la semana próxima</a><div class="baj">La iniciativa busca impedir que la prescripción beneficie a acusados de abuso sexual infantil que permanezcan prófugos o rebeldes. Pese al respaldo de legisladores de distintos bloques y al compromiso de avanzar en comisión, la Cámara rechazó el apartamiento de reglamento por 121 votos a favor y…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Perfil" data-texto="margarita stolbizer: &#34;hotesur y los sauces tienen que estar juntas porque son causas conectadas y para ahorrar tiempo&#34; la diputada nacional y denunciante originaria de la causa analizó la unificación del juicio oral contra la expresidenta cristina kirchner. además, fue crítica con el funcionamiento del poder judicial, el consejo de la magistratura y la corte suprema. leer más ">
+        <td class="tema-col"><b>45</b> · 1 medio</td>
+        <td class="num">12:25</td>
+        <td>Perfil</td>
+        <td><a href="https://www.perfil.com/noticias/modo-fontevecchia/margarita-stolbizer-hotesur-y-los-sauces-tienen-que-estar-juntas-porque-son-causas-conectadas-y-para-ahorrar-tiempo-modof.phtml" target="_blank" rel="noopener">Margarita Stolbizer: &#34;Hotesur y Los Sauces tienen que estar juntas porque son causas conectadas y para ahorrar tiempo&#34;</a><div class="baj">La diputada nacional y denunciante originaria de la causa analizó la unificación del juicio oral contra la expresidenta Cristina Kirchner. Además, fue crítica con el funcionamiento del Poder Judicial, el Consejo de la Magistratura y la Corte Suprema. Leer más</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="trump viaja a carolina del sur para respaldar la campaña de la hermana del senador graham  ">
+        <td class="tema-col"><b>46</b> · 1 medio</td>
+        <td class="num">12:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/trump-viaja-a-carolina-del-sur-para-respaldar-la-campana-de-la-hermana-del-senador-graham_0_TmWGgjTKYu.html" target="_blank" rel="noopener">Trump viaja a Carolina del Sur para respaldar la campaña de la hermana del senador Graham</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="ley de biocombustibles: tras la media sanción en el senado, sigue la disputa entre las pymes y las exportadoras de biodiésel  ">
+        <td class="tema-col"><b>47</b> · 1 medio</td>
+        <td class="num">11:56</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/rural/ley-biocombustibles-media-sancion-senado-sigue-disputa-pymes-exportadoras-biodiesel_0_0EKdlfj93Y.html" target="_blank" rel="noopener">Ley de Biocombustibles: tras la media sanción en el Senado, sigue la disputa entre las pymes y las exportadoras de biodiésel</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Perfil" data-texto="myriam bregman contra maría corina machado: “los trapos de piso se descartan” la dirigente de izquierda reaccionó al pedido de la opositora venezolana por su exclusión del diálogo que impulsa washington sobre el futuro del país. leer más ">
+        <td class="tema-col"><b>48</b> · 1 medio</td>
+        <td class="num">11:35</td>
+        <td>Perfil</td>
+        <td><a href="https://noticias.perfil.com/noticias/politica/myriam-bregman-contra-maria-corina-machado-los-trapos-de-piso-se-descartan.phtml" target="_blank" rel="noopener">Myriam Bregman contra María Corina Machado: “Los trapos de piso se descartan”</a><div class="baj">La dirigente de izquierda reaccionó al pedido de la opositora venezolana por su exclusión del diálogo que impulsa Washington sobre el futuro del país. Leer más</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="diputado de lla le exigió al gobierno de kicillof que intervenga en “la crisis de inseguridad” “creo que no se hacen cargo del gobierno de la provincia de buenos aires; ya pasó con el expresidente alberto fernández, ahora lo mismo en su juego interno”, dijo. la entrada diputado de lla le exigió al gobierno de kicillof que intervenga en “la crisis de inseguridad” se publicó primero en… ">
+        <td class="tema-col"><b>49</b> · 1 medio</td>
+        <td class="num">11:20</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/21/diputado-de-lla-le-exigio-al-gobierno-de-kicillof-que-intervenga-en-la-crisis-de-inseguridad/" target="_blank" rel="noopener">Diputado de LLA le exigió al gobierno de Kicillof que intervenga en “la crisis de inseguridad”</a><div class="baj">“Creo que no se hacen cargo del gobierno de la provincia de Buenos Aires; ya pasó con el expresidente Alberto Fernández, ahora lo mismo en su juego interno”, dijo. La entrada Diputado de LLA le exigió al gobierno de Kicillof que intervenga en “la crisis de inseguridad” se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Ámbito" data-texto="biocombustibles: reparto del mercado genera ruido en diputados entre las provincias  ">
+        <td class="tema-col"><b>50</b> · 1 medio</td>
+        <td class="num">10:52</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/biocombustibles-reparto-del-mercado-genera-ruido-diputados-las-provincias-n6336171" target="_blank" rel="noopener">Biocombustibles: reparto del mercado genera ruido en Diputados entre las provincias</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-10-22 a las 10:43 hs (hora argentina) ·
+    <span class="estado-ok">18 respondieron bien</span> · <span class="estado-mal">3 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Senado (agenda)</b>: https://www.senado.gob.ar/parlamentario/Agenda/AgendaWeb/{dd},{mm},{aaaa}?agendaCompleta: ConnectionError: no se pudo leer robots.txt (ConnectError: [Errno -3] Temporary failure in name resolution)</li><li><span class="estado-mal">✕</span> <b>Senado (prensa)</b>: https://www.senado.gob.ar/: ConnectionError: no se pudo leer robots.txt (ConnectError: [Errno -3] Temporary failure in name resolution)</li><li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: https://www.boletinoficial.gob.ar/seccion/primera: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: timed out)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
