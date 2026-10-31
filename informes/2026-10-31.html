@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-10-31</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Sábado 31 de octubre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 11:28 hs · 20/21 fuentes respondieron · <a href="#fuentes">1 caída</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">57</div>
+      <div class="sub ">▼ -13% vs. promedio de 7 días (66)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">33</div>
+    <div class="sub">7 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">13</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>1</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>7</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 10 notas</span>
+    </div>
+    <h3><a href="https://tn.com.ar/videos/politica/2026/10/30/martin-menem-descarto-una-interna-en-lla-y-le-marco-la-cancha-a-patricia-bullrich-el-unico-candidato-es-javier-milei/" target="_blank" rel="noopener">Martín Menem descartó una interna en LLA y le marcó la cancha a Patricia Bullrich: “El único candidato es Javier Milei”</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Sesión</span>
+    </div>
+    <div class="medios">
+<a href="https://tn.com.ar/videos/politica/2026/10/30/martin-menem-descarto-una-interna-en-lla-y-le-marco-la-cancha-a-patricia-bullrich-el-unico-candidato-es-javier-milei/" target="_blank" rel="noopener" title="Martín Menem descartó una interna en LLA y le marcó la cancha a Patricia Bullrich: “El único candidato es Javier Milei”">TN ↗</a><a href="https://tn.com.ar/politica/2026/10/30/mientras-el-gobierno-busca-contener-las-tensiones-internas-patricia-bullrich-relativiza-el-mensaje-de-martin-menem-sobre-2027/" target="_blank" rel="noopener" title="Mientras el Gobierno busca contener las tensiones internas, Patricia Bullrich relativiza el mensaje de Martín Menem sobre 2027">TN ↗</a><a href="https://www.ambito.com/politica/en-medio-la-interna-del-congreso-martin-menem-marca-la-cancha-el-unico-candidato-es-javier-milei-n6339996" target="_blank" rel="noopener" title="En medio de la interna del Congreso, Martín Menem marca la cancha: &#34;El único candidato es Javier Milei&#34;">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/10/30/crece-la-tension-en-el-gobierno-martin-menem-rechazo-el-plan-b-de-bullrich-y-dijo-que-no-habra-internas/" target="_blank" rel="noopener" title="Crece la tensión en el Gobierno: Martín Menem rechazó el &#34;Plan B&#34; de Bullrich y dijo que no habrá internas">Infobae ↗</a><a href="https://www.a24.com/politica/martin-menem-el-unico-candidato-la-libertad-avanza-la-presidencia-es-javier-milei-n1611861" target="_blank" rel="noopener" title="Martín Menem: &#34;El único candidato de La Libertad Avanza a la presidencia es Javier Milei&#34;">A24 ↗</a><a href="https://www.c5n.com/politica/martin-menem-medio-las-especulaciones-electorales-patricia-bullrich-no-hay-dos-candidatos-la-presidencia-lla-n253011" target="_blank" rel="noopener" title="Martín Menem, en medio de las especulaciones electorales de Patricia Bullrich: &#34;No hay dos candidatos a la presidencia en LLA&#34;">C5N ↗</a><a href="https://www.clarin.com/politica/candidatos-libertad-avanza-contundente-mensaje-martin-menem-medio-tension-bullrich-replico-milei_0_TOp4oc3JkC.html" target="_blank" rel="noopener" title="&#34;No hay dos candidatos en La Libertad Avanza&#34;, el contundente mensaje de Martín Menem en medio de la tensión con Bullrich que replicó Milei">Clarín ↗</a><a href="https://www.c5n.com/politica/la-interna-la-casa-rosada-patricia-bullrich-la-conduccion-del-bloque-libertario-el-senado-n253007" target="_blank" rel="noopener" title="La interna de la Casa Rosada con Patricia Bullrich por la conducción del bloque libertario en el Senado">C5N ↗</a><a href="https://www.lanacion.com.ar/politica/martin-menem-no-hay-dos-candidatos-en-la-libertad-avanza-a-la-presidencia-el-unico-es-javier-milei-nid30102026/" target="_blank" rel="noopener" title="Martín Menem: “No hay dos candidatos en La Libertad Avanza a la presidencia; el único es Javier Milei”">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/10/30/martin-menem-descarto-una-interna-en-lla-y-le-marco-la-cancha-a-patricia-bullrich-el-unico-candidato-es-javier-milei/" target="_blank" rel="noopener" title="Martín Menem descartó una competencia interna en LLA y le marcó la cancha a Bullrich: &#34;Es unánime, el único candidato es Javier Milei&#34;">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>5</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.pagina12.com.ar/2026/10/30/victoria-villarruel-lanzo-un-programa-de-creditos-a-tasa-cero-para-empleados-del-senado/" target="_blank" rel="noopener">Victoria Villarruel lanzó un programa de créditos a tasa cero para empleados del Senado</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.pagina12.com.ar/2026/10/30/victoria-villarruel-lanzo-un-programa-de-creditos-a-tasa-cero-para-empleados-del-senado/" target="_blank" rel="noopener" title="Victoria Villarruel lanzó un programa de créditos a tasa cero para empleados del Senado">Página/12 ↗</a><a href="https://www.c5n.com/politica/interna-el-gobierno-victoria-villarruel-lanzo-un-programa-alivio-trabajadores-del-senado-endeudados-n253071" target="_blank" rel="noopener" title="Interna en el Gobierno: Victoria Villarruel lanzó un programa de alivio para trabajadores del Senado endeudados">C5N ↗</a><a href="https://www.clarin.com/politica/victoria-villarruel-despega-vez-milei-otorgo-programa-creditos-tasa-cero-empleados-senado_0_ggumXB4XJR.html" target="_blank" rel="noopener" title="Victoria Villarruel se despega otra vez de Milei: otorgó un programa de créditos a tasa cero para empleados del Senado">Clarín ↗</a><a href="https://tn.com.ar/politica/2026/10/30/villarruel-lanzo-un-programa-de-alivio-financiero-para-los-trabajadores-del-senado-y-marco-otra-diferencia-con-milei/" target="_blank" rel="noopener" title="Victoria Villarruel lanzó un programa de alivio financiero para los trabajadores del Senado y marcó otra diferencia con Milei">TN ↗</a><a href="https://www.parlamentario.com/2026/10/30/villarruel-lanzo-un-programa-de-desendeudamiento-a-tasa-cero-para-los-empleados-del-senado/" target="_blank" rel="noopener" title="Villarruel lanzó un programa de desendeudamiento a tasa cero para los empleados del Senado">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+· 5 notas</span>
+    </div>
+    <h3><a href="https://www.senado.gob.ar/prensa/24583/noticias" target="_blank" rel="noopener">EL SENADO DIÓ MEDIA SANCIÓN A LA REFORMA DE LA LEY DE SALUD MENTAL</a></h3>
+<p class="bajada">Tras más de 11 horas de debate, también se aprobaron el Régimen de Incentivos para Inversiones Relevantes y el marco regulatorio del mercado de carbono. Además, prestó juramento la senadora Claudia López y se abordó una resolución para invitar al pap...</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.senado.gob.ar/prensa/24583/noticias" target="_blank" rel="noopener" title="EL SENADO DIÓ MEDIA SANCIÓN A LA REFORMA DE LA LEY DE SALUD MENTAL">Senado (prensa) ↗</a><a href="https://www.lanacion.com.ar/politica/congreso-pro-complica-al-gobierno-con-objeciones-al-presupuesto-2027-la-reforma-electoral-y-la-ley-nid30102026/" target="_blank" rel="noopener" title="Congreso: Pro complica al Gobierno con objeciones al Presupuesto 2027, la reforma electoral y la ley de biocombustibles">La Nación ↗</a><a href="https://www.parlamentario.com/2026/10/30/se-trabo-en-diputados-la-ley-de-biocombustibles-y-peligra-su-aprobacion/" target="_blank" rel="noopener" title="Se trabó en Diputados la ley de Biocombustibles y peligra su aprobación">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/10/30/mercados-de-carbono-de-que-se-trata-el-proyecto-que-tuvo-media-sancion-en-el-senado/" target="_blank" rel="noopener" title="Mercados de carbono: de qué se trata el proyecto que tuvo media sanción en el Senado">Parlamentario.com ↗</a><a href="https://tn.com.ar/politica/2026/10/29/el-senado-trata-la-ley-de-salud-mental-y-un-proyecto-de-incentivo-de-inversiones-para-grandes-empresas/" target="_blank" rel="noopener" title="El Senado aprobó cambios en la Ley de Salud Mental tras negociar con las provincias el financiamiento de los centros especializado">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.a24.com/politica/javier-milei-viaja-karina-y-martin-menem-neuquen-inaugurar-una-iglesia-evangelica-n1612043" target="_blank" rel="noopener">Javier Milei viaja con Karina y Martín Menem a Neuquén para inaugurar una iglesia evangélica</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.a24.com/politica/javier-milei-viaja-karina-y-martin-menem-neuquen-inaugurar-una-iglesia-evangelica-n1612043" target="_blank" rel="noopener" title="Javier Milei viaja con Karina y Martín Menem a Neuquén para inaugurar una iglesia evangélica">A24 ↗</a><a href="https://www.ambito.com/politica/javier-milei-viaja-neuquen-participar-la-inauguracion-un-templo-evangelico-n6339670" target="_blank" rel="noopener" title="Javier Milei viaja a Neuquén para participar de la inauguración de un templo evangélico">Ámbito ↗</a><a href="https://www.lanacion.com.ar/politica/los-milei-refuerzan-su-vinculo-con-la-iglesia-evangelica-antes-de-la-visita-del-papa-leon-xiv-nid31102026/" target="_blank" rel="noopener" title="Los Milei refuerzan su vínculo con la iglesia evangélica antes de la visita del papa León XIV">La Nación ↗</a><a href="https://www.infobae.com/politica/2026/10/31/milei-visita-neuquen-para-inaugurar-una-iglesia-evangelica-tensiones-internas-y-senales-de-cara-a-las-elecciones-2027/" target="_blank" rel="noopener" title="Milei visita Neuquén para inaugurar una iglesia evangélica: tensiones internas y señales de cara a las elecciones 2027">Infobae ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.cronista.com/economia-politica/se-estanco-el-acuerdo-lla-pro-frenos-en-el-congreso-internas-por-la-ciudad-y-que-dicen-en-gobierno/" target="_blank" rel="noopener">¿Se estancó el acuerdo LLA-PRO? Frenos en el Congreso, internas por la Ciudad y qué dicen en Gobierno</a></h3>
+<p class="bajada">“Se está avanzando, pero no al ritmo que quiere Macri”, dijeron desde el PRO. El partido se plantó con reclamos legislativos que frenaron dictámenes del oficialismo esta semana. En LLA creen que la demora es producto de la propia interna: “Que lo resuelvan ellos, no nos vamos a meter”.</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.cronista.com/economia-politica/se-estanco-el-acuerdo-lla-pro-frenos-en-el-congreso-internas-por-la-ciudad-y-que-dicen-en-gobierno/" target="_blank" rel="noopener" title="¿Se estancó el acuerdo LLA-PRO? Frenos en el Congreso, internas por la Ciudad y qué dicen en Gobierno">El Cronista ↗</a><a href="https://www.clarin.com/politica/factor-paso-tensiones-internas-macri-dijo-avanzo-acuerdo-gobierno_0_FCV7Kq5zVC.html" target="_blank" rel="noopener" title="El factor PASO y las tensiones internas: por qué Macri dijo que &#34;no se avanzó nada&#34; en un acuerdo con el Gobierno">Clarín ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4>Martes 3 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">11:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Economias y desarrollo regional</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; · ver temario</summary>INVITADOS. TEMAS VARIOS. Proyectos de resolución y declaración. A continuación, recibirán a referentes y representantes de organizaciones de productores, a fin de abordar: “Análisis de la asignación presupuestaria del Instituto Nacional de Tecnología Agropecuaria (INTA) y su impacto en el desarrollo regional.” · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1387/archivo/K1H5895E0J6BRSAS.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:30</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión informativa conjunta para presentar un mapeo sobre la situación de morosidad de las pymes en la Argentina</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Organizan los senadores nacionales Jorge M. Capitanich, presidente de la Comisión de Economías Regionales, Marcelo N. Lewandowski y Alicia Kirchner, presidenta de la Comisión de Población y Desarrollo Humano.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">13:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Cultura</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 4 - Anexo &#34;A&#34; · ver temario</summary>TEMAS VARIOS. Designación de autoridades. Declarase Lugar Histórico nacional a la “Casa museo Haroldo Conti”, ubicada en Tigre, provincia de Buenos Aires. Declárense Monumentos Históricos nacional a la Parroquia San Patricio, ubicada en la Ciudad Autónoma de Buenos Aires; a la Iglesia “San Francisco de Asís”, ubicada en la ciudad de La Plata, provincia de Buenos Aires; a la Ermita Monseñor Angelelli ubicada en la provincia de La Rioja; a distintos edificios ubicados en la provincia de Catamarca. Declarar Bien de Interés Histórico nacional a la librería y disquería Zivals ubicada en la Ciudad Autónoma de Buenos Aires; a los órganos y armonios ubicados en diferentes templos religiosos de la ciudad de Santiago del Estero. Declárense Patrimonio Cultural Inmaterial diferentes actividades… · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1389/archivo/ZX0KA0YXTSC0R8W6.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Mujeres y diversidad</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 2 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados referentes quienes expondrán sobre los aspectos del Proyecto de Ley de Presupuesto General de la Administración nacional vinculados con los asuntos de la competencia de esta comisión. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1385/archivo/3DA1G1XR6SCMJE5J.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Segunda jornada académica &#34;setenta aniversario de relaciones bilaterales indonesia-argentina&#34;</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · SALÓN AUDITORIO · ver temario</summary>Se realizará con la presencia del Embajador indonesio S.E Sulaiman Syarif, académicos, diputados, funcionarios y miembros de la sociedad civil.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Intereses maritimos, Fluviales, Pesqueros y portuarios</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 7 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados representantes de distintas entidades a fin de abordar aspectos vinculados con la Trazabilidad de la Pesca. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1381/archivo/B1WE893FJS04M82W.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 4 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Prevencion de adicciones y control del narcotrafico, Familias, Niñez y juventudes</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>Abordaje vinculado a consumos problemáticos en niños, niñas y adolescentes. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1388/archivo/FVC972T2EBTV45JH.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Asuntos municipales</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 7 - Anexo &#34;A&#34; · ver temario</summary>INVITADOS. TEMAS VARIOS. Régimen Federal de Áreas Metropolitanas. Proyectos de resolución y declaración. A continuación, recibirán funcionarios y referentes sanitarios a fin de analizar el estado del Programa Remediar, la coyuntura y reformulación del mismo. Además, concurrirán invitados y especialistas a fin de abordar Régimen de Áreas Metropolitanas. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1384/archivo/APR7Z1F7BSPR3KEP.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Relaciones exteriores y culto</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 2 - Anexo &#34;A&#34; · ver temario</summary>TEMAS VARIOS. Proyectos de ley por el cual se concede autorización a las/os ciudadanas/os argentinas/os para desempeñar el cargo de cónsul o vicecónsul. Proyectos de resolución y declaración. Ampliación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1383/archivo/X7A8TXVYJM72S6MQ.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Agricultura y ganaderia</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 6 - Anexo &#34;A&#34; · ver temario</summary>TEMAS VARIOS. Proyectos de declaración y resolución. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1382/archivo/9CWQZSGTWQSJYJET.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Mujeres y diversidad, Familias, Niñez y juventudes, De las personas mayores</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>INVITADOS. Fueron invitados diferentes expositores a fin de abordar la iniciativa del “Acuerdo nacional por los Cuidados”, impulsada por la Mesa Intersectorial “La Cocina de los Cuidados” · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1386/archivo/CPP3A977Q06H6X3C.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Presupuesto y Hacienda y de Población y Desarrollo Humano</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Proyectos de ley: Expte. CD-18/26: Proyecto de ley en revisión que prorroga hasta el 31 de diciembre de 2027 la Emergencia Nacional en Discapacidad —Ley 27.793—. Expte. S-1431/26, Fernández Sagasti: Proyecto de ley que prorroga la vigencia de su similar 27.793 —Emergencia Nacional en Discapacidad—. Expte. S-1484/26, Linares: Proyecto de ley que prorroga la Emergencia Nacional en Discapacidad —declarada por Ley 27.793— en todo el territorio nacional hasta el 31 de diciembre de 2027, inclusive.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">17:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Bicameral de la defensoria del pueblo</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Salón Arturo Illia - Palacio Legislativo · ver temario</summary>Continuación del proceso de selección e integración del Comité nacional para la Prevención de la Tortura y otros Tratos –Ley 26.827–. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1380/archivo/WYPXEPXHYYZN4KMW.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 66</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Sá 24: 64 notas">
+        <div class="c" style="height: 71.1%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 25: 29 notas">
+        <div class="c" style="height: 32.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 26: 40 notas">
+        <div class="c" style="height: 44.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 27: 63 notas">
+        <div class="c" style="height: 70.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 28: 88 notas">
+        <div class="c" style="height: 97.8%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 29: 86 notas">
+        <div class="c" style="height: 95.6%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 30: 90 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Sá 31: 57 notas">
+<span class="cap">57</span>        <div class="c" style="height: 63.3%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Sá 24</span><span class="">Do 25</span><span class="">Lu 26</span><span class="">Ma 27</span><span class="">Mi 28</span><span class="">Ju 29</span><span class="">Vi 30</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 11 hoy · promedio 16.7">
+        <span class="bar" style="width: 65.8%"></span><span class="v">11</span>
+<span class="tick" style="left: calc(100.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 7 hoy · promedio 8.6">
+        <span class="bar" style="width: 41.9%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(51.3% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 6 hoy · promedio 7.4">
+        <span class="bar" style="width: 35.9%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(44.4% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 6 hoy · promedio 4.9">
+        <span class="bar" style="width: 35.9%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(29.1% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 5 hoy · promedio 3.4">
+        <span class="bar" style="width: 29.9%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(20.5% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 5 hoy · promedio 1.6">
+        <span class="bar" style="width: 29.9%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(9.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 4 hoy · promedio 4.9">
+        <span class="bar" style="width: 23.9%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(29.1% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 4 hoy · promedio 1.0">
+        <span class="bar" style="width: 23.9%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(6.0% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 3 hoy · promedio 1.1">
+        <span class="bar" style="width: 17.9%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(6.8% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 2 hoy · promedio 0.9">
+        <span class="bar" style="width: 12.0%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(5.1% - 1px)"></span>      </span>
+      <span class="lbl" title="LN+">LN+</span>
+      <span class="track" data-tip="LN+: 2 hoy · promedio 0.4">
+        <span class="bar" style="width: 12.0%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(2.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 1.4">
+        <span class="bar" style="width: 6.0%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(8.5% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 1 hoy · promedio 3.1">
+        <span class="bar" style="width: 6.0%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(18.8% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Martín Menem descartó una interna en LLA y le marcó la cancha a Patricia Bullrich: “El único candidato es Javier Milei”">1. Martín Menem descartó una interna en LLA y le marcó la cancha a Patricia Bullrich: “El único candidato es Javier Milei”</span>
+      <span class="track" data-tip="Martín Menem descartó una interna en LLA y le marcó la cancha a Patricia Bullrich: “El único candidato es Javier Milei” — 10 notas, 7 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">10 (7)</span>
+      </span>
+      <span class="lbl" title="Victoria Villarruel lanzó un programa de créditos a tasa cero para empleados del Senado">2. Victoria Villarruel lanzó un programa de créditos a tasa cero para empleados del Senado</span>
+      <span class="track" data-tip="Victoria Villarruel lanzó un programa de créditos a tasa cero para empleados del Senado — 5 notas, 5 medios">
+        <span class="bar" style="width: 50.0%"></span><span class="v">5 (5)</span>
+      </span>
+      <span class="lbl" title="EL SENADO DIÓ MEDIA SANCIÓN A LA REFORMA DE LA LEY DE SALUD MENTAL">3. EL SENADO DIÓ MEDIA SANCIÓN A LA REFORMA DE LA LEY DE SALUD MENTAL</span>
+      <span class="track" data-tip="EL SENADO DIÓ MEDIA SANCIÓN A LA REFORMA DE LA LEY DE SALUD MENTAL — 5 notas, 4 medios">
+        <span class="bar" style="width: 50.0%"></span><span class="v">5 (4)</span>
+      </span>
+      <span class="lbl" title="Javier Milei viaja con Karina y Martín Menem a Neuquén para inaugurar una iglesia evangélica">4. Javier Milei viaja con Karina y Martín Menem a Neuquén para inaugurar una iglesia evangélica</span>
+      <span class="track" data-tip="Javier Milei viaja con Karina y Martín Menem a Neuquén para inaugurar una iglesia evangélica — 4 notas, 4 medios">
+        <span class="bar" style="width: 40.0%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="¿Se estancó el acuerdo LLA-PRO? Frenos en el Congreso, internas por la Ciudad y qué dicen en Gobierno">5. ¿Se estancó el acuerdo LLA-PRO? Frenos en el Congreso, internas por la Ciudad y qué dicen en Gobierno</span>
+      <span class="track" data-tip="¿Se estancó el acuerdo LLA-PRO? Frenos en el Congreso, internas por la Ciudad y qué dicen en Gobierno — 2 notas, 2 medios">
+        <span class="bar" style="width: 20.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Las diferencias del Gobierno con los aliados en Diputados demoran las negociaciones por el Presupuesto 2027">6. Las diferencias del Gobierno con los aliados en Diputados demoran las negociaciones por el Presupuesto 2027</span>
+      <span class="track" data-tip="Las diferencias del Gobierno con los aliados en Diputados demoran las negociaciones por el Presupuesto 2027 — 2 notas, 2 medios">
+        <span class="bar" style="width: 20.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Semanas de concesiones: mientras Javier Milei endurece su discurso, sus legisladores ceden para sacar leyes">7. Semanas de concesiones: mientras Javier Milei endurece su discurso, sus legisladores ceden para sacar leyes</span>
+      <span class="track" data-tip="Semanas de concesiones: mientras Javier Milei endurece su discurso, sus legisladores ceden para sacar leyes — 2 notas, 2 medios">
+        <span class="bar" style="width: 20.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Quién ganó las elecciones de Israel 2026: números parejos mientras Netanyahu pide esperar los “resultados reales”">8. Quién ganó las elecciones de Israel 2026: números parejos mientras Netanyahu pide esperar los “resultados reales”</span>
+      <span class="track" data-tip="Quién ganó las elecciones de Israel 2026: números parejos mientras Netanyahu pide esperar los “resultados reales” — 2 notas, 1 medio">
+        <span class="bar" style="width: 20.0%"></span><span class="v">2 (1)</span>
+      </span>
+      <span class="lbl" title="No habrá cierre de hospitales en Rosario">9. No habrá cierre de hospitales en Rosario</span>
+      <span class="track" data-tip="No habrá cierre de hospitales en Rosario — 1 nota, 1 medio">
+        <span class="bar" style="width: 10.0%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Trump se juega el control del Congreso y su poder en los últimos años en la Casa Blanca">10. Trump se juega el control del Congreso y su poder en los últimos años en la Casa Blanca</span>
+      <span class="track" data-tip="Trump se juega el control del Congreso y su poder en los últimos años en la Casa Blanca — 1 nota, 1 medio">
+        <span class="bar" style="width: 10.0%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>LN+</option><option>La Nación</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="martín menem descartó una interna en lla y le marcó la cancha a patricia bullrich: “el único candidato es javier milei”  ">
+        <td class="tema-col"><b>1</b> · 7 medios</td>
+        <td class="num">12:32</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/videos/politica/2026/10/30/martin-menem-descarto-una-interna-en-lla-y-le-marco-la-cancha-a-patricia-bullrich-el-unico-candidato-es-javier-milei/" target="_blank" rel="noopener">Martín Menem descartó una interna en LLA y le marcó la cancha a Patricia Bullrich: “El único candidato es Javier Milei”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="mientras el gobierno busca contener las tensiones internas, patricia bullrich relativiza el mensaje de martín menem sobre 2027  ">
+        <td class="tema-col"></td>
+        <td class="num">05:55</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/30/mientras-el-gobierno-busca-contener-las-tensiones-internas-patricia-bullrich-relativiza-el-mensaje-de-martin-menem-sobre-2027/" target="_blank" rel="noopener">Mientras el Gobierno busca contener las tensiones internas, Patricia Bullrich relativiza el mensaje de Martín Menem sobre 2027</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="en medio de la interna del congreso, martín menem marca la cancha: &#34;el único candidato es javier milei&#34; el titular de diputados aseguró que su mirada &#34;es unánime&#34;. la guerra fría que sostiene bullrich con milei llevó a que el presidente se mostrara con una senadora. ">
+        <td class="tema-col"></td>
+        <td class="num">21:46</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/en-medio-la-interna-del-congreso-martin-menem-marca-la-cancha-el-unico-candidato-es-javier-milei-n6339996" target="_blank" rel="noopener">En medio de la interna del Congreso, Martín Menem marca la cancha: &#34;El único candidato es Javier Milei&#34;</a><div class="baj">El titular de Diputados aseguró que su mirada &#34;es unánime&#34;. La guerra fría que sostiene Bullrich con Milei llevó a que el Presidente se mostrara con una senadora.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="crece la tensión en el gobierno: martín menem rechazó el &#34;plan b&#34; de bullrich y dijo que no habrá internas el presidente de la cámara de diputados afirmó en un encuentro que “no hay dos candidatos en la libertad avanza a la presidencia”. la senadora nacional deja a entrever sus intenciones de aspirar a ese cargo en algún momento. javier milei compartió esas declaraciones ">
+        <td class="tema-col"></td>
+        <td class="num">15:21</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/30/crece-la-tension-en-el-gobierno-martin-menem-rechazo-el-plan-b-de-bullrich-y-dijo-que-no-habra-internas/" target="_blank" rel="noopener">Crece la tensión en el Gobierno: Martín Menem rechazó el &#34;Plan B&#34; de Bullrich y dijo que no habrá internas</a><div class="baj">El presidente de la Cámara de Diputados afirmó en un encuentro que “no hay dos candidatos en La Libertad Avanza a la Presidencia”. La senadora nacional deja a entrever sus intenciones de aspirar a ese cargo en algún momento. Javier Milei compartió esas declaraciones</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="A24" data-texto="martín menem: &#34;el único candidato de la libertad avanza a la presidencia es javier milei&#34;  ">
+        <td class="tema-col"></td>
+        <td class="num">14:35</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/martin-menem-el-unico-candidato-la-libertad-avanza-la-presidencia-es-javier-milei-n1611861" target="_blank" rel="noopener">Martín Menem: &#34;El único candidato de La Libertad Avanza a la presidencia es Javier Milei&#34;</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="martín menem, en medio de las especulaciones electorales de patricia bullrich: &#34;no hay dos candidatos a la presidencia en lla&#34;  ">
+        <td class="tema-col"></td>
+        <td class="num">14:22</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/martin-menem-medio-las-especulaciones-electorales-patricia-bullrich-no-hay-dos-candidatos-la-presidencia-lla-n253011" target="_blank" rel="noopener">Martín Menem, en medio de las especulaciones electorales de Patricia Bullrich: &#34;No hay dos candidatos a la presidencia en LLA&#34;</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="&#34;no hay dos candidatos en la libertad avanza&#34;, el contundente mensaje de martín menem en medio de la tensión con bullrich que replicó milei  ">
+        <td class="tema-col"></td>
+        <td class="num">14:06</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/candidatos-libertad-avanza-contundente-mensaje-martin-menem-medio-tension-bullrich-replico-milei_0_TOp4oc3JkC.html" target="_blank" rel="noopener">&#34;No hay dos candidatos en La Libertad Avanza&#34;, el contundente mensaje de Martín Menem en medio de la tensión con Bullrich que replicó Milei</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="la interna de la casa rosada con patricia bullrich por la conducción del bloque libertario en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">13:46</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/la-interna-la-casa-rosada-patricia-bullrich-la-conduccion-del-bloque-libertario-el-senado-n253007" target="_blank" rel="noopener">La interna de la Casa Rosada con Patricia Bullrich por la conducción del bloque libertario en el Senado</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="martín menem: “no hay dos candidatos en la libertad avanza a la presidencia; el único es javier milei” el presidente de la cámara de diputados y dirigente de extrema confianza de karina milei le envió un mensaje a patricia bullrich, que insinuó que podría ser candidata y marca cada vez más diferencias con el gobierno ">
+        <td class="tema-col"></td>
+        <td class="num">12:56</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/martin-menem-no-hay-dos-candidatos-en-la-libertad-avanza-a-la-presidencia-el-unico-es-javier-milei-nid30102026/" target="_blank" rel="noopener">Martín Menem: “No hay dos candidatos en La Libertad Avanza a la presidencia; el único es Javier Milei”</a><div class="baj">El presidente de la Cámara de Diputados y dirigente de extrema confianza de Karina Milei le envió un mensaje a Patricia Bullrich, que insinuó que podría ser candidata y marca cada vez más diferencias con el Gobierno</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="martín menem descartó una competencia interna en lla y le marcó la cancha a bullrich: &#34;es unánime, el único candidato es javier milei&#34;  ">
+        <td class="tema-col"></td>
+        <td class="num">12:32</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/30/martin-menem-descarto-una-interna-en-lla-y-le-marco-la-cancha-a-patricia-bullrich-el-unico-candidato-es-javier-milei/" target="_blank" rel="noopener">Martín Menem descartó una competencia interna en LLA y le marcó la cancha a Bullrich: &#34;Es unánime, el único candidato es Javier Milei&#34;</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Página/12" data-texto="victoria villarruel lanzó un programa de créditos a tasa cero para empleados del senado  ">
+        <td class="tema-col"><b>2</b> · 5 medios</td>
+        <td class="num">18:47</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/30/victoria-villarruel-lanzo-un-programa-de-creditos-a-tasa-cero-para-empleados-del-senado/" target="_blank" rel="noopener">Victoria Villarruel lanzó un programa de créditos a tasa cero para empleados del Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="C5N" data-texto="interna en el gobierno: victoria villarruel lanzó un programa de alivio para trabajadores del senado endeudados  ">
+        <td class="tema-col"></td>
+        <td class="num">10:21</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/interna-el-gobierno-victoria-villarruel-lanzo-un-programa-alivio-trabajadores-del-senado-endeudados-n253071" target="_blank" rel="noopener">Interna en el Gobierno: Victoria Villarruel lanzó un programa de alivio para trabajadores del Senado endeudados</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Clarín" data-texto="victoria villarruel se despega otra vez de milei: otorgó un programa de créditos a tasa cero para empleados del senado lo confirmó la propia vicepresidenta a través de su cuenta en x. &#34;es un alivio financiero&#34;, resaltó. la iniciativa, que favorece nuevamente a los trabajadores de la cámara alta, va a contramano de las decisiones del presidente. ">
+        <td class="tema-col"></td>
+        <td class="num">22:38</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/victoria-villarruel-despega-vez-milei-otorgo-programa-creditos-tasa-cero-empleados-senado_0_ggumXB4XJR.html" target="_blank" rel="noopener">Victoria Villarruel se despega otra vez de Milei: otorgó un programa de créditos a tasa cero para empleados del Senado</a><div class="baj">Lo confirmó la propia vicepresidenta a través de su cuenta en X. &#34;Es un alivio financiero&#34;, resaltó. La iniciativa, que favorece nuevamente a los trabajadores de la Cámara Alta, va a contramano de las decisiones del Presidente.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="TN" data-texto="victoria villarruel lanzó un programa de alivio financiero para los trabajadores del senado y marcó otra diferencia con milei  ">
+        <td class="tema-col"></td>
+        <td class="num">20:39</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/30/villarruel-lanzo-un-programa-de-alivio-financiero-para-los-trabajadores-del-senado-y-marco-otra-diferencia-con-milei/" target="_blank" rel="noopener">Victoria Villarruel lanzó un programa de alivio financiero para los trabajadores del Senado y marcó otra diferencia con Milei</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="villarruel lanzó un programa de desendeudamiento a tasa cero para los empleados del senado el decreto administrativo 630/26 contiene una serie de críticas al contexto económico actual. quiénes podrán acceder al programa de alivio financiero. la entrada villarruel lanzó un programa de desendeudamiento a tasa cero para los empleados del senado se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">18:40</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/villarruel-lanzo-un-programa-de-desendeudamiento-a-tasa-cero-para-los-empleados-del-senado/" target="_blank" rel="noopener">Villarruel lanzó un programa de desendeudamiento a tasa cero para los empleados del Senado</a><div class="baj">El decreto administrativo 630/26 contiene una serie de críticas al contexto económico actual. Quiénes podrán acceder al Programa de Alivio Financiero. La entrada Villarruel lanzó un programa de desendeudamiento a tasa cero para los empleados del Senado se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Sesión" data-medio="Senado (prensa)" data-texto="el senado dió media sanción a la reforma de la ley de salud mental tras más de 11 horas de debate, también se aprobaron el régimen de incentivos para inversiones relevantes y el marco regulatorio del mercado de carbono. además, prestó juramento la senadora claudia lópez y se abordó una resolución para invitar al pap... presupuesto 2027">
+        <td class="tema-col"><b>3</b> · 4 medios<br>Presupuesto 2027</td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24583/noticias" target="_blank" rel="noopener">EL SENADO DIÓ MEDIA SANCIÓN A LA REFORMA DE LA LEY DE SALUD MENTAL</a><div class="baj">Tras más de 11 horas de debate, también se aprobaron el Régimen de Incentivos para Inversiones Relevantes y el marco regulatorio del mercado de carbono. Además, prestó juramento la senadora Claudia López y se abordó una resolución para invitar al pap...</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="La Nación" data-texto="congreso: pro complica al gobierno con objeciones al presupuesto 2027, la reforma electoral y la ley de biocombustibles cristian ritondo le envió una nota a martín menem con propuestas de modificación a la “ley de leyes”, con pedidos de macri y los gobernadores; en el senado insisten con tratar por separado ficha limpia presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">17:10</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/congreso-pro-complica-al-gobierno-con-objeciones-al-presupuesto-2027-la-reforma-electoral-y-la-ley-nid30102026/" target="_blank" rel="noopener">Congreso: Pro complica al Gobierno con objeciones al Presupuesto 2027, la reforma electoral y la ley de biocombustibles</a><div class="baj">Cristian Ritondo le envió una nota a Martín Menem con propuestas de modificación a la “ley de leyes”, con pedidos de Macri y los gobernadores; en el Senado insisten con tratar por separado Ficha Limpia</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="se trabó en diputados la ley de biocombustibles y peligra su aprobación el proyecto, que obtuvo media sanción del senado en septiembre, no consiguió dictamen en la cámara baja. el pro, la ucr, el mid y unión por la patria reclamaron modificaciones para proteger a las pymes regionales frente al avance de las grandes aceiteras. la entrada se trabó en diputados la ley de… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">15:58</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/se-trabo-en-diputados-la-ley-de-biocombustibles-y-peligra-su-aprobacion/" target="_blank" rel="noopener">Se trabó en Diputados la ley de Biocombustibles y peligra su aprobación</a><div class="baj">El proyecto, que obtuvo media sanción del Senado en septiembre, no consiguió dictamen en la Cámara baja. El PRO, la UCR, el MID y Unión por la Patria reclamaron modificaciones para proteger a las pymes regionales frente al avance de las grandes aceiteras. La entrada Se trabó en Diputados la ley de…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="mercados de carbono: de qué se trata el proyecto que tuvo media sanción en el senado desde el círculo de políticas ambientales explicaron que el proyecto busca que la argentina participe de ese mercado a nivel internacional, en el marco de lo que el acuerdo de parís llama &#34;artículo 6&#34;. así, plantearon los problemas y riesgos detrás de la propuesta. la entrada mercados de carbono… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">13:27</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/mercados-de-carbono-de-que-se-trata-el-proyecto-que-tuvo-media-sancion-en-el-senado/" target="_blank" rel="noopener">Mercados de carbono: de qué se trata el proyecto que tuvo media sanción en el Senado</a><div class="baj">Desde el Círculo de Políticas Ambientales explicaron que el proyecto busca que la Argentina participe de ese mercado a nivel internacional, en el marco de lo que el Acuerdo de París llama &#34;Artículo 6&#34;. Así, plantearon los problemas y riesgos detrás de la propuesta. La entrada Mercados de carbono…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="TN" data-texto="el senado aprobó cambios en la ley de salud mental tras negociar con las provincias el financiamiento de los centros especializado  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">12:42</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/29/el-senado-trata-la-ley-de-salud-mental-y-un-proyecto-de-incentivo-de-inversiones-para-grandes-empresas/" target="_blank" rel="noopener">El Senado aprobó cambios en la Ley de Salud Mental tras negociar con las provincias el financiamiento de los centros especializado</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="A24" data-texto="javier milei viaja con karina y martín menem a neuquén para inaugurar una iglesia evangélica  ">
+        <td class="tema-col"><b>4</b> · 4 medios</td>
+        <td class="num">10:24</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/javier-milei-viaja-karina-y-martin-menem-neuquen-inaugurar-una-iglesia-evangelica-n1612043" target="_blank" rel="noopener">Javier Milei viaja con Karina y Martín Menem a Neuquén para inaugurar una iglesia evangélica</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="javier milei viaja a neuquén para participar de la inauguración de un templo evangélico el edificio pertenece a la iglesia jesús es rey, que conduce el padre de la legisladora de la libertad avanza, nadia márquez. también asistirán karina milei, martín menem y dirigentes del oficialismo. ">
+        <td class="tema-col"></td>
+        <td class="num">11:09</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/javier-milei-viaja-neuquen-participar-la-inauguracion-un-templo-evangelico-n6339670" target="_blank" rel="noopener">Javier Milei viaja a Neuquén para participar de la inauguración de un templo evangélico</a><div class="baj">El edificio pertenece a la iglesia Jesús es Rey, que conduce el padre de la legisladora de La Libertad Avanza, Nadia Márquez. También asistirán Karina Milei, Martín Menem y dirigentes del oficialismo.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="los milei refuerzan su vínculo con la iglesia evangélica antes de la visita del papa león xiv el presidente y su hermana participaron de la celebración del día de las iglesias evangélicas en el museo de la casa rosada y hoy inaugurarán un templo cuyo pastor es el padre de una senadora libertaria ">
+        <td class="tema-col"></td>
+        <td class="num">08:37</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/los-milei-refuerzan-su-vinculo-con-la-iglesia-evangelica-antes-de-la-visita-del-papa-leon-xiv-nid31102026/" target="_blank" rel="noopener">Los Milei refuerzan su vínculo con la iglesia evangélica antes de la visita del papa León XIV</a><div class="baj">El Presidente y su hermana participaron de la celebración del Día de las Iglesias Evangélicas en el Museo de la Casa Rosada y hoy inaugurarán un templo cuyo pastor es el padre de una senadora libertaria</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="milei visita neuquén para inaugurar una iglesia evangélica: tensiones internas y señales de cara a las elecciones 2027 la referente libertaria en la provincia, nadia márquez, busca competir el año que viene contra uno de los principales gobernadores aliados a la casa rosada. el conflicto en el senado ">
+        <td class="tema-col"></td>
+        <td class="num">00:35</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/31/milei-visita-neuquen-para-inaugurar-una-iglesia-evangelica-tensiones-internas-y-senales-de-cara-a-las-elecciones-2027/" target="_blank" rel="noopener">Milei visita Neuquén para inaugurar una iglesia evangélica: tensiones internas y señales de cara a las elecciones 2027</a><div class="baj">La referente libertaria en la provincia, Nadia Márquez, busca competir el año que viene contra uno de los principales gobernadores aliados a la Casa Rosada. El conflicto en el Senado</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="El Cronista" data-texto="¿se estancó el acuerdo lla-pro? frenos en el congreso, internas por la ciudad y qué dicen en gobierno “se está avanzando, pero no al ritmo que quiere macri”, dijeron desde el pro. el partido se plantó con reclamos legislativos que frenaron dictámenes del oficialismo esta semana. en lla creen que la demora es producto de la propia interna: “que lo resuelvan ellos, no nos vamos a meter”. ">
+        <td class="tema-col"><b>5</b> · 2 medios</td>
+        <td class="num">07:05</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/se-estanco-el-acuerdo-lla-pro-frenos-en-el-congreso-internas-por-la-ciudad-y-que-dicen-en-gobierno/" target="_blank" rel="noopener">¿Se estancó el acuerdo LLA-PRO? Frenos en el Congreso, internas por la Ciudad y qué dicen en Gobierno</a><div class="baj">“Se está avanzando, pero no al ritmo que quiere Macri”, dijeron desde el PRO. El partido se plantó con reclamos legislativos que frenaron dictámenes del oficialismo esta semana. En LLA creen que la demora es producto de la propia interna: “Que lo resuelvan ellos, no nos vamos a meter”.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="el factor paso y las tensiones internas: por qué macri dijo que &#34;no se avanzó nada&#34; en un acuerdo con el gobierno los desmarques con javier milei y las diferencias con su primo por la ciudad el gobierno todavía no consiguió que el senado apruebe la suspensión de las primarias. ">
+        <td class="tema-col"></td>
+        <td class="num">07:01</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/factor-paso-tensiones-internas-macri-dijo-avanzo-acuerdo-gobierno_0_FCV7Kq5zVC.html" target="_blank" rel="noopener">El factor PASO y las tensiones internas: por qué Macri dijo que &#34;no se avanzó nada&#34; en un acuerdo con el Gobierno</a><div class="baj">Los desmarques con Javier Milei y las diferencias con su primo por la Ciudad El gobierno todavía no consiguió que el Senado apruebe la suspensión de las Primarias.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="las diferencias del gobierno con los aliados en diputados demoran las negociaciones por el presupuesto 2027 el oficialismo tuvo que ajustar su cronograma y ahora espera lograr la media sanción el 25 de noviembre. los bloques dialoguistas aseguran que “todo está muy verde” y reclaman respuestas concretas a sus reclamos presupuesto 2027">
+        <td class="tema-col"><b>6</b> · 2 medios<br>Presupuesto 2027</td>
+        <td class="num">00:36</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/31/las-diferencias-del-gobierno-con-los-aliados-en-diputados-demoran-las-negociaciones-por-el-presupuesto-2027/" target="_blank" rel="noopener">Las diferencias del Gobierno con los aliados en Diputados demoran las negociaciones por el Presupuesto 2027</a><div class="baj">El oficialismo tuvo que ajustar su cronograma y ahora espera lograr la media sanción el 25 de noviembre. Los bloques dialoguistas aseguran que “todo está muy verde” y reclaman respuestas concretas a sus reclamos</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="el gobierno provincial presentó el presupuesto 2027: “procuramos hacer más con los mismos recursos”  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">15:28</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/30/el-gobierno-provincial-presento-el-presupuesto-2027-procuramos-hacer-mas-con-los-mismos-recursos/" target="_blank" rel="noopener">El gobierno provincial presentó el Presupuesto 2027: “Procuramos hacer más con los mismos recursos”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Ámbito" data-texto="semanas de concesiones: mientras javier milei endurece su discurso, sus legisladores ceden para sacar leyes mientras el gobierno se muestra intransigente, en el congreso sus principales caballitos de batalla sufrieron modificaciones sustanciales para conseguir los votos de los aliados. el rol del bullrichismo detrás de las negociaciones que dejaron atrás el espíritu de leyes clave. ">
+        <td class="tema-col"><b>7</b> · 2 medios</td>
+        <td class="num">16:54</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/semanas-concesiones-mientras-javier-milei-endurece-su-discurso-sus-legisladores-ceden-sacar-leyes-n6339801" target="_blank" rel="noopener">Semanas de concesiones: mientras Javier Milei endurece su discurso, sus legisladores ceden para sacar leyes</a><div class="baj">Mientras el Gobierno se muestra intransigente, en el Congreso sus principales caballitos de batalla sufrieron modificaciones sustanciales para conseguir los votos de los aliados. El rol del bullrichismo detrás de las negociaciones que dejaron atrás el espíritu de leyes clave.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="El Cronista" data-texto="votos, discursos y pasajes: la web de la uba que muestra una radiografía del congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">18:30</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/votos-discursos-y-pasajes-la-web-de-la-uba-que-muestra-una-radiografia-del-congreso/" target="_blank" rel="noopener">Votos, discursos y pasajes: la web de la UBA que muestra una radiografía del Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="LN+" data-texto="quién ganó las elecciones de israel 2026: números parejos mientras netanyahu pide esperar los “resultados reales” el likud de benjamín netanyahu encabeza el escrutinio parcial, pero su bloque no alcanza los 61 escaños necesarios para formar gobierno; los boca de urna ubican a la oposición al frente y anticipan una negociación compleja ">
+        <td class="tema-col"><b>8</b> · 1 medio</td>
+        <td class="num">19:59</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/el-mundo/quien-gano-las-elecciones-de-israel-2026-numeros-parejos-mientras-netanyahu-pide-esperar-los-nid28102026/" target="_blank" rel="noopener">Quién ganó las elecciones de Israel 2026: números parejos mientras Netanyahu pide esperar los “resultados reales”</a><div class="baj">El Likud de Benjamín Netanyahu encabeza el escrutinio parcial, pero su bloque no alcanza los 61 escaños necesarios para formar gobierno; los boca de urna ubican a la oposición al frente y anticipan una negociación compleja</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="LN+" data-texto="resultado de las elecciones en israel 2026: quién gana en una elección reñida entre netanyahu y eisenkot el likud encabeza el escrutinio con el 84% de los votos contabilizados, pero su coalición no tiene asegurada la mayoría parlamentaria; los partidos árabes podrían resultar decisivos para la formación del próximo gobierno ">
+        <td class="tema-col"></td>
+        <td class="num">15:56</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/el-mundo/resultado-de-las-elecciones-en-israel-2026-quien-gana-en-una-eleccion-renida-entre-netanyahu-y-nid29102026/" target="_blank" rel="noopener">Resultado de las elecciones en Israel 2026: quién gana en una elección reñida entre Netanyahu y Eisenkot</a><div class="baj">El Likud encabeza el escrutinio con el 84% de los votos contabilizados, pero su coalición no tiene asegurada la mayoría parlamentaria; los partidos árabes podrían resultar decisivos para la formación del próximo gobierno</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Página/12" data-texto="no habrá cierre de hospitales en rosario representantes de la intersindical del pami rosario se reunieron con autoridades nacionales del instituto de los jubilados a fin de tratar la situación de los hospitales de rosario y los planteos contenidos en el pliego presentado oportunamente por las organizaciones sindicales. directores… ">
+        <td class="tema-col"><b>9</b> · 1 medio</td>
+        <td class="num">10:29</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/31/no-habra-cierre-de-hospitales-en-rosario/" target="_blank" rel="noopener">No habrá cierre de hospitales en Rosario</a><div class="baj">Representantes de la intersindical del PAMI Rosario se reunieron con autoridades nacionales del instituto de los jubilados a fin de tratar la situación de los hospitales de Rosario y los planteos contenidos en el pliego presentado oportunamente por las organizaciones sindicales. Directores…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="trump se juega el control del congreso y su poder en los últimos años en la casa blanca  ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">09:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/trump-se-juega-el-control-del-congreso-y-su-poder-en-los-ultimos-anos-en-la-casa-blanca_0_OcpFgbT040.html" target="_blank" rel="noopener">Trump se juega el control del Congreso y su poder en los últimos años en la Casa Blanca</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="candidatos socialistas para ganar el congreso, una apuesta que suma y divide a demócratas  ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">09:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/candidatos-socialistas-para-ganar-el-congreso-una-apuesta-que-suma-y-divide-a-democratas_0_bMIlZFlj6k.html" target="_blank" rel="noopener">Candidatos socialistas para ganar el Congreso, una apuesta que suma y divide a demócratas</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="por la ley 26.994, las viudas tendrán derecho a reclamar su parte de la herencia incluso si el fallecido no dejó nada a su nombre en el testamento el código civil y comercial de la nación, aprobado por la ley 26.994 protege a los herederos forzosos, entre los que se encuentra la cónyuge viuda. ley 26.994">
+        <td class="tema-col"><b>12</b> · 1 medio<br>Ley 26.994</td>
+        <td class="num">08:42</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/informacion-gral/por-la-ley-26994-las-viudas-tendran-derecho-a-reclamar-su-parte-de-la-herencia-incluso-si-el-fallecido-no-dejo-nada-a-su-nombre-en-el-testamento/" target="_blank" rel="noopener">Por la Ley 26.994, las viudas tendrán derecho a reclamar su parte de la herencia incluso si el fallecido no dejó nada a su nombre en el testamento</a><div class="baj">El Código Civil y Comercial de la Nación, aprobado por la Ley 26.994 protege a los herederos forzosos, entre los que se encuentra la cónyuge viuda.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="El Cronista" data-texto="el titular de presupuesto anticipa el próximo duelo y decreta el fin del “buenos aires todopoderoso” al frente de la estratégica comisión de presupuesto, el economista anticipa extraordinarias, asegura que la reforma electoral está “en condiciones de salir” y defiende el cambio de matriz productiva. también se mete en la batalla cultural y qué puede pasar en 2027 ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">08:00</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/el-titular-de-presupuesto-anticipa-el-proximo-duelo-y-decreta-el-fin-del-buenos-aires-todopoderoso/" target="_blank" rel="noopener">El titular de Presupuesto anticipa el próximo duelo y decreta el fin del “Buenos Aires todopoderoso”</a><div class="baj">Al frente de la estratégica comisión de Presupuesto, el economista anticipa extraordinarias, asegura que la reforma electoral está “en condiciones de salir” y defiende el cambio de matriz productiva. También se mete en la batalla cultural y qué puede pasar en 2027</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="bullrich celebró la aprobación del riir en el senado y dijo que atraerá “oportunidades de invertir y crecer” el minuto a minuto de las decisiones del jefe de estado, las reacciones de la oposición y las declaraciones de los funcionarios ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">00:22</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-bullrich-celebro-la-aprobacion-del-riir-en-el-senado-nid30102026/" target="_blank" rel="noopener">Bullrich celebró la aprobación del RIIR en el Senado y dijo que atraerá “oportunidades de invertir y crecer”</a><div class="baj">El minuto a minuto de las decisiones del jefe de Estado, las reacciones de la oposición y las declaraciones de los funcionarios</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Página/12" data-texto="“pullaro acompaña a milei mientras cierran las fábricas de la provincia” el senador nacional marcelo lewandowski reclamó medidas concretas para sostener a las pymes y el empleo, y cuestionó el acompañamiento de los gobernadores al modelo económico de milei. en particular, apuntó al gobierno de santa fe por respaldar las políticas nacionales mientras cierran fábricas… ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">00:08</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/30/pullaro-acompana-a-milei-mientras-cierran-las-fabricas-de-la-provincia/" target="_blank" rel="noopener">“Pullaro acompaña a Milei mientras cierran las fábricas de la provincia”</a><div class="baj">El senador nacional Marcelo Lewandowski reclamó medidas concretas para sostener a las PyMEs y el empleo, y cuestionó el acompañamiento de los gobernadores al modelo económico de Milei. En particular, apuntó al Gobierno de Santa Fe por respaldar las políticas nacionales mientras cierran fábricas…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Página/12" data-texto="internaciones contra la voluntad del paciente  ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">00:04</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/10/30/la-reforma-de-la-ley-de-salud-mental-obtuvo-media-sancion-en-el-senado/" target="_blank" rel="noopener">Internaciones contra la voluntad del paciente</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="La Nación" data-texto="una funcionaria del vaticano advirtió sobre el uso político de la fe y pidió que no haya “una apropiación” de la visita del papa la secretaria de la pontificia comisión para américa latina (pcal) de la santa sede, emilce cuda disertó en el congreso sobre una de las encíclicas de león xiv ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">21:16</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/una-funcionaria-del-vaticano-advirtio-sobre-el-uso-politico-de-la-fe-y-pidio-que-no-haya-una-nid30102026/" target="_blank" rel="noopener">Una funcionaria del Vaticano advirtió sobre el uso político de la fe y pidió que no haya “una apropiación” de la visita del Papa</a><div class="baj">La secretaria de la Pontificia Comisión para América Latina (PCAL) de la santa sede, Emilce Cuda disertó en el Congreso sobre una de las encíclicas de León XIV</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="máximo kirchner defendió la auditoría del rigi y cuestionó los beneficios otorgados a mineras y petroleras el diputado nacional máximo kirchner volvió a cuestionar este jueves el régimen de incentivo para grandes inversiones (rigi) y defendió su propuesta de que una futura administración audite los proyectos aprobados durante el gobierno de javier milei bajo ese esquema. lo hizo durante su participación… ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">21:15</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/maximo-kirchner-defendio-la-auditoria-del-rigi-y-cuestiono-los-beneficios-otorgados-a-mineras-y-petroleras/" target="_blank" rel="noopener">Máximo Kirchner defendió la auditoría del RIGI y cuestionó los beneficios otorgados a mineras y petroleras</a><div class="baj">El diputado nacional Máximo Kirchner volvió a cuestionar este jueves el Régimen de Incentivo para Grandes Inversiones (RIGI) y defendió su propuesta de que una futura administración audite los proyectos aprobados durante el gobierno de Javier Milei bajo ese esquema. Lo hizo durante su participación…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="“el papa francisco nunca se fue”: fuerte reivindicación de su legado en un encuentro realizado en el congreso el presidente de la conferencia episcopal argentina, marcelo colombo, aseguró que francisco “nunca se fue” del país al participar de una jornada en el congreso sobre la encíclica magnífica humanitas. la teóloga emilce cuda llamó a reflexionar sobre el futuro, advirtió sobre el aumento de los… ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">20:50</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/el-papa-francisco-nunca-se-fue-fuerte-reivindicacion-de-su-legado-en-un-encuentro-realizado-en-el-congreso/" target="_blank" rel="noopener">“El papa Francisco nunca se fue”: fuerte reivindicación de su legado en un encuentro realizado en el Congreso</a><div class="baj">El presidente de la Conferencia Episcopal Argentina, Marcelo Colombo, aseguró que Francisco “nunca se fue” del país al participar de una jornada en el Congreso sobre la encíclica Magnífica Humanitas. La teóloga Emilce Cuda llamó a reflexionar sobre el futuro, advirtió sobre el aumento de los…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Letra P" data-texto="ignacio torres confirmó su apoyo al tratado de patentes que se debate en el senado  ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">20:01</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/ignacio-torres-confirmo-su-apoyo-al-tratado-patentes-que-se-debate-el-senado-n5427873" target="_blank" rel="noopener">Ignacio Torres confirmó su apoyo al Tratado de Patentes que se debate en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="La Nación" data-texto="villarruel invitó al papa al senado e impulsó una resolución para que milei la sume a uno de los actos oficiales la jugada de la vicepresidenta contó con el aval de patricia bullrich y agitó la interna libertaria ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">19:36</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/villarruel-invito-al-papa-al-senado-e-impulso-una-resolucion-para-que-milei-la-sume-a-uno-de-los-nid30102026/" target="_blank" rel="noopener">Villarruel invitó al Papa al Senado e impulsó una resolución para que Milei la sume a uno de los actos oficiales</a><div class="baj">La jugada de la vicepresidenta contó con el aval de Patricia Bullrich y agitó la interna libertaria</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Otro" data-medio="Ámbito" data-texto="cuáles fueron los senadores y diputados que más volaron dentro del país los tres diputados que componen el podio son de la provincia y la ciudad de buenos aires, mientras que en el senado corresponden a provincianos. ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">19:23</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/cuales-fueron-los-senadores-y-diputados-que-mas-volaron-dentro-del-pais-n6339966" target="_blank" rel="noopener">Cuáles fueron los senadores y diputados que más volaron dentro del país</a><div class="baj">Los tres diputados que componen el podio son de la provincia y la ciudad de Buenos Aires, mientras que en el Senado corresponden a provincianos.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="se achica el margen del gobierno para la reforma electoral y crecen las dudas sobre los votos diego santilli asegura contar con las voluntades para suspender las paso, pero aún resta cerrar detalles con los gobernadores radicales. el efecto “boomerang” y la necesidad del oficialismo ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">18:41</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/28/se-achica-el-margen-del-gobierno-para-la-reforma-electoral-y-crecen-las-dudas-sobre-los-votos/" target="_blank" rel="noopener">Se achica el margen del Gobierno para la reforma electoral y crecen las dudas sobre los votos</a><div class="baj">Diego Santilli asegura contar con las voluntades para suspender las PASO, pero aún resta cerrar detalles con los gobernadores radicales. El efecto “boomerang” y la necesidad del oficialismo</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="chanta cuatro: proponen instituir el 12 de octubre como el día del bochófilo y bochófila un proyecto de ley presentado en la cámara de diputados bonaerense que preside el alejandro dichiara propone instituir el 12 de octubre de cada año como el “día provincial del bochófilo y bochófila”. la entrada chanta cuatro: proponen instituir el 12 de octubre como el día del bochófilo y bochófila… ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">16:47</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/chanta-cuatro-proponen-instituir-el-12-de-octubre-como-el-dia-del-bochofilo-y-bochofila/" target="_blank" rel="noopener">Chanta cuatro: proponen instituir el 12 de octubre como el Día del Bochófilo y Bochófila</a><div class="baj">Un proyecto de ley presentado en la Cámara de Diputados bonaerense que preside el Alejandro Dichiara propone instituir el 12 de octubre de cada año como el “Día Provincial del bochófilo y bochófila”. La entrada Chanta cuatro: proponen instituir el 12 de octubre como el Día del Bochófilo y Bochófila…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="rasquetti proponen crear un registro digital con información las escuelas bonaerenses la idea plamada en la presentación parlamentario busca que se publique los datos sobre la historia, autoridades, infraestructura y desempeño académico de cada establecimiento educativo de la provincia. la entrada rasquetti proponen crear un registro digital con información las escuelas bonaerenses… ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">16:34</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/rasquetti-proponen-crear-un-registro-digital-con-informacion-las-escuelas-bonaerenses/" target="_blank" rel="noopener">Rasquetti proponen crear un registro digital con información las escuelas bonaerenses</a><div class="baj">La idea plamada en la presentación parlamentario busca que se publique los datos sobre la historia, autoridades, infraestructura y desempeño académico de cada establecimiento educativo de la provincia. La entrada Rasquetti proponen crear un registro digital con información las escuelas bonaerenses…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Infobae" data-texto="presentaron en el congreso un proyecto de ley de etiquetado de huevos la iniciativa, llevada a la cámara baja por la diputada gabriela estévez, fue elaborada e impulsada por una organización internacional que trabaja para disminuir el sufrimiento de los animales ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">15:08</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/30/presentaron-en-el-congreso-un-proyecto-de-ley-de-etiquetado-de-huevos/" target="_blank" rel="noopener">Presentaron en el Congreso un proyecto de ley de etiquetado de huevos</a><div class="baj">La iniciativa, llevada a la Cámara baja por la diputada Gabriela Estévez, fue elaborada e impulsada por una organización internacional que trabaja para disminuir el sufrimiento de los animales</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="la pobreza también viste el uniforme de las fuerzas armadas el coordinador de defensa de la fundación alem y asesor parlamentario señala que “en septiembre, alrededor de 69.000 militares —más de ocho de cada diez efectivos— percibían haberes inferiores a la canasta básica total”. la entrada la pobreza también viste el uniforme de las fuerzas armadas se… ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">15:08</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/la-pobreza-tambien-viste-el-uniforme-de-las-fuerzas-armadas/" target="_blank" rel="noopener">La pobreza también viste el uniforme de las Fuerzas Armadas</a><div class="baj">El coordinador de Defensa de la Fundación ALEM y asesor parlamentario señala que “en septiembre, alrededor de 69.000 militares —más de ocho de cada diez efectivos— percibían haberes inferiores a la Canasta Básica Total”. La entrada La pobreza también viste el uniforme de las Fuerzas Armadas se…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Parlamentario.com" data-texto="proponen declarar que el tránsito de buques hacia las islas malvinas “no constituye un paso inocente” la iniciativa es impulsada por la diputada agustina propato que modifica el régimen de autorización previa establecido en el dnu 256/10 en “defensa de nuestra integridad territorial”. la entrada proponen declarar que el tránsito de buques hacia las islas malvinas “no constituye un paso inocente” se… dnu 256/10">
+        <td class="tema-col"><b>28</b> · 1 medio<br>DNU 256/10</td>
+        <td class="num">15:02</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/proponen-declarar-que-el-transito-de-buques-hacia-las-islas-malvinas-no-constituye-un-paso-inocente/" target="_blank" rel="noopener">Proponen declarar que el tránsito de buques hacia las Islas Malvinas “no constituye un Paso Inocente”</a><div class="baj">La iniciativa es impulsada por la diputada Agustina Propato que modifica el régimen de autorización previa establecido en el DNU 256/10 en “defensa de nuestra integridad territorial”. La entrada Proponen declarar que el tránsito de buques hacia las Islas Malvinas “no constituye un Paso Inocente” se…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="la justicia revocó el fallo de primera instancia y rechazó el amparo por la integración de la bicameral de la niñez la bicameral se compuso con dos integrantes de la libertad avanza en el senado. el reclamo del peronismo y el fallo que declaró nula a la composición. el oficialismo busca avanzar en un nuevo reglamento para el concurso público. la entrada la justicia revocó el fallo de primera instancia y rechazó… ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">14:54</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/la-justicia-revoco-el-fallo-de-primera-instancia-y-rechazo-el-amparo-por-la-integracion-de-la-bicameral-de-la-ninez/" target="_blank" rel="noopener">La Justicia revocó el fallo de primera instancia y rechazó el amparo por la integración de la Bicameral de la Niñez</a><div class="baj">La Bicameral se compuso con dos integrantes de La Libertad Avanza en el Senado. El reclamo del peronismo y el fallo que declaró nula a la composición. El oficialismo busca avanzar en un nuevo reglamento para el concurso público. La entrada La Justicia revocó el fallo de primera instancia y rechazó…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Infobae" data-texto="brasil convocó a la encargada de negocios de argentina para pedir información sobre la salida de flávio bolsonaro hacia estados unidos el encuentro en brasilia buscó esclarecer una posible intervención de funcionarios de javier milei en el traslado del senador, quien cruzó territorio argentino y ecuatoriano antes de arribar a miami ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">14:22</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/america/america-latina/2026/10/30/brasil-convoco-a-la-encargada-de-negocios-de-argentina-para-pedir-informacion-sobre-la-salida-de-flavio-bolsonaro-hacia-estados-unidos/" target="_blank" rel="noopener">Brasil convocó a la encargada de negocios de Argentina para pedir información sobre la salida de Flávio Bolsonaro hacia Estados Unidos</a><div class="baj">El encuentro en Brasilia buscó esclarecer una posible intervención de funcionarios de Javier Milei en el traslado del senador, quien cruzó territorio argentino y ecuatoriano antes de arribar a Miami</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="la legislatura porteña aprobó la emergencia hídrica por el fenómeno de el niño fue durante la sesión ordinaria y obtuvo 53 votos positivos. se trata de una herramienta que prevé reforzar la prevención y la capacidad de respuesta frente a precipitaciones extraordinarias, inundaciones y otros eventos meteorológicos severos. la entrada la legislatura porteña aprobó la emergencia… ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">12:48</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/30/la-legislatura-portena-aprobo-la-emergencia-hidrica-por-el-fenomeno-de-el-nino/" target="_blank" rel="noopener">La Legislatura porteña aprobó la emergencia hídrica por el fenómeno de El Niño</a><div class="baj">Fue durante la sesión ordinaria y obtuvo 53 votos positivos. Se trata de una herramienta que prevé reforzar la prevención y la capacidad de respuesta frente a precipitaciones extraordinarias, inundaciones y otros eventos meteorológicos severos. La entrada La Legislatura porteña aprobó la emergencia…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Clarín" data-texto="con bengalas y en plena sesión: la oposición de albania exigió la renuncia del primer ministro  ">
+        <td class="tema-col"><b>32</b> · 1 medio</td>
+        <td class="num">12:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/bengalas-plena-sesion-oposicion-albania-exigio-renuncia-primer-ministro_3_bUkomf5I4Y.html" target="_blank" rel="noopener">Con bengalas y en plena sesión: la oposición de Albania exigió la renuncia del primer ministro</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Clarín" data-texto="encuestas apuntan a la mayoría demócrata más amplia en la cámara baja de eeuu desde 2009  ">
+        <td class="tema-col"><b>33</b> · 1 medio</td>
+        <td class="num">12:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/encuestas-apuntan-a-la-mayoria-democrata-mas-amplia-en-la-camara-baja-de-eeuu-desde-2009_0_mPk3L4isJk.html" target="_blank" rel="noopener">Encuestas apuntan a la mayoría demócrata más amplia en la Cámara Baja de EEUU desde 2009</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-10-31 a las 11:28 hs (hora argentina) ·
+    <span class="estado-ok">20 respondieron bien</span> · <span class="estado-mal">1 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: https://www.boletinoficial.gob.ar/seccion/primera: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: timed out)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
