@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-01</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Domingo 1 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 11:57 hs · 20/21 fuentes respondieron · <a href="#fuentes">1 caída</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">31</div>
+      <div class="sub ">▼ -52% vs. promedio de 7 días (65)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">25</div>
+    <div class="sub">2 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">11</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>1</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>6</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/10/31/milei-participo-en-neuquen-de-la-inauguracion-de-un-megatemplo-evangelico-junto-a-legisladores-nacionales/" target="_blank" rel="noopener">Milei participó en Neuquén de la inauguración de un megatemplo evangélico junto a legisladores nacionales</a></h3>
+<p class="bajada">El presidente Javier Milei encabezó este sábado en Neuquén la inauguración del nuevo auditorio de la Iglesia Jesús es Rey, una de las mayores construcciones evangélicas de la Patagonia. Del acto participaron la senadora Nadia Márquez, su padre y líder de la congregación Hugo Márquez, el titular de…</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/10/31/milei-participo-en-neuquen-de-la-inauguracion-de-un-megatemplo-evangelico-junto-a-legisladores-nacionales/" target="_blank" rel="noopener" title="Milei participó en Neuquén de la inauguración de un megatemplo evangélico junto a legisladores nacionales">Parlamentario.com ↗</a><a href="https://www.infobae.com/politica/2026/10/31/javier-milei-inauguro-una-iglesia-evangelica-y-hablo-en-clave-electoral-no-creemos-en-combatir-el-populismo-con-mas-populismo/" target="_blank" rel="noopener" title="Javier Milei inauguró una iglesia evangélica y habló en clave electoral: “No creemos en combatir el populismo con más populismo”">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/javier-milei-asistio-a-la-inauguracion-de-un-templo-evangelico-y-pidio-conviccion-para-defender-la-nid31102026/" target="_blank" rel="noopener" title="Javier Milei asistió a la inauguración de un templo evangélico y pidió “convicción” para defender la libertad">La Nación ↗</a><a href="https://www.clarin.com/politica/semana-llegada-papa-milei-mostro-evangelistas-hablo-segundo-mandato-critico-kirchnerismo_0_Uxjy7WjtYq.html" target="_blank" rel="noopener" title="A una semana de la llegada del Papa, Milei se mostró con evangelistas, habló del segundo mandato y criticó al kirchnerismo">Clarín ↗</a><a href="https://www.ambito.com/politica/javier-milei-viaja-neuquen-participar-la-inauguracion-un-templo-evangelico-n6339670" target="_blank" rel="noopener" title="Javier Milei, en la inauguración de un templo en Neuquén: &#34;El infierno en términos económicos es una sociedad sin industria ni comercio&#34;">Ámbito ↗</a><a href="https://www.lapoliticaonline.com/politica/milei-tensa-con-el-papa-a-dias-de-su-visita-e-inaugura-el-templo-evangelista-del-padre-de-una-diputada-libertaria/" target="_blank" rel="noopener" title="Milei tensa con el Papa a días de su visita e inaugura el templo evangelista del padre de una diputada libertaria">La Política Online ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.clarin.com/politica/gobierno-logra-acordar-gobernadores-demoran-proyectos-necesita-presupuesto-paso_0_O0q0XzJdSb.html" target="_blank" rel="noopener">El Gobierno no logra acordar con los gobernadores y se demoran los dos proyectos que más necesita: Presupuesto y PASO</a></h3>
+<p class="bajada">Las conversaciones se acelerarán recién después de la visita del Papa. La tensión pasa de la mesa política a la gestión. Respuesta privada de Bullrich a Menem y renuncias sonoras en dos áreas clave sin reemplazos. A pesar de la desconfianza de Kicillof. Massa asegura que intentará bloquear la…</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/politica/gobierno-logra-acordar-gobernadores-demoran-proyectos-necesita-presupuesto-paso_0_O0q0XzJdSb.html" target="_blank" rel="noopener" title="El Gobierno no logra acordar con los gobernadores y se demoran los dos proyectos que más necesita: Presupuesto y PASO">Clarín ↗</a><a href="https://tn.com.ar/opinion/2026/11/01/milei-apura-a-sus-funcionarios-por-la-suspension-de-las-paso-y-el-presupuesto-porque-necesita-votos-que-no-estan/" target="_blank" rel="noopener" title="Milei apura a sus funcionarios por la suspensión de las PASO y el Presupuesto porque necesita votos que no están">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.pagina12.com.ar/2026/11/01/la-politica-de-espaldas-al-pueblo-el-club-de-amigos-libertario-y-sus-alianzas-de-conveniencia/" target="_blank" rel="noopener">La política de espaldas al pueblo: el club de amigos libertario y sus alianzas de conveniencia</a></h3>
+<p class="bajada">La irrupción de dirigentes salidos de cunas privilegiadas profundiza la distancia entre las urgencias de la calle y las discusiones del poder. Del foro exclusivo convocado por Gabriel Bornoroni en Córdoba a la desmemoria estratégica en sus acuerdos con la vieja política.</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.pagina12.com.ar/2026/11/01/la-politica-de-espaldas-al-pueblo-el-club-de-amigos-libertario-y-sus-alianzas-de-conveniencia/" target="_blank" rel="noopener" title="La política de espaldas al pueblo: el club de amigos libertario y sus alianzas de conveniencia">Página/12 ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.letrap.com.ar/politica/el-minuto-minuto-la-era-javier-milei-n5427597" target="_blank" rel="noopener">Piden interpelar a Pablo Quirno por intervenir en la fuga de Flávio Bolsonaro a Estados Unidos</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.letrap.com.ar/politica/el-minuto-minuto-la-era-javier-milei-n5427597" target="_blank" rel="noopener" title="Piden interpelar a Pablo Quirno por intervenir en la fuga de Flávio Bolsonaro a Estados Unidos">Letra P ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.infobae.com/politica/2026/11/01/satisfaccion-en-el-vaticano-javier-milei-convoco-a-la-clase-politica-a-la-recepcion-oficial-a-leon-xiv-en-el-palacio-libertad/" target="_blank" rel="noopener">Satisfacción en el Vaticano: Javier Milei convocó a la clase política a la recepción oficial a León XIV en el Palacio Libertad</a></h3>
+<p class="bajada">El jefe de Estado ordenó que se invitara a la vicepresidenta Villarruel, a Jorge Macri, a los 23 gobernadores y a todos los legisladores nacionales para recibir al papa, que llega a la Argentina con el legado de unidad nacional que promovía Francisco</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.infobae.com/politica/2026/11/01/satisfaccion-en-el-vaticano-javier-milei-convoco-a-la-clase-politica-a-la-recepcion-oficial-a-leon-xiv-en-el-palacio-libertad/" target="_blank" rel="noopener" title="Satisfacción en el Vaticano: Javier Milei convocó a la clase política a la recepción oficial a León XIV en el Palacio Libertad">Infobae ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4>Martes 3 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">12:30</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión informativa conjunta para presentar un mapeo sobre la situación de morosidad de las pymes en la Argentina</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Organizan los senadores nacionales Jorge M. Capitanich, presidente de la Comisión de Economías Regionales, Marcelo N. Lewandowski y Alicia Kirchner, presidenta de la Comisión de Población y Desarrollo Humano.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 4 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Presupuesto y Hacienda y de Población y Desarrollo Humano</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: proyectos de ley: Expte. CD-18/26: Proyecto de ley en revisión que prorroga hasta el 31 de diciembre de 2027 la Emergencia Nacional en Discapacidad —Ley 27.793—. Expte. S-1431/26, Fernández Sagasti: Proyecto de ley que prorroga la vigencia de su similar 27.793 —Emergencia Nacional en Discapacidad—. Expte. S-1484/26, Linares: Proyecto de ley que prorroga la Emergencia Nacional en Discapacidad —declarada por Ley 27.793— en todo el territorio nacional hasta el 31 de diciembre de 2027, inclusive.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">17:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión Bicameral de la Defensoría del Pueblo</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Continuación del proceso de selección e integración del Comité Nacional para la Prevención de la Tortura y Otros Tratos o Penas Crueles, Inhumanos o Degradantes, ley 26.827.</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 65</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Do 25: 29 notas">
+        <div class="c" style="height: 32.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 26: 40 notas">
+        <div class="c" style="height: 44.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 27: 63 notas">
+        <div class="c" style="height: 70.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 28: 88 notas">
+        <div class="c" style="height: 97.8%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 29: 86 notas">
+        <div class="c" style="height: 95.6%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 30: 90 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 31: 57 notas">
+        <div class="c" style="height: 63.3%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Do 1: 31 notas">
+<span class="cap">31</span>        <div class="c" style="height: 34.4%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Do 25</span><span class="">Lu 26</span><span class="">Ma 27</span><span class="">Mi 28</span><span class="">Ju 29</span><span class="">Vi 30</span><span class="">Sá 31</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 8 hoy · promedio 7.7">
+        <span class="bar" style="width: 47.9%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(46.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 7 hoy · promedio 7.0">
+        <span class="bar" style="width: 41.9%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(41.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 4 hoy · promedio 16.7">
+        <span class="bar" style="width: 23.9%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(100.0% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 2 hoy · promedio 5.0">
+        <span class="bar" style="width: 12.0%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(29.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 2 hoy · promedio 4.7">
+        <span class="bar" style="width: 12.0%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(28.2% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 2 hoy · promedio 3.6">
+        <span class="bar" style="width: 12.0%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(21.4% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 2 hoy · promedio 1.3">
+        <span class="bar" style="width: 12.0%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(7.7% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 1 hoy · promedio 1.1">
+        <span class="bar" style="width: 6.0%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 1 hoy · promedio 2.1">
+        <span class="bar" style="width: 6.0%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(12.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 1 hoy · promedio 2.9">
+        <span class="bar" style="width: 6.0%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(17.1% - 1px)"></span>      </span>
+      <span class="lbl" title="LN+">LN+</span>
+      <span class="track" data-tip="LN+: 1 hoy · promedio 0.3">
+        <span class="bar" style="width: 6.0%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(1.7% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Milei participó en Neuquén de la inauguración de un megatemplo evangélico junto a legisladores nacionales">1. Milei participó en Neuquén de la inauguración de un megatemplo evangélico junto a legisladores nacionales</span>
+      <span class="track" data-tip="Milei participó en Neuquén de la inauguración de un megatemplo evangélico junto a legisladores nacionales — 6 notas, 6 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">6 (6)</span>
+      </span>
+      <span class="lbl" title="El Gobierno no logra acordar con los gobernadores y se demoran los dos proyectos que más necesita: Presupuesto y PASO">2. El Gobierno no logra acordar con los gobernadores y se demoran los dos proyectos que más necesita: Presupuesto y PASO</span>
+      <span class="track" data-tip="El Gobierno no logra acordar con los gobernadores y se demoran los dos proyectos que más necesita: Presupuesto y PASO — 2 notas, 2 medios">
+        <span class="bar" style="width: 33.3%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="La política de espaldas al pueblo: el club de amigos libertario y sus alianzas de conveniencia">3. La política de espaldas al pueblo: el club de amigos libertario y sus alianzas de conveniencia</span>
+      <span class="track" data-tip="La política de espaldas al pueblo: el club de amigos libertario y sus alianzas de conveniencia — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Piden interpelar a Pablo Quirno por intervenir en la fuga de Flávio Bolsonaro a Estados Unidos">4. Piden interpelar a Pablo Quirno por intervenir en la fuga de Flávio Bolsonaro a Estados Unidos</span>
+      <span class="track" data-tip="Piden interpelar a Pablo Quirno por intervenir en la fuga de Flávio Bolsonaro a Estados Unidos — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Satisfacción en el Vaticano: Javier Milei convocó a la clase política a la recepción oficial a León XIV en el Palacio Libertad">5. Satisfacción en el Vaticano: Javier Milei convocó a la clase política a la recepción oficial a León XIV en el Palacio Libertad</span>
+      <span class="track" data-tip="Satisfacción en el Vaticano: Javier Milei convocó a la clase política a la recepción oficial a León XIV en el Palacio Libertad — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Javier Milei, EN VIVO: arranca un mes clave para el Gobierno en el Congreso con los debate sobre el Banco Central y soberanía">6. Javier Milei, EN VIVO: arranca un mes clave para el Gobierno en el Congreso con los debate sobre el Banco Central y soberanía</span>
+      <span class="track" data-tip="Javier Milei, EN VIVO: arranca un mes clave para el Gobierno en el Congreso con los debate sobre el Banco Central y soberanía — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="El deseo de Reid Wiseman, comandante de Artemis II, para nuevas misiones: “Estoy ansioso por ver a mis amigos continuar este legado”">7. El deseo de Reid Wiseman, comandante de Artemis II, para nuevas misiones: “Estoy ansioso por ver a mis amigos continuar este legado”</span>
+      <span class="track" data-tip="El deseo de Reid Wiseman, comandante de Artemis II, para nuevas misiones: “Estoy ansioso por ver a mis amigos continuar este legado” — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Milei, un presidente que lidera sin dejar de acumular desgaste">8. Milei, un presidente que lidera sin dejar de acumular desgaste</span>
+      <span class="track" data-tip="Milei, un presidente que lidera sin dejar de acumular desgaste — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="El pedido urgente de Milei a su Gabinete y la discusión interna que impacta en el Senado">9. El pedido urgente de Milei a su Gabinete y la discusión interna que impacta en el Senado</span>
+      <span class="track" data-tip="El pedido urgente de Milei a su Gabinete y la discusión interna que impacta en el Senado — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="La recesión pone en jaque los acuerdos de Milei">10. La recesión pone en jaque los acuerdos de Milei</span>
+      <span class="track" data-tip="La recesión pone en jaque los acuerdos de Milei — 1 nota, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>Clarín</option><option>Infobae</option><option>LN+</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="milei participó en neuquén de la inauguración de un megatemplo evangélico junto a legisladores nacionales el presidente javier milei encabezó este sábado en neuquén la inauguración del nuevo auditorio de la iglesia jesús es rey, una de las mayores construcciones evangélicas de la patagonia. del acto participaron la senadora nadia márquez, su padre y líder de la congregación hugo márquez, el titular de… ">
+        <td class="tema-col"><b>1</b> · 6 medios</td>
+        <td class="num">21:57</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/31/milei-participo-en-neuquen-de-la-inauguracion-de-un-megatemplo-evangelico-junto-a-legisladores-nacionales/" target="_blank" rel="noopener">Milei participó en Neuquén de la inauguración de un megatemplo evangélico junto a legisladores nacionales</a><div class="baj">El presidente Javier Milei encabezó este sábado en Neuquén la inauguración del nuevo auditorio de la Iglesia Jesús es Rey, una de las mayores construcciones evangélicas de la Patagonia. Del acto participaron la senadora Nadia Márquez, su padre y líder de la congregación Hugo Márquez, el titular de…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="Infobae" data-texto="javier milei inauguró una iglesia evangélica y habló en clave electoral: “no creemos en combatir el populismo con más populismo” el presidente encabezó en neuquén el acto de inauguración del templo de la iglesia bautista jesús es rey, dirigido por el pastor hugo márquez, padre de la senadora libertaria nadia márquez. “estamos construyendo un edificio pensado para durar décadas. estamos sentando las bases para el siglo de oro… ">
+        <td class="tema-col"></td>
+        <td class="num">02:33</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/10/31/javier-milei-inauguro-una-iglesia-evangelica-y-hablo-en-clave-electoral-no-creemos-en-combatir-el-populismo-con-mas-populismo/" target="_blank" rel="noopener">Javier Milei inauguró una iglesia evangélica y habló en clave electoral: “No creemos en combatir el populismo con más populismo”</a><div class="baj">El presidente encabezó en Neuquén el acto de inauguración del templo de la Iglesia Bautista Jesús es Rey, dirigido por el pastor Hugo Márquez, padre de la senadora libertaria Nadia Márquez. “Estamos construyendo un edificio pensado para durar décadas. Estamos sentando las bases para el siglo de oro…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="La Nación" data-texto="javier milei asistió a la inauguración de un templo evangélico y pidió “convicción” para defender la libertad su construcción demoró 15 años; también estuvieron presentes karina milei y martín menem ">
+        <td class="tema-col"></td>
+        <td class="num">22:44</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/javier-milei-asistio-a-la-inauguracion-de-un-templo-evangelico-y-pidio-conviccion-para-defender-la-nid31102026/" target="_blank" rel="noopener">Javier Milei asistió a la inauguración de un templo evangélico y pidió “convicción” para defender la libertad</a><div class="baj">Su construcción demoró 15 años; también estuvieron presentes Karina Milei y Martín Menem</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="Clarín" data-texto="a una semana de la llegada del papa, milei se mostró con evangelistas, habló del segundo mandato y criticó al kirchnerismo el presidente encabezó la inauguración de un auditorio de la iglesia jesús es rey en neuquén, acompañado por karina milei y martín menem. celebró la próxima visita de león xiv a la argentina, defendió el rumbo económico y anticipó su propuesta electoral para 2027. ">
+        <td class="tema-col"></td>
+        <td class="num">20:25</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/semana-llegada-papa-milei-mostro-evangelistas-hablo-segundo-mandato-critico-kirchnerismo_0_Uxjy7WjtYq.html" target="_blank" rel="noopener">A una semana de la llegada del Papa, Milei se mostró con evangelistas, habló del segundo mandato y criticó al kirchnerismo</a><div class="baj">El Presidente encabezó la inauguración de un auditorio de la iglesia Jesús es Rey en Neuquén, acompañado por Karina Milei y Martín Menem. Celebró la próxima visita de León XIV a la Argentina, defendió el rumbo económico y anticipó su propuesta electoral para 2027.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="Ámbito" data-texto="javier milei, en la inauguración de un templo en neuquén: &#34;el infierno en términos económicos es una sociedad sin industria ni comercio&#34; el edificio pertenece a la iglesia jesús es rey, que conduce el padre de la senadora de la libertad avanza, nadia márquez. el presidente volvió a apuntar a su reelección. ">
+        <td class="tema-col"></td>
+        <td class="num">20:09</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/javier-milei-viaja-neuquen-participar-la-inauguracion-un-templo-evangelico-n6339670" target="_blank" rel="noopener">Javier Milei, en la inauguración de un templo en Neuquén: &#34;El infierno en términos económicos es una sociedad sin industria ni comercio&#34;</a><div class="baj">El edificio pertenece a la iglesia Jesús es Rey, que conduce el padre de la senadora de La Libertad Avanza, Nadia Márquez. El Presidente volvió a apuntar a su reelección.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="La Política Online" data-texto="milei tensa con el papa a días de su visita e inaugura el templo evangelista del padre de una diputada libertaria lanza el templo bautista más grande del país en neuquén. lo conduce el padre de la libertaria nadia márquez. nexo con una pastora y diputada peruana aliada a keiko fujimori. ">
+        <td class="tema-col"></td>
+        <td class="num">17:30</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/milei-tensa-con-el-papa-a-dias-de-su-visita-e-inaugura-el-templo-evangelista-del-padre-de-una-diputada-libertaria/" target="_blank" rel="noopener">Milei tensa con el Papa a días de su visita e inaugura el templo evangelista del padre de una diputada libertaria</a><div class="baj">Lanza el templo bautista más grande del país en Neuquén. Lo conduce el padre de la libertaria Nadia Márquez. Nexo con una pastora y diputada peruana aliada a Keiko Fujimori.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="el gobierno no logra acordar con los gobernadores y se demoran los dos proyectos que más necesita: presupuesto y paso las conversaciones se acelerarán recién después de la visita del papa. la tensión pasa de la mesa política a la gestión. respuesta privada de bullrich a menem y renuncias sonoras en dos áreas clave sin reemplazos. a pesar de la desconfianza de kicillof. massa asegura que intentará bloquear la… ">
+        <td class="tema-col"><b>2</b> · 2 medios</td>
+        <td class="num">16:35</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/gobierno-logra-acordar-gobernadores-demoran-proyectos-necesita-presupuesto-paso_0_O0q0XzJdSb.html" target="_blank" rel="noopener">El Gobierno no logra acordar con los gobernadores y se demoran los dos proyectos que más necesita: Presupuesto y PASO</a><div class="baj">Las conversaciones se acelerarán recién después de la visita del Papa. La tensión pasa de la mesa política a la gestión. Respuesta privada de Bullrich a Menem y renuncias sonoras en dos áreas clave sin reemplazos. A pesar de la desconfianza de Kicillof. Massa asegura que intentará bloquear la…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="TN" data-texto="milei apura a sus funcionarios por la suspensión de las paso y el presupuesto porque necesita votos que no están  ">
+        <td class="tema-col"></td>
+        <td class="num">05:55</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/opinion/2026/11/01/milei-apura-a-sus-funcionarios-por-la-suspension-de-las-paso-y-el-presupuesto-porque-necesita-votos-que-no-estan/" target="_blank" rel="noopener">Milei apura a sus funcionarios por la suspensión de las PASO y el Presupuesto porque necesita votos que no están</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Página/12" data-texto="la política de espaldas al pueblo: el club de amigos libertario y sus alianzas de conveniencia la irrupción de dirigentes salidos de cunas privilegiadas profundiza la distancia entre las urgencias de la calle y las discusiones del poder. del foro exclusivo convocado por gabriel bornoroni en córdoba a la desmemoria estratégica en sus acuerdos con la vieja política. ">
+        <td class="tema-col"><b>3</b> · 1 medio</td>
+        <td class="num">11:52</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/01/la-politica-de-espaldas-al-pueblo-el-club-de-amigos-libertario-y-sus-alianzas-de-conveniencia/" target="_blank" rel="noopener">La política de espaldas al pueblo: el club de amigos libertario y sus alianzas de conveniencia</a><div class="baj">La irrupción de dirigentes salidos de cunas privilegiadas profundiza la distancia entre las urgencias de la calle y las discusiones del poder. Del foro exclusivo convocado por Gabriel Bornoroni en Córdoba a la desmemoria estratégica en sus acuerdos con la vieja política.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Letra P" data-texto="piden interpelar a pablo quirno por intervenir en la fuga de flávio bolsonaro a estados unidos  ">
+        <td class="tema-col"><b>4</b> · 1 medio</td>
+        <td class="num">11:10</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/el-minuto-minuto-la-era-javier-milei-n5427597" target="_blank" rel="noopener">Piden interpelar a Pablo Quirno por intervenir en la fuga de Flávio Bolsonaro a Estados Unidos</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="satisfacción en el vaticano: javier milei convocó a la clase política a la recepción oficial a león xiv en el palacio libertad el jefe de estado ordenó que se invitara a la vicepresidenta villarruel, a jorge macri, a los 23 gobernadores y a todos los legisladores nacionales para recibir al papa, que llega a la argentina con el legado de unidad nacional que promovía francisco ">
+        <td class="tema-col"><b>5</b> · 1 medio</td>
+        <td class="num">11:05</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/01/satisfaccion-en-el-vaticano-javier-milei-convoco-a-la-clase-politica-a-la-recepcion-oficial-a-leon-xiv-en-el-palacio-libertad/" target="_blank" rel="noopener">Satisfacción en el Vaticano: Javier Milei convocó a la clase política a la recepción oficial a León XIV en el Palacio Libertad</a><div class="baj">El jefe de Estado ordenó que se invitara a la vicepresidenta Villarruel, a Jorge Macri, a los 23 gobernadores y a todos los legisladores nacionales para recibir al papa, que llega a la Argentina con el legado de unidad nacional que promovía Francisco</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Clarín" data-texto="javier milei, en vivo: arranca un mes clave para el gobierno en el congreso con los debate sobre el banco central y soberanía la libertad avanza insistirá en diputados con la reforma de la carta orgánica de la entidad monetaria, y buscará que avance el proyecto sobre malvinas. mientras, continúan las negociaciones para eliminar las paso y aprobar el presupuesto 2027. presupuesto 2027">
+        <td class="tema-col"><b>6</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">10:15</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/javier-milei-vivo-arranca-mes-clave-gobierno-congreso-debate-banco-central-defensa-soberania_0_ciI5DpdxfR.html" target="_blank" rel="noopener">Javier Milei, EN VIVO: arranca un mes clave para el Gobierno en el Congreso con los debate sobre el Banco Central y soberanía</a><div class="baj">La Libertad Avanza insistirá en Diputados con la reforma de la Carta Orgánica de la entidad monetaria, y buscará que avance el proyecto sobre Malvinas. Mientras, continúan las negociaciones para eliminar las PASO y aprobar el Presupuesto 2027.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="LN+" data-texto="el deseo de reid wiseman, comandante de artemis ii, para nuevas misiones: “estoy ansioso por ver a mis amigos continuar este legado” tras su regreso a la tierra, donald trump le entregó a cada tripulante una medalla medalla de honor espacial del congreso, durante una ceremonia en el centro espacial jonhson de houston ">
+        <td class="tema-col"><b>7</b> · 1 medio</td>
+        <td class="num">05:00</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/el-mundo/el-deseo-de-reid-wiseman-comandante-de-artemis-ii-para-nuevas-misiones-estoy-ansioso-por-ver-a-mis-nid01112026/" target="_blank" rel="noopener">El deseo de Reid Wiseman, comandante de Artemis II, para nuevas misiones: “Estoy ansioso por ver a mis amigos continuar este legado”</a><div class="baj">Tras su regreso a la Tierra, Donald Trump le entregó a cada tripulante una medalla Medalla de Honor Espacial del Congreso, durante una ceremonia en el Centro Espacial Jonhson de Houston</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="milei, un presidente que lidera sin dejar de acumular desgaste la negativa a felicitar al vencedor en brasil volvió a exponer el estilo confrontativo del presidente. mientras las encuestas muestran un creciente malestar con su gestión, la oposición sigue sin encontrar una figura capaz de capitalizarlo y el oficialismo ya discute, entre tensiones internas, el… ">
+        <td class="tema-col"><b>8</b> · 1 medio</td>
+        <td class="num">01:50</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/01/milei-un-presidente-que-lidera-sin-dejar-de-acumular-desgaste/" target="_blank" rel="noopener">Milei, un presidente que lidera sin dejar de acumular desgaste</a><div class="baj">La negativa a felicitar al vencedor en Brasil volvió a exponer el estilo confrontativo del Presidente. Mientras las encuestas muestran un creciente malestar con su gestión, la oposición sigue sin encontrar una figura capaz de capitalizarlo y el oficialismo ya discute, entre tensiones internas, el…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Infobae" data-texto="el pedido urgente de milei a su gabinete y la discusión interna que impacta en el senado el presidente habló frente a sus funcionarios y les solicitó celeridad para impulsar ciertos proyectos. los pronósticos para la economía en el corto plazo a partir de las elecciones en estados unidos y los cargos que comienzan a disputarse en la cámara alta, con influencia en las designaciones… ">
+        <td class="tema-col"><b>9</b> · 1 medio</td>
+        <td class="num">01:36</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/01/el-pedido-urgente-de-milei-a-su-gabinete-y-la-discusion-interna-que-impacta-en-el-senado/" target="_blank" rel="noopener">El pedido urgente de Milei a su Gabinete y la discusión interna que impacta en el Senado</a><div class="baj">El Presidente habló frente a sus funcionarios y les solicitó celeridad para impulsar ciertos proyectos. Los pronósticos para la economía en el corto plazo a partir de las elecciones en Estados Unidos y los cargos que comienzan a disputarse en la Cámara Alta, con influencia en las designaciones…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="la recesión pone en jaque los acuerdos de milei bullrich avanza con su proyecto personal, el pro expresa su disgusto y el diálogo con los gobernadores se estanca; el presidente se muestra irreductible y entre sus aliados crece una pregunta: ¿está a tiempo de corregir? ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">01:01</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-recesion-pone-en-jaque-los-acuerdos-de-milei-nid31102026/" target="_blank" rel="noopener">La recesión pone en jaque los acuerdos de Milei</a><div class="baj">Bullrich avanza con su proyecto personal, el Pro expresa su disgusto y el diálogo con los gobernadores se estanca; el Presidente se muestra irreductible y entre sus aliados crece una pregunta: ¿está a tiempo de corregir?</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="sin acuerdo por el presupuesto, el oficialismo posterga su cronograma y se encamina a las extraordinarias la libertad avanza suspendió la última reunión de comisión por no contar con las firmas para dictaminar. se atrasan los tiempos porque muchos legisladores viajan a las elecciones de medio término de los eeuu y en simultáneo ocurrirá la llegada del papa león xiv ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">00:51</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/01/sin-acuerdo-por-el-presupuesto-el-oficialismo-posterga-su-cronograma-y-se-encamina-a-las-extraordinarias/" target="_blank" rel="noopener">Sin acuerdo por el Presupuesto, el oficialismo posterga su cronograma y se encamina a las extraordinarias</a><div class="baj">La Libertad Avanza suspendió la última reunión de comisión por no contar con las firmas para dictaminar. Se atrasan los tiempos porque muchos legisladores viajan a las elecciones de medio término de los EEUU y en simultáneo ocurrirá la llegada del Papa León XIV</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Infobae" data-texto="el pedido de la iglesia argentina frente a la llegada del papa y la mirada del gobierno a una semana de la llegada de león xiv, en el episcopado esperan que la visita abra una etapa de diálogo que sobreviva a la partida del pontífice. los planteos por discapacidad y ludopatía; las diferencias que persisten y el malestar por sentirse utilizados. en paralelo, la senadora mantiene su… ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">00:47</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/01/el-pedido-de-la-iglesia-argentina-frente-a-la-llegada-del-papa-y-la-mirada-del-gobierno/" target="_blank" rel="noopener">El pedido de la Iglesia argentina frente a la llegada del Papa y la mirada del Gobierno</a><div class="baj">A una semana de la llegada de León XIV, en el Episcopado esperan que la visita abra una etapa de diálogo que sobreviva a la partida del Pontífice. Los planteos por discapacidad y ludopatía; las diferencias que persisten y el malestar por sentirse utilizados. En paralelo, la senadora mantiene su…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="círculo rojo: milei juega a todo o nada mientras el establishment especula hasta dónde tensionará bullrich el operativo bolsonaro y el desconocimiento del triunfo de lula elevaron al máximo el nivel de tensión entre el presidente y la senadora. revival cinematográfico de santiago caputo, rosca con gobernadores y cortocircuitos en su esquema de relaciones. el ministro y el asesor se apoderan del vínculo… ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">00:46</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/01/circulo-rojo-milei-juega-a-todo-o-nada-mientras-el-establishment-especula-hasta-donde-tensionara-bullrich/" target="_blank" rel="noopener">Círculo rojo: Milei juega a todo o nada mientras el establishment especula hasta dónde tensionará Bullrich</a><div class="baj">El operativo Bolsonaro y el desconocimiento del triunfo de Lula elevaron al máximo el nivel de tensión entre el Presidente y la senadora. Revival cinematográfico de Santiago Caputo, rosca con gobernadores y cortocircuitos en su esquema de relaciones. El ministro y el asesor se apoderan del vínculo…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Infobae" data-texto="patricia bullrich y el plan b de milei: cómo retener al votante que dice “sí, pero” las diferencias públicas de la senadora con la casa rosada podrían cumplir una función electoral: contener a quienes respaldan el rumbo económico y cultural del presidente, pero cuestionan sus formas, algunos de sus resultados y determinadas decisiones ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">00:45</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/01/patricia-bullrich-y-el-plan-b-de-milei-como-retener-al-votante-que-dice-si-pero/" target="_blank" rel="noopener">Patricia Bullrich y el plan B de Milei: cómo retener al votante que dice “sí, pero”</a><div class="baj">Las diferencias públicas de la senadora con la Casa Rosada podrían cumplir una función electoral: contener a quienes respaldan el rumbo económico y cultural del Presidente, pero cuestionan sus formas, algunos de sus resultados y determinadas decisiones</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="elDiarioAR" data-texto="el gobierno busca una vía exprés para designar a mahiques en la procuración general los milei barajan una designación &#34;en comisión&#34; del actual ministro de justicia en la jefatura de los fiscales a partir de diciembre. evitaría así la mayoría especial de dos tercios que se requiere en el senado. su hermano esteban, propuesto para ascender a embajador, mientras el padre de ambos… ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">00:01</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/gobierno-busca-via-expres-designar-mahiques-procuracion-general_1_13629947.html" target="_blank" rel="noopener">El Gobierno busca una vía exprés para designar a Mahiques en la Procuración General</a><div class="baj">Los Milei barajan una designación &#34;en comisión&#34; del actual ministro de Justicia en la jefatura de los fiscales a partir de diciembre. Evitaría así la mayoría especial de dos tercios que se requiere en el Senado. Su hermano Esteban, propuesto para ascender a embajador, mientras el padre de ambos…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="milei le ofreció la vicepresidencia a bullrich, pero la senadora prepara su despegue la jefa del oficialismo se ausenta en la reunión de gabinete, contradice la narrativa oficial sobre la victoria electoral de lula y se mueve incómoda en el armado de lla. charlas en la gala solidaria de la fundación de la familia policial y los llamados de los gobernadores. bullrich fantasea con… ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">00:01</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/milei-le-ofrecio-vicepresidencia-bullrich-senadora-prepara-despegue_1_13628565.html" target="_blank" rel="noopener">Milei le ofreció la vicepresidencia a Bullrich, pero la senadora prepara su despegue</a><div class="baj">La jefa del oficialismo se ausenta en la reunión de Gabinete, contradice la narrativa oficial sobre la victoria electoral de Lula y se mueve incómoda en el armado de LLA. Charlas en la gala solidaria de la Fundación de la Familia Policial y los llamados de los gobernadores. Bullrich fantasea con…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="presentan un proyecto para declarar la emergencia hídrica, económica y sanitaria en siete provincias la iniciativa de los diputados sabrina selva y sebastián galmarini propone declarar por un año la emergencia en misiones, formosa, corrientes, chaco, santa fe, entre ríos y buenos aires, ante las inundaciones y crecidas vinculadas al fenómeno de el niño 2026/2027. también contempla alivio fiscal… ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">23:48</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/31/presentan-un-proyecto-para-declarar-la-emergencia-hidrica-economica-y-sanitaria-en-siete-provincias/" target="_blank" rel="noopener">Presentan un proyecto para declarar la emergencia hídrica, económica y sanitaria en siete provincias</a><div class="baj">La iniciativa de los diputados Sabrina Selva y Sebastián Galmarini propone declarar por un año la emergencia en Misiones, Formosa, Corrientes, Chaco, Santa Fe, Entre Ríos y Buenos Aires, ante las inundaciones y crecidas vinculadas al fenómeno de El Niño 2026/2027. También contempla alivio fiscal…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="abogados de gobierno de alaska piden se desestime exigencia de trump de anular boletas del senado  ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">21:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/abogados-de-gobierno-de-alaska-piden-se-desestime-exigencia-de-trump-de-anular-boletas-del-senado_0_L6hodTh5Ao.html" target="_blank" rel="noopener">Abogados de gobierno de Alaska piden se desestime exigencia de Trump de anular boletas del Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="relaciones exteriores analizará designaciones consulares la comisión de relaciones exteriores y culto de la cámara de diputados se reunirá el próximo miércoles a las 14 para considerar doce proyectos de ley vinculados a autorizaciones para el ejercicio de funciones consulares honorarias de distintos países en la argentina. además, abordará iniciativas… ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">21:23</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/10/31/relaciones-exteriores-analizara-designaciones-consulares/" target="_blank" rel="noopener">Relaciones Exteriores analizará designaciones consulares</a><div class="baj">La Comisión de Relaciones Exteriores y Culto de la Cámara de Diputados se reunirá el próximo miércoles a las 14 para considerar doce proyectos de ley vinculados a autorizaciones para el ejercicio de funciones consulares honorarias de distintos países en la Argentina. Además, abordará iniciativas…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="la cámpora salió al cruce de kicillof por las candidaturas a &#34;dedo&#34; y le recordó que cristina kirchner lo eligió en 2019 dirigentes cercanos a máximo kirchner cuestionaron al gobernador después de que clarín revelara que plantea competir en una paso para definir las candidaturas de 2027. un senador camporista lo acusó de &#34;ingratitud&#34; y &#34;estupidez&#34;. la interna del peronismo suma un nuevo capítulo. ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">18:37</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/campora-salio-cruce-kicillof-candidaturas-dedo-recordo-cristina-kirchner-eligio-2019_0_SFpb26LBmf.html" target="_blank" rel="noopener">La Cámpora salió al cruce de Kicillof por las candidaturas a &#34;dedo&#34; y le recordó que Cristina Kirchner lo eligió en 2019</a><div class="baj">Dirigentes cercanos a Máximo Kirchner cuestionaron al gobernador después de que Clarín revelara que plantea competir en una PASO para definir las candidaturas de 2027. Un senador camporista lo acusó de &#34;ingratitud&#34; y &#34;estupidez&#34;. La interna del peronismo suma un nuevo capítulo.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="paxton y talarico se disputan escaño al senado por texas. trump hará campaña virtual  ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">17:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/paxton-y-talarico-se-disputan-escano-al-senado-por-texas-trump-hara-campana-virtual_0_l58NhDd5Xg.html" target="_blank" rel="noopener">Paxton y Talarico se disputan escaño al Senado por Texas. Trump hará campaña virtual</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="patricia bullrich lleva la interna al senado y demora una designación clave para nombrar más jueces es la presidencia de la comisión de acuerdos, por donde pasan los pliegos judiciales. tras la muerte de pagotto, en el bloque libertario postulan a la neuquina márquez. pero la exministra no define. ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">16:37</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/patricia-bullrich-lleva-interna-senado-demora-designacion-clave-nombrar-jueces_0_pGkUoNhKMm.html" target="_blank" rel="noopener">Patricia Bullrich lleva la interna al Senado y demora una designación clave para nombrar más jueces</a><div class="baj">Es la presidencia de la Comisión de Acuerdos, por donde pasan los pliegos judiciales. Tras la muerte de Pagotto, en el bloque libertario postulan a la neuquina Márquez. Pero la exministra no define.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Ámbito" data-texto="reclaman a la agn una &#34;auditoría integral&#34; sobre la privatización de aysa la presentación de la comisión parlamentaria mixta revisora de cuenta pide incluir el proceso de venta de las acciones estatales en el plan operativo de este año y fija un plazo para el informe: antes del 1° de marzo de 2027. en paralelo, el organismo de control ya aprobó revisar la licitación de… ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">15:48</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/reclaman-la-agn-una-auditoria-integral-la-privatizacion-aysa-n6340109" target="_blank" rel="noopener">Reclaman a la AGN una &#34;auditoría integral&#34; sobre la privatización de AySA</a><div class="baj">La presentación de la Comisión Parlamentaria Mixta Revisora de Cuenta pide incluir el proceso de venta de las acciones estatales en el plan operativo de este año y fija un plazo para el informe: antes del 1° de marzo de 2027. En paralelo, el organismo de control ya aprobó revisar la licitación de…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="ee.uu. retrasa sus relojes con la reforma del cambio de hora estancada en el senado  ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">12:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/ee-uu-retrasa-sus-relojes-con-la-reforma-del-cambio-de-hora-estancada-en-el-senado_0_HLpyYAj29x.html" target="_blank" rel="noopener">EE.UU. retrasa sus relojes con la reforma del cambio de hora estancada en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="TN" data-texto="mientras el gobierno busca contener las tensiones internas, bullrich relativiza el mensaje de menem sobre el armado electoral  ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">12:14</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/10/30/mientras-el-gobierno-busca-contener-las-tensiones-internas-patricia-bullrich-relativiza-el-mensaje-de-martin-menem-sobre-2027/" target="_blank" rel="noopener">Mientras el Gobierno busca contener las tensiones internas, Bullrich relativiza el mensaje de Menem sobre el armado electoral</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-01 a las 11:57 hs (hora argentina) ·
+    <span class="estado-ok">20 respondieron bien</span> · <span class="estado-mal">1 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: https://www.boletinoficial.gob.ar/seccion/primera: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: timed out)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
