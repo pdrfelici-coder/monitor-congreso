@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-04</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Miércoles 4 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 13:23 hs · 20/21 fuentes respondieron · <a href="#fuentes">1 caída</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">113</div>
+      <div class="sub up">▲ +81% vs. promedio de 7 días (62)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">52</div>
+    <div class="sub">14 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">13</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>1</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>7</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 27 notas</span>
+    </div>
+    <h3><a href="https://tn.com.ar/internacional/2026/11/03/estados-unidos-vota-en-las-elecciones-legislativas-con-un-fuerte-operativo-de-vigilancia-y-una-alta-participacion-anticipada/" target="_blank" rel="noopener">Elecciones en Estados Unidos: los demócratas ganaron el control del Congreso y le dieron un duro golpe a Donald Trump</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://tn.com.ar/internacional/2026/11/03/estados-unidos-vota-en-las-elecciones-legislativas-con-un-fuerte-operativo-de-vigilancia-y-una-alta-participacion-anticipada/" target="_blank" rel="noopener" title="Elecciones en Estados Unidos: los demócratas ganaron el control del Congreso y le dieron un duro golpe a Donald Trump">TN ↗</a><a href="https://www.cronista.com/internacionales/elecciones-en-estados-unidos-2026-en-vivo-que-se-vota-el-impacto-en-argentina-y-las-ultimas-noticias/" target="_blank" rel="noopener" title="Los demócratas recuperan el control del Congreso y cambia el escenario para Trump">El Cronista ↗</a><a href="https://www.ambito.com/mundo/elecciones-estados-unidos-2026-medio-termino-legislativas-donald-trump-congreso-casa-blanca-partido-republicano-democratas-4-noviembre" target="_blank" rel="noopener" title="Elecciones en EEUU 2026 EN VIVO: resultados, reacción de Trump, estrategia demócrata en el Congreso y últimas noticias">Ámbito ↗</a><a href="https://www.clarin.com/videos/trump-perdio-control-congreso-desafios-enfrentara-segunda-mitad-mandato_3_z710XzjCfC.html" target="_blank" rel="noopener" title="Trump perdió el control del Congreso: los desafíos que enfrentará en la segunda mitad de su mandato">Clarín ↗</a><a href="https://www.pagina12.com.ar/2026/11/04/el-mapa-con-todos-los-resultados-de-las-elecciones-de-estados-unidos/" target="_blank" rel="noopener" title="El mapa con todos los resultados de las elecciones de Estados Unidos 2026">Página/12 ↗</a><a href="https://www.parlamentario.com/2026/11/04/legisladores-de-la-oposicion-celebraron-el-triunfo-democrata-en-estados-unidos-y-cruzaron-al-oficialismo/" target="_blank" rel="noopener" title="Legisladores de la oposición celebraron el triunfo demócrata en Estados Unidos y cruzaron al oficialismo">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/11/04/trump-perdio-el-congreso-cinco-claves-de-un-voto-de-castigo-que-cambia-el-poder-en-estados-unidos/" target="_blank" rel="noopener" title="Trump perdió el Congreso: cinco claves de un voto de castigo que cambia el poder en Estados Unidos">Parlamentario.com ↗</a><a href="https://www.ambito.com/mundo/elecciones-eeuu-como-queda-el-congreso-la-victoria-democrata-y-que-estrategia-usara-donald-trump-el-uso-del-veto-n6341313" target="_blank" rel="noopener" title="Elecciones en EEUU: cómo queda el Congreso tras la victoria demócrata y qué estrategia usará Donald Trump con el uso del veto">Ámbito ↗</a><a href="https://www.ambito.com/mundo/tsunami-democrata-ola-azul-el-congreso-y-duro-golpe-donald-trump-asi-reaccionaron-los-medios-del-las-elecciones-eeuu-n6341297" target="_blank" rel="noopener" title="&#34;Tsunami demócrata&#34;, &#34;Ola azul en el Congreso&#34; y &#34;Duro golpe para Donald Trump&#34;: así reaccionaron los medios del mundo tras las elecciones en EEUU">Ámbito ↗</a><a href="https://www.ambito.com/mundo/golpe-donald-trump-los-democratas-ganan-el-control-del-congreso-y-cambian-el-mapa-politico-eeuu-n6341281" target="_blank" rel="noopener" title="Golpe para Donald Trump: los demócratas ganan el control del Congreso y cambian el mapa político de EEUU">Ámbito ↗</a><a href="https://www.a24.com/mundo/reves-trump-la-ola-azul-cubrio-estados-unidos-y-los-republicanos-perdieron-el-control-del-congreso-n1613090" target="_blank" rel="noopener" title="Revés para Trump: la ola azul cubrió Estados Unidos y los republicanos perdieron el control del Congreso">A24 ↗</a><a href="https://tn.com.ar/internacional/2026/11/03/elecciones-en-estados-unidos-en-vivo-como-esta-conformado-el-congreso-y-cuantas-bancas-gana-cada-partido/" target="_blank" rel="noopener" title="Así quedó el Congreso de Estados Unidos: los demócratas consiguieron la mayoría y complicaron a Trump">TN ↗</a><a href="https://www.clarin.com/estados-unidos/susan-collins-reconoce-la-derrota-en-maine-ante-el-democrata-troy-jackson-en-el-senado_0_H0aYiXzQSj.html" target="_blank" rel="noopener" title="Susan Collins reconoce la derrota en Maine ante el demócrata Troy Jackson en el Senado">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/kansas-elige-a-un-democrata-como-senador-por-primera-vez-desde-1932_0_7tMoCWpr2C.html" target="_blank" rel="noopener" title="Kansas elige a un demócrata como senador por primera vez desde 1932">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/un-tsunami-democrata-barre-eeuu-y-le-arrebata-el-congreso-a-trump_0_G1y31rUfX5.html" target="_blank" rel="noopener" title="Un tsunami demócrata barre EEUU y le arrebata el Congreso a Trump">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/los-democratas-se-hacen-con-el-control-del-senado-segun-proyecciones_0_pLAYtWeZkU.html" target="_blank" rel="noopener" title="Los demócratas se hacen con el control del Senado, según proyecciones">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/una-historica-ola-democrata-arrebata-el-congreso-a-trump-y-a-los-republicanos_0_WBI1buNy8v.html" target="_blank" rel="noopener" title="Una histórica ola demócrata arrebata el Congreso a Trump y a los republicanos">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/talarico-voltea-un-escano-en-el-senado-por-texas-una-historica-victoria-para-los-democratas-en-eeuu_0_mUJOpfUK6B.html" target="_blank" rel="noopener" title="Talarico voltea un escaño en el Senado por Texas, una histórica victoria para los demócratas en EEUU">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/democratas-logran-el-control-del-senado-al-ganar-a-los-republicanos-escano-clave-en-iowa_0_jd5ugP52k3.html" target="_blank" rel="noopener" title="Demócratas logran el control del Senado al ganar a los republicanos escaño clave en Iowa">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/kansas-clave-para-controlar-el-senado-elige-al-primer-democrata-en-94-anos_0_OnQ2jxJ3la.html" target="_blank" rel="noopener" title="Kansas, clave para controlar el Senado, elige al primer demócrata en 94 años">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/democratas-ganan-la-camara-de-representantes-y-se-acercan-al-control-total-del-congreso-frente-a-trump_0_hKG1ofpBkA.html" target="_blank" rel="noopener" title="Demócratas ganan la Cámara de Representantes y se acercan al control total del Congreso frente a Trump">Clarín ↗</a><a href="https://www.clarin.com/mundo/elecciones-estados-unidos-fuerte-voto-castigo-trump-democratas-ganan-camara-diputados-avanzan-senado_0_690uClMxAu.html" target="_blank" rel="noopener" title="Elecciones en Estados Unidos: en un fuerte voto castigo a Trump, los demócratas ganan la Cámara de Diputados y el Senado">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/asi-va-el-recuento-a-las-3-00-gmt-los-democratas-se-anotan-victorias-claves-en-el-senado_0_j8pO9fMo6y.html" target="_blank" rel="noopener" title="Así va el recuento a las 3:00 GMT: Los demócratas se anotan victorias claves en el Senado">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/democratas-ganan-por-sorpresa-en-carolina-del-sur-y-se-acercan-a-la-mayoria-en-el-senado_0_MlkIDkyqAA.html" target="_blank" rel="noopener" title="Demócratas ganan por sorpresa en Carolina del Sur y se acercan a la mayoría en el Senado">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/la-republicana-ashley-moody-gana-el-escano-en-el-senado-por-florida-segun-proyecciones_0_38gAVe97rj.html" target="_blank" rel="noopener" title="La republicana Ashley Moody gana el escaño en el Senado por Florida, según proyecciones">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/los-democratas-arrebatan-a-los-republicanos-el-escano-del-senado-por-carolina-del-norte_0_UWrvoAWc4D.html" target="_blank" rel="noopener" title="Los demócratas arrebatan a los republicanos el escaño del Senado por Carolina del Norte">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/democratas-necesitan-arrebatar-a-republicanos-3-escanos-en-la-camara-baja-y-4-en-el-senado_0_r4sksq3YJj.html" target="_blank" rel="noopener" title="Demócratas necesitan arrebatar a republicanos 3 escaños en la Cámara Baja y 4 en el Senado">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>6</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://tn.com.ar/politica/2026/11/03/el-gobierno-envio-al-senado-el-pliego-de-daniel-rafecas-y-busca-liberar-una-nueva-vacante-en-comodoro-py/" target="_blank" rel="noopener">El Gobierno envió al Senado el pliego de Rafecas para que ocupe un cargo en Cámara de Casación porteña y libere una vacante en Comodoro Py</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://tn.com.ar/politica/2026/11/03/el-gobierno-envio-al-senado-el-pliego-de-daniel-rafecas-y-busca-liberar-una-nueva-vacante-en-comodoro-py/" target="_blank" rel="noopener" title="El Gobierno envió al Senado el pliego de Rafecas para que ocupe un cargo en Cámara de Casación porteña y libere una vacante en Comodoro Py">TN ↗</a><a href="https://www.pagina12.com.ar/2026/11/03/milei-mando-el-pliego-de-rafecas-y-vislumbra-otra-vacante-en-py/" target="_blank" rel="noopener" title="Milei mandó el pliego de Rafecas y vislumbra otra vacante en Py">Página/12 ↗</a><a href="https://www.a24.com/politica/el-gobierno-envio-al-senado-el-pliego-daniel-rafecas-asumir-la-camara-nacional-casacion-n1612998" target="_blank" rel="noopener" title="El Gobierno envió al Senado el pliego de Daniel Rafecas para asumir en la Cámara Nacional de Casación">A24 ↗</a><a href="https://www.parlamentario.com/2026/11/03/el-gobierno-promovio-el-ascenso-judicial-de-daniel-rafecas/" target="_blank" rel="noopener" title="El Gobierno promovió el ascenso judicial de Daniel Rafecas">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/milei-mando-senado-pliego-rafecas-casacion-mahiques-sigue-renovacion-comodoro-py_0_Nu43AyS3kx.html" target="_blank" rel="noopener" title="Milei mandó al Senado el pliego de Rafecas para Casación y Mahiques sigue con su renovación en Comodoro Py">Clarín ↗</a><a href="https://www.lanacion.com.ar/politica/milei-impulsa-el-ascenso-del-juez-rafecas-y-se-podria-abrir-una-nueva-vacante-en-comodoro-py-nid03112026/" target="_blank" rel="noopener" title="Milei impulsa el ascenso del juez Rafecas y se podría abrir una nueva vacante en Comodoro Py">La Nación ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>5</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+· 6 notas</span>
+    </div>
+    <h3><a href="https://www.cronista.com/economia-politica/el-gobierno-decidio-retirar-por-completo-el-proyecto-de-ley-de-competitividad-financieras-despues-de-la-polemica-por-los-cedears/" target="_blank" rel="noopener">Después de la polémica por los Cedears, el Gobierno retiró el proyecto de Ley de Competitividad Financiera</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.cronista.com/economia-politica/el-gobierno-decidio-retirar-por-completo-el-proyecto-de-ley-de-competitividad-financieras-despues-de-la-polemica-por-los-cedears/" target="_blank" rel="noopener" title="Después de la polémica por los Cedears, el Gobierno retiró el proyecto de Ley de Competitividad Financiera">El Cronista ↗</a><a href="https://www.lanacion.com.ar/politica/el-insolito-recorrido-de-un-proyecto-de-ley-que-milei-firmo-de-madrugada-y-pidio-retirar-tres-dias-nid04112026/" target="_blank" rel="noopener" title="El insólito recorrido de un proyecto de ley que Milei firmó de madrugada y pidió retirar tres días después">La Nación ↗</a><a href="https://www.cronista.com/finanzas-mercados/cambian-desde-ons-hasta-las-garantias-de-creditos-las-claves-del-proyecto-que-busca-refundar-el-mercado/" target="_blank" rel="noopener" title="El Gobierno dio marcha atrás con el proyecto de ley que buscaba refundar el mercado: la City analiza la decisión">El Cronista ↗</a><a href="https://www.infobae.com/politica/2026/11/04/tras-la-polemica-por-los-cedears-el-gobierno-retirara-por-completo-el-proyecto-de-ley-de-competitividad-financiera/" target="_blank" rel="noopener" title="Tras la polémica por los CEDEARs, el Gobierno retirará por completo el proyecto de Ley de Competitividad Financiera">Infobae ↗</a><a href="https://www.parlamentario.com/2026/11/03/el-gobierno-dara-marcha-atras-con-el-gravamen-a-los-cedears-tras-el-rechazo-del-mercado/" target="_blank" rel="noopener" title="El Gobierno dará marcha atrás con el gravamen a los CEDEARs tras el rechazo del mercado">Parlamentario.com ↗</a><a href="https://tn.com.ar/economia/2026/11/03/el-gobierno-envio-al-congreso-un-proyecto-que-proponia-cobrar-ganancias-por-la-venta-de-cedears-y-luego-decidio-retirarlo/" target="_blank" rel="noopener" title="El Gobierno envió al Congreso un proyecto que proponía cobrar Ganancias por la venta de Cedear y luego decidió retirarlo">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+· 5 notas</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/11/03/senal-de-patricia-bullrich-hacia-el-interior-de-lla-reunio-a-su-tropa-en-diputados/" target="_blank" rel="noopener">Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados</a></h3>
+<p class="bajada">La presidenta del bloque oficialismo en el Senado mantuvo en encuentro con 12 de los 15 legisladores que le responden a ella. Los motivos del encuentro. Los otros presentes. La entrada Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados se publicó primero en…</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/11/03/senal-de-patricia-bullrich-hacia-el-interior-de-lla-reunio-a-su-tropa-en-diputados/" target="_blank" rel="noopener" title="Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados">Parlamentario.com ↗</a><a href="https://www.ambito.com/politica/como-reacciono-el-gobierno-al-lanzamiento-la-mesa-patricia-bullrich-n6341355" target="_blank" rel="noopener" title="Cómo reaccionó el Gobierno al lanzamiento de la mesa política de Patricia Bullrich">Ámbito ↗</a><a href="https://www.lanacion.com.ar/politica/patricia-bullrich-reunio-a-su-tropa-para-reforzar-el-pedido-de-cambios-a-javier-milei-y-su-gobierno-nid03112026/" target="_blank" rel="noopener" title="Patricia Bullrich reunió a su tropa para reforzar el pedido de cambios a Javier Milei y su gobierno">La Nación ↗</a><a href="https://www.parlamentario.com/2026/11/03/intendentes-del-interior-asistiran-a-diputados-con-una-bateria-de-reclamos-entre-ellos-los-subsidios-al-transporte/" target="_blank" rel="noopener" title="Intendentes del interior asistirán a Diputados con una batería de reclamos, entre ellos los subsidios al transporte">Parlamentario.com ↗</a><a href="https://tn.com.ar/politica/2026/11/03/en-medio-de-las-tensiones-internas-en-el-oficialismo-patricia-bullrich-reunio-a-una-docena-de-diputados-libertarios/" target="_blank" rel="noopener" title="En medio de las tensiones internas en el oficialismo, Patricia Bullrich reunió a una docena de diputados libertarios">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+· 7 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/estados-unidos/abdul-el-sayed-el-primer-senador-musulman-en-la-historia-de-ee-uu_0_TWs62uCZ6J.html" target="_blank" rel="noopener">Abdul El-Sayed, el primer senador musulmán en la historia de EE.UU.</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/estados-unidos/abdul-el-sayed-el-primer-senador-musulman-en-la-historia-de-ee-uu_0_TWs62uCZ6J.html" target="_blank" rel="noopener" title="Abdul El-Sayed, el primer senador musulmán en la historia de EE.UU.">Clarín ↗</a><a href="https://www.cronista.com/internacionales/quien-es-abdul-el-sayed-el-democrata-que-puede-convertirse-en-el-primer-senador-musulman-de-estados-unidos/" target="_blank" rel="noopener" title="Quién es Abdul El-Sayed, el demócrata que será el primer senador musulmán de Estados Unidos">El Cronista ↗</a><a href="https://www.cronista.com/internacionales/del-primer-senador-musulman-a-una-gobernadora-latina-en-texas-los-hitos-que-marcaron-una-eleccion-historica-en-eeuu/" target="_blank" rel="noopener" title="Del primer senador musulmán a una gobernadora latina en Texas: los hitos que marcaron una elección histórica en EE.UU.">El Cronista ↗</a><a href="https://www.pagina12.com.ar/2026/11/04/de-la-derrota-republicana-en-texas-al-primer-senador-musulman-seis-hitos-de-las-elecciones-en-eeuu/" target="_blank" rel="noopener" title="De la derrota republicana en Texas al primer senador musulmán: seis hitos de las elecciones en EE.UU.">Página/12 ↗</a><a href="https://www.clarin.com/estados-unidos/los-hitos-electorales-de-el-sayed-primer-senador-musulman-al-giro-en-texas-con-hinojosa_0_Jb9knTjgp7.html" target="_blank" rel="noopener" title="Los hitos electorales: De El-Sayed, primer senador musulmán, al giro en Texas con Hinojosa">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/el-democrata-abdul-el-sayed-gana-las-elecciones-al-senado-por-michigan_0_vkBJyewvG1.html" target="_blank" rel="noopener" title="El demócrata Abdul El-Sayed gana las elecciones al Senado por Míchigan">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/abdul-el-sayed-se-adelanta-a-proclamarse-ganador-en-la-contienda-por-el-senado-en-michigan_0_9hTkCdRymB.html" target="_blank" rel="noopener" title="Abdul El-Sayed se adelanta a proclamarse ganador en la contienda por el Senado en Michigan">Clarín ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4><span class="hoy-tag">Hoy</span>Miércoles 4 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Prevencion de adicciones y control del narcotrafico, Familias, Niñez y juventudes</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>Abordaje vinculado a consumos problemáticos en niños, niñas y adolescentes. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1388/archivo/FVC972T2EBTV45JH.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Asuntos municipales</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Anexo &#34;C&#34; - 2° piso · ver temario</summary>INVITADOS. TEMAS VARIOS. Régimen Federal de Áreas Metropolitanas. Proyectos de resolución y declaración. A continuación, recibirán funcionarios y referentes sanitarios a fin de analizar el estado del Programa Remediar, la coyuntura y reformulación del mismo. Además, concurrirán invitados y especialistas a fin de abordar Régimen de Áreas Metropolitanas. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1384/archivo/0KDSWBCT8WS9VRKW.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Relaciones exteriores y culto</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 2 - Anexo &#34;A&#34; · ver temario</summary>TEMAS VARIOS. Proyectos de ley por el cual se concede autorización a las/os ciudadanas/os argentinas/os para desempeñar el cargo de cónsul o vicecónsul. Proyectos de resolución y declaración. Ampliación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1383/archivo/X7A8TXVYJM72S6MQ.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Deporte</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: proyecto de ley: Expte. CD-17/26: proyecto de ley en revisión que dispone la obligatoriedad de medidas de seguridad en deporte y actividades recreativas &#34;Ley Joaquín&#34;.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Agricultura y ganaderia</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 6 - Anexo &#34;A&#34; · ver temario</summary>TEMAS VARIOS. Proyectos de declaración y resolución. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1382/archivo/9CWQZSGTWQSJYJET.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Mujeres y diversidad, Familias, Niñez y juventudes, De las personas mayores</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>INVITADOS. Fueron invitados diferentes expositores a fin de abordar la iniciativa del “Acuerdo nacional por los Cuidados”, impulsada por la Mesa Intersectorial “La Cocina de los Cuidados” · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1386/archivo/CPP3A977Q06H6X3C.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Presupuesto y Hacienda y de Población y Desarrollo Humano</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: proyectos de ley: Expte. CD-18/26: Proyecto de ley en revisión que prorroga hasta el 31 de diciembre de 2027 la Emergencia Nacional en Discapacidad —Ley 27.793—. Expte. S-1431/26, Fernández Sagasti: Proyecto de ley que prorroga la vigencia de su similar 27.793 —Emergencia Nacional en Discapacidad—. Expte. S-1484/26, Linares: Proyecto de ley que prorroga la Emergencia Nacional en Discapacidad —declarada por Ley 27.793— en todo el territorio nacional hasta el 31 de diciembre de 2027, inclusive.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">17:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Bicameral de la defensoria del pueblo</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Salón Arturo Illia - Palacio Legislativo · ver temario</summary>Continuación del proceso de selección e integración del Comité nacional para la Prevención de la Tortura y otros Tratos –Ley 26.827–. Ver citación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1380/archivo/EW0E7D2JPBEK65H9.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 62</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Mi 28: 88 notas">
+        <div class="c" style="height: 77.9%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 29: 86 notas">
+        <div class="c" style="height: 76.1%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 30: 90 notas">
+        <div class="c" style="height: 79.6%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 31: 57 notas">
+        <div class="c" style="height: 50.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 1: 31 notas">
+        <div class="c" style="height: 27.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 2: 33 notas">
+        <div class="c" style="height: 29.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 3: 52 notas">
+        <div class="c" style="height: 46.0%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Mi 4: 113 notas">
+<span class="cap">113</span>        <div class="c" style="height: 100.0%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Mi 28</span><span class="">Ju 29</span><span class="">Vi 30</span><span class="">Sá 31</span><span class="">Do 1</span><span class="">Lu 2</span><span class="">Ma 3</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 29 hoy · promedio 8.0">
+        <span class="bar" style="width: 100.0%"></span><span class="v">29</span>
+<span class="tick" style="left: calc(27.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 29 hoy · promedio 16.4">
+        <span class="bar" style="width: 100.0%"></span><span class="v">29</span>
+<span class="tick" style="left: calc(56.7% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 8 hoy · promedio 3.7">
+        <span class="bar" style="width: 27.6%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(12.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 8 hoy · promedio 5.1">
+        <span class="bar" style="width: 27.6%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(17.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 8 hoy · promedio 2.0">
+        <span class="bar" style="width: 27.6%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(6.9% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 7 hoy · promedio 4.9">
+        <span class="bar" style="width: 24.1%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(16.7% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 6 hoy · promedio 1.9">
+        <span class="bar" style="width: 20.7%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(6.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 5 hoy · promedio 6.9">
+        <span class="bar" style="width: 17.2%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(23.6% - 1px)"></span>      </span>
+      <span class="lbl" title="LN+">LN+</span>
+      <span class="track" data-tip="LN+: 4 hoy · promedio 0.9">
+        <span class="bar" style="width: 13.8%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(3.0% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 3 hoy · promedio 1.1">
+        <span class="bar" style="width: 10.3%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(3.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 3 hoy · promedio 2.6">
+        <span class="bar" style="width: 10.3%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(8.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 2 hoy · promedio 1.0">
+        <span class="bar" style="width: 6.9%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(3.4% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 1 hoy · promedio 1.9">
+        <span class="bar" style="width: 3.4%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.4% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Elecciones en Estados Unidos: los demócratas ganaron el control del Congreso y le dieron un duro golpe a Donald Trump">1. Elecciones en Estados Unidos: los demócratas ganaron el control del Congreso y le dieron un duro golpe a Donald Trump</span>
+      <span class="track" data-tip="Elecciones en Estados Unidos: los demócratas ganaron el control del Congreso y le dieron un duro golpe a Donald Trump — 27 notas, 7 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">27 (7)</span>
+      </span>
+      <span class="lbl" title="El Gobierno envió al Senado el pliego de Rafecas para que ocupe un cargo en Cámara de Casación porteña y libere una vacante en Comodoro Py">2. El Gobierno envió al Senado el pliego de Rafecas para que ocupe un cargo en Cámara de Casación porteña y libere una vacante en Comodoro Py</span>
+      <span class="track" data-tip="El Gobierno envió al Senado el pliego de Rafecas para que ocupe un cargo en Cámara de Casación porteña y libere una vacante en Comodoro Py — 6 notas, 6 medios">
+        <span class="bar" style="width: 22.2%"></span><span class="v">6 (6)</span>
+      </span>
+      <span class="lbl" title="Después de la polémica por los Cedears, el Gobierno retiró el proyecto de Ley de Competitividad Financiera">3. Después de la polémica por los Cedears, el Gobierno retiró el proyecto de Ley de Competitividad Financiera</span>
+      <span class="track" data-tip="Después de la polémica por los Cedears, el Gobierno retiró el proyecto de Ley de Competitividad Financiera — 6 notas, 5 medios">
+        <span class="bar" style="width: 22.2%"></span><span class="v">6 (5)</span>
+      </span>
+      <span class="lbl" title="Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados">4. Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados</span>
+      <span class="track" data-tip="Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados — 5 notas, 4 medios">
+        <span class="bar" style="width: 18.5%"></span><span class="v">5 (4)</span>
+      </span>
+      <span class="lbl" title="Abdul El-Sayed, el primer senador musulmán en la historia de EE.UU.">5. Abdul El-Sayed, el primer senador musulmán en la historia de EE.UU.</span>
+      <span class="track" data-tip="Abdul El-Sayed, el primer senador musulmán en la historia de EE.UU. — 7 notas, 3 medios">
+        <span class="bar" style="width: 25.9%"></span><span class="v">7 (3)</span>
+      </span>
+      <span class="lbl" title="El Senado acelera el debate por la Ley de Discapacidad y el oficialismo busca conseguir el dictamen antes de la llegada del Papa">6. El Senado acelera el debate por la Ley de Discapacidad y el oficialismo busca conseguir el dictamen antes de la llegada del Papa</span>
+      <span class="track" data-tip="El Senado acelera el debate por la Ley de Discapacidad y el oficialismo busca conseguir el dictamen antes de la llegada del Papa — 3 notas, 3 medios">
+        <span class="bar" style="width: 11.1%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="Presupuesto 2027: analizan &#34;paquete&#34; de proyectos de ley para aliviar la carga impositiva de PyMEs">7. Presupuesto 2027: analizan &#34;paquete&#34; de proyectos de ley para aliviar la carga impositiva de PyMEs</span>
+      <span class="track" data-tip="Presupuesto 2027: analizan &#34;paquete&#34; de proyectos de ley para aliviar la carga impositiva de PyMEs — 5 notas, 2 medios">
+        <span class="bar" style="width: 18.5%"></span><span class="v">5 (2)</span>
+      </span>
+      <span class="lbl" title="En medio de la interna del PJ, Kicillof y Máximo Kirchner dialogaron y dieron signos de acercamiento">8. En medio de la interna del PJ, Kicillof y Máximo Kirchner dialogaron y dieron signos de acercamiento</span>
+      <span class="track" data-tip="En medio de la interna del PJ, Kicillof y Máximo Kirchner dialogaron y dieron signos de acercamiento — 2 notas, 2 medios">
+        <span class="bar" style="width: 7.4%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Roberto Baradel ganó las elecciones de la CTA de los Trabajadores y sucederá a Hugo Yasky">9. Roberto Baradel ganó las elecciones de la CTA de los Trabajadores y sucederá a Hugo Yasky</span>
+      <span class="track" data-tip="Roberto Baradel ganó las elecciones de la CTA de los Trabajadores y sucederá a Hugo Yasky — 2 notas, 2 medios">
+        <span class="bar" style="width: 7.4%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Intendentes copan el Congreso para reclamar por subsidios al transporte y el Programa Remediar">10. Intendentes copan el Congreso para reclamar por subsidios al transporte y el Programa Remediar</span>
+      <span class="track" data-tip="Intendentes copan el Congreso para reclamar por subsidios al transporte y el Programa Remediar — 2 notas, 2 medios">
+        <span class="bar" style="width: 7.4%"></span><span class="v">2 (2)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>LN+</option><option>La Nación</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="elecciones en estados unidos: los demócratas ganaron el control del congreso y le dieron un duro golpe a donald trump  ">
+        <td class="tema-col"><b>1</b> · 7 medios</td>
+        <td class="num">07:16</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/11/03/estados-unidos-vota-en-las-elecciones-legislativas-con-un-fuerte-operativo-de-vigilancia-y-una-alta-participacion-anticipada/" target="_blank" rel="noopener">Elecciones en Estados Unidos: los demócratas ganaron el control del Congreso y le dieron un duro golpe a Donald Trump</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="El Cronista" data-texto="los demócratas recuperan el control del congreso y cambia el escenario para trump  ">
+        <td class="tema-col"></td>
+        <td class="num">13:11</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/internacionales/elecciones-en-estados-unidos-2026-en-vivo-que-se-vota-el-impacto-en-argentina-y-las-ultimas-noticias/" target="_blank" rel="noopener">Los demócratas recuperan el control del Congreso y cambia el escenario para Trump</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="elecciones en eeuu 2026 en vivo: resultados, reacción de trump, estrategia demócrata en el congreso y últimas noticias  ">
+        <td class="tema-col"></td>
+        <td class="num">13:08</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/elecciones-estados-unidos-2026-medio-termino-legislativas-donald-trump-congreso-casa-blanca-partido-republicano-democratas-4-noviembre" target="_blank" rel="noopener">Elecciones en EEUU 2026 EN VIVO: resultados, reacción de Trump, estrategia demócrata en el Congreso y últimas noticias</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="trump perdió el control del congreso: los desafíos que enfrentará en la segunda mitad de su mandato  ">
+        <td class="tema-col"></td>
+        <td class="num">11:29</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/trump-perdio-control-congreso-desafios-enfrentara-segunda-mitad-mandato_3_z710XzjCfC.html" target="_blank" rel="noopener">Trump perdió el control del Congreso: los desafíos que enfrentará en la segunda mitad de su mandato</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Página/12" data-texto="el mapa con todos los resultados de las elecciones de estados unidos 2026 los republicanos quedaron en minoría tanto en el senado como en la cámara de representantes y perdieron cinco gobernaciones. además de tomar el control total del congreso, los demócratas ganaron en 28 de los 48 estados en los que se eligió gobernador. ">
+        <td class="tema-col"></td>
+        <td class="num">11:16</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/04/el-mapa-con-todos-los-resultados-de-las-elecciones-de-estados-unidos/" target="_blank" rel="noopener">El mapa con todos los resultados de las elecciones de Estados Unidos 2026</a><div class="baj">Los republicanos quedaron en minoría tanto en el Senado como en la Cámara de Representantes y perdieron cinco gobernaciones. Además de tomar el control total del Congreso, los demócratas ganaron en 28 de los 48 estados en los que se eligió gobernador.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="legisladores de la oposición celebraron el triunfo demócrata en estados unidos y cruzaron al oficialismo referentes de distintos espacios opositores reaccionaron con entusiasmo ante la victoria del partido demócrata en las elecciones estadounidenses. la entrada legisladores de la oposición celebraron el triunfo demócrata en estados unidos y cruzaron al oficialismo se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">10:34</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/legisladores-de-la-oposicion-celebraron-el-triunfo-democrata-en-estados-unidos-y-cruzaron-al-oficialismo/" target="_blank" rel="noopener">Legisladores de la oposición celebraron el triunfo demócrata en Estados Unidos y cruzaron al oficialismo</a><div class="baj">Referentes de distintos espacios opositores reaccionaron con entusiasmo ante la victoria del Partido Demócrata en las elecciones estadounidenses. La entrada Legisladores de la oposición celebraron el triunfo demócrata en Estados Unidos y cruzaron al oficialismo se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="trump perdió el congreso: cinco claves de un voto de castigo que cambia el poder en estados unidos la victoria demócrata en ambas cámaras marca un límite político a la casa blanca. la economía, la guerra con irán y el desgaste del liderazgo presidencial explican una elección con consecuencias para washington y también para la argentina. la entrada trump perdió el congreso: cinco claves de un… ">
+        <td class="tema-col"></td>
+        <td class="num">10:00</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/trump-perdio-el-congreso-cinco-claves-de-un-voto-de-castigo-que-cambia-el-poder-en-estados-unidos/" target="_blank" rel="noopener">Trump perdió el Congreso: cinco claves de un voto de castigo que cambia el poder en Estados Unidos</a><div class="baj">La victoria demócrata en ambas cámaras marca un límite político a la Casa Blanca. La economía, la guerra con Irán y el desgaste del liderazgo presidencial explican una elección con consecuencias para Washington y también para la Argentina. La entrada Trump perdió el Congreso: cinco claves de un…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="elecciones en eeuu: cómo queda el congreso tras la victoria demócrata y qué estrategia usará donald trump con el uso del veto  ">
+        <td class="tema-col"></td>
+        <td class="num">09:09</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/elecciones-eeuu-como-queda-el-congreso-la-victoria-democrata-y-que-estrategia-usara-donald-trump-el-uso-del-veto-n6341313" target="_blank" rel="noopener">Elecciones en EEUU: cómo queda el Congreso tras la victoria demócrata y qué estrategia usará Donald Trump con el uso del veto</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="&#34;tsunami demócrata&#34;, &#34;ola azul en el congreso&#34; y &#34;duro golpe para donald trump&#34;: así reaccionaron los medios del mundo tras las elecciones en eeuu  ">
+        <td class="tema-col"></td>
+        <td class="num">08:48</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/tsunami-democrata-ola-azul-el-congreso-y-duro-golpe-donald-trump-asi-reaccionaron-los-medios-del-las-elecciones-eeuu-n6341297" target="_blank" rel="noopener">&#34;Tsunami demócrata&#34;, &#34;Ola azul en el Congreso&#34; y &#34;Duro golpe para Donald Trump&#34;: así reaccionaron los medios del mundo tras las elecciones en EEUU</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="golpe para donald trump: los demócratas ganan el control del congreso y cambian el mapa político de eeuu  ">
+        <td class="tema-col"></td>
+        <td class="num">07:11</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/golpe-donald-trump-los-democratas-ganan-el-control-del-congreso-y-cambian-el-mapa-politico-eeuu-n6341281" target="_blank" rel="noopener">Golpe para Donald Trump: los demócratas ganan el control del Congreso y cambian el mapa político de EEUU</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="A24" data-texto="revés para trump: la ola azul cubrió estados unidos y los republicanos perdieron el control del congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">07:09</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/mundo/reves-trump-la-ola-azul-cubrio-estados-unidos-y-los-republicanos-perdieron-el-control-del-congreso-n1613090" target="_blank" rel="noopener">Revés para Trump: la ola azul cubrió Estados Unidos y los republicanos perdieron el control del Congreso</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="así quedó el congreso de estados unidos: los demócratas consiguieron la mayoría y complicaron a trump  ">
+        <td class="tema-col"></td>
+        <td class="num">05:47</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/11/03/elecciones-en-estados-unidos-en-vivo-como-esta-conformado-el-congreso-y-cuantas-bancas-gana-cada-partido/" target="_blank" rel="noopener">Así quedó el Congreso de Estados Unidos: los demócratas consiguieron la mayoría y complicaron a Trump</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="susan collins reconoce la derrota en maine ante el demócrata troy jackson en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">02:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/susan-collins-reconoce-la-derrota-en-maine-ante-el-democrata-troy-jackson-en-el-senado_0_H0aYiXzQSj.html" target="_blank" rel="noopener">Susan Collins reconoce la derrota en Maine ante el demócrata Troy Jackson en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="kansas elige a un demócrata como senador por primera vez desde 1932  ">
+        <td class="tema-col"></td>
+        <td class="num">02:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/kansas-elige-a-un-democrata-como-senador-por-primera-vez-desde-1932_0_7tMoCWpr2C.html" target="_blank" rel="noopener">Kansas elige a un demócrata como senador por primera vez desde 1932</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="un tsunami demócrata barre eeuu y le arrebata el congreso a trump  ">
+        <td class="tema-col"></td>
+        <td class="num">02:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/un-tsunami-democrata-barre-eeuu-y-le-arrebata-el-congreso-a-trump_0_G1y31rUfX5.html" target="_blank" rel="noopener">Un tsunami demócrata barre EEUU y le arrebata el Congreso a Trump</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="los demócratas se hacen con el control del senado, según proyecciones  ">
+        <td class="tema-col"></td>
+        <td class="num">02:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/los-democratas-se-hacen-con-el-control-del-senado-segun-proyecciones_0_pLAYtWeZkU.html" target="_blank" rel="noopener">Los demócratas se hacen con el control del Senado, según proyecciones</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="una histórica ola demócrata arrebata el congreso a trump y a los republicanos  ">
+        <td class="tema-col"></td>
+        <td class="num">02:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/una-historica-ola-democrata-arrebata-el-congreso-a-trump-y-a-los-republicanos_0_WBI1buNy8v.html" target="_blank" rel="noopener">Una histórica ola demócrata arrebata el Congreso a Trump y a los republicanos</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="talarico voltea un escaño en el senado por texas, una histórica victoria para los demócratas en eeuu  ">
+        <td class="tema-col"></td>
+        <td class="num">02:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/talarico-voltea-un-escano-en-el-senado-por-texas-una-historica-victoria-para-los-democratas-en-eeuu_0_mUJOpfUK6B.html" target="_blank" rel="noopener">Talarico voltea un escaño en el Senado por Texas, una histórica victoria para los demócratas en EEUU</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="demócratas logran el control del senado al ganar a los republicanos escaño clave en iowa  ">
+        <td class="tema-col"></td>
+        <td class="num">01:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-logran-el-control-del-senado-al-ganar-a-los-republicanos-escano-clave-en-iowa_0_jd5ugP52k3.html" target="_blank" rel="noopener">Demócratas logran el control del Senado al ganar a los republicanos escaño clave en Iowa</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="kansas, clave para controlar el senado, elige al primer demócrata en 94 años  ">
+        <td class="tema-col"></td>
+        <td class="num">01:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/kansas-clave-para-controlar-el-senado-elige-al-primer-democrata-en-94-anos_0_OnQ2jxJ3la.html" target="_blank" rel="noopener">Kansas, clave para controlar el Senado, elige al primer demócrata en 94 años</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="demócratas ganan la cámara de representantes y se acercan al control total del congreso frente a trump  ">
+        <td class="tema-col"></td>
+        <td class="num">01:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-ganan-la-camara-de-representantes-y-se-acercan-al-control-total-del-congreso-frente-a-trump_0_hKG1ofpBkA.html" target="_blank" rel="noopener">Demócratas ganan la Cámara de Representantes y se acercan al control total del Congreso frente a Trump</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="elecciones en estados unidos: en un fuerte voto castigo a trump, los demócratas ganan la cámara de diputados y el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">00:55</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/elecciones-estados-unidos-fuerte-voto-castigo-trump-democratas-ganan-camara-diputados-avanzan-senado_0_690uClMxAu.html" target="_blank" rel="noopener">Elecciones en Estados Unidos: en un fuerte voto castigo a Trump, los demócratas ganan la Cámara de Diputados y el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="así va el recuento a las 3:00 gmt: los demócratas se anotan victorias claves en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">00:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/asi-va-el-recuento-a-las-3-00-gmt-los-democratas-se-anotan-victorias-claves-en-el-senado_0_j8pO9fMo6y.html" target="_blank" rel="noopener">Así va el recuento a las 3:00 GMT: Los demócratas se anotan victorias claves en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="demócratas ganan por sorpresa en carolina del sur y se acercan a la mayoría en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">00:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-ganan-por-sorpresa-en-carolina-del-sur-y-se-acercan-a-la-mayoria-en-el-senado_0_MlkIDkyqAA.html" target="_blank" rel="noopener">Demócratas ganan por sorpresa en Carolina del Sur y se acercan a la mayoría en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="la republicana ashley moody gana el escaño en el senado por florida, según proyecciones  ">
+        <td class="tema-col"></td>
+        <td class="num">22:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/la-republicana-ashley-moody-gana-el-escano-en-el-senado-por-florida-segun-proyecciones_0_38gAVe97rj.html" target="_blank" rel="noopener">La republicana Ashley Moody gana el escaño en el Senado por Florida, según proyecciones</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="los demócratas arrebatan a los republicanos el escaño del senado por carolina del norte  ">
+        <td class="tema-col"></td>
+        <td class="num">22:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/los-democratas-arrebatan-a-los-republicanos-el-escano-del-senado-por-carolina-del-norte_0_UWrvoAWc4D.html" target="_blank" rel="noopener">Los demócratas arrebatan a los republicanos el escaño del Senado por Carolina del Norte</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="demócratas necesitan arrebatar a republicanos 3 escaños en la cámara baja y 4 en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">19:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-necesitan-arrebatar-a-republicanos-3-escanos-en-la-camara-baja-y-4-en-el-senado_0_r4sksq3YJj.html" target="_blank" rel="noopener">Demócratas necesitan arrebatar a republicanos 3 escaños en la Cámara Baja y 4 en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="TN" data-texto="el gobierno envió al senado el pliego de rafecas para que ocupe un cargo en cámara de casación porteña y libere una vacante en comodoro py  ">
+        <td class="tema-col"><b>2</b> · 6 medios</td>
+        <td class="num">17:33</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/03/el-gobierno-envio-al-senado-el-pliego-de-daniel-rafecas-y-busca-liberar-una-nueva-vacante-en-comodoro-py/" target="_blank" rel="noopener">El Gobierno envió al Senado el pliego de Rafecas para que ocupe un cargo en Cámara de Casación porteña y libere una vacante en Comodoro Py</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Página/12" data-texto="milei mandó el pliego de rafecas y vislumbra otra vacante en py  ">
+        <td class="tema-col"></td>
+        <td class="num">00:38</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/03/milei-mando-el-pliego-de-rafecas-y-vislumbra-otra-vacante-en-py/" target="_blank" rel="noopener">Milei mandó el pliego de Rafecas y vislumbra otra vacante en Py</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="A24" data-texto="el gobierno envió al senado el pliego de daniel rafecas para asumir en la cámara nacional de casación  ">
+        <td class="tema-col"></td>
+        <td class="num">20:47</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/el-gobierno-envio-al-senado-el-pliego-daniel-rafecas-asumir-la-camara-nacional-casacion-n1612998" target="_blank" rel="noopener">El Gobierno envió al Senado el pliego de Daniel Rafecas para asumir en la Cámara Nacional de Casación</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="el gobierno promovió el ascenso judicial de daniel rafecas tras la muerte de juan carlos pagotto, el oficialismo deberá resolver quién quedará a cargo de la comisión de acuerdos. la idea era que sea nadia márquez, pero aún no está definido. la entrada el gobierno promovió el ascenso judicial de daniel rafecas se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">18:48</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/el-gobierno-promovio-el-ascenso-judicial-de-daniel-rafecas/" target="_blank" rel="noopener">El Gobierno promovió el ascenso judicial de Daniel Rafecas</a><div class="baj">Tras la muerte de Juan Carlos Pagotto, el oficialismo deberá resolver quién quedará a cargo de la Comisión de Acuerdos. La idea era que sea Nadia Márquez, pero aún no está definido. La entrada El Gobierno promovió el ascenso judicial de Daniel Rafecas se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Clarín" data-texto="milei mandó al senado el pliego de rafecas para casación y mahiques sigue con su renovación en comodoro py  ">
+        <td class="tema-col"></td>
+        <td class="num">16:58</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/milei-mando-senado-pliego-rafecas-casacion-mahiques-sigue-renovacion-comodoro-py_0_Nu43AyS3kx.html" target="_blank" rel="noopener">Milei mandó al Senado el pliego de Rafecas para Casación y Mahiques sigue con su renovación en Comodoro Py</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="La Nación" data-texto="milei impulsa el ascenso del juez rafecas y se podría abrir una nueva vacante en comodoro py el pliego del juez federal llegó al senado con la firma de presidente; podría convertirse en camarista de la casación porteña y dejar un hueco estratégico en los tribunales de retiro; las causas que tiene bajo su órbita ">
+        <td class="tema-col"></td>
+        <td class="num">15:41</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/milei-impulsa-el-ascenso-del-juez-rafecas-y-se-podria-abrir-una-nueva-vacante-en-comodoro-py-nid03112026/" target="_blank" rel="noopener">Milei impulsa el ascenso del juez Rafecas y se podría abrir una nueva vacante en Comodoro Py</a><div class="baj">El pliego del juez federal llegó al Senado con la firma de Presidente; podría convertirse en camarista de la Casación porteña y dejar un hueco estratégico en los tribunales de Retiro; las causas que tiene bajo su órbita</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="El Cronista" data-texto="después de la polémica por los cedears, el gobierno retiró el proyecto de ley de competitividad financiera  ">
+        <td class="tema-col"><b>3</b> · 5 medios</td>
+        <td class="num">10:32</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/el-gobierno-decidio-retirar-por-completo-el-proyecto-de-ley-de-competitividad-financieras-despues-de-la-polemica-por-los-cedears/" target="_blank" rel="noopener">Después de la polémica por los Cedears, el Gobierno retiró el proyecto de Ley de Competitividad Financiera</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="La Nación" data-texto="el insólito recorrido de un proyecto de ley que milei firmó de madrugada y pidió retirar tres días después la iniciativa de competitividad financiera, impulsada por sturzenegger, ingresó a diputados el sábado por la noche y desató críticas en el mundo financiero porque incorporaba un nuevo impuesto ">
+        <td class="tema-col"></td>
+        <td class="num">13:02</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-insolito-recorrido-de-un-proyecto-de-ley-que-milei-firmo-de-madrugada-y-pidio-retirar-tres-dias-nid04112026/" target="_blank" rel="noopener">El insólito recorrido de un proyecto de ley que Milei firmó de madrugada y pidió retirar tres días después</a><div class="baj">La iniciativa de Competitividad Financiera, impulsada por Sturzenegger, ingresó a Diputados el sábado por la noche y desató críticas en el mundo financiero porque incorporaba un nuevo impuesto</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="El Cronista" data-texto="el gobierno dio marcha atrás con el proyecto de ley que buscaba refundar el mercado: la city analiza la decisión  ">
+        <td class="tema-col"></td>
+        <td class="num">10:48</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/finanzas-mercados/cambian-desde-ons-hasta-las-garantias-de-creditos-las-claves-del-proyecto-que-busca-refundar-el-mercado/" target="_blank" rel="noopener">El Gobierno dio marcha atrás con el proyecto de ley que buscaba refundar el mercado: la City analiza la decisión</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Infobae" data-texto="tras la polémica por los cedears, el gobierno retirará por completo el proyecto de ley de competitividad financiera a raíz de los cuestionamientos sobre el artículo que proponía cobrar ganancias a las inversiones en el extranjero, la iniciativa será retirada de diputados para ser revisada. desde economía habían asegurado que el artículo era un borrador viejo ">
+        <td class="tema-col"></td>
+        <td class="num">01:03</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/04/tras-la-polemica-por-los-cedears-el-gobierno-retirara-por-completo-el-proyecto-de-ley-de-competitividad-financiera/" target="_blank" rel="noopener">Tras la polémica por los CEDEARs, el Gobierno retirará por completo el proyecto de Ley de Competitividad Financiera</a><div class="baj">A raíz de los cuestionamientos sobre el artículo que proponía cobrar Ganancias a las inversiones en el extranjero, la iniciativa será retirada de Diputados para ser revisada. Desde Economía habían asegurado que el artículo era un borrador viejo</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="el gobierno dará marcha atrás con el gravamen a los cedears tras el rechazo del mercado la polémica se desató apenas ingresó al congreso la ley de competitividad financiera. el proyecto incluía una modificación que eliminaba la exención del impuesto a las ganancias para determinadas operaciones con cedears. tras las críticas de operadores, analistas e inversores, economía aseguró que… ">
+        <td class="tema-col"></td>
+        <td class="num">20:46</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/el-gobierno-dara-marcha-atras-con-el-gravamen-a-los-cedears-tras-el-rechazo-del-mercado/" target="_blank" rel="noopener">El Gobierno dará marcha atrás con el gravamen a los CEDEARs tras el rechazo del mercado</a><div class="baj">La polémica se desató apenas ingresó al Congreso la Ley de Competitividad Financiera. El proyecto incluía una modificación que eliminaba la exención del Impuesto a las Ganancias para determinadas operaciones con CEDEARs. Tras las críticas de operadores, analistas e inversores, Economía aseguró que…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="TN" data-texto="el gobierno envió al congreso un proyecto que proponía cobrar ganancias por la venta de cedear y luego decidió retirarlo  ">
+        <td class="tema-col"></td>
+        <td class="num">19:55</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/economia/2026/11/03/el-gobierno-envio-al-congreso-un-proyecto-que-proponia-cobrar-ganancias-por-la-venta-de-cedears-y-luego-decidio-retirarlo/" target="_blank" rel="noopener">El Gobierno envió al Congreso un proyecto que proponía cobrar Ganancias por la venta de Cedear y luego decidió retirarlo</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="señal de patricia bullrich hacia el interior de lla: reunió a su tropa en diputados la presidenta del bloque oficialismo en el senado mantuvo en encuentro con 12 de los 15 legisladores que le responden a ella. los motivos del encuentro. los otros presentes. la entrada señal de patricia bullrich hacia el interior de lla: reunió a su tropa en diputados se publicó primero en… presupuesto 2027">
+        <td class="tema-col"><b>4</b> · 4 medios<br>Presupuesto 2027</td>
+        <td class="num">14:24</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/senal-de-patricia-bullrich-hacia-el-interior-de-lla-reunio-a-su-tropa-en-diputados/" target="_blank" rel="noopener">Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados</a><div class="baj">La presidenta del bloque oficialismo en el Senado mantuvo en encuentro con 12 de los 15 legisladores que le responden a ella. Los motivos del encuentro. Los otros presentes. La entrada Señal de Patricia Bullrich hacia el interior de LLA: reunió a su tropa en Diputados se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="cómo reaccionó el gobierno al lanzamiento de la mesa política de patricia bullrich la senadora reunió a dirigentes que le responden y volvió a reclamar cambios en la gestión y en el funcionamiento del oficialismo. en casa rosada crece el malestar por sus cuestionamientos públicos. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">10:14</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/como-reacciono-el-gobierno-al-lanzamiento-la-mesa-patricia-bullrich-n6341355" target="_blank" rel="noopener">Cómo reaccionó el Gobierno al lanzamiento de la mesa política de Patricia Bullrich</a><div class="baj">La senadora reunió a dirigentes que le responden y volvió a reclamar cambios en la gestión y en el funcionamiento del oficialismo. En Casa Rosada crece el malestar por sus cuestionamientos públicos.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="patricia bullrich reunió a su tropa para reforzar el pedido de cambios a javier milei y su gobierno la jefa de los senadores oficialistas citó a gran parte de los diputados que le responden; por ahora no hablan de ruptura, pero sí de la necesidad de limitar el verticalismo libertario presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">19:10</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/patricia-bullrich-reunio-a-su-tropa-para-reforzar-el-pedido-de-cambios-a-javier-milei-y-su-gobierno-nid03112026/" target="_blank" rel="noopener">Patricia Bullrich reunió a su tropa para reforzar el pedido de cambios a Javier Milei y su gobierno</a><div class="baj">La jefa de los senadores oficialistas citó a gran parte de los diputados que le responden; por ahora no hablan de ruptura, pero sí de la necesidad de limitar el verticalismo libertario</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="intendentes del interior asistirán a diputados con una batería de reclamos, entre ellos los subsidios al transporte a raíz del incremento de partidas solo para las líneas que circulan por el amba, hay malestar en bloques provinciales de cara al presupuesto 2027. deudas de pami y reducción del remediar, entre los temas. la entrada intendentes del interior asistirán a diputados con una batería de reclamos, entre… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:55</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/intendentes-del-interior-asistiran-a-diputados-con-una-bateria-de-reclamos-entre-ellos-los-subsidios-al-transporte/" target="_blank" rel="noopener">Intendentes del interior asistirán a Diputados con una batería de reclamos, entre ellos los subsidios al transporte</a><div class="baj">A raíz del incremento de partidas solo para las líneas que circulan por el AMBA, hay malestar en bloques provinciales de cara al Presupuesto 2027. Deudas de PAMI y reducción del Remediar, entre los temas. La entrada Intendentes del interior asistirán a Diputados con una batería de reclamos, entre…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="TN" data-texto="en medio de las tensiones internas en el oficialismo, patricia bullrich reunió a una docena de diputados libertarios  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">17:22</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/03/en-medio-de-las-tensiones-internas-en-el-oficialismo-patricia-bullrich-reunio-a-una-docena-de-diputados-libertarios/" target="_blank" rel="noopener">En medio de las tensiones internas en el oficialismo, Patricia Bullrich reunió a una docena de diputados libertarios</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="abdul el-sayed, el primer senador musulmán en la historia de ee.uu.  ">
+        <td class="tema-col"><b>5</b> · 3 medios</td>
+        <td class="num">05:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/abdul-el-sayed-el-primer-senador-musulman-en-la-historia-de-ee-uu_0_TWs62uCZ6J.html" target="_blank" rel="noopener">Abdul El-Sayed, el primer senador musulmán en la historia de EE.UU.</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="El Cronista" data-texto="quién es abdul el-sayed, el demócrata que será el primer senador musulmán de estados unidos  ">
+        <td class="tema-col"></td>
+        <td class="num">10:50</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/internacionales/quien-es-abdul-el-sayed-el-democrata-que-puede-convertirse-en-el-primer-senador-musulman-de-estados-unidos/" target="_blank" rel="noopener">Quién es Abdul El-Sayed, el demócrata que será el primer senador musulmán de Estados Unidos</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="El Cronista" data-texto="del primer senador musulmán a una gobernadora latina en texas: los hitos que marcaron una elección histórica en ee.uu.  ">
+        <td class="tema-col"></td>
+        <td class="num">08:03</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/internacionales/del-primer-senador-musulman-a-una-gobernadora-latina-en-texas-los-hitos-que-marcaron-una-eleccion-historica-en-eeuu/" target="_blank" rel="noopener">Del primer senador musulmán a una gobernadora latina en Texas: los hitos que marcaron una elección histórica en EE.UU.</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Página/12" data-texto="de la derrota republicana en texas al primer senador musulmán: seis hitos de las elecciones en ee.uu.  ">
+        <td class="tema-col"></td>
+        <td class="num">08:03</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/04/de-la-derrota-republicana-en-texas-al-primer-senador-musulman-seis-hitos-de-las-elecciones-en-eeuu/" target="_blank" rel="noopener">De la derrota republicana en Texas al primer senador musulmán: seis hitos de las elecciones en EE.UU.</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="los hitos electorales: de el-sayed, primer senador musulmán, al giro en texas con hinojosa  ">
+        <td class="tema-col"></td>
+        <td class="num">05:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/los-hitos-electorales-de-el-sayed-primer-senador-musulman-al-giro-en-texas-con-hinojosa_0_Jb9knTjgp7.html" target="_blank" rel="noopener">Los hitos electorales: De El-Sayed, primer senador musulmán, al giro en Texas con Hinojosa</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="el demócrata abdul el-sayed gana las elecciones al senado por míchigan  ">
+        <td class="tema-col"></td>
+        <td class="num">04:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-democrata-abdul-el-sayed-gana-las-elecciones-al-senado-por-michigan_0_vkBJyewvG1.html" target="_blank" rel="noopener">El demócrata Abdul El-Sayed gana las elecciones al Senado por Míchigan</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="abdul el-sayed se adelanta a proclamarse ganador en la contienda por el senado en michigan  ">
+        <td class="tema-col"></td>
+        <td class="num">04:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/abdul-el-sayed-se-adelanta-a-proclamarse-ganador-en-la-contienda-por-el-senado-en-michigan_0_9hTkCdRymB.html" target="_blank" rel="noopener">Abdul El-Sayed se adelanta a proclamarse ganador en la contienda por el Senado en Michigan</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="TN" data-texto="el senado acelera el debate por la ley de discapacidad y el oficialismo busca conseguir el dictamen antes de la llegada del papa  emergencia en discapacidad">
+        <td class="tema-col"><b>6</b> · 3 medios<br>Emergencia en discapacidad</td>
+        <td class="num">05:55</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/04/el-senado-acelera-el-debate-por-la-ley-de-discapacidad-y-el-oficialismo-busca-conseguir-el-dictamen-antes-de-la-llegada-del-papa/" target="_blank" rel="noopener">El Senado acelera el debate por la Ley de Discapacidad y el oficialismo busca conseguir el dictamen antes de la llegada del Papa</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Clarín" data-texto="el senado apura la ley de discapacidad y buscará sacar dictamen este miércoles el texto ya tiene media sanción de diputados y la cámara alta prevé votarlo en una sesión en dos semanas. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">06:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/senado-apura-ley-discapacidad-buscara-sacar-dictamen-miercoles_0_lbyUyeGiD0.html" target="_blank" rel="noopener">El Senado apura la Ley de Discapacidad y buscará sacar dictamen este miércoles</a><div class="baj">El texto ya tiene media sanción de Diputados y la Cámara Alta prevé votarlo en una sesión en dos semanas.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Página/12" data-texto="conversión oficialista: el senado acelera el debate por la ley de discapacidad  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">00:40</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/04/conversion-oficialista-el-senado-acelera-el-debate-por-la-ley-de-discapacidad/" target="_blank" rel="noopener">Conversión oficialista: el Senado acelera el debate por la Ley de Discapacidad</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="presupuesto 2027: analizan &#34;paquete&#34; de proyectos de ley para aliviar la carga impositiva de pymes las iniciativas buscan incorporar propuestas concretas al próximo debate del presupuesto y la ley impositiva 2027, en un contexto de emergencia para numerosos sectores productivos. la entrada presupuesto 2027: analizan &#34;paquete&#34; de proyectos de ley para aliviar la carga impositiva de pymes se… presupuesto 2027">
+        <td class="tema-col"><b>7</b> · 2 medios<br>Presupuesto 2027</td>
+        <td class="num">16:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/presupuesto-2027-analizan-paquete-de-proyectos-para-aliviar-la-carga-impositiva-de-pymes/" target="_blank" rel="noopener">Presupuesto 2027: analizan &#34;paquete&#34; de proyectos de ley para aliviar la carga impositiva de PyMEs</a><div class="baj">Las iniciativas buscan incorporar propuestas concretas al próximo debate del Presupuesto y la Ley Impositiva 2027, en un contexto de emergencia para numerosos sectores productivos. La entrada Presupuesto 2027: analizan &#34;paquete&#34; de proyectos de ley para aliviar la carga impositiva de PyMEs se…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="el ministro pablo lópez presentará el presupuesto general 2027 ante diputados y senadores el ministro de economía de la provincia de buenos aires, pablo lópez, presentará este jueves 5 de noviembre, a partir de las 10, los principales lineamientos del proyecto de presupuesto 2027. la entrada el ministro pablo lópez presentará el presupuesto general 2027 ante diputados y senadores se… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:28</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/el-ministro-pablo-lopez-presentara-el-presupuesto-general-2027-ante-diputados-y-senadores/" target="_blank" rel="noopener">El ministro Pablo López presentará el Presupuesto General 2027 ante diputados y senadores</a><div class="baj">El ministro de Economía de la provincia de Buenos Aires, Pablo López, presentará este jueves 5 de noviembre, a partir de las 10, los principales lineamientos del proyecto de Presupuesto 2027. La entrada El ministro Pablo López presentará el Presupuesto General 2027 ante diputados y senadores se…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Letra P" data-texto="javkin presentó el presupuesto 2027 de rosario con facturas para el socialismo y un desafío fiscal a milei  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">17:48</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/javkin-presento-el-presupuesto-2027-rosario-facturas-el-socialismo-y-un-desafio-fiscal-milei-n5427944" target="_blank" rel="noopener">Javkin presentó el Presupuesto 2027 de Rosario con facturas para el socialismo y un desafío fiscal a Milei</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="denuncian un recorte en las partidas destinadas a políticas contra la violencia de género en el presupuesto 2027 la comisión de mujeres y diversidad realizó una reunión informativa para cuestionar el presupuesto 2027 y advertir sobre la caída de los recursos y la falta de ejecución de programas. esteban paulón lo definió como un “presupuesto sin perspectiva de género”. la entrada denuncian un recorte en las… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">17:32</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/denuncian-un-recorte-en-las-partidas-destinadas-a-politicas-contra-la-violencia-de-genero-en-el-presupuesto-2027/" target="_blank" rel="noopener">Denuncian un recorte en las partidas destinadas a políticas contra la violencia de género en el Presupuesto 2027</a><div class="baj">La Comisión de Mujeres y Diversidad realizó una reunión informativa para cuestionar el Presupuesto 2027 y advertir sobre la caída de los recursos y la falta de ejecución de programas. Esteban Paulón lo definió como un “presupuesto sin perspectiva de género”. La entrada Denuncian un recorte en las…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="representantes del inta alertaron que el proyecto de presupuesto 2027 “propone derogar la fuente de financiamiento del instituto” desde la entidad hicieron hincapié en el artículo 21 del proyecto enviado por el ejecutivo: “estamos hablando de eliminar permanentemente una fuente específica de financiamiento, y con ello, reducir la previsibilidad presupuestaria”, pero remarcaron que dicha iniciativa “no puede modificarla ley… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:22</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/representantes-del-inta-alertaron-que-el-proyecto-de-presupuesto-2027-propone-derogar-la-fuente-de-financiamiento-del-instituto/" target="_blank" rel="noopener">Representantes del INTA alertaron que el proyecto de Presupuesto 2027 “propone derogar la fuente de financiamiento del instituto”</a><div class="baj">Desde la entidad hicieron hincapié en el artículo 21 del proyecto enviado por el Ejecutivo: “Estamos hablando de eliminar permanentemente una fuente específica de financiamiento, y con ello, reducir la previsibilidad presupuestaria”, pero remarcaron que dicha iniciativa “no puede modificarla ley…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="en medio de la interna del pj, kicillof y máximo kirchner dialogaron y dieron signos de acercamiento el gobernador bonaerense y el diputado nacional acordaron los términos de una reunión del partido justicialista provincial; se reafirmó que el líder de la cámpora presidirá el congreso partidario ">
+        <td class="tema-col"><b>8</b> · 2 medios</td>
+        <td class="num">12:47</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/en-medio-de-la-interna-del-pj-kicillof-y-maximo-kirchner-dialogaron-y-dieron-signos-de-acercamiento-nid04112026/" target="_blank" rel="noopener">En medio de la interna del PJ, Kicillof y Máximo Kirchner dialogaron y dieron signos de acercamiento</a><div class="baj">El gobernador bonaerense y el diputado nacional acordaron los términos de una reunión del Partido Justicialista provincial; se reafirmó que el líder de La Cámpora presidirá el congreso partidario</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="máximo kirchner y axel kicillof se reunieron para ordenar el pj bonaerense en la antesala de una reunión del consejo del partido, el gobernador y el diputado acercaron posiciones. la pulseada por las reelecciones indefinidas. ">
+        <td class="tema-col"></td>
+        <td class="num">00:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/04/maximo-kirchner-y-axel-kicillof-se-reunieron-para-ordenar-el-pj-bonaerense/" target="_blank" rel="noopener">Máximo Kirchner y Axel Kicillof se reunieron para ordenar el PJ bonaerense</a><div class="baj">En la antesala de una reunión del Consejo del Partido, el gobernador y el diputado acercaron posiciones. La pulseada por las reelecciones indefinidas.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="roberto baradel ganó las elecciones de la cta de los trabajadores y sucederá a hugo yasky con más del 95% de los votos acumulados la lista 10 se impuso en todas las provincias. la lista opositora estaba encabezada por romina del plá, diputada nacional por el frente de izquierda. hugo yasky deja la conducción tras dos décadas. ">
+        <td class="tema-col"><b>9</b> · 2 medios</td>
+        <td class="num">22:04</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/roberto-baradel-gano-elecciones-cta-trabajadores-sucedera-hugo-yasky_0_9Zfh4EvQd2.html" target="_blank" rel="noopener">Roberto Baradel ganó las elecciones de la CTA de los Trabajadores y sucederá a Hugo Yasky</a><div class="baj">Con más del 95% de los votos acumulados la Lista 10 se impuso en todas las provincias. La lista opositora estaba encabezada por Romina Del Plá, diputada nacional por el Frente de Izquierda. Hugo Yasky deja la conducción tras dos décadas.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="roberto baradel ganó la elección de la cta y reemplazará a hugo yasky se impuso en las elecciones internas de la central obrera a romina del plá; el docente será escoltado en la conducción por el estatal daniel catalano y el aeronaútico edgardo llano ">
+        <td class="tema-col"></td>
+        <td class="num">11:33</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/roberto-baradel-gano-la-eleccion-de-la-cta-y-reemplazara-a-hugo-yasky-nid04112026/" target="_blank" rel="noopener">Roberto Baradel ganó la elección de la CTA y reemplazará a Hugo Yasky</a><div class="baj">Se impuso en las elecciones internas de la central obrera a Romina Del Plá; el docente será escoltado en la conducción por el estatal Daniel Catalano y el aeronaútico Edgardo Llano</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Ámbito" data-texto="intendentes copan el congreso para reclamar por subsidios al transporte y el programa remediar luego de que el gobierno aumentara los subsidios para los colectivos del amba, jefes comunales de diferentes provincias y partidos reclamarán este miércoles en comisión que los fondos se repartan con criterio federal. también exigen que el ejecutivo dé marcha atrás con el desmantelamiento del… ">
+        <td class="tema-col"><b>10</b> · 2 medios</td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/intendentes-copan-el-congreso-reclamar-subsidios-al-transporte-y-el-programa-remediar-n6341104" target="_blank" rel="noopener">Intendentes copan el Congreso para reclamar por subsidios al transporte y el Programa Remediar</a><div class="baj">Luego de que el Gobierno aumentara los subsidios para los colectivos del AMBA, jefes comunales de diferentes provincias y partidos reclamarán este miércoles en comisión que los fondos se repartan con criterio federal. También exigen que el Ejecutivo dé marcha atrás con el desmantelamiento del…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Comisión" data-medio="Página/12" data-texto="intendentes cordobeses reclamarán ante diputados el ajuste del plan remediar y la deuda del pami  ">
+        <td class="tema-col"></td>
+        <td class="num">09:12</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/04/intendentes-cordobeses-reclamaran-ante-diputados-el-ajuste-del-plan-remediar-y-la-deuda-del-pami/" target="_blank" rel="noopener">Intendentes cordobeses reclamarán ante diputados el ajuste del Plan Remediar y la deuda del PAMI</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="presupuesto 2027: las fechas que maneja el gobierno y los reclamos que demoran la negociación en el congreso tal como anticipó clarín, la iniciativa será tratada en diputados el 25 de noviembre. la intención del oficialismo es dictaminar en dos semanas aunque las diferencias con los bloques dialoguistas y los reclamos pendientes condicionan las negociaciones. presupuesto 2027">
+        <td class="tema-col"><b>11</b> · 2 medios<br>Presupuesto 2027</td>
+        <td class="num">06:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/presupuesto-2027-fechas-maneja-gobierno-reclamos-demoran-negociacion-congreso_0_lWJjiwzysh.html" target="_blank" rel="noopener">Presupuesto 2027: las fechas que maneja el Gobierno y los reclamos que demoran la negociación en el Congreso</a><div class="baj">Tal como anticipó Clarín, la iniciativa será tratada en Diputados el 25 de noviembre. La intención del oficialismo es dictaminar en dos semanas aunque las diferencias con los bloques dialoguistas y los reclamos pendientes condicionan las negociaciones.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="las elecciones en eeuu y la visita de león xiv demoran las negociaciones del presupuesto en diputados el oficialismo no podrá sesionar hoy ni mañana porque varios legisladores viajaron para ser veedores en los comicios de medio término. los feriados y la agenda del papa también complican el panorama para la semana que viene presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">02:08</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/04/las-elecciones-en-eeuu-y-la-visita-de-leon-xiv-demoran-las-negociaciones-del-presupuesto-en-diputados/" target="_blank" rel="noopener">Las elecciones en EEUU y la visita de León XIV demoran las negociaciones del Presupuesto en Diputados</a><div class="baj">El oficialismo no podrá sesionar hoy ni mañana porque varios legisladores viajaron para ser veedores en los comicios de medio término. Los feriados y la agenda del Papa también complican el panorama para la semana que viene</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Proyecto" data-medio="elDiarioAR" data-texto="el gobierno boicotea la sanción de la ley que prohíbe la publicidad de las apuestas online en tres semanas, el proyecto que busca prevenir la ludopatía que se aprobó en la cámara de diputados perderá estado parlamentario. el gobierno aspira a que la ley quede archivada, pero la llegada del papa león xiv a la argentina volvió a reactivar el reclamo por su tratamiento. en tres semanas, la… ">
+        <td class="tema-col"><b>12</b> · 2 medios</td>
+        <td class="num">05:29</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/gobierno-boicotea-sancion-ley-prohibe-publicidad-apuestas-online_1_13635977.html" target="_blank" rel="noopener">El Gobierno boicotea la sanción de la ley que prohíbe la publicidad de las apuestas online</a><div class="baj">En tres semanas, el proyecto que busca prevenir la ludopatía que se aprobó en la Cámara de Diputados perderá estado parlamentario. El Gobierno aspira a que la ley quede archivada, pero la llegada del Papa León XIV a la Argentina volvió a reactivar el reclamo por su tratamiento. En tres semanas, la…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="frade insiste en advertir que el proyecto contra la ludopatía podría naufragar la diputada nacional cuestionó las demoras en el tratamiento de la iniciativa para prevenir la ludopatía y restringir la publicidad de apuestas online. aunque el senado aprobó la semana pasada una moción de preferencia para debatir el tema, la legisladora de la cc teme que el proyecto termine… ">
+        <td class="tema-col"></td>
+        <td class="num">21:20</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/frade-insiste-en-advertir-que-el-proyecto-contra-la-ludopatia-podria-naufragar/" target="_blank" rel="noopener">Frade insiste en advertir que el proyecto contra la ludopatía podría naufragar</a><div class="baj">La diputada nacional cuestionó las demoras en el tratamiento de la iniciativa para prevenir la ludopatía y restringir la publicidad de apuestas online. Aunque el Senado aprobó la semana pasada una moción de preferencia para debatir el tema, la legisladora de la CC teme que el proyecto termine…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="villarruel recibió a la embajadora de alemania la vicepresidenta de la nación mantuvo una reunión protocolar con la representante diplomática alemana en la argentina. durante el encuentro analizaron la relación entre ambos países y coincidieron en la necesidad de profundizar la cooperación institucional y parlamentaria. la entrada villarruel… ">
+        <td class="tema-col"><b>13</b> · 2 medios</td>
+        <td class="num">23:12</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/villarruel-recibio-a-la-embajadora-de-alemania/" target="_blank" rel="noopener">Villarruel recibió a la embajadora de Alemania</a><div class="baj">La vicepresidenta de la Nación mantuvo una reunión protocolar con la representante diplomática alemana en la Argentina. Durante el encuentro analizaron la relación entre ambos países y coincidieron en la necesidad de profundizar la cooperación institucional y parlamentaria. La entrada Villarruel…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Senado (prensa)" data-texto="victoria villarruel recibió a la embajadora de alemania la audiencia formó parte de las actividades de relacionamiento institucional y diplomático que impulsa el senado de la nación. ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24594/noticias" target="_blank" rel="noopener">VICTORIA VILLARRUEL RECIBIÓ A LA EMBAJADORA DE ALEMANIA</a><div class="baj">La audiencia formó parte de las actividades de relacionamiento institucional y diplomático que impulsa el Senado de la Nación.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="ante la visita del papa, crece la presión de la iglesia y la oposición para que el senado no deje caer la ley de ludopatía  ">
+        <td class="tema-col"><b>14</b> · 2 medios</td>
+        <td class="num">14:48</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/visita-papa-crece-presion-iglesia-oposicion-senado-deje-caer-ley-ludopatia_0_KKQKaxF7G7.html" target="_blank" rel="noopener">Ante la visita del Papa, crece la presión de la Iglesia y la oposición para que el Senado no deje caer la ley de Ludopatía</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="la iglesia redobló la presión sobre el senado para que apruebe la ley contra la ludopatía y evite que sea archivada  ">
+        <td class="tema-col"></td>
+        <td class="num">22:54</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/03/la-iglesia-redoblo-la-presion-sobre-el-senado-para-que-apruebe-la-ley-contra-la-ludopatia-y-evite-que-sea-archivada/" target="_blank" rel="noopener">La Iglesia redobló la presión sobre el Senado para que apruebe la ley contra la ludopatía y evite que sea archivada</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="avanza la regulación integral del trabajo en plataformas digitales en la provincia un proyecto de ley presentado en la legislatura bonaerense, y que podría aprobar el senado este jueves, propone crear un plan integral para el trabajo mediante plataformas digitales. la entrada avanza la regulación integral del trabajo en plataformas digitales en la provincia se publicó primero en… ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">11:40</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/avanza-la-regulacion-integral-del-trabajo-en-plataformas-digitales-en-la-provincia/" target="_blank" rel="noopener">Avanza la regulación integral del trabajo en plataformas digitales en la provincia</a><div class="baj">Un proyecto de ley presentado en la Legislatura bonaerense, y que podría aprobar el Senado este jueves, propone crear un Plan Integral para el Trabajo mediante Plataformas Digitales. La entrada Avanza la regulación integral del trabajo en plataformas digitales en la provincia se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="trotta recopiló un libro acerca del impacto de las plataformas digitales y la ia en los niños bajo el título “¡con los chicos, no!”, el diputado y exministro de educación reunió la mirada de especialistas de argentina, españa y uruguay. especial atención sobre propuestas para poner límites al negocio de grandes corporaciones digitales. la entrada trotta recopiló un libro acerca del impacto… ">
+        <td class="tema-col"></td>
+        <td class="num">17:55</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/trotta-recopilo-un-libro-acerca-del-impacto-de-las-plataformas-digitales-y-la-ia-en-los-ninos/" target="_blank" rel="noopener">Trotta recopiló un libro acerca del impacto de las plataformas digitales y la IA en los niños</a><div class="baj">Bajo el título “¡Con los chicos, NO!”, el diputado y exministro de Educación reunió la mirada de especialistas de Argentina, España y Uruguay. Especial atención sobre propuestas para poner límites al negocio de grandes corporaciones digitales. La entrada Trotta recopiló un libro acerca del impacto…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="LN+" data-texto="elecciones estados unidos 2026: qué pronostica para la de medio término la encuestadora que más se acercó al resultado en los últimos comicios los sondeos muestran diferencias entre los candidatos al senado en siete estados clave; la aprobación de donald trump y la definición de los indecisos marcan el escenario de la votación ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">18:56</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/el-mundo/elecciones-estados-unidos-2026-que-pronostica-para-la-de-medio-termino-la-encuestadora-que-mas-se-nid03112026/" target="_blank" rel="noopener">Elecciones Estados Unidos 2026: qué pronostica para la de medio término la encuestadora que más se acercó al resultado en los últimos comicios</a><div class="baj">Los sondeos muestran diferencias entre los candidatos al Senado en siete estados clave; la aprobación de Donald Trump y la definición de los indecisos marcan el escenario de la votación</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="LN+" data-texto="qué anticipan los mercados de predicción sobre las elecciones de medio término estados unidos 2026 los inversores contemplan un avance demócrata en la cámara de representantes; el resultado del senado y una eventual sorpresa republicana podrían modificar la reacción de los activos ">
+        <td class="tema-col"></td>
+        <td class="num">17:56</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/el-mundo/que-anticipan-los-mercados-de-prediccion-sobre-las-elecciones-de-medio-termino-estados-unidos-2026-nid03112026/" target="_blank" rel="noopener">Qué anticipan los mercados de predicción sobre las elecciones de medio término Estados Unidos 2026</a><div class="baj">Los inversores contemplan un avance demócrata en la Cámara de Representantes; el resultado del Senado y una eventual sorpresa republicana podrían modificar la reacción de los activos</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="el caucus hispano en el congreso será el mayor de la historia con más de 50 miembros  ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">13:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-caucus-hispano-en-el-congreso-sera-el-mayor-de-la-historia-con-mas-de-50-miembros_0_SHxHLcCyvZ.html" target="_blank" rel="noopener">El Caucus Hispano en el Congreso será el mayor de la historia con más de 50 miembros</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Ámbito" data-texto="jubilación de anses con 10 años de aportes: cómo solicitarla y qué requisitos exige la ley 24.463  ley 24.463">
+        <td class="tema-col"><b>18</b> · 1 medio<br>Ley 24.463</td>
+        <td class="num">13:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/informacion-general/jubilacion-anses-10-anos-aportes-como-solicitarla-y-que-requisitos-exige-la-ley-24463-n6341020" target="_blank" rel="noopener">Jubilación de ANSES con 10 años de aportes: cómo solicitarla y qué requisitos exige la Ley 24.463</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="el senado sesiona este jueves con los proyectos de salud de kicillof en agenda la cámara alta fue convocada para sesionar este jueves 5 de noviembre a las 15 horas, en el marco de la 5° sesión ordinaria del período legislativo. la entrada el senado sesiona este jueves con los proyectos de salud de kicillof en agenda se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">12:24</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/el-senado-sesiona-este-jueves-con-los-proyectos-de-salud-de-kicillof-en-agenda/" target="_blank" rel="noopener">El Senado sesiona este jueves con los proyectos de salud de Kicillof en agenda</a><div class="baj">La Cámara alta fue convocada para sesionar este jueves 5 de noviembre a las 15 horas, en el marco de la 5° sesión ordinaria del período legislativo. La entrada El Senado sesiona este jueves con los proyectos de salud de Kicillof en agenda se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="proponen que las redes sociales verifiquen la identidad de sus usuarios mediante datos biométricos del renaper la diputada nacional cecilia lópez pasquali presentó un proyecto de ley para crear un sistema obligatorio de verificación de identidad digital en redes sociales, plataformas de comercio electrónico y aplicaciones de juegos. la entrada proponen que las redes sociales verifiquen la identidad de sus… ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">11:55</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/proponen-que-las-redes-sociales-verifiquen-la-identidad-de-sus-usuarios-mediante-datos-biometricos-del-renaper/" target="_blank" rel="noopener">Proponen que las redes sociales verifiquen la identidad de sus usuarios mediante datos biométricos del Renaper</a><div class="baj">La diputada nacional Cecilia López Pasquali presentó un proyecto de ley para crear un sistema obligatorio de verificación de identidad digital en redes sociales, plataformas de comercio electrónico y aplicaciones de juegos. La entrada Proponen que las redes sociales verifiquen la identidad de sus…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="argentina e italia: la fraternidad de ambos pueblos unidos por el puente del papa en una columna de opinión, el diputado ítalo-argentino eugenio san gregorio destaca la visita del papa como una oportunidad para fortalecer los lazos históricos entre argentina e italia, promover la reconciliación y reivindicar los valores de fraternidad, convivencia y esperanza compartidos por… ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">11:29</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/argentina-e-italia-la-fraternidad-de-ambos-pueblos-unidos-por-el-puente-del-papa/" target="_blank" rel="noopener">Argentina e Italia: la fraternidad de ambos pueblos unidos por el puente del Papa</a><div class="baj">En una columna de opinión, el diputado ítalo-argentino Eugenio San Gregorio destaca la visita del Papa como una oportunidad para fortalecer los lazos históricos entre Argentina e Italia, promover la reconciliación y reivindicar los valores de fraternidad, convivencia y esperanza compartidos por…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="gutiérrez impulsa tipificar el crimen de agresión y establecer penas de hasta 25 años de prisión el diputado nacional ramiro gutiérrez presentó un proyecto para incorporar expresamente el crimen de agresión a la legislación argentina. la iniciativa adapta el derecho interno a las enmiendas de kampala del estatuto de roma, prevé penas de entre ocho y veinticinco años de prisión para los… ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">11:21</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/gutierrez-impulsa-tipificar-el-crimen-de-agresion-y-establecer-penas-de-hasta-25-anos-de-prision/" target="_blank" rel="noopener">Gutiérrez impulsa tipificar el crimen de agresión y establecer penas de hasta 25 años de prisión</a><div class="baj">El diputado nacional Ramiro Gutiérrez presentó un proyecto para incorporar expresamente el crimen de agresión a la legislación argentina. La iniciativa adapta el derecho interno a las enmiendas de Kampala del Estatuto de Roma, prevé penas de entre ocho y veinticinco años de prisión para los…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="la comisión de relaciones exteriores analizará designaciones consulares se reunirá este miércoles a las 14 para considerar doce proyectos de ley vinculados a autorizaciones para el ejercicio de funciones consulares honorarias de distintos países en la argentina. además, abordará iniciativas relacionadas con una encíclica del papa león xiv, un homenaje a ceferino… ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">11:10</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/la-comision-de-relaciones-exteriores-analizara-designaciones-consulares/" target="_blank" rel="noopener">La Comisión de Relaciones Exteriores analizará designaciones consulares</a><div class="baj">Se reunirá este miércoles a las 14 para considerar doce proyectos de ley vinculados a autorizaciones para el ejercicio de funciones consulares honorarias de distintos países en la Argentina. Además, abordará iniciativas relacionadas con una encíclica del papa León XIV, un homenaje a Ceferino…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="El Cronista" data-texto="trump reaccionó a la derrota y desafió a los demócratas: “me enviarán cosas que son una locura y las voy a vetar”  ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">10:46</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/internacionales/trump-reacciono-a-la-derrota-y-desafio-a-los-democratas-me-enviaran-cosas-que-son-una-locura-y-las-voy-a-vetar/" target="_blank" rel="noopener">Trump reaccionó a la derrota y desafió a los demócratas: “Me enviarán cosas que son una locura y las voy a vetar”</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="el senado bonaerense y la unlp establecieron acuerdos de cooperación la cámara alta de la provincia de buenos aires y la casa de altos estudios de la ciudad de la plata se comprometieron a promover el desarrollo conjunto de programas, proyectos y actividades de interés común. la entrada el senado bonaerense y la unlp establecieron acuerdos de cooperación se publicó… ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">09:33</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/el-senado-bonaerense-y-la-unlp-establecieron-acuerdos-de-cooperacion/" target="_blank" rel="noopener">El Senado bonaerense y la UNLP establecieron acuerdos de cooperación</a><div class="baj">La Cámara alta de la provincia de Buenos Aires y la casa de altos estudios de la ciudad de La Plata se comprometieron a promover el desarrollo conjunto de programas, proyectos y actividades de interés común. La entrada El Senado bonaerense y la UNLP establecieron acuerdos de cooperación se publicó…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="tras cuatro femicidios, diputadas porteñas acompañaron el paro de trabajadoras sexuales desde fxba y el fit acompañaron el reclamo y advirtieron que la &#34;precarización laboral, la violencia institucional y la pobreza expone a situaciones de violencia&#34;. la entrada tras cuatro femicidios, diputadas porteñas acompañaron el paro de trabajadoras sexuales se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">08:57</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/tras-cuatro-femicidios-diputadas-portenas-acompanaron-el-paro-de-trabajadoras-sexuales/" target="_blank" rel="noopener">Tras cuatro femicidios, diputadas porteñas acompañaron el paro de trabajadoras sexuales</a><div class="baj">Desde FxBA y el FIT acompañaron el reclamo y advirtieron que la &#34;precarización laboral, la violencia institucional y la pobreza expone a situaciones de violencia&#34;. La entrada Tras cuatro femicidios, diputadas porteñas acompañaron el paro de trabajadoras sexuales se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="alonso: &#34;bullrich tiene el deseo firme de ser la próxima presidenta de la argentina&#34; la oficialista se refirió a las intenciones de la senadora de convertirse en la máxima autoridad argentina y planteó que &#34;tiene la capacidad para romper con el statu quo y llevar adelante una renovación política&#34;. la entrada alonso: &#34;bullrich tiene el deseo firme de ser la próxima presidenta de la… ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">08:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/04/alonso-bullrich-tiene-el-deseo-firme-de-ser-la-proxima-presidenta-de-la-argentina/" target="_blank" rel="noopener">Alonso: &#34;Bullrich tiene el deseo firme de ser la próxima presidenta de la Argentina&#34;</a><div class="baj">La oficialista se refirió a las intenciones de la senadora de convertirse en la máxima autoridad argentina y planteó que &#34;tiene la capacidad para romper con el statu quo y llevar adelante una renovación política&#34;. La entrada Alonso: &#34;Bullrich tiene el deseo firme de ser la próxima presidenta de la…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="de &#34;desvelado&#34; al congreso: bobby pulido recupera un asiento para los demócratas en texas  ">
+        <td class="tema-col"><b>28</b> · 1 medio</td>
+        <td class="num">03:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/de-desvelado-al-congreso-bobby-pulido-recupera-un-asiento-para-los-democratas-en-texas_0_UiGMgEylqZ.html" target="_blank" rel="noopener">De &#34;Desvelado&#34; al Congreso: Bobby Pulido recupera un asiento para los demócratas en Texas</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="susan collins, la histórica senadora &#34;moderada&#34; arrastrada por la ola contra trump  ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">03:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/susan-collins-la-historica-senadora-moderada-arrastrada-por-la-ola-contra-trump_0_7xUmt7Bvqn.html" target="_blank" rel="noopener">Susan Collins, la histórica senadora &#34;moderada&#34; arrastrada por la ola contra Trump</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Página/12" data-texto="diputados aprobó la prórroga de la emergencia hídrica  ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">03:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/04/diputados-aprobo-la-prorroga-de-la-emergencia-hidrica/" target="_blank" rel="noopener">Diputados aprobó la prórroga de la emergencia hídrica</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Página/12" data-texto="bullrich muestra los dientes y amenaza a milei con bloquearle el congreso  ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">00:38</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/03/bullrich-muestra-los-dientes-y-amenaza-a-milei-con-bloquearle-el-congreso/" target="_blank" rel="noopener">Bullrich muestra los dientes y amenaza a Milei con bloquearle el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="LN+" data-texto="el deseo de reid wiseman, comandante de artemis ii, para nuevas misiones: “estoy ansioso por ver a mis amigos continuar este legado” tras su regreso a la tierra, donald trump le entregó a cada tripulante una medalla medalla de honor espacial del congreso, durante una ceremonia en el centro espacial jonhson de houston ">
+        <td class="tema-col"><b>32</b> · 1 medio</td>
+        <td class="num">23:53</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/el-mundo/el-deseo-de-reid-wiseman-comandante-de-artemis-ii-para-nuevas-misiones-estoy-ansioso-por-ver-a-mis-nid01112026/" target="_blank" rel="noopener">El deseo de Reid Wiseman, comandante de Artemis II, para nuevas misiones: “Estoy ansioso por ver a mis amigos continuar este legado”</a><div class="baj">Tras su regreso a la Tierra, Donald Trump le entregó a cada tripulante una medalla Medalla de Honor Espacial del Congreso, durante una ceremonia en el Centro Espacial Jonhson de Houston</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados conmemoró los 70 años de relaciones diplomáticas entre argentina e indonesia la cámara baja fue sede de la segunda jornada académica por el 70° aniversario de los vínculos bilaterales entre ambos países. durante el encuentro se presentó un libro conmemorativo que recopila la historia de siete décadas de cooperación y se destacó el crecimiento de los intercambios políticos… ">
+        <td class="tema-col"><b>33</b> · 1 medio</td>
+        <td class="num">23:21</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/diputados-conmemoro-los-70-anos-de-relaciones-diplomaticas-entre-argentina-e-indonesia/" target="_blank" rel="noopener">Diputados conmemoró los 70 años de relaciones diplomáticas entre Argentina e Indonesia</a><div class="baj">La Cámara baja fue sede de la Segunda Jornada Académica por el 70° aniversario de los vínculos bilaterales entre ambos países. Durante el encuentro se presentó un libro conmemorativo que recopila la historia de siete décadas de cooperación y se destacó el crecimiento de los intercambios políticos…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="A24" data-texto="elecciones en ee.uu.: avanza el escrutinio y crece la expectativa por el control del congreso  ">
+        <td class="tema-col"><b>34</b> · 1 medio</td>
+        <td class="num">21:42</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/mundo/elecciones-eeuu-comenzo-el-recuento-votos-y-trump-enfrenta-una-jornada-clave-el-control-del-congreso-n1613039" target="_blank" rel="noopener">Elecciones en EE.UU.: avanza el escrutinio y crece la expectativa por el control del Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="up propone distribuir $1,1 billones de los atn acumulados para afrontar los efectos del fenómeno el niño la iniciativa fue impulsada por el jefe del bloque de up en diputados, germán martínez, junto a ariel rauschenberger y otros legisladores. el proyecto plantea repartir entre las provincias y la ciudad de buenos aires el 50% de los recursos no distribuidos del fondo de aportes del tesoro nacional… ">
+        <td class="tema-col"><b>35</b> · 1 medio</td>
+        <td class="num">20:59</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/up-propone-distribuir-11-billones-de-los-atn-acumulados-para-afrontar-los-efectos-del-fenomeno-el-nino/" target="_blank" rel="noopener">UP propone distribuir $1,1 billones de los ATN acumulados para afrontar los efectos del fenómeno El Niño</a><div class="baj">La iniciativa fue impulsada por el jefe del bloque de UP en Diputados, Germán Martínez, junto a Ariel Rauschenberger y otros legisladores. El proyecto plantea repartir entre las provincias y la Ciudad de Buenos Aires el 50% de los recursos no distribuidos del Fondo de Aportes del Tesoro Nacional…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="TN" data-texto="los republicanos denunciaron fraude electoral en alaska: hay dos candidatos a senador con el mismo nombre  ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">20:39</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/11/03/los-republicanos-denunciaron-fraude-electoral-en-alaska-hay-dos-candidatos-a-senador-con-el-mismo-nombre/" target="_blank" rel="noopener">Los republicanos denunciaron fraude electoral en Alaska: hay dos candidatos a senador con el mismo nombre</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="diputados: el papel de santiago caputo en la huida de bolsonaro tensiona a los aliados y puede frenar el avance de la ley malvinas el asesor presidencial e ideólogo del proyecto quedó en la mira por su presunta participación en la salida del país del excandidato brasileño; las atribuciones de la side, eje de los cuestionamientos de la oposición ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">20:01</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/diputados-el-papel-de-la-caputo-en-la-huida-de-bolsonaro-tensiona-a-los-aliados-y-puede-frenar-el-nid03112026/" target="_blank" rel="noopener">Diputados: el papel de Santiago Caputo en la huida de Bolsonaro tensiona a los aliados y puede frenar el avance de la ley Malvinas</a><div class="baj">El asesor presidencial e ideólogo del proyecto quedó en la mira por su presunta participación en la salida del país del excandidato brasileño; las atribuciones de la SIDE, eje de los cuestionamientos de la oposición</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Letra P" data-texto="la unión argentina de salud respaldó la reforma sanitaria y pidió un acuerdo político en el congreso  ">
+        <td class="tema-col"><b>38</b> · 1 medio</td>
+        <td class="num">19:24</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/la-union-argentina-salud-respaldo-la-reforma-sanitaria-y-pidio-un-acuerdo-politico-el-congreso-n5427953" target="_blank" rel="noopener">La Unión Argentina de Salud respaldó la reforma sanitaria y pidió un acuerdo político en el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Letra P" data-texto="visita de león xiv: javier milei envió las invitaciones al congreso y el peronismo tendrá dos delegaciones  ">
+        <td class="tema-col"><b>39</b> · 1 medio</td>
+        <td class="num">18:40</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/visita-leon-xiv-javier-milei-envio-las-invitaciones-al-congreso-y-el-peronismo-tendra-dos-delegaciones-n5427939" target="_blank" rel="noopener">Visita de León XIV: Javier Milei envió las invitaciones al Congreso y el peronismo tendrá dos delegaciones</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Infobae" data-texto="senado: piden votar una ley de prevención de violencia infantil antes de que finalice el período ordinario la iniciativa ya tiene una preferencia con dictamen. el mismo se obtuvo el miércoles pasado en plenario de comisiones y con apoyo de la mayoría de bloques. alarmantes cifras desde una oficina que reporta a la corte suprema. el tema no consigue la luz verde del congreso desde hace largos años… ">
+        <td class="tema-col"><b>40</b> · 1 medio</td>
+        <td class="num">17:41</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/03/senado-piden-votar-una-ley-de-prevencion-de-violencia-infantil-antes-de-que-finalice-el-periodo-ordinario/" target="_blank" rel="noopener">Senado: piden votar una ley de prevención de violencia infantil antes de que finalice el período ordinario</a><div class="baj">La iniciativa ya tiene una preferencia con dictamen. El mismo se obtuvo el miércoles pasado en plenario de comisiones y con apoyo de la mayoría de bloques. Alarmantes cifras desde una oficina que reporta a la Corte Suprema. El tema no consigue la luz verde del Congreso desde hace largos años…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Ámbito" data-texto="ueno bank: santiago peña pidió la renuncia del titular del banco central y la oposición impulsa un juicio político  ">
+        <td class="tema-col"><b>41</b> · 1 medio</td>
+        <td class="num">17:23</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/ueno-bank-santiago-pena-pidio-la-renuncia-del-titular-del-banco-central-y-la-oposicion-impulsa-un-juicio-politico-n6341120" target="_blank" rel="noopener">Ueno Bank: Santiago Peña pidió la renuncia del titular del Banco Central y la oposición impulsa un juicio político</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="la comisión de cultura trató un centenar de proyectos, entre ellos uno para proteger a la disquería zivals hubo iniciativas que al cierre de la reunión todavía no habían alcanzado las firmas para el dictamen, lo que provocó el retiro de respaldos de la oposición hacia propuestas de lla. la entrada la comisión de cultura trató un centenar de proyectos, entre ellos uno para proteger a la disquería zivals… ">
+        <td class="tema-col"><b>42</b> · 1 medio</td>
+        <td class="num">17:17</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/la-comision-de-cultura-trato-un-centenar-de-proyectos-entre-ellos-uno-para-proteger-a-la-disqueria-zivals/" target="_blank" rel="noopener">La Comisión de Cultura trató un centenar de proyectos, entre ellos uno para proteger a la disquería Zivals</a><div class="baj">Hubo iniciativas que al cierre de la reunión todavía no habían alcanzado las firmas para el dictamen, lo que provocó el retiro de respaldos de la oposición hacia propuestas de LLA. La entrada La Comisión de Cultura trató un centenar de proyectos, entre ellos uno para proteger a la disquería Zivals…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="el gobierno envió al congreso la ley de competitividad financiera, una megareforma de 240 artículos para transformar el crédito, el mercado de capitales y las garantías el poder ejecutivo giró a diputados un ambicioso proyecto de ley que modifica más de una decena de normas y crea un nuevo sistema federal de garantías. la iniciativa habilita la tokenización de activos, incorpora activos digitales como garantías, moderniza pagarés, cheques y warrants, flexibiliza… ">
+        <td class="tema-col"><b>43</b> · 1 medio</td>
+        <td class="num">17:01</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/el-gobierno-envio-al-congreso-la-ley-de-competitividad-financiera-una-megareforma-de-240-articulos-para-transformar-el-credito-el-mercado-de-capitales-y-las-garantias/" target="_blank" rel="noopener">El Gobierno envió al Congreso la Ley de Competitividad Financiera, una megareforma de 240 artículos para transformar el crédito, el mercado de capitales y las garantías</a><div class="baj">El Poder Ejecutivo giró a Diputados un ambicioso proyecto de ley que modifica más de una decena de normas y crea un nuevo sistema federal de garantías. La iniciativa habilita la tokenización de activos, incorpora activos digitales como garantías, moderniza pagarés, cheques y warrants, flexibiliza…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno relativiza la derrota en bariloche, pero crecen los pedidos para acelerar los acuerdos provinciales en el oficialismo aseguran que se trató de una elección local, aunque un sector advierte en la necesidad de intensificar el diálogo con los gobernadores. el ejemplo de las elecciones de 2025 y el fantasma del pro ">
+        <td class="tema-col"><b>44</b> · 1 medio</td>
+        <td class="num">16:34</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/03/el-gobierno-relativiza-la-derrota-en-bariloche-pero-crecen-los-pedidos-para-acelerar-los-acuerdos-provinciales/" target="_blank" rel="noopener">El Gobierno relativiza la derrota en Bariloche, pero crecen los pedidos para acelerar los acuerdos provinciales</a><div class="baj">En el oficialismo aseguran que se trató de una elección local, aunque un sector advierte en la necesidad de intensificar el diálogo con los gobernadores. El ejemplo de las elecciones de 2025 y el fantasma del PRO</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="reclaman que se aceleren las obras en el canal maldonado ante la amenaza de “el niño” diputada sureña expresó su profunda preocupación por el estado edilicio, estructural y operativo del canal maldonado de bahía blanca y reclaman se implemente un plan de trabajo intensivo e ininterrumpido. la entrada reclaman que se aceleren las obras en el canal maldonado ante la amenaza de “el… ">
+        <td class="tema-col"><b>45</b> · 1 medio</td>
+        <td class="num">16:29</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/reclaman-que-se-acelere-las-obras-en-el-canal-maldonado-ante-la-amenaza-de-el-nino/" target="_blank" rel="noopener">Reclaman que se aceleren las obras en el Canal Maldonado ante la amenaza de “El Niño”</a><div class="baj">Diputada sureña expresó su profunda preocupación por el estado edilicio, estructural y operativo del Canal Maldonado de Bahía Blanca y reclaman se implemente un plan de trabajo intensivo e ininterrumpido. La entrada Reclaman que se aceleren las obras en el Canal Maldonado ante la amenaza de “El…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="LN+" data-texto="un analista internacional anticipó qué podría pasar con las elecciones en estados unidos si pierde donald trump: “todo lo que no le guste lo va a vetar” en comunicación con ln+, andrés repetto analizó los comicios de medio término, que definirán el control del congreso norteamericano para los dos años que le restan al mandatario estadounidense ">
+        <td class="tema-col"><b>46</b> · 1 medio</td>
+        <td class="num">15:55</td>
+        <td>LN+</td>
+        <td><a href="https://www.lanacion.com.ar/el-mundo/un-analista-internacional-anticipo-que-podria-pasar-con-las-elecciones-en-estados-unidos-si-pierde-nid03112026/" target="_blank" rel="noopener">Un analista internacional anticipó qué podría pasar con las elecciones en Estados Unidos si pierde Donald Trump: “Todo lo que no le guste lo va a vetar”</a><div class="baj">En comunicación con LN+, Andrés Repetto analizó los comicios de medio término, que definirán el control del Congreso norteamericano para los dos años que le restan al mandatario estadounidense</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="no habrá invitación del gobierno a los expresidentes para asistir a los eventos del papa león xiv la participación de la oposición estará limitada a los legisladores y gobernadores, que sí podrán asistir al evento en el palacio libertad ">
+        <td class="tema-col"><b>47</b> · 1 medio</td>
+        <td class="num">15:55</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/no-habra-invitacion-del-gobierno-a-los-expresidentes-para-asistir-a-los-eventos-del-papa-leon-xiv-nid03112026/" target="_blank" rel="noopener">No habrá invitación del Gobierno a los expresidentes para asistir a los eventos del papa León XIV</a><div class="baj">La participación de la oposición estará limitada a los legisladores y gobernadores, que sí podrán asistir al evento en el Palacio Libertad</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados mendocinos que responden a petri le piden a cornejo medidas para las pymes un grupo de legisladores radicales alineados con el diputado nacional presentaron un proyecto para solicitar al ejecutivo un paquete similar al anunciado por luis caputo. la entrada diputados mendocinos que responden a petri le piden a cornejo medidas para las pymes se publicó primero en… ">
+        <td class="tema-col"><b>48</b> · 1 medio</td>
+        <td class="num">15:43</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/diputados-mendocinos-que-responden-a-petri-le-piden-a-cornejo-medidas-para-las-pymes/" target="_blank" rel="noopener">Diputados mendocinos que responden a Petri le piden a Cornejo medidas para las PyMEs</a><div class="baj">Un grupo de legisladores radicales alineados con el diputado nacional presentaron un proyecto para solicitar al Ejecutivo un paquete similar al anunciado por Luis Caputo. La entrada Diputados mendocinos que responden a Petri le piden a Cornejo medidas para las PyMEs se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Infobae" data-texto="la visita del papa frena la agenda libertaria y el gobierno apuesta a cerrar el año con tres proyectos clave la acumulación de disputas internas, la ausencia de acuerdos con aliados y un calendario recortado por la visita papal y los feriados dejan en suspenso una agenda parlamentaria que el propio gobierno reconoce como exigua ">
+        <td class="tema-col"><b>49</b> · 1 medio</td>
+        <td class="num">15:30</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/03/la-visita-del-papa-frena-la-agenda-libertaria-y-el-gobierno-apuesta-a-cerrar-el-ano-con-tres-proyectos-clave/" target="_blank" rel="noopener">La visita del Papa frena la agenda libertaria y el Gobierno apuesta a cerrar el año con tres proyectos clave</a><div class="baj">La acumulación de disputas internas, la ausencia de acuerdos con aliados y un calendario recortado por la visita papal y los feriados dejan en suspenso una agenda parlamentaria que el propio Gobierno reconoce como exigua</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="bullrich destacó el anuncio para las pymes y recordó: &#34;lo planteé durante mucho tiempo&#34; la jefa de la bancada oficialista en el senado se refirió al paquete anunciado por el ministro de economía y aseguró que se trata de &#34;llegar antes de que sea tarde&#34;. la entrada bullrich destacó el anuncio para las pymes y recordó: &#34;lo planteé durante mucho tiempo&#34; se publicó primero en… ">
+        <td class="tema-col"><b>50</b> · 1 medio</td>
+        <td class="num">14:57</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/03/bullrich-destaco-el-anuncio-para-las-pymes-y-recordo-lo-plantee-durante-mucho-tiempo/" target="_blank" rel="noopener">Bullrich destacó el anuncio para las PyMEs y recordó: &#34;Lo planteé durante mucho tiempo&#34;</a><div class="baj">La jefa de la bancada oficialista en el Senado se refirió al paquete anunciado por el ministro de Economía y aseguró que se trata de &#34;llegar antes de que sea tarde&#34;. La entrada Bullrich destacó el anuncio para las PyMEs y recordó: &#34;Lo planteé durante mucho tiempo&#34; se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Clarín" data-texto="ee.uu. abre todos sus centros de votación en una jornada clave para el congreso  ">
+        <td class="tema-col"><b>51</b> · 1 medio</td>
+        <td class="num">14:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/ee-uu-abre-todos-sus-centros-de-votacion-en-una-jornada-clave-para-el-congreso_0_Kbzvs2VX3y.html" target="_blank" rel="noopener">EE.UU. abre todos sus centros de votación en una jornada clave para el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Senado (prensa)" data-texto="se realizó una jornada sobre intervenciones asistidas con animales la jornada reunió a especialistas para intercambiar experiencias sobre las intervenciones asistidas con animales y aportar conocimientos a las iniciativas legislativas en tratamiento en el congreso. además, se reconoció a la ong bocalán argentina por... ">
+        <td class="tema-col"><b>52</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24597/noticias" target="_blank" rel="noopener">SE REALIZÓ UNA JORNADA SOBRE INTERVENCIONES ASISTIDAS CON ANIMALES</a><div class="baj">La jornada reunió a especialistas para intercambiar experiencias sobre las intervenciones asistidas con animales y aportar conocimientos a las iniciativas legislativas en tratamiento en el Congreso. Además, se reconoció a la ONG Bocalán Argentina por...</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-04 a las 13:23 hs (hora argentina) ·
+    <span class="estado-ok">20 respondieron bien</span> · <span class="estado-mal">1 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: https://www.boletinoficial.gob.ar/seccion/primera: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: timed out)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
