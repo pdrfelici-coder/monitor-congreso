@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-07</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Sábado 7 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 11:51 hs · 19/21 fuentes respondieron · <a href="#fuentes">2 caídas</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">44</div>
+      <div class="sub ">▼ -35% vs. promedio de 7 días (67)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">26</div>
+    <div class="sub">7 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">12</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>2</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+· 5 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/mundo/congreso-destituyo-santiago-pena-juicio-politico-expres-paraguay-nuevo-presidente-festejos-asuncion-dudas-futuro_0_qoxa5ZvdBr.html" target="_blank" rel="noopener">El Congreso de Paraguay destituyó al presidente Santiago Peña: ordenaron su detención y hay festejos en las calles de Asunción</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/mundo/congreso-destituyo-santiago-pena-juicio-politico-expres-paraguay-nuevo-presidente-festejos-asuncion-dudas-futuro_0_qoxa5ZvdBr.html" target="_blank" rel="noopener" title="El Congreso de Paraguay destituyó al presidente Santiago Peña: ordenaron su detención y hay festejos en las calles de Asunción">Clarín ↗</a><a href="https://tn.com.ar/internacional/2026/11/06/el-congreso-de-paraguay-inicio-el-juicio-politico-al-presidente-santiago-pena-que-fue-convocado-para-defenderse-este-viernes/" target="_blank" rel="noopener" title="Tras la destitución de Santiago Peña, asumió Pedro Alliana como presidente de Paraguay">TN ↗</a><a href="https://www.clarin.com/fotogalerias/corralito-paraguay-quema-banderas-frente-congreso-asumia-nuevo-presidente-pedro-alliana_5_63OtD6lLFF.html" target="_blank" rel="noopener" title="Furia y fuego en Paraguay: quema de banderas frente al Congreso mientras asumía el nuevo presidente Pedro Alliana">Clarín ↗</a><a href="https://www.c5n.com/mundo/destituyeron-santiago-pena-que-el-congreso-no-le-permitio-que-renuncie-que-diferencia-hay-y-como-lo-afecta-n253694" target="_blank" rel="noopener" title="Destituyeron a Santiago Peña: por qué el Congreso no le permitió que renuncie, qué diferencia hay y cómo lo afecta">C5N ↗</a><a href="https://www.ambito.com/mundo/juicio-politico-santiago-pena-paraguay-el-senado-rechazo-darle-mas-tiempo-defenderse-n6342411" target="_blank" rel="noopener" title="Crisis política en Paraguay: el Congreso destituyó a Santiago Peña por unanimidad y la Justicia ordenó su detención">Ámbito ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/patricia-bullrich-se-alinea-con-la-iglesia-y-dice-que-el-senado-tratara-el-proyecto-de-ley-para-nid06112026/" target="_blank" rel="noopener">Patricia Bullrich se alinea con la Iglesia y dice que el Senado tratará el proyecto de ley para prevenir la ludopatía</a></h3>
+<p class="bajada">En la previa de la visita de León XIV, la senadora dijo que buscará salvar la iniciativa que prohíbe la publicidad de apuestas online y que está frenada hace dos años</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/patricia-bullrich-se-alinea-con-la-iglesia-y-dice-que-el-senado-tratara-el-proyecto-de-ley-para-nid06112026/" target="_blank" rel="noopener" title="Patricia Bullrich se alinea con la Iglesia y dice que el Senado tratará el proyecto de ley para prevenir la ludopatía">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/11/06/tras-el-reclamo-de-la-iglesia-patricia-bullrich-anuncio-que-el-senado-tratara-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener" title="Tras el reclamo de la Iglesia, Patricia Bullrich anunció que el Senado tratará la ley contra la ludopatía">TN ↗</a><a href="https://www.letrap.com.ar/congreso/patricia-bullrich-presiona-milei-pide-la-ley-ludopatia-y-prepara-una-cumbre-su-tropa-del-senado-n5428054" target="_blank" rel="noopener" title="Patricia Bullrich presiona a Milei: pide la ley de ludopatía y prepara una cumbre con su tropa del Senado">Letra P ↗</a><a href="https://www.pagina12.com.ar/2026/11/06/bullrich-se-desmarca-de-milei-y-dice-que-impulsara-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener" title="Bullrich se desmarca de Milei y dice que impulsará la ley contra la ludopatía">Página/12 ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/11/06/criticas-al-fiscal-pollicita-por-la-causa-de-adorni-hay-pactos-entre-operadores-judiciales-y-el-poder-politico/" target="_blank" rel="noopener">Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre operadores judiciales y el poder político”</a></h3>
+<p class="bajada">A través de las redes, la oposición calificó al Poder Judicial de “vergüenza total” tras conocerse el dictamen del fiscal que consideró que “no hay pruebas de enriquecimiento ilícito” por parte del exjefe de Gabinete. La entrada Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre…</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Comisión</span>
+    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/11/06/criticas-al-fiscal-pollicita-por-la-causa-de-adorni-hay-pactos-entre-operadores-judiciales-y-el-poder-politico/" target="_blank" rel="noopener" title="Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre operadores judiciales y el poder político”">Parlamentario.com ↗</a><a href="https://www.ambito.com/politica/adorni-un-denunciante-pidio-que-intervenga-la-procuraduria-investigaciones-administrativas-y-que-siga-la-causa-enriquecimiento-ilicito-n6342613" target="_blank" rel="noopener" title="Adorni: un denunciante pidió que intervenga la Procuraduría de Investigaciones Administrativas y que siga la causa por enriquecimiento ilícito">Ámbito ↗</a><a href="https://www.cronista.com/economia-politica/causa-adorni-para-el-fiscal-no-hay-elementos-para-acusarlo-por-enriquecimiento-ilicito/" target="_blank" rel="noopener" title="Causa Adorni: el fiscal descartó el enriquecimiento ilícito, pero pidió investigarlo por posible evasión de impuestos">El Cronista ↗</a><a href="https://www.lanacion.com.ar/politica/el-fiscal-pollicita-dijo-que-no-hay-pruebas-para-sostener-que-adorni-se-enriquecio-en-su-paso-por-el-nid06112026/" target="_blank" rel="noopener" title="El fiscal Pollicita dijo que no hay pruebas para sostener que Adorni se enriqueció en su paso por el Gobierno">La Nación ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.ambito.com/politica/patricia-bullrich-nego-tensiones-el-gobierno-su-reunion-senadores-la-libertad-avanza-no-cruce-ningun-limite-n6342514" target="_blank" rel="noopener">Patricia Bullrich negó tensiones con el Gobierno por su reunión con senadores de La Libertad Avanza: &#34;No crucé ningún límite&#34;</a></h3>
+<p class="bajada">La jefa del bloque oficialista en el Senado minimizó las versiones de malestar dentro del bloque tras reunirse con 15 legisladores. Además, defendió la libertad de prensa, reclamó transparencia en la designación de jueces y pidió cubrir las vacantes de la Corte Suprema.</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.ambito.com/politica/patricia-bullrich-nego-tensiones-el-gobierno-su-reunion-senadores-la-libertad-avanza-no-cruce-ningun-limite-n6342514" target="_blank" rel="noopener" title="Patricia Bullrich negó tensiones con el Gobierno por su reunión con senadores de La Libertad Avanza: &#34;No crucé ningún límite&#34;">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/11/07/la-fractura-silenciosa-de-la-libertad-avanza-y-sus-consecuencias-sobre-la-agenda-legislativa-del-gobierno/" target="_blank" rel="noopener" title="La fractura silenciosa de La Libertad Avanza y sus consecuencias sobre la agenda legislativa del Gobierno">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/11/06/la-mayoria-de-los-bloques-politicos-recibira-a-leon-xiv-en-el-palacio-libertad-los-cuatro-diputados-de-izquierda-estaran-ausentes/" target="_blank" rel="noopener" title="La mayoría de los bloques políticos del Congreso recibirá al papa León XIV en el Palacio Libertad, pero la izquierda no asistirá">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+· 3 notas</span>
+    </div>
+    <h3><a href="https://www.ambito.com/mundo/en-medio-del-juicio-politico-destituirlo-santiago-pena-justifico-su-ausencia-e-insistio-su-renuncia-n6342615" target="_blank" rel="noopener">En medio del juicio político para destituirlo, Santiago Peña justificó su ausencia e insistió con su renuncia</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Sesión</span>
+    </div>
+    <div class="medios">
+<a href="https://www.ambito.com/mundo/en-medio-del-juicio-politico-destituirlo-santiago-pena-justifico-su-ausencia-e-insistio-su-renuncia-n6342615" target="_blank" rel="noopener" title="En medio del juicio político para destituirlo, Santiago Peña justificó su ausencia e insistió con su renuncia">Ámbito ↗</a><a href="https://www.cronista.com/internacionales/juicio-politico-a-santiago-pena-en-paraguay-el-minuto-a-minuto-de-la-crisis-por-el-cierre-del-ueno-bank/" target="_blank" rel="noopener" title="El destituido Santiago Peña pasó la noche en un regimiento y deberá presentarse a declarar este sábado">El Cronista ↗</a><a href="https://www.ambito.com/mundo/tras-la-destitucion-juicio-politico-ordenaron-detener-santiago-pena-el-expresidente-paraguay-n6342641" target="_blank" rel="noopener" title="Tras la destitución por juicio político, detuvieron a Santiago Peña, el expresidente de Paraguay">Ámbito ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4>Jueves 12 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">14:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Mujeres y diversidad, Derechos humanos y garantias</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 4 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>INVITADAS. Fueron invitadas mujeres travestis y trans, víctimas de los recientes ataques transfóbicos ocurridos en los bosques de Palermo, en la Ciudad Autónoma de Buenos Aires. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1393/archivo/QV1HXSV7PTVEKETJ.pdf" target="_blank" rel="noopener">citación</a></details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 67</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Sá 31: 57 notas">
+        <div class="c" style="height: 50.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 1: 31 notas">
+        <div class="c" style="height: 27.4%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 2: 33 notas">
+        <div class="c" style="height: 29.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 3: 52 notas">
+        <div class="c" style="height: 46.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 4: 113 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 5: 100 notas">
+        <div class="c" style="height: 88.5%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 6: 85 notas">
+        <div class="c" style="height: 75.2%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Sá 7: 44 notas">
+<span class="cap">44</span>        <div class="c" style="height: 38.9%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Sá 31</span><span class="">Do 1</span><span class="">Lu 2</span><span class="">Ma 3</span><span class="">Mi 4</span><span class="">Ju 5</span><span class="">Vi 6</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 10 hoy · promedio 11.7">
+        <span class="bar" style="width: 65.4%"></span><span class="v">10</span>
+<span class="tick" style="left: calc(76.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 9 hoy · promedio 15.3">
+        <span class="bar" style="width: 58.9%"></span><span class="v">9</span>
+<span class="tick" style="left: calc(100.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 5 hoy · promedio 5.6">
+        <span class="bar" style="width: 32.7%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(36.4% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 4 hoy · promedio 4.9">
+        <span class="bar" style="width: 26.2%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(31.8% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 4 hoy · promedio 3.3">
+        <span class="bar" style="width: 26.2%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(21.5% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 3 hoy · promedio 4.1">
+        <span class="bar" style="width: 19.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(27.1% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 3 hoy · promedio 6.0">
+        <span class="bar" style="width: 19.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(39.3% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 2 hoy · promedio 2.0">
+        <span class="bar" style="width: 13.1%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(13.1% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 1 hoy · promedio 1.6">
+        <span class="bar" style="width: 6.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(10.3% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 1 hoy · promedio 3.7">
+        <span class="bar" style="width: 6.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(24.3% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 1.0">
+        <span class="bar" style="width: 6.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.5% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 1 hoy · promedio 0.3">
+        <span class="bar" style="width: 6.5%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(1.9% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="El Congreso de Paraguay destituyó al presidente Santiago Peña: ordenaron su detención y hay festejos en las calles de Asunción">1. El Congreso de Paraguay destituyó al presidente Santiago Peña: ordenaron su detención y hay festejos en las calles de Asunción</span>
+      <span class="track" data-tip="El Congreso de Paraguay destituyó al presidente Santiago Peña: ordenaron su detención y hay festejos en las calles de Asunción — 5 notas, 4 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">5 (4)</span>
+      </span>
+      <span class="lbl" title="Patricia Bullrich se alinea con la Iglesia y dice que el Senado tratará el proyecto de ley para prevenir la ludopatía">2. Patricia Bullrich se alinea con la Iglesia y dice que el Senado tratará el proyecto de ley para prevenir la ludopatía</span>
+      <span class="track" data-tip="Patricia Bullrich se alinea con la Iglesia y dice que el Senado tratará el proyecto de ley para prevenir la ludopatía — 4 notas, 4 medios">
+        <span class="bar" style="width: 80.0%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre operadores judiciales y el poder político”">3. Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre operadores judiciales y el poder político”</span>
+      <span class="track" data-tip="Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre operadores judiciales y el poder político” — 4 notas, 4 medios">
+        <span class="bar" style="width: 80.0%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Patricia Bullrich negó tensiones con el Gobierno por su reunión con senadores de La Libertad Avanza: &#34;No crucé ningún límite&#34;">4. Patricia Bullrich negó tensiones con el Gobierno por su reunión con senadores de La Libertad Avanza: &#34;No crucé ningún límite&#34;</span>
+      <span class="track" data-tip="Patricia Bullrich negó tensiones con el Gobierno por su reunión con senadores de La Libertad Avanza: &#34;No crucé ningún límite&#34; — 3 notas, 3 medios">
+        <span class="bar" style="width: 60.0%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="En medio del juicio político para destituirlo, Santiago Peña justificó su ausencia e insistió con su renuncia">5. En medio del juicio político para destituirlo, Santiago Peña justificó su ausencia e insistió con su renuncia</span>
+      <span class="track" data-tip="En medio del juicio político para destituirlo, Santiago Peña justificó su ausencia e insistió con su renuncia — 3 notas, 2 medios">
+        <span class="bar" style="width: 60.0%"></span><span class="v">3 (2)</span>
+      </span>
+      <span class="lbl" title="Eduardo Valdés pidió que la reunión política con el papa León XIV muestre una “unidad que se pueda mantener”">6. Eduardo Valdés pidió que la reunión política con el papa León XIV muestre una “unidad que se pueda mantener”</span>
+      <span class="track" data-tip="Eduardo Valdés pidió que la reunión política con el papa León XIV muestre una “unidad que se pueda mantener” — 3 notas, 2 medios">
+        <span class="bar" style="width: 60.0%"></span><span class="v">3 (2)</span>
+      </span>
+      <span class="lbl" title="“Jujuy Brilla”: el Senado abrió sus puertas para exhibir la riqueza cultural, turística y productiva de la provincia">7. “Jujuy Brilla”: el Senado abrió sus puertas para exhibir la riqueza cultural, turística y productiva de la provincia</span>
+      <span class="track" data-tip="“Jujuy Brilla”: el Senado abrió sus puertas para exhibir la riqueza cultural, turística y productiva de la provincia — 2 notas, 2 medios">
+        <span class="bar" style="width: 40.0%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Teniendo el control del Senado, demócratas podrán bloquear nominados de Trump a Corte Suprema">8. Teniendo el control del Senado, demócratas podrán bloquear nominados de Trump a Corte Suprema</span>
+      <span class="track" data-tip="Teniendo el control del Senado, demócratas podrán bloquear nominados de Trump a Corte Suprema — 2 notas, 1 medio">
+        <span class="bar" style="width: 40.0%"></span><span class="v">2 (1)</span>
+      </span>
+      <span class="lbl" title="Por orden de la Ley 24.449, arrestarán a los conductores que circulen luego de haber bebido alcohol y no podrán manejar">9. Por orden de la Ley 24.449, arrestarán a los conductores que circulen luego de haber bebido alcohol y no podrán manejar</span>
+      <span class="track" data-tip="Por orden de la Ley 24.449, arrestarán a los conductores que circulen luego de haber bebido alcohol y no podrán manejar — 1 nota, 1 medio">
+        <span class="bar" style="width: 20.0%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="La oposición cuestiona el Presupuesto 2027 de Kicillof: deuda, déficit y emergencia provincial, en la mira">10. La oposición cuestiona el Presupuesto 2027 de Kicillof: deuda, déficit y emergencia provincial, en la mira</span>
+      <span class="track" data-tip="La oposición cuestiona el Presupuesto 2027 de Kicillof: deuda, déficit y emergencia provincial, en la mira — 1 nota, 1 medio">
+        <span class="bar" style="width: 20.0%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="el congreso de paraguay destituyó al presidente santiago peña: ordenaron su detención y hay festejos en las calles de asunción  ">
+        <td class="tema-col"><b>1</b> · 4 medios</td>
+        <td class="num">19:16</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/congreso-destituyo-santiago-pena-juicio-politico-expres-paraguay-nuevo-presidente-festejos-asuncion-dudas-futuro_0_qoxa5ZvdBr.html" target="_blank" rel="noopener">El Congreso de Paraguay destituyó al presidente Santiago Peña: ordenaron su detención y hay festejos en las calles de Asunción</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="TN" data-texto="tras la destitución de santiago peña, asumió pedro alliana como presidente de paraguay  ">
+        <td class="tema-col"></td>
+        <td class="num">02:04</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/11/06/el-congreso-de-paraguay-inicio-el-juicio-politico-al-presidente-santiago-pena-que-fue-convocado-para-defenderse-este-viernes/" target="_blank" rel="noopener">Tras la destitución de Santiago Peña, asumió Pedro Alliana como presidente de Paraguay</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="furia y fuego en paraguay: quema de banderas frente al congreso mientras asumía el nuevo presidente pedro alliana  ">
+        <td class="tema-col"></td>
+        <td class="num">21:01</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/fotogalerias/corralito-paraguay-quema-banderas-frente-congreso-asumia-nuevo-presidente-pedro-alliana_5_63OtD6lLFF.html" target="_blank" rel="noopener">Furia y fuego en Paraguay: quema de banderas frente al Congreso mientras asumía el nuevo presidente Pedro Alliana</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="C5N" data-texto="destituyeron a santiago peña: por qué el congreso no le permitió que renuncie, qué diferencia hay y cómo lo afecta  ">
+        <td class="tema-col"></td>
+        <td class="num">19:34</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/mundo/destituyeron-santiago-pena-que-el-congreso-no-le-permitio-que-renuncie-que-diferencia-hay-y-como-lo-afecta-n253694" target="_blank" rel="noopener">Destituyeron a Santiago Peña: por qué el Congreso no le permitió que renuncie, qué diferencia hay y cómo lo afecta</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Ámbito" data-texto="crisis política en paraguay: el congreso destituyó a santiago peña por unanimidad y la justicia ordenó su detención  ">
+        <td class="tema-col"></td>
+        <td class="num">18:58</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/juicio-politico-santiago-pena-paraguay-el-senado-rechazo-darle-mas-tiempo-defenderse-n6342411" target="_blank" rel="noopener">Crisis política en Paraguay: el Congreso destituyó a Santiago Peña por unanimidad y la Justicia ordenó su detención</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="La Nación" data-texto="patricia bullrich se alinea con la iglesia y dice que el senado tratará el proyecto de ley para prevenir la ludopatía en la previa de la visita de león xiv, la senadora dijo que buscará salvar la iniciativa que prohíbe la publicidad de apuestas online y que está frenada hace dos años ">
+        <td class="tema-col"><b>2</b> · 4 medios</td>
+        <td class="num">14:03</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/patricia-bullrich-se-alinea-con-la-iglesia-y-dice-que-el-senado-tratara-el-proyecto-de-ley-para-nid06112026/" target="_blank" rel="noopener">Patricia Bullrich se alinea con la Iglesia y dice que el Senado tratará el proyecto de ley para prevenir la ludopatía</a><div class="baj">En la previa de la visita de León XIV, la senadora dijo que buscará salvar la iniciativa que prohíbe la publicidad de apuestas online y que está frenada hace dos años</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="TN" data-texto="tras el reclamo de la iglesia, patricia bullrich anunció que el senado tratará la ley contra la ludopatía  ">
+        <td class="tema-col"></td>
+        <td class="num">19:22</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/06/tras-el-reclamo-de-la-iglesia-patricia-bullrich-anuncio-que-el-senado-tratara-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener">Tras el reclamo de la Iglesia, Patricia Bullrich anunció que el Senado tratará la ley contra la ludopatía</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Letra P" data-texto="patricia bullrich presiona a milei: pide la ley de ludopatía y prepara una cumbre con su tropa del senado  ">
+        <td class="tema-col"></td>
+        <td class="num">18:03</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/patricia-bullrich-presiona-milei-pide-la-ley-ludopatia-y-prepara-una-cumbre-su-tropa-del-senado-n5428054" target="_blank" rel="noopener">Patricia Bullrich presiona a Milei: pide la ley de ludopatía y prepara una cumbre con su tropa del Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Página/12" data-texto="bullrich se desmarca de milei y dice que impulsará la ley contra la ludopatía  ">
+        <td class="tema-col"></td>
+        <td class="num">16:34</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/06/bullrich-se-desmarca-de-milei-y-dice-que-impulsara-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener">Bullrich se desmarca de Milei y dice que impulsará la ley contra la ludopatía</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="críticas al fiscal pollicita por la causa de adorni: “hay pactos entre operadores judiciales y el poder político” a través de las redes, la oposición calificó al poder judicial de “vergüenza total” tras conocerse el dictamen del fiscal que consideró que “no hay pruebas de enriquecimiento ilícito” por parte del exjefe de gabinete. la entrada críticas al fiscal pollicita por la causa de adorni: “hay pactos entre… ">
+        <td class="tema-col"><b>3</b> · 4 medios</td>
+        <td class="num">14:52</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/criticas-al-fiscal-pollicita-por-la-causa-de-adorni-hay-pactos-entre-operadores-judiciales-y-el-poder-politico/" target="_blank" rel="noopener">Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre operadores judiciales y el poder político”</a><div class="baj">A través de las redes, la oposición calificó al Poder Judicial de “vergüenza total” tras conocerse el dictamen del fiscal que consideró que “no hay pruebas de enriquecimiento ilícito” por parte del exjefe de Gabinete. La entrada Críticas al fiscal Pollicita por la causa de Adorni: “Hay pactos entre…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Ámbito" data-texto="adorni: un denunciante pidió que intervenga la procuraduría de investigaciones administrativas y que siga la causa por enriquecimiento ilícito el abogado denunciante gregorio dalbón presentó un escrito ante la justicia luego del dictamen del fiscal gerardo pollicita, pidió que se dé intervención a una fiscalía especial, que se lo notifique de cualquier decisión que pueda poner fin a la investigación y que se postergue una definición sobre… ">
+        <td class="tema-col"></td>
+        <td class="num">18:27</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/adorni-un-denunciante-pidio-que-intervenga-la-procuraduria-investigaciones-administrativas-y-que-siga-la-causa-enriquecimiento-ilicito-n6342613" target="_blank" rel="noopener">Adorni: un denunciante pidió que intervenga la Procuraduría de Investigaciones Administrativas y que siga la causa por enriquecimiento ilícito</a><div class="baj">El abogado denunciante Gregorio Dalbón presentó un escrito ante la Justicia luego del dictamen del fiscal Gerardo Pollicita, pidió que se dé intervención a una fiscalía especial, que se lo notifique de cualquier decisión que pueda poner fin a la investigación y que se postergue una definición sobre…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="El Cronista" data-texto="causa adorni: el fiscal descartó el enriquecimiento ilícito, pero pidió investigarlo por posible evasión de impuestos según el dictamen, no se pudo desvirtuar que el capital se formó con bitcoin entre 2014 y 2018, antes de que adorni asumiera funciones. pero advirtió que esos fondos habrían quedado sin declarar ante el fisco durante años. ">
+        <td class="tema-col"></td>
+        <td class="num">17:45</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/causa-adorni-para-el-fiscal-no-hay-elementos-para-acusarlo-por-enriquecimiento-ilicito/" target="_blank" rel="noopener">Causa Adorni: el fiscal descartó el enriquecimiento ilícito, pero pidió investigarlo por posible evasión de impuestos</a><div class="baj">Según el dictamen, no se pudo desvirtuar que el capital se formó con Bitcoin entre 2014 y 2018, antes de que Adorni asumiera funciones. Pero advirtió que esos fondos habrían quedado sin declarar ante el fisco durante años.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="La Nación" data-texto="el fiscal pollicita dijo que no hay pruebas para sostener que adorni se enriqueció en su paso por el gobierno presentó un dictamen en el que relató que no tiene elementos para rebatir la versión del exjefe de gabinete, que dijo que tenía más de medio millón de dólares antes de llegar a la función pública; el fiscal pidió que el caso pase al fuero penal económico para que se determine si hubo evasión ">
+        <td class="tema-col"></td>
+        <td class="num">14:13</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-fiscal-pollicita-dijo-que-no-hay-pruebas-para-sostener-que-adorni-se-enriquecio-en-su-paso-por-el-nid06112026/" target="_blank" rel="noopener">El fiscal Pollicita dijo que no hay pruebas para sostener que Adorni se enriqueció en su paso por el Gobierno</a><div class="baj">Presentó un dictamen en el que relató que no tiene elementos para rebatir la versión del exjefe de Gabinete, que dijo que tenía más de medio millón de dólares antes de llegar a la función pública; el fiscal pidió que el caso pase al fuero penal económico para que se determine si hubo evasión</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="patricia bullrich negó tensiones con el gobierno por su reunión con senadores de la libertad avanza: &#34;no crucé ningún límite&#34; la jefa del bloque oficialista en el senado minimizó las versiones de malestar dentro del bloque tras reunirse con 15 legisladores. además, defendió la libertad de prensa, reclamó transparencia en la designación de jueces y pidió cubrir las vacantes de la corte suprema. ">
+        <td class="tema-col"><b>4</b> · 3 medios</td>
+        <td class="num">16:43</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/patricia-bullrich-nego-tensiones-el-gobierno-su-reunion-senadores-la-libertad-avanza-no-cruce-ningun-limite-n6342514" target="_blank" rel="noopener">Patricia Bullrich negó tensiones con el Gobierno por su reunión con senadores de La Libertad Avanza: &#34;No crucé ningún límite&#34;</a><div class="baj">La jefa del bloque oficialista en el Senado minimizó las versiones de malestar dentro del bloque tras reunirse con 15 legisladores. Además, defendió la libertad de prensa, reclamó transparencia en la designación de jueces y pidió cubrir las vacantes de la Corte Suprema.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="la fractura silenciosa de la libertad avanza y sus consecuencias sobre la agenda legislativa del gobierno la exhibición pública de patricia bullrich con quince diputados no significa un quiebre, pero sí una advertencia calculada en un espacio donde la distribución de lugares en las listas en 2027 se perfila como el verdadero eje del conflicto ">
+        <td class="tema-col"></td>
+        <td class="num">02:33</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/07/la-fractura-silenciosa-de-la-libertad-avanza-y-sus-consecuencias-sobre-la-agenda-legislativa-del-gobierno/" target="_blank" rel="noopener">La fractura silenciosa de La Libertad Avanza y sus consecuencias sobre la agenda legislativa del Gobierno</a><div class="baj">La exhibición pública de Patricia Bullrich con quince diputados no significa un quiebre, pero sí una advertencia calculada en un espacio donde la distribución de lugares en las listas en 2027 se perfila como el verdadero eje del conflicto</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="TN" data-texto="la mayoría de los bloques políticos del congreso recibirá al papa león xiv en el palacio libertad, pero la izquierda no asistirá  ">
+        <td class="tema-col"></td>
+        <td class="num">20:42</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/06/la-mayoria-de-los-bloques-politicos-recibira-a-leon-xiv-en-el-palacio-libertad-los-cuatro-diputados-de-izquierda-estaran-ausentes/" target="_blank" rel="noopener">La mayoría de los bloques políticos del Congreso recibirá al papa León XIV en el Palacio Libertad, pero la izquierda no asistirá</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Ámbito" data-texto="en medio del juicio político para destituirlo, santiago peña justificó su ausencia e insistió con su renuncia  ">
+        <td class="tema-col"><b>5</b> · 2 medios</td>
+        <td class="num">18:33</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/en-medio-del-juicio-politico-destituirlo-santiago-pena-justifico-su-ausencia-e-insistio-su-renuncia-n6342615" target="_blank" rel="noopener">En medio del juicio político para destituirlo, Santiago Peña justificó su ausencia e insistió con su renuncia</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="El Cronista" data-texto="el destituido santiago peña pasó la noche en un regimiento y deberá presentarse a declarar este sábado pese a su renuncia, el mandatario debió afrontar igualmente igualmente un proceso de destitución. votaron a favor 44 senadores de los 45 del cuerpo, el restante estuvo ausente. ">
+        <td class="tema-col"></td>
+        <td class="num">10:00</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/internacionales/juicio-politico-a-santiago-pena-en-paraguay-el-minuto-a-minuto-de-la-crisis-por-el-cierre-del-ueno-bank/" target="_blank" rel="noopener">El destituido Santiago Peña pasó la noche en un regimiento y deberá presentarse a declarar este sábado</a><div class="baj">Pese a su renuncia, el mandatario debió afrontar igualmente igualmente un proceso de destitución. Votaron a favor 44 senadores de los 45 del cuerpo, el restante estuvo ausente.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Ámbito" data-texto="tras la destitución por juicio político, detuvieron a santiago peña, el expresidente de paraguay  ">
+        <td class="tema-col"></td>
+        <td class="num">19:43</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/tras-la-destitucion-juicio-politico-ordenaron-detener-santiago-pena-el-expresidente-paraguay-n6342641" target="_blank" rel="noopener">Tras la destitución por juicio político, detuvieron a Santiago Peña, el expresidente de Paraguay</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Infobae" data-texto="eduardo valdés pidió que la reunión política con el papa león xiv muestre una “unidad que se pueda mantener” la convocatoria del día domingo por la tarde en el palacio libertad reunirá al presidente javier milei, la vice victoria villarruel y referentes de distintos espacios junto al sumo pontífice. el diputado y exembajador ante la santa sede reclamó sostener el diálogo y evitar provocaciones en redes… ">
+        <td class="tema-col"><b>6</b> · 2 medios</td>
+        <td class="num">12:34</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/06/eduardo-valdes-pidio-que-la-reunion-politica-con-el-papa-leon-xiv-muestre-una-unidad-que-se-pueda-mantener/" target="_blank" rel="noopener">Eduardo Valdés pidió que la reunión política con el papa León XIV muestre una “unidad que se pueda mantener”</a><div class="baj">La convocatoria del día domingo por la tarde en el Palacio Libertad reunirá al presidente Javier Milei, la vice Victoria Villarruel y referentes de distintos espacios junto al sumo pontífice. El diputado y exembajador ante la Santa Sede reclamó sostener el diálogo y evitar provocaciones en redes…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="valdés destacó la encíclica de león xiv y llamó a poner la humanidad por encima de la inteligencia artificial el diputado nacional eduardo valdés se refirió a la reciente encíclica magnifica humanitas del papa león xiv y destacó el llamado del pontífice a preservar la centralidad de la persona humana frente al desarrollo de nuevas tecnologías, especialmente la inteligencia artificial. durante una… ">
+        <td class="tema-col"></td>
+        <td class="num">19:48</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/valdes-destaco-la-enciclica-de-leon-xiv-y-llamo-a-poner-la-humanidad-por-encima-de-la-inteligencia-artificial/" target="_blank" rel="noopener">Valdés destacó la encíclica de León XIV y llamó a poner la humanidad por encima de la inteligencia artificial</a><div class="baj">El diputado nacional Eduardo Valdés se refirió a la reciente encíclica Magnifica Humanitas del papa León XIV y destacó el llamado del Pontífice a preservar la centralidad de la persona humana frente al desarrollo de nuevas tecnologías, especialmente la inteligencia artificial. Durante una…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Otro" data-medio="Infobae" data-texto="un diputado libertario pidió no hacer una lectura partidaria de los discursos del papa nahuel sotelo, legislador bonaerense de la libertad avanza, sostuvo que la visita de león xiv debe mantenerse al margen de las disputas políticas y pidió escuchar el mensaje del pontífice desde su dimensión religiosa ">
+        <td class="tema-col"></td>
+        <td class="num">13:54</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/06/un-diputado-libertario-pidio-no-hacer-una-lectura-partidaria-de-los-discursos-del-papa/" target="_blank" rel="noopener">Un diputado libertario pidió no hacer una lectura partidaria de los discursos del papa</a><div class="baj">Nahuel Sotelo, legislador bonaerense de La Libertad Avanza, sostuvo que la visita de León XIV debe mantenerse al margen de las disputas políticas y pidió escuchar el mensaje del pontífice desde su dimensión religiosa</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="“jujuy brilla”: el senado abrió sus puertas para exhibir la riqueza cultural, turística y productiva de la provincia la jornada se realizó en el salón azul del palacio legislativo como parte del ciclo “argentina brilla”. hubo presentaciones artísticas, reconocimientos a artesanos y exponentes de la cultura jujeña, además de una muestra gastronómica y un recorrido por obras de artistas de la provincia. la entrada… ">
+        <td class="tema-col"><b>7</b> · 2 medios</td>
+        <td class="num">20:53</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/jujuy-brilla-el-senado-abrio-sus-puertas-para-exhibir-la-riqueza-cultural-turistica-y-productiva-de-la-provincia/" target="_blank" rel="noopener">“Jujuy Brilla”: el Senado abrió sus puertas para exhibir la riqueza cultural, turística y productiva de la provincia</a><div class="baj">La jornada se realizó en el Salón Azul del Palacio Legislativo como parte del ciclo “Argentina Brilla”. Hubo presentaciones artísticas, reconocimientos a artesanos y exponentes de la cultura jujeña, además de una muestra gastronómica y un recorrido por obras de artistas de la provincia. La entrada…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="jujuy brilla en el senado durante la jornada se destacó la riqueza histórica, cultural, artística, turística y productiva de la provincia. ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24608/noticias" target="_blank" rel="noopener">JUJUY BRILLA EN EL SENADO</a><div class="baj">Durante la jornada se destacó la riqueza histórica, cultural, artística, turística y productiva de la provincia.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Clarín" data-texto="teniendo el control del senado, demócratas podrán bloquear nominados de trump a corte suprema  ">
+        <td class="tema-col"><b>8</b> · 1 medio</td>
+        <td class="num">14:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/teniendo-el-control-del-senado-democratas-podran-bloquear-nominados-de-trump-a-corte-suprema_0_2FwPyx8SQu.html" target="_blank" rel="noopener">Teniendo el control del Senado, demócratas podrán bloquear nominados de Trump a Corte Suprema</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Clarín" data-texto="tras ganar control del congreso, demócratas prometen freno a proyectos de construcción de trump  ">
+        <td class="tema-col"></td>
+        <td class="num">13:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/tras-ganar-control-del-congreso-democratas-prometen-freno-a-proyectos-de-construccion-de-trump_0_vvCVhuZywk.html" target="_blank" rel="noopener">Tras ganar control del Congreso, demócratas prometen freno a proyectos de construcción de Trump</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="por orden de la ley 24.449, arrestarán a los conductores que circulen luego de haber bebido alcohol y no podrán manejar en determinados casos, las autoridades pueden aplicar el arresto de un conductor, según establece la ley nacional de tránsito. ley 24.449">
+        <td class="tema-col"><b>9</b> · 1 medio<br>Ley 24.449</td>
+        <td class="num">10:10</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/informacion-gral/por-orden-de-la-ley-24449-arrestaran-a-los-conductores-que-circulen-luego-de-haber-bebido-alcohol-y-no-podran-manejar/" target="_blank" rel="noopener">Por orden de la Ley 24.449, arrestarán a los conductores que circulen luego de haber bebido alcohol y no podrán manejar</a><div class="baj">En determinados casos, las autoridades pueden aplicar el arresto de un conductor, según establece la Ley Nacional de Tránsito.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Letra P" data-texto="la oposición cuestiona el presupuesto 2027 de kicillof: deuda, déficit y emergencia provincial, en la mira  presupuesto 2027">
+        <td class="tema-col"><b>10</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">09:50</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/conurbano/la-oposicion-cuestiona-el-presupuesto-2027-kicillof-deuda-deficit-y-emergencia-provincial-la-mira-n5428053" target="_blank" rel="noopener">La oposición cuestiona el Presupuesto 2027 de Kicillof: deuda, déficit y emergencia provincial, en la mira</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="El Cronista" data-texto="contribuyentes cumplidores: por qué la corte rechazó una exigencia del fisco que no estaba en la ley el máximo tribunal limitó al fisco: la reglamentación no puede sumar requisitos formales que la ley 27.260 no previó. ley 27.260">
+        <td class="tema-col"><b>11</b> · 1 medio<br>Ley 27.260</td>
+        <td class="num">08:24</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/columnistas/contribuyentes-cumplidores-por-que-la-corte-rechazo-una-exigencia-del-fisco-que-no-estaba-en-la-ley/" target="_blank" rel="noopener">Contribuyentes cumplidores: por qué la Corte rechazó una exigencia del fisco que no estaba en la ley</a><div class="baj">El máximo tribunal limitó al fisco: la reglamentación no puede sumar requisitos formales que la ley 27.260 no previó.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Clarín" data-texto="por la visita del papa león xiv, el congreso estará paralizado toda la semana y el oficialismo gana tiempo para negociar el lunes es feriado nacional, el martes hay asueto en la ciudad y el miércoles por el día del empleado legislativo no trabaja el personal del congreso. lla negocia para sesionar el miércoles 18 en diputados y el jueves 19 en el senado. ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">07:01</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/visita-papa-leon-xiv-congreso-paralizado-toda-semana-oficialismo-gana-tiempo-negociar_0_Qp0BmgUWPr.html" target="_blank" rel="noopener">Por la visita del Papa León XIV, el Congreso estará paralizado toda la semana y el oficialismo gana tiempo para negociar</a><div class="baj">El lunes es feriado nacional, el martes hay asueto en la Ciudad y el miércoles por el Día del Empleado Legislativo no trabaja el personal del Congreso. LLA negocia para sesionar el miércoles 18 en Diputados y el jueves 19 en el Senado.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Clarín" data-texto="mueren tres policías en ataque armado contra diputado en guatemala  ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">22:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/mueren-tres-policias-en-ataque-armado-contra-diputado-en-guatemala_0_FsDo0Oobh9.html" target="_blank" rel="noopener">Mueren tres policías en ataque armado contra diputado en Guatemala</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="demócratas ganan cámara de representantes, senado y gubernatura de arizona por 1ra vez desde 1966  ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">21:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-ganan-camara-de-representantes-senado-y-gubernatura-de-arizona-por-1ra-vez-desde-1966_0_UEJmCjCc5Z.html" target="_blank" rel="noopener">Demócratas ganan Cámara de Representantes, Senado y gubernatura de Arizona por 1ra vez desde 1966</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el icap entregó los diplomas a los egresados de la diplomatura en gestión parlamentaria 2025 la ceremonia se realizó en el salón de pasos perdidos de la cámara de diputados. autoridades parlamentarias, representantes de la universidad nacional de tucumán y dirigentes gremiales participaron de la entrega de certificados a los integrantes de la 11° cohorte del programa. la entrada el icap… ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">20:40</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/el-icap-entrego-los-diplomas-a-los-egresados-de-la-diplomatura-en-gestion-parlamentaria-2025/" target="_blank" rel="noopener">El ICAP entregó los diplomas a los egresados de la Diplomatura en Gestión Parlamentaria 2025</a><div class="baj">La ceremonia se realizó en el Salón de Pasos Perdidos de la Cámara de Diputados. Autoridades parlamentarias, representantes de la Universidad Nacional de Tucumán y dirigentes gremiales participaron de la entrega de certificados a los integrantes de la 11° cohorte del programa. La entrada El ICAP…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="La Política Online" data-texto="bullrich armó una agenda paralela con el campo y destrozó el plan de caputo: &#34;la tasa subió a niveles imposibles&#34; justo cuando milei se reunió con la oficialista sociedad rural, la senadora fue a escuchar los reclamos de coninagro. la sugestiva comparación con santiago peña. ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">20:04</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/bullrich-armo-una-agenda-paralela-con-el-campo-y-destrozo-el-plan-de-caputo-la-tasa-subio-a-niveles-imposibles/" target="_blank" rel="noopener">Bullrich armó una agenda paralela con el campo y destrozó el plan de Caputo: &#34;La tasa subió a niveles imposibles&#34;</a><div class="baj">Justo cuando Milei se reunió con la oficialista Sociedad Rural, la senadora fue a escuchar los reclamos de Coninagro. La sugestiva comparación con Santiago Peña.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="tras la derrota electoral, donald trump nombra a un &#34;halcón&#34; como jefe de gabinete y se prepara para una guerra contra el congreso  ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">16:43</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/derrota-electoral-donald-trump-nombra-nuevo-jefe-gabinete-halcon-inmigracion_0_nNhLImAzKi.html" target="_blank" rel="noopener">Tras la derrota electoral, Donald Trump nombra a un &#34;halcón&#34; como jefe de Gabinete y se prepara para una guerra contra el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="¿qué está pasando con los líderes de la extrema derecha? la periodista reacciona a las derrotas electorales de donald trump y flávio bolsonaro. también hace referencia a lo ocurrido en paraguay con santiago peña. la entrada ¿qué está pasando con los líderes de la extrema derecha? se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">16:40</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/que-esta-pasando-con-los-lideres-de-la-extrema-derecha/" target="_blank" rel="noopener">¿Qué está pasando con los líderes de la extrema derecha?</a><div class="baj">La periodista reacciona a las derrotas electorales de Donald Trump y Flávio Bolsonaro. También hace referencia a lo ocurrido en Paraguay con Santiago Peña. La entrada ¿Qué está pasando con los líderes de la extrema derecha? se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="ee.uu. sigue contando votos tres días después y dos escaños del senado siguen en vilo  ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">15:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/ee-uu-sigue-contando-votos-tres-dias-despues-y-dos-escanos-del-senado-siguen-en-vilo_0_tMHuzQBkTw.html" target="_blank" rel="noopener">EE.UU. sigue contando votos tres días después y dos escaños del Senado siguen en vilo</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="en el día que cumplió 80 años, distinguieron a leopoldo moreau en la cámara de diputados el histórico dirigente recibió la mención de honor juan bautista alberdi ante un colmado salón pasos perdidos. es la figura con más años dentro del congreso. la entrada en el día que cumplió 80 años, distinguieron a leopoldo moreau en la cámara de diputados se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">15:27</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/en-el-dia-que-cumplio-80-anos-distinguieron-a-leopoldo-moreau-en-la-camara-de-diputados/" target="_blank" rel="noopener">En el día que cumplió 80 años, distinguieron a Leopoldo Moreau en la Cámara de Diputados</a><div class="baj">El histórico dirigente recibió la Mención de Honor Juan Bautista Alberdi ante un colmado Salón Pasos Perdidos. Es la figura con más años dentro del Congreso. La entrada En el día que cumplió 80 años, distinguieron a Leopoldo Moreau en la Cámara de Diputados se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="La Nación" data-texto="virginia gallardo compartió la invitación oficial que recibió para asistir al encuentro con el papa león xiv la diputada nacional mostró en sus redes sociales la convocatoria que recibió en las últimas horas para estar presente en la tan esperada llegada del sumo pontífice a la argentina ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">14:39</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/virginia-gallardo-compartio-la-invitacion-oficial-que-recibio-para-asistir-al-encuentro-con-el-papa-nid05112026/" target="_blank" rel="noopener">Virginia Gallardo compartió la invitación oficial que recibió para asistir al encuentro con el papa León XIV</a><div class="baj">La diputada nacional mostró en sus redes sociales la convocatoria que recibió en las últimas horas para estar presente en la tan esperada llegada del Sumo Pontífice a la Argentina</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="jorge macri envió los pliegos para el recambio de autoridades en el organismo electoral porteño propuso a federico fahey duarte, exdirector titular del instituto, y a tomás aguerre, adjunto hasta esta semana para el instituto de gestión electoral ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">14:01</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/jorge-macri-envio-los-pliegos-para-el-recambio-de-autoridades-en-el-organismo-electoral-porteno-nid06112026/" target="_blank" rel="noopener">Jorge Macri envió los pliegos para el recambio de autoridades en el organismo electoral porteño</a><div class="baj">Propuso a Federico Fahey Duarte, exdirector titular del instituto, y a Tomás Aguerre, adjunto hasta esta semana para el Instituto de Gestión Electoral</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="jay rockefeller, exgobernador de virginia occidental y senador de una dinastía, muere a los 89 años  ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">13:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/jay-rockefeller-exgobernador-de-virginia-occidental-y-senador-de-una-dinastia-muere-a-los-89-anos_0_g8bIkGGAIL.html" target="_blank" rel="noopener">Jay Rockefeller, exgobernador de Virginia Occidental y senador de una dinastía, muere a los 89 años</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Veto / DNU" data-medio="Parlamentario.com" data-texto="diputados de up buscan derogar el dnu que “abrió la puerta a los despidos y a la venta del patrimonio del iosfa” el proyecto es impulsado por el diputado agustín rossi que propone dejar sin efecto los despidos, las rescisiones de contratos, las suspensiones y toda otra forma de extinción de los contratos de trabajo del personal del instituto de obra social de las fuerzas armadas. la entrada diputados de up… ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">13:25</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/diputados-de-up-buscan-derogar-el-dnu-que-abrio-la-puerta-a-los-despidos-y-a-la-venta-del-patrimonio-del-iosfa/" target="_blank" rel="noopener">Diputados de UP buscan derogar el DNU que “abrió la puerta a los despidos y a la venta del patrimonio del IOSFA”</a><div class="baj">El proyecto es impulsado por el diputado Agustín Rossi que propone dejar sin efecto los despidos, las rescisiones de contratos, las suspensiones y toda otra forma de extinción de los contratos de trabajo del personal del Instituto de Obra Social de las Fuerzas Armadas. La entrada Diputados de UP…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="wado de pedro le devolvió a milei la ironía por el riesgo país en el pasado, el presidente cuestionó a dirigentes de cambiemos por atribuir la suba del riesgo país al crecimiento electoral de cristina kirchner. ahora, el senador k replicó el mensaje casi palabra por palabra, pero dirigido contra la libertad avanza. la entrada wado de pedro le devolvió a milei… ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">12:59</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/wado-de-pedro-le-devolvio-a-milei-la-ironia-por-el-riesgo-pais/" target="_blank" rel="noopener">Wado de Pedro le devolvió a Milei la ironía por el riesgo país</a><div class="baj">En el pasado, el Presidente cuestionó a dirigentes de Cambiemos por atribuir la suba del riesgo país al crecimiento electoral de Cristina Kirchner. Ahora, el senador K replicó el mensaje casi palabra por palabra, pero dirigido contra La Libertad Avanza. La entrada Wado de Pedro le devolvió a Milei…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="antes que culminen las ordinarias, acuerdos analizará los pliegos de más de 60 candidatos extensas audiencias públicas son las que se prevén en el senado para los días martes 17 y miércoles 18 de noviembre. también habrá una, en día inusual, el viernes 27. todos los nombres. la entrada antes que culminen las ordinarias, acuerdos analizará los pliegos de más de 60 candidatos se publicó… ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">12:25</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/06/antes-que-culminen-las-ordinarias-acuerdos-analizara-los-pliegos-de-mas-de-60-candidatos/" target="_blank" rel="noopener">Antes que culminen las ordinarias, Acuerdos analizará los pliegos de más de 60 candidatos</a><div class="baj">Extensas audiencias públicas son las que se prevén en el Senado para los días martes 17 y miércoles 18 de noviembre. También habrá una, en día inusual, el viernes 27. Todos los nombres. La entrada Antes que culminen las ordinarias, Acuerdos analizará los pliegos de más de 60 candidatos se publicó…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-07 a las 11:51 hs (hora argentina) ·
+    <span class="estado-ok">19 respondieron bien</span> · <span class="estado-mal">2 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: https://www.boletinoficial.gob.ar/seccion/primera: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: timed out)</li><li><span class="estado-mal">✕</span> <b>Perfil</b>: https://www.perfil.com/feed/politica: HTTPStatusError: Client error &#39;404 Not Found&#39; for url &#39;https://www.perfil.com/feed/politica&#39;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
