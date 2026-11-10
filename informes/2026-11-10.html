@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-10</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Martes 10 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 13:22 hs · 19/21 fuentes respondieron · <a href="#fuentes">2 caídas</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">33</div>
+      <div class="sub ">▼ -48% vs. promedio de 7 días (64)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">21</div>
+    <div class="sub">3 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">12</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>2</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+· 7 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/mundo/espectaculo-politico-pete-hegseth-ministro-guerra-trump-defiende-juicio-politico_0_Nc9tk8HDNc.html" target="_blank" rel="noopener">&#34;Es un espectáculo político&#34;: Pete Hegseth, el ministro de Guerra de Trump, se defiende del juicio político</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/mundo/espectaculo-politico-pete-hegseth-ministro-guerra-trump-defiende-juicio-politico_0_Nc9tk8HDNc.html" target="_blank" rel="noopener" title="&#34;Es un espectáculo político&#34;: Pete Hegseth, el ministro de Guerra de Trump, se defiende del juicio político">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/thomas-massie-el-azote-republicano-de-trump-que-impulsa-el-juicio-politico-a-hegseth_0_LiWEGsCZsL.html" target="_blank" rel="noopener" title="Thomas Massie, el azote republicano de Trump, que impulsa el juicio político a Hegseth">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/trump-carga-contra-el-republicano-que-propone-juicio-politico-al-secretario-de-defensa_0_aDyxnYCYs4.html" target="_blank" rel="noopener" title="Trump carga contra el republicano que propone juicio político al secretario de Defensa">Clarín ↗</a><a href="https://www.pagina12.com.ar/2026/11/09/miller-asume-como-jefe-de-gabinete-y-hegseth-secretario-de-defensa-enfrenta-posible-juicio-politico/" target="_blank" rel="noopener" title="Miller asume como jefe de Gabinete y Hegseth, secretario de Defensa, enfrentaría posible juicio político">Página/12 ↗</a><a href="https://www.ambito.com/mundo/presentaron-un-pedido-juicio-politico-contra-pete-hegseth-secretario-defensa-donald-trump-n6343365" target="_blank" rel="noopener" title="Presentaron un pedido de juicio político contra Pete Hegseth, secretario de Defensa de Donald Trump">Ámbito ↗</a><a href="https://www.clarin.com/estados-unidos/representante-thomas-massie-inicia-proceso-para-someter-a-pete-hegseth-a-juicio-politico_0_hj2BEs2dyW.html" target="_blank" rel="noopener" title="Representante Thomas Massie inicia proceso para someter a Pete Hegseth a juicio político">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/hegseth-defiende-su-gestion-como-un-exito-mientras-encara-un-posible-juicio-politico_0_JX61OPXTYr.html" target="_blank" rel="noopener" title="Hegseth defiende su gestión como un &#34;éxito&#34; mientras encara un posible juicio político">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+· 4 notas</span>
+    </div>
+    <h3><a href="https://www.pagina12.com.ar/2026/11/10/reclaman-explicaciones-en-diputados-por-la-carpa-vip-en-la-misa-del-papa/" target="_blank" rel="noopener">Reclaman explicaciones en Diputados por la carpa VIP en la misa del Papa</a></h3>
+<p class="bajada">El diputado Esteban Paulón presentó un proyecto de resolución para que la secretaria General de la Presidencia, Karina Milei, y el canciller Pablo Quirno den detalles del polémico sector exclusivo destinado a ricos y famosos.</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.pagina12.com.ar/2026/11/10/reclaman-explicaciones-en-diputados-por-la-carpa-vip-en-la-misa-del-papa/" target="_blank" rel="noopener" title="Reclaman explicaciones en Diputados por la carpa VIP en la misa del Papa">Página/12 ↗</a><a href="https://www.pagina12.com.ar/2026/11/10/esteban-paulon-apunto-al-gobierno-por-la-carpa-vip-va-en-contraposicion-a-lo-que-plantea-el-papa/" target="_blank" rel="noopener" title="Esteban Paulón apuntó al Gobierno por la carpa VIP: “Va en contraposición a lo que plantea el Papa”">Página/12 ↗</a><a href="https://www.clarin.com/politica/jorge-macri-hablo-carpa-vip-misa-papa-palermo-admitio-medialunas-budines_0_m5b2g0bFv8.html" target="_blank" rel="noopener" title="Jorge Macri habló de la carpa VIP en la misa del Papa en Palermo y admitió: “Las medialunas y budines estuvieron de más”">Clarín ↗</a><a href="https://www.parlamentario.com/2026/11/09/paulon-presento-un-pedido-de-informes-por-los-sectores-vip-en-la-misa-de-leon-xiv/" target="_blank" rel="noopener" title="Paulón presentó un pedido de informes por los sectores VIP en la misa de León XIV">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+· 3 notas</span>
+    </div>
+    <h3><a href="https://www.ambito.com/politica/victoria-villarruel-explico-que-no-asistio-la-misa-del-papa-leon-xiv-nunca-recibimos-el-qr-n6343296" target="_blank" rel="noopener">Victoria Villarruel dijo que no recibió la invitación para la misa de León XIV y el Gobierno la desmintió: &#34;Tenía su asiento&#34;</a></h3>
+<p class="bajada">La vicepresidenta reveló que no recibió la credencial para poder acceder a la ceremonia. El canciller Pablo Quirno se refirió al tema y afirmó que la titular del Senado tenía su lugar libre.</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Comisión</span>
+    </div>
+    <div class="medios">
+<a href="https://www.ambito.com/politica/victoria-villarruel-explico-que-no-asistio-la-misa-del-papa-leon-xiv-nunca-recibimos-el-qr-n6343296" target="_blank" rel="noopener" title="Victoria Villarruel dijo que no recibió la invitación para la misa de León XIV y el Gobierno la desmintió: &#34;Tenía su asiento&#34;">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/11/09/victoria-villarruel-dijo-que-no-fue-invitada-a-la-misa-del-papa-nunca-recibimos-el-qr/" target="_blank" rel="noopener" title="Victoria Villarruel dijo que no fue invitada a la misa del Papa: “Nunca recibimos el QR”">Infobae ↗</a><a href="https://www.infobae.com/politica/2026/11/09/sin-la-presencia-de-victoria-villarruel-el-arco-politico-participo-de-la-historica-misa-de-leon-xiv-en-el-monumento-de-los-espanoles/" target="_blank" rel="noopener" title="Sin la presencia de Victoria Villarruel, el arco político participó de la histórica misa de León XIV en el Monumento de los Españoles">Infobae ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+· 2 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/estados-unidos/tras-enorme-derrota-electoral-republicanos-en-el-senado-debaten-si-mantener-a-john-thune-como-lider_0_QzPUGUqj9J.html" target="_blank" rel="noopener">Tras enorme derrota electoral, republicanos en el Senado debaten si mantener a John Thune como líder</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/estados-unidos/tras-enorme-derrota-electoral-republicanos-en-el-senado-debaten-si-mantener-a-john-thune-como-lider_0_QzPUGUqj9J.html" target="_blank" rel="noopener" title="Tras enorme derrota electoral, republicanos en el Senado debaten si mantener a John Thune como líder">Clarín ↗</a><a href="https://www.clarin.com/estados-unidos/el-lider-democrata-del-senado-se-reune-con-los-nuevos-senadores-electos-en-el-capitolio_0_Eo7QTunRvi.html" target="_blank" rel="noopener" title="El líder demócrata del Senado se reúne con los nuevos senadores electos en el Capitolio">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>1</b> medio
+        <span class="pips" aria-hidden="true"><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.cronista.com/informacion-gral/por-orden-de-la-ley-24449-puede-retener-las-licencias-de-quienes-manejen-por-la-argentina-estando-suspendidos-inhabilitados-con-el-registro-vencido-o-adulterado/" target="_blank" rel="noopener">Por orden de la Ley 24.449 puede retener las licencias de quienes manejen por la Argentina estando suspendidos, inhabilitados, con el registro vencido o adulterado</a></h3>
+<p class="bajada">En este contexto, la ley contempla qué ocurre con ciertas licencias retenidas y en qué condiciones puede ser devueltas a sus titulares.</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Otro</span>
+<span class="chip proyecto">Ley 24.449</span>    </div>
+    <div class="medios">
+<a href="https://www.cronista.com/informacion-gral/por-orden-de-la-ley-24449-puede-retener-las-licencias-de-quienes-manejen-por-la-argentina-estando-suspendidos-inhabilitados-con-el-registro-vencido-o-adulterado/" target="_blank" rel="noopener" title="Por orden de la Ley 24.449 puede retener las licencias de quienes manejen por la Argentina estando suspendidos, inhabilitados, con el registro vencido o adulterado">El Cronista ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<div class="panel vacio">No hay sesiones ni reuniones de comisión publicadas para los próximos días.</div>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 64</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Ma 3: 52 notas">
+        <div class="c" style="height: 46.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 4: 113 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 5: 100 notas">
+        <div class="c" style="height: 88.5%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 6: 85 notas">
+        <div class="c" style="height: 75.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 7: 44 notas">
+        <div class="c" style="height: 38.9%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 8: 27 notas">
+        <div class="c" style="height: 23.9%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 9: 26 notas">
+        <div class="c" style="height: 23.0%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Ma 10: 33 notas">
+<span class="cap">33</span>        <div class="c" style="height: 29.2%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Ma 3</span><span class="">Mi 4</span><span class="">Ju 5</span><span class="">Vi 6</span><span class="">Sá 7</span><span class="">Do 8</span><span class="">Lu 9</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 13 hoy · promedio 12.9">
+        <span class="bar" style="width: 88.3%"></span><span class="v">13</span>
+<span class="tick" style="left: calc(87.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 5 hoy · promedio 5.6">
+        <span class="bar" style="width: 34.0%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(37.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 3 hoy · promedio 3.3">
+        <span class="bar" style="width: 20.4%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(22.3% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 2 hoy · promedio 5.6">
+        <span class="bar" style="width: 13.6%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(37.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 2 hoy · promedio 14.7">
+        <span class="bar" style="width: 13.6%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(100.0% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 2 hoy · promedio 3.1">
+        <span class="bar" style="width: 13.6%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(21.4% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 1 hoy · promedio 4.1">
+        <span class="bar" style="width: 6.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(28.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 1 hoy · promedio 1.9">
+        <span class="bar" style="width: 6.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(12.6% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 1 hoy · promedio 3.4">
+        <span class="bar" style="width: 6.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(23.3% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 1 hoy · promedio 0.9">
+        <span class="bar" style="width: 6.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(5.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 1.1">
+        <span class="bar" style="width: 6.8%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(7.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Tiempo Argentino">Tiempo Argentino</span>
+      <span class="track" data-tip="Tiempo Argentino: 1 hoy">
+        <span class="bar" style="width: 6.8%"></span><span class="v">1</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="&#34;Es un espectáculo político&#34;: Pete Hegseth, el ministro de Guerra de Trump, se defiende del juicio político">1. &#34;Es un espectáculo político&#34;: Pete Hegseth, el ministro de Guerra de Trump, se defiende del juicio político</span>
+      <span class="track" data-tip="&#34;Es un espectáculo político&#34;: Pete Hegseth, el ministro de Guerra de Trump, se defiende del juicio político — 7 notas, 3 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">7 (3)</span>
+      </span>
+      <span class="lbl" title="Reclaman explicaciones en Diputados por la carpa VIP en la misa del Papa">2. Reclaman explicaciones en Diputados por la carpa VIP en la misa del Papa</span>
+      <span class="track" data-tip="Reclaman explicaciones en Diputados por la carpa VIP en la misa del Papa — 4 notas, 3 medios">
+        <span class="bar" style="width: 57.1%"></span><span class="v">4 (3)</span>
+      </span>
+      <span class="lbl" title="Victoria Villarruel dijo que no recibió la invitación para la misa de León XIV y el Gobierno la desmintió: &#34;Tenía su asiento&#34;">3. Victoria Villarruel dijo que no recibió la invitación para la misa de León XIV y el Gobierno la desmintió: &#34;Tenía su asiento&#34;</span>
+      <span class="track" data-tip="Victoria Villarruel dijo que no recibió la invitación para la misa de León XIV y el Gobierno la desmintió: &#34;Tenía su asiento&#34; — 3 notas, 2 medios">
+        <span class="bar" style="width: 42.9%"></span><span class="v">3 (2)</span>
+      </span>
+      <span class="lbl" title="Tras enorme derrota electoral, republicanos en el Senado debaten si mantener a John Thune como líder">4. Tras enorme derrota electoral, republicanos en el Senado debaten si mantener a John Thune como líder</span>
+      <span class="track" data-tip="Tras enorme derrota electoral, republicanos en el Senado debaten si mantener a John Thune como líder — 2 notas, 1 medio">
+        <span class="bar" style="width: 28.6%"></span><span class="v">2 (1)</span>
+      </span>
+      <span class="lbl" title="Por orden de la Ley 24.449 puede retener las licencias de quienes manejen por la Argentina estando suspendidos, inhabilitados, con el registro vencido o adulterado">5. Por orden de la Ley 24.449 puede retener las licencias de quienes manejen por la Argentina estando suspendidos, inhabilitados, con el registro vencido o adulterado</span>
+      <span class="track" data-tip="Por orden de la Ley 24.449 puede retener las licencias de quienes manejen por la Argentina estando suspendidos, inhabilitados, con el registro vencido o adulterado — 1 nota, 1 medio">
+        <span class="bar" style="width: 14.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Un juzgado laboral de La Matanza dictaminó que el bloqueo sindical está fuera del orden jurídico nacional e internacional">6. Un juzgado laboral de La Matanza dictaminó que el bloqueo sindical está fuera del orden jurídico nacional e internacional</span>
+      <span class="track" data-tip="Un juzgado laboral de La Matanza dictaminó que el bloqueo sindical está fuera del orden jurídico nacional e internacional — 1 nota, 1 medio">
+        <span class="bar" style="width: 14.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Es obligatorio por Ley: conductores deberán someterse a rehabilitación para combatir las adicciones si son sancionados por manejar en estado de ebriedad o drogas en CDMX">7. Es obligatorio por Ley: conductores deberán someterse a rehabilitación para combatir las adicciones si son sancionados por manejar en estado de ebriedad o drogas en CDMX</span>
+      <span class="track" data-tip="Es obligatorio por Ley: conductores deberán someterse a rehabilitación para combatir las adicciones si son sancionados por manejar en estado de ebriedad o drogas en CDMX — 1 nota, 1 medio">
+        <span class="bar" style="width: 14.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="La visita del Papa abre diferencias entre los libertarios por la ley que busca prohibir la publicidad de las apuestas online">8. La visita del Papa abre diferencias entre los libertarios por la ley que busca prohibir la publicidad de las apuestas online</span>
+      <span class="track" data-tip="La visita del Papa abre diferencias entre los libertarios por la ley que busca prohibir la publicidad de las apuestas online — 1 nota, 1 medio">
+        <span class="bar" style="width: 14.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Las mejoras en seguridad que el gobierno de Santa Fe proyecta con los diez institutos que aprobó Diputados">9. Las mejoras en seguridad que el gobierno de Santa Fe proyecta con los diez institutos que aprobó Diputados</span>
+      <span class="track" data-tip="Las mejoras en seguridad que el gobierno de Santa Fe proyecta con los diez institutos que aprobó Diputados — 1 nota, 1 medio">
+        <span class="bar" style="width: 14.3%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Presupuesto 2027: la oposición toma el mensaje del papa León XIV para reclamar más fondos para discapacidad y universidades">10. Presupuesto 2027: la oposición toma el mensaje del papa León XIV para reclamar más fondos para discapacidad y universidades</span>
+      <span class="track" data-tip="Presupuesto 2027: la oposición toma el mensaje del papa León XIV para reclamar más fondos para discapacidad y universidades — 1 nota, 1 medio">
+        <span class="bar" style="width: 14.3%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>Tiempo Argentino</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Clarín" data-texto="&#34;es un espectáculo político&#34;: pete hegseth, el ministro de guerra de trump, se defiende del juicio político  ">
+        <td class="tema-col"><b>1</b> · 3 medios</td>
+        <td class="num">11:22</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/espectaculo-politico-pete-hegseth-ministro-guerra-trump-defiende-juicio-politico_0_Nc9tk8HDNc.html" target="_blank" rel="noopener">&#34;Es un espectáculo político&#34;: Pete Hegseth, el ministro de Guerra de Trump, se defiende del juicio político</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Clarín" data-texto="thomas massie, el azote republicano de trump, que impulsa el juicio político a hegseth  ">
+        <td class="tema-col"></td>
+        <td class="num">13:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/thomas-massie-el-azote-republicano-de-trump-que-impulsa-el-juicio-politico-a-hegseth_0_LiWEGsCZsL.html" target="_blank" rel="noopener">Thomas Massie, el azote republicano de Trump, que impulsa el juicio político a Hegseth</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Clarín" data-texto="trump carga contra el republicano que propone juicio político al secretario de defensa  ">
+        <td class="tema-col"></td>
+        <td class="num">00:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/trump-carga-contra-el-republicano-que-propone-juicio-politico-al-secretario-de-defensa_0_aDyxnYCYs4.html" target="_blank" rel="noopener">Trump carga contra el republicano que propone juicio político al secretario de Defensa</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Página/12" data-texto="miller asume como jefe de gabinete y hegseth, secretario de defensa, enfrentaría posible juicio político  ">
+        <td class="tema-col"></td>
+        <td class="num">00:02</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/09/miller-asume-como-jefe-de-gabinete-y-hegseth-secretario-de-defensa-enfrenta-posible-juicio-politico/" target="_blank" rel="noopener">Miller asume como jefe de Gabinete y Hegseth, secretario de Defensa, enfrentaría posible juicio político</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Ámbito" data-texto="presentaron un pedido de juicio político contra pete hegseth, secretario de defensa de donald trump  ">
+        <td class="tema-col"></td>
+        <td class="num">19:57</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/presentaron-un-pedido-juicio-politico-contra-pete-hegseth-secretario-defensa-donald-trump-n6343365" target="_blank" rel="noopener">Presentaron un pedido de juicio político contra Pete Hegseth, secretario de Defensa de Donald Trump</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Clarín" data-texto="representante thomas massie inicia proceso para someter a pete hegseth a juicio político  ">
+        <td class="tema-col"></td>
+        <td class="num">18:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/representante-thomas-massie-inicia-proceso-para-someter-a-pete-hegseth-a-juicio-politico_0_hj2BEs2dyW.html" target="_blank" rel="noopener">Representante Thomas Massie inicia proceso para someter a Pete Hegseth a juicio político</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Clarín" data-texto="hegseth defiende su gestión como un &#34;éxito&#34; mientras encara un posible juicio político  ">
+        <td class="tema-col"></td>
+        <td class="num">17:10</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/hegseth-defiende-su-gestion-como-un-exito-mientras-encara-un-posible-juicio-politico_0_JX61OPXTYr.html" target="_blank" rel="noopener">Hegseth defiende su gestión como un &#34;éxito&#34; mientras encara un posible juicio político</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Página/12" data-texto="reclaman explicaciones en diputados por la carpa vip en la misa del papa el diputado esteban paulón presentó un proyecto de resolución para que la secretaria general de la presidencia, karina milei, y el canciller pablo quirno den detalles del polémico sector exclusivo destinado a ricos y famosos. ">
+        <td class="tema-col"><b>2</b> · 3 medios</td>
+        <td class="num">10:23</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/10/reclaman-explicaciones-en-diputados-por-la-carpa-vip-en-la-misa-del-papa/" target="_blank" rel="noopener">Reclaman explicaciones en Diputados por la carpa VIP en la misa del Papa</a><div class="baj">El diputado Esteban Paulón presentó un proyecto de resolución para que la secretaria General de la Presidencia, Karina Milei, y el canciller Pablo Quirno den detalles del polémico sector exclusivo destinado a ricos y famosos.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Página/12" data-texto="esteban paulón apuntó al gobierno por la carpa vip: “va en contraposición a lo que plantea el papa” el diputado nacional esteban paulón anticipó un pedido de informes para esclarecer la organización del evento. ">
+        <td class="tema-col"></td>
+        <td class="num">13:18</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/10/esteban-paulon-apunto-al-gobierno-por-la-carpa-vip-va-en-contraposicion-a-lo-que-plantea-el-papa/" target="_blank" rel="noopener">Esteban Paulón apuntó al Gobierno por la carpa VIP: “Va en contraposición a lo que plantea el Papa”</a><div class="baj">El diputado nacional Esteban Paulón anticipó un pedido de informes para esclarecer la organización del evento.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Clarín" data-texto="jorge macri habló de la carpa vip en la misa del papa en palermo y admitió: “las medialunas y budines estuvieron de más” el mandatario porteño minimizó las críticas que hubo por la ostentación y la zona exclusiva para famosos. además, un diputado pidió que karina milei y el canciller quirno brinden explicaciones de la organización del evento en el congreso. ">
+        <td class="tema-col"></td>
+        <td class="num">10:45</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/jorge-macri-hablo-carpa-vip-misa-papa-palermo-admitio-medialunas-budines_0_m5b2g0bFv8.html" target="_blank" rel="noopener">Jorge Macri habló de la carpa VIP en la misa del Papa en Palermo y admitió: “Las medialunas y budines estuvieron de más”</a><div class="baj">El mandatario porteño minimizó las críticas que hubo por la ostentación y la zona exclusiva para famosos. Además, un diputado pidió que Karina Milei y el canciller Quirno brinden explicaciones de la organización del evento en el Congreso.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="paulón presentó un pedido de informes por los sectores vip en la misa de león xiv el diputado nacional cuestionó la organización de la visita papal y pidió que karina milei y pablo quirno den explicaciones ante la cámara baja. reclama detalles sobre los invitados a los sectores preferenciales, las contrataciones por más de 20 mil millones de pesos y la exclusión de periodistas… ">
+        <td class="tema-col"></td>
+        <td class="num">20:58</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/09/paulon-presento-un-pedido-de-informes-por-los-sectores-vip-en-la-misa-de-leon-xiv/" target="_blank" rel="noopener">Paulón presentó un pedido de informes por los sectores VIP en la misa de León XIV</a><div class="baj">El diputado nacional cuestionó la organización de la visita papal y pidió que Karina Milei y Pablo Quirno den explicaciones ante la Cámara baja. Reclama detalles sobre los invitados a los sectores preferenciales, las contrataciones por más de 20 mil millones de pesos y la exclusión de periodistas…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Ámbito" data-texto="victoria villarruel dijo que no recibió la invitación para la misa de león xiv y el gobierno la desmintió: &#34;tenía su asiento&#34; la vicepresidenta reveló que no recibió la credencial para poder acceder a la ceremonia. el canciller pablo quirno se refirió al tema y afirmó que la titular del senado tenía su lugar libre. ">
+        <td class="tema-col"><b>3</b> · 2 medios</td>
+        <td class="num">21:43</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/victoria-villarruel-explico-que-no-asistio-la-misa-del-papa-leon-xiv-nunca-recibimos-el-qr-n6343296" target="_blank" rel="noopener">Victoria Villarruel dijo que no recibió la invitación para la misa de León XIV y el Gobierno la desmintió: &#34;Tenía su asiento&#34;</a><div class="baj">La vicepresidenta reveló que no recibió la credencial para poder acceder a la ceremonia. El canciller Pablo Quirno se refirió al tema y afirmó que la titular del Senado tenía su lugar libre.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Infobae" data-texto="victoria villarruel dijo que no fue invitada a la misa del papa: “nunca recibimos el qr” la vicepresidenta y titular del senado confirmó su ausencia con un sugestivo mensaje en redes sociales ">
+        <td class="tema-col"></td>
+        <td class="num">09:04</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/09/victoria-villarruel-dijo-que-no-fue-invitada-a-la-misa-del-papa-nunca-recibimos-el-qr/" target="_blank" rel="noopener">Victoria Villarruel dijo que no fue invitada a la misa del Papa: “Nunca recibimos el QR”</a><div class="baj">La vicepresidenta y titular del Senado confirmó su ausencia con un sugestivo mensaje en redes sociales</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Infobae" data-texto="sin la presencia de victoria villarruel, el arco político participó de la histórica misa de león xiv en el monumento de los españoles la organización de la mega ceremonia estuvo a cargo de la iglesia católica, la ciudad y el gobierno nacional. la asistencia de javier milei y el gabinete libertario. limitada presencia de gobernadores y escasa representación de la oposición ">
+        <td class="tema-col"></td>
+        <td class="num">18:52</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/09/sin-la-presencia-de-victoria-villarruel-el-arco-politico-participo-de-la-historica-misa-de-leon-xiv-en-el-monumento-de-los-espanoles/" target="_blank" rel="noopener">Sin la presencia de Victoria Villarruel, el arco político participó de la histórica misa de León XIV en el Monumento de los Españoles</a><div class="baj">La organización de la mega ceremonia estuvo a cargo de la Iglesia Católica, la Ciudad y el Gobierno Nacional. La asistencia de Javier Milei y el Gabinete libertario. Limitada presencia de gobernadores y escasa representación de la oposición</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="tras enorme derrota electoral, republicanos en el senado debaten si mantener a john thune como líder  ">
+        <td class="tema-col"><b>4</b> · 1 medio</td>
+        <td class="num">12:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/tras-enorme-derrota-electoral-republicanos-en-el-senado-debaten-si-mantener-a-john-thune-como-lider_0_QzPUGUqj9J.html" target="_blank" rel="noopener">Tras enorme derrota electoral, republicanos en el Senado debaten si mantener a John Thune como líder</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="el líder demócrata del senado se reúne con los nuevos senadores electos en el capitolio  ">
+        <td class="tema-col"></td>
+        <td class="num">18:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-lider-democrata-del-senado-se-reune-con-los-nuevos-senadores-electos-en-el-capitolio_0_Eo7QTunRvi.html" target="_blank" rel="noopener">El líder demócrata del Senado se reúne con los nuevos senadores electos en el Capitolio</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="por orden de la ley 24.449 puede retener las licencias de quienes manejen por la argentina estando suspendidos, inhabilitados, con el registro vencido o adulterado en este contexto, la ley contempla qué ocurre con ciertas licencias retenidas y en qué condiciones puede ser devueltas a sus titulares. ley 24.449">
+        <td class="tema-col"><b>5</b> · 1 medio<br>Ley 24.449</td>
+        <td class="num">12:20</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/informacion-gral/por-orden-de-la-ley-24449-puede-retener-las-licencias-de-quienes-manejen-por-la-argentina-estando-suspendidos-inhabilitados-con-el-registro-vencido-o-adulterado/" target="_blank" rel="noopener">Por orden de la Ley 24.449 puede retener las licencias de quienes manejen por la Argentina estando suspendidos, inhabilitados, con el registro vencido o adulterado</a><div class="baj">En este contexto, la ley contempla qué ocurre con ciertas licencias retenidas y en qué condiciones puede ser devueltas a sus titulares.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Infobae" data-texto="un juzgado laboral de la matanza dictaminó que el bloqueo sindical está fuera del orden jurídico nacional e internacional lo hizo al avalar el despido de un trabajador de la empresa química rame que había participado de una protesta que paralizó la planta durante un semana a fines de 2021. qué dice el fallo y por qué es importante ">
+        <td class="tema-col"><b>6</b> · 1 medio</td>
+        <td class="num">10:05</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/10/un-juzgado-laboral-de-la-matanza-dictamino-que-el-bloqueo-sindical-esta-fuera-del-orden-juridico-nacional-e-internacional/" target="_blank" rel="noopener">Un juzgado laboral de La Matanza dictaminó que el bloqueo sindical está fuera del orden jurídico nacional e internacional</a><div class="baj">Lo hizo al avalar el despido de un trabajador de la empresa Química Rame que había participado de una protesta que paralizó la planta durante un semana a fines de 2021. Qué dice el fallo y por qué es importante</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="es obligatorio por ley: conductores deberán someterse a rehabilitación para combatir las adicciones si son sancionados por manejar en estado de ebriedad o drogas en cdmx la ley de movilidad establece la suspensión de la licencia y un tratamiento obligatorio para quienes sean sancionados por conducir bajo los efectos del alcohol o narcóticos. ">
+        <td class="tema-col"><b>7</b> · 1 medio</td>
+        <td class="num">09:14</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/mexico/actualidad-mx/es-obligatorio-por-ley-conductores-deberan-someterse-a-rehabilitacion-para-combatir-las-adicciones-si-son-captados-manejando-en-estado-de-ebriedad-o-drogas-en-cdmx/" target="_blank" rel="noopener">Es obligatorio por Ley: conductores deberán someterse a rehabilitación para combatir las adicciones si son sancionados por manejar en estado de ebriedad o drogas en CDMX</a><div class="baj">La Ley de Movilidad establece la suspensión de la licencia y un tratamiento obligatorio para quienes sean sancionados por conducir bajo los efectos del alcohol o narcóticos.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="La Nación" data-texto="la visita del papa abre diferencias entre los libertarios por la ley que busca prohibir la publicidad de las apuestas online cuatro senadores oficialistas reclaman debatir la regulación del juego online, pese a la resistencia del gobierno; la iniciativa que busca restringir los patrocinios deportivos y endurecer los controles para impedir el acceso de menores lleva casi dos años frenada ">
+        <td class="tema-col"><b>8</b> · 1 medio</td>
+        <td class="num">09:07</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-visita-del-papa-abre-diferencias-entre-los-libertarios-por-la-ley-que-busca-prohibir-la-nid10112026/" target="_blank" rel="noopener">La visita del Papa abre diferencias entre los libertarios por la ley que busca prohibir la publicidad de las apuestas online</a><div class="baj">Cuatro senadores oficialistas reclaman debatir la regulación del juego online, pese a la resistencia del Gobierno; la iniciativa que busca restringir los patrocinios deportivos y endurecer los controles para impedir el acceso de menores lleva casi dos años frenada</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Sesión" data-medio="Letra P" data-texto="las mejoras en seguridad que el gobierno de santa fe proyecta con los diez institutos que aprobó diputados  ">
+        <td class="tema-col"><b>9</b> · 1 medio</td>
+        <td class="num">08:30</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/las-mejoras-seguridad-que-el-gobierno-santa-fe-proyecta-los-diez-institutos-que-aprobo-diputados-n5428105" target="_blank" rel="noopener">Las mejoras en seguridad que el gobierno de Santa Fe proyecta con los diez institutos que aprobó Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="TN" data-texto="presupuesto 2027: la oposición toma el mensaje del papa león xiv para reclamar más fondos para discapacidad y universidades  presupuesto 2027">
+        <td class="tema-col"><b>10</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">06:00</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/10/presupuesto-2027-la-oposicion-toma-el-mensaje-del-papa-leon-xiv-para-reclamar-mas-fondos-para-discapacidad-y-universidades/" target="_blank" rel="noopener">Presupuesto 2027: la oposición toma el mensaje del papa León XIV para reclamar más fondos para discapacidad y universidades</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Otro" data-medio="Infobae" data-texto="monitor del congreso: qué legisladores hablaron más y cuáles fueron las palabras más usadas en 2026 una herramienta desarrollada por la uba, data cp, permite monitorear de forma accesible la actividad legislativa. en esta nota, infobae analizó las intervenciones de diputados y senadores ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">02:50</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/10/monitor-del-congreso-que-legisladores-hablaron-mas-y-cuales-fueron-las-palabras-mas-usadas-en-2026/" target="_blank" rel="noopener">Monitor del Congreso: qué legisladores hablaron más y cuáles fueron las palabras más usadas en 2026</a><div class="baj">Una herramienta desarrollada por la UBA, Data CP, permite monitorear de forma accesible la actividad legislativa. En esta nota, Infobae analizó las intervenciones de diputados y senadores</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="pliegos judiciales: el senado prepara dos audiencias en medio de la puja libertaria por la comisión de acuerdos están fijadas para el martes 17 y miércoles 18. dialoguistas no quieren enturbiar dichos encuentros y prefieren que comande el vice de la misma, el radical maximiliano abad. la mileísta nadia márquez buscó adelantarse para reemplazar al ex legislador oficialista juan carlos pagotto -murió hace más… ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">02:48</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/10/pliegos-judiciales-el-senado-prepara-dos-audiencias-en-medio-de-la-puja-libertaria-por-la-comision-de-acuerdos/" target="_blank" rel="noopener">Pliegos judiciales: el Senado prepara dos audiencias en medio de la puja libertaria por la comisión de Acuerdos</a><div class="baj">Están fijadas para el martes 17 y miércoles 18. Dialoguistas no quieren enturbiar dichos encuentros y prefieren que comande el vice de la misma, el radical Maximiliano Abad. La mileísta Nadia Márquez buscó adelantarse para reemplazar al ex legislador oficialista Juan Carlos Pagotto -murió hace más…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="elDiarioAR" data-texto="tierra, techo y trabajo: león xiv reivindicó la justicia social frente a empresarios, sindicalistas y funcionarios el sumo pontífice habló de la hipoteca social de la propiedad privada, la cultura del descarte, el riesgo de la avaricia empresarial y la necesidad de regular la inteligencia artificial en un auditorio de la uca repleto de 700 invitados. el gobierno buscó matizar sus declaraciones. enfrentado a… inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>13</b> · 1 medio<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">21:15</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/tierra-techo-trabajo-leon-xiv-reivindico-justicia-social-frente-empresarios-sindicalistas-funcionarios_1_13650971.html" target="_blank" rel="noopener">Tierra, techo y trabajo: León XIV reivindicó la justicia social frente a empresarios, sindicalistas y funcionarios</a><div class="baj">El Sumo Pontífice habló de la hipoteca social de la propiedad privada, la cultura del descarte, el riesgo de la avaricia empresarial y la necesidad de regular la inteligencia artificial en un auditorio de la UCA repleto de 700 invitados. El Gobierno buscó matizar sus declaraciones. Enfrentado a…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="abad destacó el mensaje de león xiv y llamó a poner la dignidad humana en el centro de las políticas públicas el senador nacional valoró el mensaje pronunciado por el papa durante su visita a la argentina y sostuvo que sus palabras constituyen una interpelación a las democracias contemporáneas, con especial énfasis en la dignidad humana, el diálogo político y la educación. la entrada abad destacó el… ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">18:53</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/09/abad-destaco-el-mensaje-de-leon-xiv-y-llamo-a-poner-la-dignidad-humana-en-el-centro-de-las-politicas-publicas/" target="_blank" rel="noopener">Abad destacó el mensaje de León XIV y llamó a poner la dignidad humana en el centro de las políticas públicas</a><div class="baj">El senador nacional valoró el mensaje pronunciado por el Papa durante su visita a la Argentina y sostuvo que sus palabras constituyen una interpelación a las democracias contemporáneas, con especial énfasis en la dignidad humana, el diálogo político y la educación. La entrada Abad destacó el…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="el jefe del pentágono enfrenta una moción de censura en el congreso  ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">18:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-jefe-del-pentagono-enfrenta-una-mocion-de-censura-en-el-congreso_0_ZoNH2gfby5.html" target="_blank" rel="noopener">El jefe del Pentágono enfrenta una moción de censura en el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="encargado de inmigración de ee.uu., dispuesto a trabajar en una reforma con el congreso  ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">18:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/encargado-de-inmigracion-de-ee-uu-dispuesto-a-trabajar-en-una-reforma-con-el-congreso_0_X7vt6RUiTn.html" target="_blank" rel="noopener">Encargado de inmigración de EE.UU., dispuesto a trabajar en una reforma con el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="la hostilidad entre karina milei y patricia bullrich ya impacta en el bloque libertario del senado  ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">17:44</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/tension-karina-milei-patricia-bullrich-impacta-bloque-libertario-senado_0_rFkNHVRGiB.html" target="_blank" rel="noopener">La hostilidad entre Karina Milei y Patricia Bullrich ya impacta en el bloque libertario del Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Clarín" data-texto="el gobierno acelera en el congreso, pero ya se prepara para las extraordinarias: los proyectos pendientes  ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">17:36</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/gobierno-acelera-congreso-prepara-extraordinarias-proyectos-pendientes_0_yZan9vH5Uk.html" target="_blank" rel="noopener">El Gobierno acelera en el Congreso, pero ya se prepara para las extraordinarias: los proyectos pendientes</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="el congreso vuelve a un washington cambiado tras la debacle electoral republicana  ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">14:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-congreso-vuelve-a-un-washington-cambiado-tras-la-debacle-electoral-republicana_0_h4gww7Da0L.html" target="_blank" rel="noopener">El Congreso vuelve a un Washington cambiado tras la debacle electoral republicana</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="el congreso se ilumina de violeta por el día mundial de la adopción  ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24610/noticias" target="_blank" rel="noopener">EL CONGRESO SE ILUMINA DE VIOLETA POR EL DÍA MUNDIAL DE LA ADOPCIÓN</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Tiempo Argentino" data-texto="la insólita respuesta de milei al pedido de diálogo de león xiv: “la oposición votó 40 leyes para destruir el equilibrio fiscal»  ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">—</td>
+        <td>Tiempo Argentino</td>
+        <td><a href="https://www.tiempoar.com.ar/ta_article/la-insolita-respuesta-de-milei-al-pedido-de-dialogo-de-leon-xiv-la-oposicion-voto-40-leyes-para-destruir-el-equilibrio-fiscal/" target="_blank" rel="noopener">La insólita respuesta de Milei al pedido de diálogo de León XIV: “La oposición votó 40 leyes para destruir el equilibrio fiscal»</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-10 a las 13:22 hs (hora argentina) ·
+    <span class="estado-ok">19 respondieron bien</span> · <span class="estado-mal">2 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: https://www.boletinoficial.gob.ar/seccion/primera: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: timed out)</li><li><span class="estado-mal">✕</span> <b>Perfil</b>: https://www.perfil.com/feed/politica: HTTPStatusError: Client error &#39;404 Not Found&#39; for url &#39;https://www.perfil.com/feed/politica&#39;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
