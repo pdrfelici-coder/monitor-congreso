@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-12</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Jueves 12 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 13:44 hs · 18/21 fuentes respondieron · <a href="#fuentes">3 caídas</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">68</div>
+      <div class="sub up">▲ +37% vs. promedio de 7 días (50)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">40</div>
+    <div class="sub">9 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">12</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>3</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>8</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 12 notas</span>
+    </div>
+    <h3><a href="https://www.clarin.com/politica/martin-menem-pidio-acelerar-suspension-paso-proximas-semanas-avanzando-media-sancion-senado_0_utke2HJkFu.html" target="_blank" rel="noopener">Martín Menem presiona a Bullrich para acelerar la suspensión de las PASO: &#34;En dos semanas tendríamos que avanzar con la media sanción en Senado&#34;</a></h3>
+<p class="bajada">El presidente de la Cámara de Diputados dijo que &#34;se está trabajando&#34; para que avance el proyecto del oficialismo. &#34;Creo que vamos a poder llegar a suspender las PASO&#34;, pronosticó el diputado, quien anticipó que habrá sesiones extraordinarias.</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.clarin.com/politica/martin-menem-pidio-acelerar-suspension-paso-proximas-semanas-avanzando-media-sancion-senado_0_utke2HJkFu.html" target="_blank" rel="noopener" title="Martín Menem presiona a Bullrich para acelerar la suspensión de las PASO: &#34;En dos semanas tendríamos que avanzar con la media sanción en Senado&#34;">Clarín ↗</a><a href="https://www.parlamentario.com/2026/11/12/el-gobierno-acelera-con-la-reforma-electoral-convocan-a-asuntos-constitucionales-el-proximo-martes/" target="_blank" rel="noopener" title="El Gobierno acelera con la reforma electoral: convocan a Asuntos Constitucionales el próximo martes">Parlamentario.com ↗</a><a href="https://www.infobae.com/politica/2026/11/12/el-gobierno-llamara-a-sesiones-extraordinarias-los-proyectos-clave-que-entraran-y-los-que-estan-en-duda/" target="_blank" rel="noopener" title="El Gobierno llamará a sesiones extraordinarias: los proyectos clave que entrarán y los que están en duda">Infobae ↗</a><a href="https://www.ambito.com/politica/suspension-las-paso-el-senado-retoma-el-debate-la-reforma-electoral-n6344453" target="_blank" rel="noopener" title="Suspensión de las PASO: el Senado retoma el debate de la reforma electoral">Ámbito ↗</a><a href="https://www.parlamentario.com/2026/11/12/menem-adelanto-la-agenda-parlamentaria-y-hablo-de-la-reforma-electoral-creo-que-la-argentina-no-necesita-paso/" target="_blank" rel="noopener" title="Menem adelantó la agenda parlamentaria y habló de la Reforma Electoral: “Creo que la Argentina no necesita PASO”">Parlamentario.com ↗</a><a href="https://www.a24.com/politica/martin-menem-estimo-que-la-suspension-las-paso-podria-avanzar-el-senado-las-proximas-semanas-n1615779" target="_blank" rel="noopener" title="Martín Menem estimó que la suspensión de las PASO podría avanzar en el Senado en las próximas semanas">A24 ↗</a><a href="https://www.lanacion.com.ar/politica/martin-menem-pidio-acelerar-la-suspension-de-las-paso-y-adelanto-que-podria-darse-en-15-dias-nid12112026/" target="_blank" rel="noopener" title="Martín Menem pidió acelerar la suspensión de las PASO y adelantó que podría darse en 15 días">La Nación ↗</a><a href="https://www.cronista.com/economia-politica/presion-a-patricia-bullrich-menem-espera-que-el-senado-suspenda-las-paso-en-los-proximos-15-dias/" target="_blank" rel="noopener" title="¿Presión a Patricia Bullrich? Menem espera que el Senado suspenda las PASO en los próximos 15 días">El Cronista ↗</a><a href="https://www.ambito.com/politica/el-gobierno-pone-fecha-su-apuesta-suspender-las-paso-n6344309" target="_blank" rel="noopener" title="El Gobierno pone fecha a su apuesta para suspender las PASO">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/11/12/martin-menem-presiona-a-bullrich-espera-que-el-senado-suspenda-las-paso-en-los-proximos-15-dias/" target="_blank" rel="noopener" title="Martín Menem presiona a Bullrich: espera que el Senado suspenda las PASO en los próximos 15 días">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/11/12/martin-menem-presiono-a-patricia-bullrich-para-que-el-senado-de-media-sancion-a-la-suspension-de-las-paso-en-15-dias/" target="_blank" rel="noopener" title="Martín Menem presionó a Patricia Bullrich para que el Senado dé media sanción a la suspensión de las PASO en 15 días">TN ↗</a><a href="https://tn.com.ar/politica/2026/11/11/el-gobierno-acelera-el-tratamiento-de-la-reforma-electoral-en-el-senado-y-buscara-la-media-sancion-en-dos-semanas/" target="_blank" rel="noopener" title="El Gobierno acelera el debate de la reforma electoral en el Senado y buscará la media sanción en dos semanas">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+· 5 notas</span>
+    </div>
+    <h3><a href="https://www.ambito.com/politica/javier-milei-agito-la-interna-libertaria-un-posteo-plena-tension-patricia-bullrich-hay-gente-dispuesta-hundir-el-barco-n6344226" target="_blank" rel="noopener">Javier Milei agitó la interna libertaria con un posteo en plena tensión con Patricia Bullrich: &#34;Hay gente dispuesta a hundir el barco&#34;</a></h3>
+<p class="bajada">La publicación llegó tras una reunión de la senadora con dirigentes de su sector cuya foto generó malestar en el entorno de Karina Milei.</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.ambito.com/politica/javier-milei-agito-la-interna-libertaria-un-posteo-plena-tension-patricia-bullrich-hay-gente-dispuesta-hundir-el-barco-n6344226" target="_blank" rel="noopener" title="Javier Milei agitó la interna libertaria con un posteo en plena tensión con Patricia Bullrich: &#34;Hay gente dispuesta a hundir el barco&#34;">Ámbito ↗</a><a href="https://tn.com.ar/politica/2026/11/12/el-gobierno-confia-en-que-conseguira-la-media-sancion-para-suspender-las-paso-y-anticipo-que-convocara-a-extraordinarias/" target="_blank" rel="noopener" title="En medio de las tensiones con Bullrich, el Gobierno pidió dejar de lado las &#34;ambiciones personales&#34;">TN ↗</a><a href="https://www.lanacion.com.ar/politica/un-sugestivo-posteo-de-milei-volvio-a-subir-la-tension-entre-la-casa-rosada-y-patricia-bullrich-nid12112026/" target="_blank" rel="noopener" title="Un sugestivo posteo de Milei volvió a subir la tensión entre la Casa Rosada y Patricia Bullrich">La Nación ↗</a><a href="https://www.clarin.com/politica/pablo-quirno-hablo-abrazo-milei-marco-patricia-bullrich-tiempo-ambiciones-personales_0_pGmosGiQxB.html" target="_blank" rel="noopener" title="Pablo Quirno habló del abrazo con los Milei y le marcó a Patricia Bullrich que no es tiempo de &#34;ambiciones personales&#34;">Clarín ↗</a><a href="https://www.ambito.com/politica/se-fue-el-papa-leon-xiv-y-javier-milei-encara-el-frente-interno-dudas-washington-y-la-libertad-avanza-llamas-n6343918" target="_blank" rel="noopener" title="Se fue el papa León XIV y Javier Milei encara el frente interno: dudas en Washington y La Libertad Avanza en llamas">Ámbito ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.ambito.com/politica/condenaron-e-inhabilitaron-al-policia-federal-que-gaseo-una-nena-10-anos-frente-al-congreso-n6344227" target="_blank" rel="noopener">Condenaron e inhabilitaron al policía federal que gaseó a una nena de 10 años frente al Congreso</a></h3>
+<p class="bajada">El juez Daniel Rafecas condenó a Cristian Miguel Rivaldi por haber rociado con gas pimienta a Fabrizia y a su madre durante una manifestación en defensa de los jubilados, en septiembre de 2024. La pena de un año y tres meses de prisión es de cumplimiento en suspenso e incluye una inhabilitación…</p>    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.ambito.com/politica/condenaron-e-inhabilitaron-al-policia-federal-que-gaseo-una-nena-10-anos-frente-al-congreso-n6344227" target="_blank" rel="noopener" title="Condenaron e inhabilitaron al policía federal que gaseó a una nena de 10 años frente al Congreso">Ámbito ↗</a><a href="https://www.clarin.com/sociedad/condenan-agente-policia-federal-arrojo-gas-pimienta-cara-nena-madre-marchas-frente-congreso_0_HZQEDVqcB4.html" target="_blank" rel="noopener" title="Condenan al agente de la Policía Federal que le arrojó gas pimienta en la cara a una nena y a su madre en una de las marchas frente al Congreso">Clarín ↗</a><a href="https://www.lanacion.com.ar/politica/condenaron-al-policia-que-gaseo-a-una-nina-de-10-anos-en-una-manifestacion-frente-al-congreso-nid11112026/" target="_blank" rel="noopener" title="Condenaron al policía que gaseó a una niña de 10 años en una manifestación frente al Congreso">La Nación ↗</a><a href="https://www.c5n.com/sociedad/condenaron-al-policia-que-gaseo-una-nena-10-anos-una-protesta-frente-al-congreso-n254075" target="_blank" rel="noopener" title="Condenaron al policía que gaseó a una nena de 10 años durante una protesta frente al Congreso">C5N ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/11/12/diputados-reunion-clave-del-oficialismo-con-sus-aliados-por-el-presupuesto-2027/" target="_blank" rel="noopener">Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027</a></h3>
+<p class="bajada">Integrantes de LLA y bloques dialoguistas se encontrarán esta tarde para avanzar en una hoja de ruta de cara al cierre de ordinarias. Los reclamos por los que se esperan respuestas. La entrada Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027 se publicó primero en…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/11/12/diputados-reunion-clave-del-oficialismo-con-sus-aliados-por-el-presupuesto-2027/" target="_blank" rel="noopener" title="Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027">Parlamentario.com ↗</a><a href="https://www.ambito.com/politica/diputados-reactiva-las-negociaciones-jefes-bloque-se-reunen-delinear-la-agenda-del-congreso-n6344363" target="_blank" rel="noopener" title="Diputados reactiva negociaciones: jefes de bloque se reúnen para delinear la agenda del Congreso">Ámbito ↗</a><a href="https://tn.com.ar/politica/2026/11/12/el-gobierno-negocia-el-presupuesto-2027-los-cambios-que-reclaman-los-aliados-para-acompanar-el-proyecto-en-diputados/" target="_blank" rel="noopener" title="El Gobierno negocia el Presupuesto 2027: los cambios que reclaman los aliados para acompañar el proyecto en Diputados">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/11/12/finalizada-la-visita-del-papa-el-congreso-arrancan-dos-semanas-intensas-de-cara-al-cierre-de-ordinarias/" target="_blank" rel="noopener">Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara al cierre de ordinarias</a></h3>
+<p class="bajada">El oficialismo buscará llevar al recinto proyectos clave, pero deberá cerrar acuerdos con aliados. La Cámara de Diputados puede dictaminar hasta el 20. Santilli debuta la última semana del mes en el Senado. La entrada Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara…</p>    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/11/12/finalizada-la-visita-del-papa-el-congreso-arrancan-dos-semanas-intensas-de-cara-al-cierre-de-ordinarias/" target="_blank" rel="noopener" title="Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara al cierre de ordinarias">Parlamentario.com ↗</a><a href="https://tn.com.ar/politica/2026/11/12/el-gobierno-cree-que-la-visita-del-papa-logro-desactivar-las-tensiones-internas-y-se-prepara-para-una-semana-clave-en-el-congreso/" target="_blank" rel="noopener" title="El Gobierno cree que la visita del Papa logró desactivar las tensiones internas y se prepara para una semana clave en el Congreso">TN ↗</a><a href="https://www.ambito.com/politica/tras-la-visita-papal-el-congreso-retoma-la-actividad-avanzar-leyes-clave-javier-milei-n6343973" target="_blank" rel="noopener" title="Tras la visita papal, el Congreso retoma la actividad para avanzar con leyes clave para Javier Milei">Ámbito ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4><span class="hoy-tag">Hoy</span>Jueves 12 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">14:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Plenario: Mujeres y diversidad, Derechos humanos y garantias</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 4 - Anexo &#34;A&#34; - Informativa REUNIÓN CONJUNTA · ver temario</summary>INVITADAS. Fueron invitadas mujeres travestis y trans, víctimas de los recientes ataques transfóbicos ocurridos en los bosques de Palermo, en la Ciudad Autónoma de Buenos Aires. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1393/archivo/QV1HXSV7PTVEKETJ.pdf" target="_blank" rel="noopener">citación</a></details>
+<span class="tag">· dato de una corrida anterior</span>      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Martes 17 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Audiencia Pública de la Comisión de Acuerdos</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: - PE-220/26, mensaje N° 209/26 que solicita acuerdo para designar juez del Juzgado Nacional de Primera Instancia en lo Contencioso Administrativo Federal N° 7 de la Capital Federal, al Dr. Leonardo Marco Toia. - PE-236/26, mensaje N° 221/26 que solicita acuerdo para designar conjueces de los Tribunales Orales en lo Criminal y Correccional de la Capital Federal: Dr. Martín José Adrogue. Dra. Sofía Chiambretto. Dr. Guido Damián Cresta. Dra. Lucía Inés Gallagher Campos. Dr. David Gabriel Mangiafico. Dr. Federico Martín Mercader. Dr. Horacio Alfredo Peix. Dra. Andrea Paola Santos. - PE-248/26, mensaje N° 227/26 que solicita acuerdo para designar defensora pública de menores e incapaces ante los Tribunales Orales en lo Criminal y Correccional de la Capital Federal, Defensoría N° 3, a…</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Intereses maritimos, Fluviales, Pesqueros y portuarios</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 7 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS. Fueron invitados representantes de distintas entidades a fin de abordar aspectos vinculados con la Trazabilidad de la Pesca. · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1390/archivo/41RXJQJ2QR6QZR6Q.pdf" target="_blank" rel="noopener">citación</a></details>
+<span class="tag">· dato de una corrida anterior</span>      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 18 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">09:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Mineria</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 2 - Anexo &#34;A&#34; · ver temario</summary>INVITADOS Proyectos de resolución y declaración. A continuación fueron invitados empresarios provinciales de la región del litio, quienes expondrán sobre desarrollos mineros en sus respectivas provincias. Ver citación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1392/archivo/WVS0FMGZX4CCA8GQ.pdf" target="_blank" rel="noopener">citación</a></details>
+<span class="tag">· dato de una corrida anterior</span>      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Audiencia Pública de la Comisión de Acuerdos</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario PE-237/26, mensaje N° 222/26 que solicita acuerdo para designar conjueces de los Juzgados Nacionales de Primera Instancia del Trabajo de la jurisdicción de la Cámara Nacional de Apelaciones del Trabajo de la Capital Federal: - Dra. Natalia Beatriz Caviglia. - Dr. Mariano Gastón Piacenti. - Dra. Alejandra Garcia. - Dr. Roberto Oscar Copertari. - Dr. Osvaldo Javier De Ugarte. - Dr. Alberto César Vega. - Dr. Ignacio Hermida. - Dr. Christian Gabriel Aparicio. - Dr. Pablo Alberto Gasquet. PE-260/26, mensaje N° 241/26 que solicita acuerdo para designar fiscal federal de la Sede Fiscal Descentralizada de Caleta Olivia, provincia de Santa Cruz, al Dr. Lucas Alberto Colla. PE-262/26, mensaje N° 243/26 que solicita acuerdo para designar juez penal federal del Juzgado Federal de Garantías…</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 50</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Ju 5: 100 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 6: 85 notas">
+        <div class="c" style="height: 85.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 7: 44 notas">
+        <div class="c" style="height: 44.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 8: 27 notas">
+        <div class="c" style="height: 27.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 9: 26 notas">
+        <div class="c" style="height: 26.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 10: 33 notas">
+        <div class="c" style="height: 33.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 11: 33 notas">
+        <div class="c" style="height: 33.0%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Ju 12: 68 notas">
+<span class="cap">68</span>        <div class="c" style="height: 68.0%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Ju 5</span><span class="">Vi 6</span><span class="">Sá 7</span><span class="">Do 8</span><span class="">Lu 9</span><span class="">Ma 10</span><span class="">Mi 11</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 18 hoy · promedio 10.0">
+        <span class="bar" style="width: 100.0%"></span><span class="v">18</span>
+<span class="tick" style="left: calc(55.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 13 hoy · promedio 4.1">
+        <span class="bar" style="width: 72.2%"></span><span class="v">13</span>
+<span class="tick" style="left: calc(23.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 8 hoy · promedio 11.0">
+        <span class="bar" style="width: 44.4%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(61.1% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 8 hoy · promedio 4.9">
+        <span class="bar" style="width: 44.4%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(27.0% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 7 hoy · promedio 2.4">
+        <span class="bar" style="width: 38.9%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(13.5% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 5 hoy · promedio 3.4">
+        <span class="bar" style="width: 27.8%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(19.0% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 2 hoy · promedio 2.7">
+        <span class="bar" style="width: 11.1%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(15.1% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 2 hoy · promedio 3.0">
+        <span class="bar" style="width: 11.1%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(16.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 2 hoy · promedio 1.1">
+        <span class="bar" style="width: 11.1%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(6.3% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 1 hoy · promedio 1.1">
+        <span class="bar" style="width: 5.6%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.3% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 1 hoy · promedio 1.1">
+        <span class="bar" style="width: 5.6%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(6.3% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 1 hoy · promedio 0.6">
+        <span class="bar" style="width: 5.6%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(3.2% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Martín Menem presiona a Bullrich para acelerar la suspensión de las PASO: &#34;En dos semanas tendríamos que avanzar con la media sanción en Senado&#34;">1. Martín Menem presiona a Bullrich para acelerar la suspensión de las PASO: &#34;En dos semanas tendríamos que avanzar con la media sanción en Senado&#34;</span>
+      <span class="track" data-tip="Martín Menem presiona a Bullrich para acelerar la suspensión de las PASO: &#34;En dos semanas tendríamos que avanzar con la media sanción en Senado&#34; — 12 notas, 8 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">12 (8)</span>
+      </span>
+      <span class="lbl" title="Javier Milei agitó la interna libertaria con un posteo en plena tensión con Patricia Bullrich: &#34;Hay gente dispuesta a hundir el barco&#34;">2. Javier Milei agitó la interna libertaria con un posteo en plena tensión con Patricia Bullrich: &#34;Hay gente dispuesta a hundir el barco&#34;</span>
+      <span class="track" data-tip="Javier Milei agitó la interna libertaria con un posteo en plena tensión con Patricia Bullrich: &#34;Hay gente dispuesta a hundir el barco&#34; — 5 notas, 4 medios">
+        <span class="bar" style="width: 41.7%"></span><span class="v">5 (4)</span>
+      </span>
+      <span class="lbl" title="Condenaron e inhabilitaron al policía federal que gaseó a una nena de 10 años frente al Congreso">3. Condenaron e inhabilitaron al policía federal que gaseó a una nena de 10 años frente al Congreso</span>
+      <span class="track" data-tip="Condenaron e inhabilitaron al policía federal que gaseó a una nena de 10 años frente al Congreso — 4 notas, 4 medios">
+        <span class="bar" style="width: 33.3%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027">4. Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027</span>
+      <span class="track" data-tip="Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027 — 3 notas, 3 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara al cierre de ordinarias">5. Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara al cierre de ordinarias</span>
+      <span class="track" data-tip="Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara al cierre de ordinarias — 3 notas, 3 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="En una victoria histórica e inesperada, Mississippi elige al primer senador negro del estado en 150 años: ¿Quién es Scott Colom?">6. En una victoria histórica e inesperada, Mississippi elige al primer senador negro del estado en 150 años: ¿Quién es Scott Colom?</span>
+      <span class="track" data-tip="En una victoria histórica e inesperada, Mississippi elige al primer senador negro del estado en 150 años: ¿Quién es Scott Colom? — 3 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">3 (2)</span>
+      </span>
+      <span class="lbl" title="Suspensión de las PASO: pese a los roces con Milei, Bullirch convoca a una comisión y el Gobierno dice que tiene los votos">7. Suspensión de las PASO: pese a los roces con Milei, Bullirch convoca a una comisión y el Gobierno dice que tiene los votos</span>
+      <span class="track" data-tip="Suspensión de las PASO: pese a los roces con Milei, Bullirch convoca a una comisión y el Gobierno dice que tiene los votos — 2 notas, 2 medios">
+        <span class="bar" style="width: 16.7%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="La Corte de Salta avaló la ley electoral que la oposición compara con la Ley de Lemas">8. La Corte de Salta avaló la ley electoral que la oposición compara con la Ley de Lemas</span>
+      <span class="track" data-tip="La Corte de Salta avaló la ley electoral que la oposición compara con la Ley de Lemas — 2 notas, 2 medios">
+        <span class="bar" style="width: 16.7%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Fuerte repudio oficialista a la declaración de Irán sobre la Armada y la Fuerza Aérea como &#34;organizaciones terroristas&#34;">9. Fuerte repudio oficialista a la declaración de Irán sobre la Armada y la Fuerza Aérea como &#34;organizaciones terroristas&#34;</span>
+      <span class="track" data-tip="Fuerte repudio oficialista a la declaración de Irán sobre la Armada y la Fuerza Aérea como &#34;organizaciones terroristas&#34; — 2 notas, 2 medios">
+        <span class="bar" style="width: 16.7%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="El Congreso abre sus puertas para una edición especial de La Noche de los Museos">10. El Congreso abre sus puertas para una edición especial de La Noche de los Museos</span>
+      <span class="track" data-tip="El Congreso abre sus puertas para una edición especial de La Noche de los Museos — 2 notas, 1 medio">
+        <span class="bar" style="width: 16.7%"></span><span class="v">2 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>TN</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Clarín" data-texto="martín menem presiona a bullrich para acelerar la suspensión de las paso: &#34;en dos semanas tendríamos que avanzar con la media sanción en senado&#34; el presidente de la cámara de diputados dijo que &#34;se está trabajando&#34; para que avance el proyecto del oficialismo. &#34;creo que vamos a poder llegar a suspender las paso&#34;, pronosticó el diputado, quien anticipó que habrá sesiones extraordinarias. presupuesto 2027">
+        <td class="tema-col"><b>1</b> · 8 medios<br>Presupuesto 2027</td>
+        <td class="num">09:52</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/martin-menem-pidio-acelerar-suspension-paso-proximas-semanas-avanzando-media-sancion-senado_0_utke2HJkFu.html" target="_blank" rel="noopener">Martín Menem presiona a Bullrich para acelerar la suspensión de las PASO: &#34;En dos semanas tendríamos que avanzar con la media sanción en Senado&#34;</a><div class="baj">El presidente de la Cámara de Diputados dijo que &#34;se está trabajando&#34; para que avance el proyecto del oficialismo. &#34;Creo que vamos a poder llegar a suspender las PASO&#34;, pronosticó el diputado, quien anticipó que habrá sesiones extraordinarias.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="el gobierno acelera con la reforma electoral: convocan a asuntos constitucionales el próximo martes a dos semanas del cierre de las sesiones ordinarias, lla se juega a alcanzar la media sanción antes de diciembre, según los planes que dejó trascender casa rosada. la reunión será desde las 15 en el salón illia. la entrada el gobierno acelera con la reforma electoral: convocan a asuntos… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">13:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/el-gobierno-acelera-con-la-reforma-electoral-convocan-a-asuntos-constitucionales-el-proximo-martes/" target="_blank" rel="noopener">El Gobierno acelera con la reforma electoral: convocan a Asuntos Constitucionales el próximo martes</a><div class="baj">A dos semanas del cierre de las sesiones ordinarias, LLA se juega a alcanzar la media sanción antes de diciembre, según los planes que dejó trascender Casa Rosada. La reunión será desde las 15 en el Salón Illia. La entrada El Gobierno acelera con la reforma electoral: convocan a Asuntos…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Infobae" data-texto="el gobierno llamará a sesiones extraordinarias: los proyectos clave que entrarán y los que están en duda presupuesto 2027 y la suspensión de las paso encabezan la agenda legislativa urgente para las primeras tres semanas de diciembre. martín menem confirmó el llamado y fijó un plazo de 15 días para conseguir media sanción en el senado presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">13:36</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/12/el-gobierno-llamara-a-sesiones-extraordinarias-los-proyectos-clave-que-entraran-y-los-que-estan-en-duda/" target="_blank" rel="noopener">El Gobierno llamará a sesiones extraordinarias: los proyectos clave que entrarán y los que están en duda</a><div class="baj">Presupuesto 2027 y la suspensión de las PASO encabezan la agenda legislativa urgente para las primeras tres semanas de diciembre. Martín Menem confirmó el llamado y fijó un plazo de 15 días para conseguir media sanción en el Senado</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Ámbito" data-texto="suspensión de las paso: el senado retoma el debate de la reforma electoral la comisión de asuntos constitucionales fue convocada para el martes 17 de noviembre. martín menem pidió acelerar el tratamiento y anticipó que el oficialismo espera conseguir la media sanción en las próximas dos semanas. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">13:22</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/suspension-las-paso-el-senado-retoma-el-debate-la-reforma-electoral-n6344453" target="_blank" rel="noopener">Suspensión de las PASO: el Senado retoma el debate de la reforma electoral</a><div class="baj">La Comisión de Asuntos Constitucionales fue convocada para el martes 17 de noviembre. Martín Menem pidió acelerar el tratamiento y anticipó que el oficialismo espera conseguir la media sanción en las próximas dos semanas.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="menem adelantó la agenda parlamentaria y habló de la reforma electoral: “creo que la argentina no necesita paso” el titular de la cámara de diputados repasó los proyectos claves que aún restan ser tratados en el congreso y anticipó que habrá extraordinarias. por otro lado, se refirió a la visita del papa león xiv y afirmó: “no sentimos que el papa le haya hablado al gobierno de milei, fue un mensaje para… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:43</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/menem-adelanto-la-agenda-parlamentaria-y-hablo-de-la-reforma-electoral-creo-que-la-argentina-no-necesita-paso/" target="_blank" rel="noopener">Menem adelantó la agenda parlamentaria y habló de la Reforma Electoral: “Creo que la Argentina no necesita PASO”</a><div class="baj">El titular de la Cámara de Diputados repasó los proyectos claves que aún restan ser tratados en el Congreso y anticipó que habrá extraordinarias. Por otro lado, se refirió a la visita del Papa León XIV y afirmó: “No sentimos que el Papa le haya hablado al Gobierno de Milei, fue un mensaje para…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="A24" data-texto="martín menem estimó que la suspensión de las paso podría avanzar en el senado en las próximas semanas  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:38</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/martin-menem-estimo-que-la-suspension-las-paso-podria-avanzar-el-senado-las-proximas-semanas-n1615779" target="_blank" rel="noopener">Martín Menem estimó que la suspensión de las PASO podría avanzar en el Senado en las próximas semanas</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="La Nación" data-texto="martín menem pidió acelerar la suspensión de las paso y adelantó que podría darse en 15 días el presidente de la cámara baja señaló la obligación del senado de hacer valer la ley impulsada por el gobierno; habló sobre la visita del papa y reiteró que no buscó dejar un mensaje político presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:02</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/martin-menem-pidio-acelerar-la-suspension-de-las-paso-y-adelanto-que-podria-darse-en-15-dias-nid12112026/" target="_blank" rel="noopener">Martín Menem pidió acelerar la suspensión de las PASO y adelantó que podría darse en 15 días</a><div class="baj">El presidente de la Cámara baja señaló la obligación del Senado de hacer valer la ley impulsada por el Gobierno; habló sobre la visita del Papa y reiteró que no buscó dejar un mensaje político</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="El Cronista" data-texto="¿presión a patricia bullrich? menem espera que el senado suspenda las paso en los próximos 15 días la senadora por la libertad avanza (lla) es la encargada de liderar las negociaciones con los bloques en la cámara alta. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">10:54</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/presion-a-patricia-bullrich-menem-espera-que-el-senado-suspenda-las-paso-en-los-proximos-15-dias/" target="_blank" rel="noopener">¿Presión a Patricia Bullrich? Menem espera que el Senado suspenda las PASO en los próximos 15 días</a><div class="baj">La senadora por La Libertad Avanza (LLA) es la encargada de liderar las negociaciones con los bloques en la Cámara Alta.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Ámbito" data-texto="el gobierno pone fecha a su apuesta para suspender las paso el oficialismo busca avanzar con la reforma política de cara a las elecciones presidenciales de 2027. martín menem aseguró que están trabajando para reunir los respaldos necesarios en el senado y anticipó que podrían convocarse sesiones extraordinarias. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">09:04</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-gobierno-pone-fecha-su-apuesta-suspender-las-paso-n6344309" target="_blank" rel="noopener">El Gobierno pone fecha a su apuesta para suspender las PASO</a><div class="baj">El oficialismo busca avanzar con la reforma política de cara a las elecciones presidenciales de 2027. Martín Menem aseguró que están trabajando para reunir los respaldos necesarios en el Senado y anticipó que podrían convocarse sesiones extraordinarias.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Infobae" data-texto="martín menem presiona a bullrich: espera que el senado suspenda las paso en los próximos 15 días el presidente de la cámara de diputados dijo que la reforma electoral depende exclusivamente de la cámara alta, donde la ex ministra lidera el bloque y las negociaciones. también anticipó que habrá sesiones extraordinarias presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">08:27</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/12/martin-menem-presiona-a-bullrich-espera-que-el-senado-suspenda-las-paso-en-los-proximos-15-dias/" target="_blank" rel="noopener">Martín Menem presiona a Bullrich: espera que el Senado suspenda las PASO en los próximos 15 días</a><div class="baj">El presidente de la Cámara de Diputados dijo que la reforma electoral depende exclusivamente de la Cámara Alta, donde la ex ministra lidera el bloque y las negociaciones. También anticipó que habrá sesiones extraordinarias</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="TN" data-texto="martín menem presionó a patricia bullrich para que el senado dé media sanción a la suspensión de las paso en 15 días  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">07:44</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/12/martin-menem-presiono-a-patricia-bullrich-para-que-el-senado-de-media-sancion-a-la-suspension-de-las-paso-en-15-dias/" target="_blank" rel="noopener">Martín Menem presionó a Patricia Bullrich para que el Senado dé media sanción a la suspensión de las PASO en 15 días</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="TN" data-texto="el gobierno acelera el debate de la reforma electoral en el senado y buscará la media sanción en dos semanas  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">21:36</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/11/el-gobierno-acelera-el-tratamiento-de-la-reforma-electoral-en-el-senado-y-buscara-la-media-sancion-en-dos-semanas/" target="_blank" rel="noopener">El Gobierno acelera el debate de la reforma electoral en el Senado y buscará la media sanción en dos semanas</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="javier milei agitó la interna libertaria con un posteo en plena tensión con patricia bullrich: &#34;hay gente dispuesta a hundir el barco&#34; la publicación llegó tras una reunión de la senadora con dirigentes de su sector cuya foto generó malestar en el entorno de karina milei. ">
+        <td class="tema-col"><b>2</b> · 4 medios</td>
+        <td class="num">20:06</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/javier-milei-agito-la-interna-libertaria-un-posteo-plena-tension-patricia-bullrich-hay-gente-dispuesta-hundir-el-barco-n6344226" target="_blank" rel="noopener">Javier Milei agitó la interna libertaria con un posteo en plena tensión con Patricia Bullrich: &#34;Hay gente dispuesta a hundir el barco&#34;</a><div class="baj">La publicación llegó tras una reunión de la senadora con dirigentes de su sector cuya foto generó malestar en el entorno de Karina Milei.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="en medio de las tensiones con bullrich, el gobierno pidió dejar de lado las &#34;ambiciones personales&#34;  ">
+        <td class="tema-col"></td>
+        <td class="num">11:50</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/12/el-gobierno-confia-en-que-conseguira-la-media-sancion-para-suspender-las-paso-y-anticipo-que-convocara-a-extraordinarias/" target="_blank" rel="noopener">En medio de las tensiones con Bullrich, el Gobierno pidió dejar de lado las &#34;ambiciones personales&#34;</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="un sugestivo posteo de milei volvió a subir la tensión entre la casa rosada y patricia bullrich la alusión en un mensaje del presidente a “gente dispuesta a hundir el barco” impactó en el oficialismo; sostienen que habrá un “llamado al orden” a la jefa del bloque de senadores libertarios ">
+        <td class="tema-col"></td>
+        <td class="num">11:22</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/un-sugestivo-posteo-de-milei-volvio-a-subir-la-tension-entre-la-casa-rosada-y-patricia-bullrich-nid12112026/" target="_blank" rel="noopener">Un sugestivo posteo de Milei volvió a subir la tensión entre la Casa Rosada y Patricia Bullrich</a><div class="baj">La alusión en un mensaje del Presidente a “gente dispuesta a hundir el barco” impactó en el oficialismo; sostienen que habrá un “llamado al orden” a la jefa del bloque de senadores libertarios</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="pablo quirno habló del abrazo con los milei y le marcó a patricia bullrich que no es tiempo de &#34;ambiciones personales&#34; el canciller se refirió a la senadora libertaria después de que el presidente compartiera un mensaje advirtiendo que &#34;hay gente dispuesta a hundir el barco cuando se da cuenta que no podrá ser capitán&#34;. ">
+        <td class="tema-col"></td>
+        <td class="num">09:37</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/pablo-quirno-hablo-abrazo-milei-marco-patricia-bullrich-tiempo-ambiciones-personales_0_pGmosGiQxB.html" target="_blank" rel="noopener">Pablo Quirno habló del abrazo con los Milei y le marcó a Patricia Bullrich que no es tiempo de &#34;ambiciones personales&#34;</a><div class="baj">El canciller se refirió a la senadora libertaria después de que el Presidente compartiera un mensaje advirtiendo que &#34;hay gente dispuesta a hundir el barco cuando se da cuenta que no podrá ser capitán&#34;.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="se fue el papa león xiv y javier milei encara el frente interno: dudas en washington y la libertad avanza en llamas riesgo país, recesión, interna con patricia bullrich, incertidumbre por el presupuesto y la suspensión de las paso, acechan oficialismo tras la visita del papa. ">
+        <td class="tema-col"></td>
+        <td class="num">14:23</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/se-fue-el-papa-leon-xiv-y-javier-milei-encara-el-frente-interno-dudas-washington-y-la-libertad-avanza-llamas-n6343918" target="_blank" rel="noopener">Se fue el papa León XIV y Javier Milei encara el frente interno: dudas en Washington y La Libertad Avanza en llamas</a><div class="baj">Riesgo país, recesión, interna con Patricia Bullrich, incertidumbre por el Presupuesto y la suspensión de las PASO, acechan oficialismo tras la visita del Papa.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Ámbito" data-texto="condenaron e inhabilitaron al policía federal que gaseó a una nena de 10 años frente al congreso el juez daniel rafecas condenó a cristian miguel rivaldi por haber rociado con gas pimienta a fabrizia y a su madre durante una manifestación en defensa de los jubilados, en septiembre de 2024. la pena de un año y tres meses de prisión es de cumplimiento en suspenso e incluye una inhabilitación… ">
+        <td class="tema-col"><b>3</b> · 4 medios</td>
+        <td class="num">19:57</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/condenaron-e-inhabilitaron-al-policia-federal-que-gaseo-una-nena-10-anos-frente-al-congreso-n6344227" target="_blank" rel="noopener">Condenaron e inhabilitaron al policía federal que gaseó a una nena de 10 años frente al Congreso</a><div class="baj">El juez Daniel Rafecas condenó a Cristian Miguel Rivaldi por haber rociado con gas pimienta a Fabrizia y a su madre durante una manifestación en defensa de los jubilados, en septiembre de 2024. La pena de un año y tres meses de prisión es de cumplimiento en suspenso e incluye una inhabilitación…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="condenan al agente de la policía federal que le arrojó gas pimienta en la cara a una nena y a su madre en una de las marchas frente al congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">03:57</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/sociedad/condenan-agente-policia-federal-arrojo-gas-pimienta-cara-nena-madre-marchas-frente-congreso_0_HZQEDVqcB4.html" target="_blank" rel="noopener">Condenan al agente de la Policía Federal que le arrojó gas pimienta en la cara a una nena y a su madre en una de las marchas frente al Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="La Nación" data-texto="condenaron al policía que gaseó a una niña de 10 años en una manifestación frente al congreso en un juicio correccional, le impusieron 1 año y tres meses de prisión en suspenso; lo inhabilitaron para ejercer su cargo por el doble del tiempo de la condena; el hecho ocurrió en 2024 ">
+        <td class="tema-col"></td>
+        <td class="num">20:20</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/condenaron-al-policia-que-gaseo-a-una-nina-de-10-anos-en-una-manifestacion-frente-al-congreso-nid11112026/" target="_blank" rel="noopener">Condenaron al policía que gaseó a una niña de 10 años en una manifestación frente al Congreso</a><div class="baj">En un juicio correccional, le impusieron 1 año y tres meses de prisión en suspenso; lo inhabilitaron para ejercer su cargo por el doble del tiempo de la condena; el hecho ocurrió en 2024</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="C5N" data-texto="condenaron al policía que gaseó a una nena de 10 años durante una protesta frente al congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">20:01</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/sociedad/condenaron-al-policia-que-gaseo-una-nena-10-anos-una-protesta-frente-al-congreso-n254075" target="_blank" rel="noopener">Condenaron al policía que gaseó a una nena de 10 años durante una protesta frente al Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="diputados: reunión clave del oficialismo con sus aliados por el presupuesto 2027 integrantes de lla y bloques dialoguistas se encontrarán esta tarde para avanzar en una hoja de ruta de cara al cierre de ordinarias. los reclamos por los que se esperan respuestas. la entrada diputados: reunión clave del oficialismo con sus aliados por el presupuesto 2027 se publicó primero en… presupuesto 2027">
+        <td class="tema-col"><b>4</b> · 3 medios<br>Presupuesto 2027</td>
+        <td class="num">11:26</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/diputados-reunion-clave-del-oficialismo-con-sus-aliados-por-el-presupuesto-2027/" target="_blank" rel="noopener">Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027</a><div class="baj">Integrantes de LLA y bloques dialoguistas se encontrarán esta tarde para avanzar en una hoja de ruta de cara al cierre de ordinarias. Los reclamos por los que se esperan respuestas. La entrada Diputados: reunión clave del oficialismo con sus aliados por el Presupuesto 2027 se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="diputados reactiva negociaciones: jefes de bloque se reúnen para delinear la agenda del congreso tras la pausa por la visita de león xiv, los jefes de bloque del oficialismo y los espacios dialoguistas se reunirán este jueves a las 14 en diputados. el presupuesto 2027 y el resto de los proyectos pendientes estarán sobre la mesa de negociación. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">10:21</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/diputados-reactiva-las-negociaciones-jefes-bloque-se-reunen-delinear-la-agenda-del-congreso-n6344363" target="_blank" rel="noopener">Diputados reactiva negociaciones: jefes de bloque se reúnen para delinear la agenda del Congreso</a><div class="baj">Tras la pausa por la visita de León XIV, los jefes de bloque del oficialismo y los espacios dialoguistas se reunirán este jueves a las 14 en Diputados. El Presupuesto 2027 y el resto de los proyectos pendientes estarán sobre la mesa de negociación.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="el gobierno negocia el presupuesto 2027: los cambios que reclaman los aliados para acompañar el proyecto en diputados  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">06:00</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/12/el-gobierno-negocia-el-presupuesto-2027-los-cambios-que-reclaman-los-aliados-para-acompanar-el-proyecto-en-diputados/" target="_blank" rel="noopener">El Gobierno negocia el Presupuesto 2027: los cambios que reclaman los aliados para acompañar el proyecto en Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="finalizada la visita del papa, el congreso arrancan dos semanas intensas de cara al cierre de ordinarias el oficialismo buscará llevar al recinto proyectos clave, pero deberá cerrar acuerdos con aliados. la cámara de diputados puede dictaminar hasta el 20. santilli debuta la última semana del mes en el senado. la entrada finalizada la visita del papa, el congreso arrancan dos semanas intensas de cara… presupuesto 2027">
+        <td class="tema-col"><b>5</b> · 3 medios<br>Presupuesto 2027</td>
+        <td class="num">10:34</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/finalizada-la-visita-del-papa-el-congreso-arrancan-dos-semanas-intensas-de-cara-al-cierre-de-ordinarias/" target="_blank" rel="noopener">Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara al cierre de ordinarias</a><div class="baj">El oficialismo buscará llevar al recinto proyectos clave, pero deberá cerrar acuerdos con aliados. La Cámara de Diputados puede dictaminar hasta el 20. Santilli debuta la última semana del mes en el Senado. La entrada Finalizada la visita del Papa, el Congreso arrancan dos semanas intensas de cara…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="TN" data-texto="el gobierno cree que la visita del papa logró desactivar las tensiones internas y se prepara para una semana clave en el congreso  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">05:50</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/12/el-gobierno-cree-que-la-visita-del-papa-logro-desactivar-las-tensiones-internas-y-se-prepara-para-una-semana-clave-en-el-congreso/" target="_blank" rel="noopener">El Gobierno cree que la visita del Papa logró desactivar las tensiones internas y se prepara para una semana clave en el Congreso</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="tras la visita papal, el congreso retoma la actividad para avanzar con leyes clave para javier milei luego de días de parálisis legislativa por la visita de león xiv, el poder legislativo pisa el acelerador para avanzar con el presupuesto 2027, la ley malvinas, la nueva carta orgánica del banco central, además de recibir al jefe de gabinete, diego santilli, en el que será su primer informe de… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">15:29</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/tras-la-visita-papal-el-congreso-retoma-la-actividad-avanzar-leyes-clave-javier-milei-n6343973" target="_blank" rel="noopener">Tras la visita papal, el Congreso retoma la actividad para avanzar con leyes clave para Javier Milei</a><div class="baj">Luego de días de parálisis legislativa por la visita de León XIV, el Poder Legislativo pisa el acelerador para avanzar con el Presupuesto 2027, la ley Malvinas, la nueva Carta Orgánica del Banco Central, además de recibir al jefe de Gabinete, Diego Santilli, en el que será su primer informe de…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="en una victoria histórica e inesperada, mississippi elige al primer senador negro del estado en 150 años: ¿quién es scott colom?  ">
+        <td class="tema-col"><b>6</b> · 2 medios</td>
+        <td class="num">09:29</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/victoria-historica-inesperada-mississippi-elige-primer-senador-negro-estado-150-anos-scott-colom_0_YSsXtWjcbE.html" target="_blank" rel="noopener">En una victoria histórica e inesperada, Mississippi elige al primer senador negro del estado en 150 años: ¿Quién es Scott Colom?</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Ámbito" data-texto="histórica victoria: el partido demócrata sumó un nuevo senador en un distrito en el que no ganaban desde 1982  ">
+        <td class="tema-col"></td>
+        <td class="num">10:33</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/historica-victoria-el-partido-democrata-sumo-un-nuevo-senador-un-distrito-el-que-no-ganaban-1982-n6344314" target="_blank" rel="noopener">Histórica victoria: el partido Demócrata sumó un nuevo senador en un distrito en el que no ganaban desde 1982</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="el demócrata scott colom se convierte en el primer senador negro por misisipi en 145 años  ">
+        <td class="tema-col"></td>
+        <td class="num">20:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-democrata-scott-colom-se-convierte-en-el-primer-senador-negro-por-misisipi-en-145-anos_0_IToomYYg5k.html" target="_blank" rel="noopener">El demócrata Scott Colom se convierte en el primer senador negro por Misisipi en 145 años</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="suspensión de las paso: pese a los roces con milei, bullirch convoca a una comisión y el gobierno dice que tiene los votos la jefa del bloque oficialista indicó que se convoque a una comisión del senado el martes 17. fue tras un pedido del jefe de gabinete, diego santilli. ">
+        <td class="tema-col"><b>7</b> · 2 medios</td>
+        <td class="num">10:17</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/reforma-electoral-bullrich-alinea-gobierno-dice-votos_0_l93OZVGQwV.html" target="_blank" rel="noopener">Suspensión de las PASO: pese a los roces con Milei, Bullirch convoca a una comisión y el Gobierno dice que tiene los votos</a><div class="baj">La jefa del bloque oficialista indicó que se convoque a una comisión del Senado el martes 17. Fue tras un pedido del jefe de Gabinete, Diego Santilli.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="suspensión de las paso: el gobierno destrabó las negociaciones con los aliados y convocó a la comisión del senado  ">
+        <td class="tema-col"></td>
+        <td class="num">13:12</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/12/suspension-de-las-paso-el-gobierno-destrabo-las-negociaciones-con-los-aliados-y-convoco-a-la-comision-del-senado/" target="_blank" rel="noopener">Suspensión de las PASO: el Gobierno destrabó las negociaciones con los aliados y convocó a la comisión del Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="la corte de salta avaló la ley electoral que la oposición compara con la ley de lemas  ">
+        <td class="tema-col"><b>8</b> · 2 medios</td>
+        <td class="num">00:40</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/12/la-corte-de-salta-avalo-la-ley-electoral-que-la-oposicion-compara-con-la-ley-de-lemas/" target="_blank" rel="noopener">La Corte de Salta avaló la ley electoral que la oposición compara con la Ley de Lemas</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="ley malvinas: el trasfondo de las negociaciones en diputados y las dudas por el capítulo electoral  ">
+        <td class="tema-col"></td>
+        <td class="num">16:55</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/ley-malvinas-trasfondo-negociaciones-diputados-dudas-capitulo-electoral_0_BWcrWsqRil.html" target="_blank" rel="noopener">Ley Malvinas: el trasfondo de las negociaciones en Diputados y las dudas por el capítulo electoral</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="fuerte repudio oficialista a la declaración de irán sobre la armada y la fuerza aérea como &#34;organizaciones terroristas&#34; el régimen iraní calificó este miércoles de esa manera a ambas fuerzas militares, bajo el argumento de &#34;principio de reciprocidad&#34;. &#34;no nos van a amedrentar&#34;, dijo el diputado luis petri, exministro de defensa. la entrada fuerte repudio oficialista a la declaración de irán sobre la armada y la… ">
+        <td class="tema-col"><b>9</b> · 2 medios</td>
+        <td class="num">15:43</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/fuerte-repudio-oficialista-a-la-declaracion-de-iran-sobre-la-armada-y-la-fuerza-aerea-como-organizaciones-terroristas/" target="_blank" rel="noopener">Fuerte repudio oficialista a la declaración de Irán sobre la Armada y la Fuerza Aérea como &#34;organizaciones terroristas&#34;</a><div class="baj">El régimen iraní calificó este miércoles de esa manera a ambas fuerzas militares, bajo el argumento de &#34;principio de reciprocidad&#34;. &#34;No nos van a amedrentar&#34;, dijo el diputado Luis Petri, exministro de Defensa. La entrada Fuerte repudio oficialista a la declaración de Irán sobre la Armada y la…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="Ámbito" data-texto="patricia bullrich cruzó a irán tras declarar terroristas a la armada y la fuerza aérea argentinas: &#34;marca de qué lado estamos&#34; la senadora de la libertad avanza cuestionó la decisión de teherán y acusó al régimen iraní de violar los derechos humanos. la medida respondió a la designación de la guardia revolucionaria como organización terrorista por parte del gobierno argentino. ">
+        <td class="tema-col"></td>
+        <td class="num">16:04</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/patricia-bullrich-cruzo-iran-declarar-terroristas-la-armada-y-la-fuerza-aerea-argentinas-marca-que-lado-estamos-n6344045" target="_blank" rel="noopener">Patricia Bullrich cruzó a Irán tras declarar terroristas a la Armada y la Fuerza Aérea argentinas: &#34;Marca de qué lado estamos&#34;</a><div class="baj">La senadora de La Libertad Avanza cuestionó la decisión de Teherán y acusó al régimen iraní de violar los derechos humanos. La medida respondió a la designación de la Guardia Revolucionaria como organización terrorista por parte del Gobierno argentino.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el congreso abre sus puertas para una edición especial de la noche de los museos al cumplirse 120 años de la inauguración del palacio legislativo, el congreso de la nación participará de una nueva edición de la noche de los museos con actividades especiales, exhibiciones históricas inéditas, recorridos por espacios emblemáticos y propuestas culturales para toda la familia. la… ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">13:04</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/el-congreso-abre-sus-puertas-para-una-edicion-especial-de-la-noche-de-los-museos/" target="_blank" rel="noopener">El Congreso abre sus puertas para una edición especial de La Noche de los Museos</a><div class="baj">Al cumplirse 120 años de la inauguración del Palacio Legislativo, el Congreso de la Nación participará de una nueva edición de La Noche de los Museos con actividades especiales, exhibiciones históricas inéditas, recorridos por espacios emblemáticos y propuestas culturales para toda la familia. La…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el congreso celebra el día del empleado legislativo la conmemoración se realizará este miércoles 11 de noviembre y, a diferencia de otros años, no fue trasladada al lunes. la reciente muerte del histórico titular de apl le otorga además un significado especial a la fecha para los trabajadores parlamentarios. la entrada el congreso celebra el día del… ">
+        <td class="tema-col"></td>
+        <td class="num">14:42</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/el-congreso-celebra-el-dia-del-empleado-legislativo-3/" target="_blank" rel="noopener">El Congreso celebra el Día del Empleado Legislativo</a><div class="baj">La conmemoración se realizará este miércoles 11 de noviembre y, a diferencia de otros años, no fue trasladada al lunes. La reciente muerte del histórico titular de APL le otorga además un significado especial a la fecha para los trabajadores parlamentarios. La entrada El Congreso celebra el Día del…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="La Nación" data-texto="los tres principales objetivos que se fija el gobierno tras la visita del papa intentará aprobar el proyecto de ley de presupuesto, la suspensión de las paso y resolver los cortocircuitos entre milei y bullrich ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">12:30</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/los-tres-principales-objetivos-que-se-fija-el-gobierno-tras-la-visita-del-papa-nid12112026/" target="_blank" rel="noopener">Los tres principales objetivos que se fija el Gobierno tras la visita del Papa</a><div class="baj">Intentará aprobar el proyecto de ley de presupuesto, la suspensión de las PASO y resolver los cortocircuitos entre Milei y Bullrich</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Ámbito" data-texto="karina milei y diego santilli encabezan comitiva del gobierno en corrientes ante el fenómeno el niño los funcionarios viajan junto a alejandra monteoliva, fabián fernández y martín menem. la visita se enmarca en el trabajo de la agencia federal de emergencias (afe). ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">11:37</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/karina-milei-y-diego-santilli-encabezan-comitiva-del-gobierno-corrientes-el-fenomeno-el-nino-n6344398" target="_blank" rel="noopener">Karina Milei y Diego Santilli encabezan comitiva del Gobierno en Corrientes ante el fenómeno El Niño</a><div class="baj">Los funcionarios viajan junto a Alejandra Monteoliva, Fabián Fernández y Martín Menem. La visita se enmarca en el trabajo de la Agencia Federal de Emergencias (AFE).</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="la suprema corte confirmó la creación de un nuevo municipio en el centro del país: el congreso debe establecer reglas para definir quién gobernará el congreso de aguascalientes deberá establecer nuevas reglas para integrar el gobierno municipal y definir cuándo se elegirán sus autoridades. ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">10:59</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/mexico/actualidad-mx/la-suprema-corte-confirmo-la-creacion-de-un-nuevo-municipio-en-el-centro-del-pais-el-congreso-debe-establecer-reglas-para-definir-quien-gobernara/" target="_blank" rel="noopener">La Suprema Corte confirmó la creación de un nuevo municipio en el centro del país: el Congreso debe establecer reglas para definir quién gobernará</a><div class="baj">El Congreso de Aguascalientes deberá establecer nuevas reglas para integrar el gobierno municipal y definir cuándo se elegirán sus autoridades.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="salud mental: avanza una iniciativa sobre prevención del suicidio específicamente se pretende reforzar las etapas de prevención, detección temprana, asistencia y acompañamiento posterior a familias y comunidades. la entrada salud mental: avanza una iniciativa sobre prevención del suicidio se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">10:51</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/salud-mental-avanza-una-iniciativa-sobre-prevencion-del-suicidio/" target="_blank" rel="noopener">Salud mental: avanza una iniciativa sobre prevención del suicidio</a><div class="baj">Específicamente se pretende reforzar las etapas de prevención, detección temprana, asistencia y acompañamiento posterior a familias y comunidades. La entrada Salud mental: avanza una iniciativa sobre prevención del suicidio se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="consideran de interés legislativo la edición 2026 del desafío eco ypf los senadores de la provincia de buenos aires reconocen la importancia de un evento que combina educación técnica, innovación, tecnología y sustentabilidad. la entrada consideran de interés legislativo la edición 2026 del desafío eco ypf se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">10:46</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/consideran-de-interes-legislativo-la-edicion-2026-del-desafio-eco-ypf/" target="_blank" rel="noopener">Consideran de interés legislativo la edición 2026 del Desafío Eco YPF</a><div class="baj">Los senadores de la provincia de Buenos Aires reconocen la importancia de un evento que combina educación técnica, innovación, tecnología y sustentabilidad. La entrada Consideran de interés legislativo la edición 2026 del Desafío Eco YPF se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="por ley la ruta 76 llevará el nombre del reconocido músico ricardo iorio el senado de la provincia de buenos aires, en su última sesión, sancionó el proyecto de ley designar con el nombre de &#34;ricardo horacio iorio&#34; a la ruta provincial nº 76 la entrada por ley la ruta 76 llevará el nombre del reconocido músico ricardo iorio se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">10:38</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/por-ley-la-ruta-76-llevara-el-nombre-del-reconocido-musico-ricardo-iorio/" target="_blank" rel="noopener">Por ley la ruta 76 llevará el nombre del reconocido músico Ricardo Iorio</a><div class="baj">El Senado de la provincia de Buenos Aires, en su última sesión, sancionó el proyecto de ley designar con el nombre de &#34;Ricardo Horacio Iorio&#34; a la Ruta Provincial Nº 76 La entrada Por ley la ruta 76 llevará el nombre del reconocido músico Ricardo Iorio se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Infobae" data-texto="santiago santurio cuestionó la lectura opositora de la visita de león xiv: “era muy importante que la política se calle” el diputado de la libertad avanza defendió la decisión de javier milei de no responder públicamente a los mensajes del pontífice y sostuvo que sus intervenciones no debían quedar atrapadas en la disputa política ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">10:23</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/12/santiago-santurio-cuestiono-la-lectura-opositora-de-la-visita-de-leon-xiv-era-muy-importante-que-la-politica-se-calle/" target="_blank" rel="noopener">Santiago Santurio cuestionó la lectura opositora de la visita de León XIV: “Era muy importante que la política se calle”</a><div class="baj">El diputado de La Libertad Avanza defendió la decisión de Javier Milei de no responder públicamente a los mensajes del pontífice y sostuvo que sus intervenciones no debían quedar atrapadas en la disputa política</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="pablo semán analizó el impacto político de la visita de león xiv: milei, el peronismo y la irrupción de la compasión como valor social el sociólogo y antropólogo sostuvo que el mensaje del pontífice puede favorecer más a la oposición que al oficialismo, pero advirtió que las multitudes que participaron no fueron a escuchar indicaciones electorales. su mirada sobre la crisis de representación, la distancia entre los dirigentes y la… ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">09:57</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/12/pablo-seman-analizo-el-impacto-politico-de-la-visita-de-leon-xiv-milei-el-peronismo-y-la-irrupcion-de-la-compasion-como-valor-social/" target="_blank" rel="noopener">Pablo Semán analizó el impacto político de la visita de León XIV: Milei, el peronismo y la irrupción de la compasión como valor social</a><div class="baj">El sociólogo y antropólogo sostuvo que el mensaje del pontífice puede favorecer más a la oposición que al oficialismo, pero advirtió que las multitudes que participaron no fueron a escuchar indicaciones electorales. Su mirada sobre la crisis de representación, la distancia entre los dirigentes y la…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Letra P" data-texto="santa fe: el senador calvo va por la reelección haciendo equilibrio entre perotti y giuliano  ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">09:15</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/santa-fe-el-senador-calvo-va-la-reeleccion-haciendo-equilibrio-perotti-y-giuliano-n5428145" target="_blank" rel="noopener">Santa Fe: el senador Calvo va por la reelección haciendo equilibrio entre Perotti y Giuliano</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="estudiantes de la ciudad pidieron crear una línea de subte que conecte lugano con belgrano la iniciativa contempla 11 estaciones, combinaciones con cuatro líneas existentes y un esquema de financiamiento privado. la entrada estudiantes de la ciudad pidieron crear una línea de subte que conecte lugano con belgrano se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">07:59</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/estudiantes-de-la-ciudad-pidieron-crear-una-linea-de-subte-que-conecte-lugano-con-belgrano/" target="_blank" rel="noopener">Estudiantes de la Ciudad pidieron crear una línea de subte que conecte Lugano con Belgrano</a><div class="baj">La iniciativa contempla 11 estaciones, combinaciones con cuatro líneas existentes y un esquema de financiamiento privado. La entrada Estudiantes de la Ciudad pidieron crear una línea de subte que conecte Lugano con Belgrano se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="tras la ruptura con moreno, kim propuso un sistema de alquileres accesibles la propuesta del dirigente busca facilitar el acceso a la vivienda para sectores populares, con contratos de tres años y cuotas de alquiler preferenciales. la entrada tras la ruptura con moreno, kim propuso un sistema de alquileres accesibles se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">07:48</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/12/tras-la-ruptura-con-moreno-kim-propuso-un-sistema-de-alquileres-accesibles/" target="_blank" rel="noopener">Tras la ruptura con Moreno, Kim propuso un sistema de alquileres accesibles</a><div class="baj">La propuesta del dirigente busca facilitar el acceso a la vivienda para sectores populares, con contratos de tres años y cuotas de alquiler preferenciales. La entrada Tras la ruptura con Moreno, Kim propuso un sistema de alquileres accesibles se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="&#34;el congreso es un nido de ratas&#34;: hicieron una encuesta por la visita del papa y ganó una frase muy polémica es el último estudio nacional de la consultora qsocial. preguntó por varias definiciones de la nueva derecha y la doctrina de la iglesia. los datos más sorprendentes. ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">06:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/congreso-nido-ratas-hicieron-encuesta-visita-papa-gano-frase-polemica_0_heNgEmrdHA.html" target="_blank" rel="noopener">&#34;El Congreso es un nido de ratas&#34;: hicieron una encuesta por la visita del Papa y ganó una frase muy polémica</a><div class="baj">Es el último estudio nacional de la consultora QSocial. Preguntó por varias definiciones de la nueva derecha y la doctrina de la Iglesia. Los datos más sorprendentes.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="temores internos por una ruptura con bullrich y la paso vuelve como fantasma en la cámara alta en el bullrichismo están en modo defensivo, pero aseguran que no darán ningún paso aún. en la casa rosada crece el malestar con la ex pro y en el bloque libertario del senado, como en diputados, presagian una ruptura que complique sus propias carreras y la agenda del oficialismo. las paso… ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">05:12</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/12/temores-internos-por-una-ruptura-con-bullrich-y-la-paso-vuelve-como-fantasma-en-la-camara-alta/" target="_blank" rel="noopener">Temores internos por una ruptura con Bullrich y la PASO vuelve como fantasma en la Cámara alta</a><div class="baj">En el bullrichismo están en modo defensivo, pero aseguran que no darán ningún paso aún. En la Casa Rosada crece el malestar con la ex PRO y en el bloque libertario del Senado, como en Diputados, presagian una ruptura que complique sus propias carreras y la agenda del oficialismo. Las PASO…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="neuquén: tras la confirmación de la fecha de elecciones, comenzó el armado político de cara a 2027 el gobernador rolando figueroa fijó los comicios para el 14 de febrero. aunque todavía no oficializó su candidatura, su intención de buscar la reelección es prácticamente un hecho. la libertad avanza apuesta a la senadora nadia márquez para disputar la gobernación, mientras que el peronismo todavía… ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">01:47</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/12/neuquen-tras-la-confirmacion-de-la-fecha-de-elecciones-comenzo-el-armado-politico-de-cara-a-2027/" target="_blank" rel="noopener">Neuquén: tras la confirmación de la fecha de elecciones, comenzó el armado político de cara a 2027</a><div class="baj">El gobernador Rolando Figueroa fijó los comicios para el 14 de febrero. Aunque todavía no oficializó su candidatura, su intención de buscar la reelección es prácticamente un hecho. La Libertad Avanza apuesta a la senadora Nadia Márquez para disputar la gobernación, mientras que el peronismo todavía…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="súper rigi: el gobierno no define el reclamo de aliados y la iniciativa sigue sin dictamen en el senado desde hace más de dos meses que dialoguistas frenaron la firma de un despacho. buscan ampliar el término “precio/calidad” para amortiguar importaciones que se expanden e impactan en el vigente rigi. el ministerio de economía dio indicios de querer acercar posiciones el mes pasado. quedó, por ahora… ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">01:30</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/12/super-rigi-el-gobierno-no-define-el-reclamo-de-aliados-y-la-iniciativa-sigue-sin-dictamen-en-el-senado/" target="_blank" rel="noopener">Súper RIGI: el Gobierno no define el reclamo de aliados y la iniciativa sigue sin dictamen en el Senado</a><div class="baj">Desde hace más de dos meses que dialoguistas frenaron la firma de un despacho. Buscan ampliar el término “precio/calidad” para amortiguar importaciones que se expanden e impactan en el vigente RIGI. El Ministerio de Economía dio indicios de querer acercar posiciones el mes pasado. Quedó, por ahora…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Página/12" data-texto="la prédica de león xiv tendrá su correlato en el congreso  ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">00:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/12/la-predica-de-leon-xiv-tendra-su-correlato-en-el-congreso/" target="_blank" rel="noopener">La prédica de León XIV tendrá su correlato en el Congreso</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Ámbito" data-texto="cuenta regresiva para el fin de las sesiones ordinarias: qué proyectos prometió el gobierno y están pendientes el 30 de noviembre termina el período ordinario y se disipa la posibilidad de avanzar con nuevas desregulaciones y reformas sensibles, aunque el oficialismo se lleva un triunfo: la oposición no aprobó ninguna iniciativa en el año. ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/cuenta-regresiva-el-fin-las-sesiones-ordinarias-que-proyectos-prometio-el-gobierno-y-estan-pendientes-n6344224" target="_blank" rel="noopener">Cuenta regresiva para el fin de las sesiones ordinarias: qué proyectos prometió el Gobierno y están pendientes</a><div class="baj">El 30 de noviembre termina el período ordinario y se disipa la posibilidad de avanzar con nuevas desregulaciones y reformas sensibles, aunque el oficialismo se lleva un triunfo: la oposición no aprobó ninguna iniciativa en el año.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Ámbito" data-texto="jorge macri negocia el recambio de autoridades en el instituto electoral mientras gana fuerza el plan para no desdoblar el jefe de gobierno envió el pliego de su candidato a director titular, junto con el nombre propuesto por el peronismo para el cargo de adjunto. dudas sobre la posición que tomará la libertad avanza. ">
+        <td class="tema-col"><b>28</b> · 1 medio</td>
+        <td class="num">20:59</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/jorge-macri-negocia-el-recambio-autoridades-el-instituto-electoral-mientras-gana-fuerza-el-plan-no-desdoblar-n6344186" target="_blank" rel="noopener">Jorge Macri negocia el recambio de autoridades en el Instituto Electoral mientras gana fuerza el plan para no desdoblar</a><div class="baj">El jefe de Gobierno envió el pliego de su candidato a director titular, junto con el nombre propuesto por el peronismo para el cargo de adjunto. Dudas sobre la posición que tomará La Libertad Avanza.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="La Política Online" data-texto="un diputado libertario quiere poner a su esposa como vice de frigerio y choca con otro que quiere a la hija el batman entrerriano resiste a la legisladora porteña rebeca fleitas. &#34;no hay espacio para egos personales&#34;, dicen en la gobernación. ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">20:38</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/un-diputado-libertario-quiere-poner-a-su-esposa-como-vice-de-frigerio-y-choca-con-otro-que-quiere-poner-a-su-hija/" target="_blank" rel="noopener">Un diputado libertario quiere poner a su esposa como vice de Frigerio y choca con otro que quiere a la hija</a><div class="baj">El Batman entrerriano resiste a la legisladora porteña Rebeca Fleitas. &#34;No hay espacio para egos personales&#34;, dicen en la gobernación.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="pagano presentó denuncias por las contrataciones realizadas en torno a los eventos por la visita de león xiv la diputada apuntó contra funcionarios nacionales y porteños y reclamó en la justicia que se investigue la posible comisión de distintos delitos. la entrada pagano presentó denuncias por las contrataciones realizadas en torno a los eventos por la visita de león xiv se publicó primero en… ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">20:00</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/pagano-presento-denuncias-por-las-contrataciones-realizadas-en-torno-a-los-eventos-por-la-visita-de-leon-xiv/" target="_blank" rel="noopener">Pagano presentó denuncias por las contrataciones realizadas en torno a los eventos por la visita de León XIV</a><div class="baj">La diputada apuntó contra funcionarios nacionales y porteños y reclamó en la Justicia que se investigue la posible comisión de distintos delitos. La entrada Pagano presentó denuncias por las contrataciones realizadas en torno a los eventos por la visita de León XIV se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="los curas, los laicos y la política en medio del debate sobre el rol público de la iglesia, aníbal hardy reivindica la participación de sacerdotes y obispos en las cuestiones sociales. la entrada los curas, los laicos y la política se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">19:19</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/los-curas-los-laicos-y-la-politica-2/" target="_blank" rel="noopener">Los curas, los laicos y la política</a><div class="baj">En medio del debate sobre el rol público de la Iglesia, Aníbal Hardy reivindica la participación de sacerdotes y obispos en las cuestiones sociales. La entrada Los curas, los laicos y la política se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Letra P" data-texto="toto caputo no quiere negociar el presupuesto 2027 y la oposición teme que busque una prórroga  presupuesto 2027">
+        <td class="tema-col"><b>32</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">18:58</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/toto-caputo-no-quiere-negociar-el-presupuesto-2027-y-la-oposicion-teme-que-busque-una-prorroga-n5428138" target="_blank" rel="noopener">Toto Caputo no quiere negociar el Presupuesto 2027 y la oposición teme que busque una prórroga</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="TN" data-texto="a 20 años de la ley de esi, fundación huésped impulsa capacitaciones para las comunidades educativas  ">
+        <td class="tema-col"><b>33</b> · 1 medio</td>
+        <td class="num">18:35</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/sociedad/2026/11/11/a-20-anos-de-la-ley-de-esi-fundacion-huesped-impulsa-capacitaciones-para-las-comunidades-educativas/" target="_blank" rel="noopener">A 20 años de la ley de ESI, Fundación Huésped impulsa capacitaciones para las comunidades educativas</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="dictaminaron inviolabilidad de la propiedad privada con la restitución de la ley de tierras a dos semanas del plenario, el oficialismo alcanzó las firmas necesarias para poder incorporar este proyecto en el temario de la sesión ordinaria del próximo jueves 19 de noviembre. quiénes firmaron el despacho a último momento. la entrada dictaminaron inviolabilidad de la propiedad privada con la… inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>34</b> · 1 medio<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">17:43</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/dictaminaron-inviolabilidad-de-la-propiedad-privada-con-la-restitucion-de-la-ley-de-tierras/" target="_blank" rel="noopener">Dictaminaron Inviolabilidad de la Propiedad Privada con la restitución de la Ley de Tierras</a><div class="baj">A dos semanas del plenario, el oficialismo alcanzó las firmas necesarias para poder incorporar este proyecto en el temario de la sesión ordinaria del próximo jueves 19 de noviembre. Quiénes firmaron el despacho a último momento. La entrada Dictaminaron Inviolabilidad de la Propiedad Privada con la…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="tras la partida de león xiv, el gobierno busca ordenar su agenda y resolver las diferencias con bullrich en casa rosada trabajan para reactivar las conversaciones con los gobernadores aliados. la agenda legislativa pendiente y las definiciones en torno a la situación de la senadora ">
+        <td class="tema-col"><b>35</b> · 1 medio</td>
+        <td class="num">17:34</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/11/tras-la-partida-de-leon-xiv-el-gobierno-busca-ordenar-su-agenda-y-resolver-las-diferencias-con-bullrich/" target="_blank" rel="noopener">Tras la partida de León XIV, el Gobierno busca ordenar su agenda y resolver las diferencias con Bullrich</a><div class="baj">En Casa Rosada trabajan para reactivar las conversaciones con los gobernadores aliados. La agenda legislativa pendiente y las definiciones en torno a la situación de la senadora</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Ámbito" data-texto="la oposición de córdoba se mostró unida en la falda: luis juez y gabriel bornoroni ya piensan en la elección provincial  ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">16:39</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/ambito-nacional/la-oposicion-cordoba-se-mostro-unida-la-falda-luis-juez-y-gabriel-bornoroni-ya-piensan-la-eleccion-provincial-n6344116" target="_blank" rel="noopener">La oposición de Córdoba se mostró unida en La Falda: Luis Juez y Gabriel Bornoroni ya piensan en la elección provincial</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="con destacada presencia bonaerense, legisladores asistieron a la última misa de león xiv en luján invitados especialmente, diputados y senadores nacionales por la provincia de buenos aires formaron parte de la última -y también histórica- jornada del paso del papa por la argentina. destacaron su mensaje y un opositor vinculó que &#34;el congreso debe estar a la altura&#34;. la entrada con destacada… ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">16:32</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/con-destacada-presencia-bonaerense-legisladores-asistieron-a-la-ultima-misa-de-leon-xiv-en-lujan/" target="_blank" rel="noopener">Con destacada presencia bonaerense, legisladores asistieron a la última misa de León XIV en Luján</a><div class="baj">Invitados especialmente, diputados y senadores nacionales por la provincia de Buenos Aires formaron parte de la última -y también histórica- jornada del paso del Papa por la Argentina. Destacaron su mensaje y un opositor vinculó que &#34;el Congreso debe estar a la altura&#34;. La entrada Con destacada…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="oficialismo y oposición coincidieron en la celebración de la figura de león xiv: “gracias por venir” referentes de distintos espacios celebraron el paso del sumo pontífice por el país y agradecieron su visita ">
+        <td class="tema-col"><b>38</b> · 1 medio</td>
+        <td class="num">16:15</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/oficialismo-y-oposicion-coincidieron-en-la-celebracion-de-la-figura-de-leon-xiv-gracias-por-venir-nid11112026/" target="_blank" rel="noopener">Oficialismo y oposición coincidieron en la celebración de la figura de León XIV: “Gracias por venir”</a><div class="baj">Referentes de distintos espacios celebraron el paso del Sumo Pontífice por el país y agradecieron su visita</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="condenan a sindicalistas camioneros por bloqueos a las empresas de la diputada verónica razzini la justicia de rosario impuso penas de prisión condicional a dos gremialistas por acciones de amedrentamiento y bloqueo realizadas en 2020. razzini sostuvo que el fallo constituye un “precedente histórico” contra las prácticas extorsivas. la entrada condenan a sindicalistas camioneros por bloqueos… ">
+        <td class="tema-col"><b>39</b> · 1 medio</td>
+        <td class="num">14:22</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/condenan-a-sindicalistas-camioneros-por-bloqueos-a-las-empresas-de-la-diputada-veronica-razzini/" target="_blank" rel="noopener">Condenan a sindicalistas camioneros por bloqueos a las empresas de la diputada Verónica Razzini</a><div class="baj">La Justicia de Rosario impuso penas de prisión condicional a dos gremialistas por acciones de amedrentamiento y bloqueo realizadas en 2020. Razzini sostuvo que el fallo constituye un “precedente histórico” contra las prácticas extorsivas. La entrada Condenan a sindicalistas camioneros por bloqueos…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="proponen por ley capturar buques y derribar aeronaves que operen hacia malvinas sin autorización argentina la iniciativa, impulsada por la fundación argentina azul con asesoramiento del veterano de malvinas eduardo ganeau, plantea declarar ilegales los tránsitos marítimos y aéreos vinculados al enclave británico y habilitar, bajo determinadas circunstancias, el uso proporcional de la fuerza para… ">
+        <td class="tema-col"><b>40</b> · 1 medio</td>
+        <td class="num">14:14</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/11/proponen-por-ley-capturar-buques-y-derribar-aeronaves-que-operen-hacia-malvinas-sin-autorizacion-argentina/" target="_blank" rel="noopener">Proponen por ley capturar buques y derribar aeronaves que operen hacia Malvinas sin autorización argentina</a><div class="baj">La iniciativa, impulsada por la Fundación Argentina Azul con asesoramiento del veterano de Malvinas Eduardo Ganeau, plantea declarar ilegales los tránsitos marítimos y aéreos vinculados al enclave británico y habilitar, bajo determinadas circunstancias, el uso proporcional de la fuerza para…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-12 a las 13:44 hs (hora argentina) ·
+    <span class="estado-ok">18 respondieron bien</span> · <span class="estado-mal">3 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Diputados (agenda)</b>: https://www.hcdn.gob.ar/comisiones/agenda/: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: _ssl.c:994: The handshake operation timed out)</li><li><span class="estado-mal">✕</span> <b>Diputados (prensa)</b>: https://www.hcdn.gob.ar/prensa/: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: _ssl.c:994: The handshake operation timed out)</li><li><span class="estado-mal">✕</span> <b>Boletín Oficial</b>: https://www.boletinoficial.gob.ar/seccion/primera: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: timed out)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
