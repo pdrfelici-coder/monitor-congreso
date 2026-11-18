@@ -1,0 +1,1655 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-18</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Miércoles 18 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 14:09 hs · 19/21 fuentes respondieron · <a href="#fuentes">2 caídas</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">129</div>
+      <div class="sub up">▲ +140% vs. promedio de 7 días (54)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">43</div>
+    <div class="sub">20 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">14</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>2</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>12</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 24 notas</span>
+    </div>
+    <h3><a href="https://tn.com.ar/politica/2026/11/18/diputados-el-oficialismo-no-consiguio-quorum-y-se-cayo-la-sesion-por-la-ley-malvinas-y-la-reforma-del-banco-central/" target="_blank" rel="noopener">Diputados: el oficialismo no consiguió quórum y se cayó la sesión por la Ley Malvinas y la reforma del Banco Central</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">Defensa de la soberanía nacional</span>    </div>
+    <div class="medios">
+<a href="https://tn.com.ar/politica/2026/11/18/diputados-el-oficialismo-no-consiguio-quorum-y-se-cayo-la-sesion-por-la-ley-malvinas-y-la-reforma-del-banco-central/" target="_blank" rel="noopener" title="Diputados: el oficialismo no consiguió quórum y se cayó la sesión por la Ley Malvinas y la reforma del Banco Central">TN ↗</a><a href="https://www.parlamentario.com/2026/11/18/quienes-estuvieron-sentados-y-quienes-no-en-la-caida-de-la-sesion-en-diputados/" target="_blank" rel="noopener" title="Quiénes estuvieron sentados y quiénes no en la caída de la sesión en Diputados">Parlamentario.com ↗</a><a href="https://www.lanacion.com.ar/politica/diputados-llaryora-y-pullaro-dejaron-al-gobierno-sin-quorum-en-medio-de-la-disputa-por-el-consejo-de-nid18112026/" target="_blank" rel="noopener" title="Diputados: Llaryora y Pullaro dejaron al Gobierno sin quorum en medio de la disputa por el Consejo de la Magistratura">La Nación ↗</a><a href="https://www.pagina12.com.ar/2026/11/18/el-gobierno-se-quedo-sin-quorum-en-diputados-y-fracaso-la-sesion/" target="_blank" rel="noopener" title="El Gobierno se quedó sin quorum en Diputados y fracasó la sesión">Página/12 ↗</a><a href="https://www.ambito.com/politica/diputados-sesiona-la-ley-defensa-la-soberania-nacional-y-la-reforma-del-banco-central-n6346397" target="_blank" rel="noopener" title="Fracaso libertario: por falta de quorum se cayó la sesión en Diputados por la ley de Malvinas y la reforma del BCRA">Ámbito ↗</a><a href="https://www.letrap.com.ar/congreso/martin-llaryora-y-pullaro-boicotearon-la-sesion-piden-lugares-la-magistratura-y-la-ley-biocombustibles-n5428323" target="_blank" rel="noopener" title="Martín Llaryora y Pullaro boicotearon la sesión: piden lugares en la Magistratura y la ley de biocombustibles">Letra P ↗</a><a href="https://www.clarin.com/videos/quorum-cayo-debate-ley-malvinas-reforma-banco-central_3_5EInRpMJqK.html" target="_blank" rel="noopener" title="No hubo quórum y se cayó el debate de la Ley Malvinas y la reforma del Banco Central">Clarín ↗</a><a href="https://www.infobae.com/politica/2026/11/18/diputados-se-cayo-una-sesion-que-iba-a-tratar-malvinas-la-reforma-del-banco-central-y-otros-cinco-proyectos-en-agenda/" target="_blank" rel="noopener" title="Diputados: se cayó una sesión que iba a tratar Malvinas, la reforma del Banco Central y otros cinco proyectos">Infobae ↗</a><a href="https://www.a24.com/politica/sin-quorum-diputados-se-cayo-la-sesion-la-que-el-gobierno-buscaba-avanzar-la-ley-malvinas-y-la-reforma-del-bcra-n1617708" target="_blank" rel="noopener" title="Sin quórum en Diputados: se cayó la sesión en la que el Gobierno buscaba avanzar con la Ley Malvinas y la reforma del BCRA">A24 ↗</a><a href="https://www.c5n.com/politica/segui-vivo-sesion-diputados-soberania-banco-central-miercoles-18-noviembre-2026" target="_blank" rel="noopener" title="Se cayó la sesión en Diputados donde el oficialismo buscaba tratar Soberanía Nacional y la reforma del Banco Central">C5N ↗</a><a href="https://www.cronista.com/economia-politica/bcra-y-malvinas-con-cambios-el-oficialismo-avanza-en-dos-proyectos-emblema-de-milei/" target="_blank" rel="noopener" title="El abanico de reclamos que tiró la sesión: Consejo de la Magistratura, Biocombustibles y la acusación a Menem">El Cronista ↗</a><a href="https://www.parlamentario.com/2026/11/18/se-cayo-la-sesion-de-diputados/" target="_blank" rel="noopener" title="Se cayó la sesión de Diputados">Parlamentario.com ↗</a><a href="https://www.c5n.com/politica/diputados-sesion-especial-ley-soberania-reforma-carta-organica-banco-central-18-noviembre-2026" target="_blank" rel="noopener" title="Diputados: por falta de quorum se cayó la sesión sobre Soberanía y la reforma del Banco Central">C5N ↗</a><a href="https://www.cronista.com/economia-politica/ley-malvinas-las-5-claves-del-proyecto-y-que-cambio-tras-el-reclamo-de-eeuu/" target="_blank" rel="noopener" title="Ley Malvinas: las 5 claves del proyecto y qué cambió tras el reclamo de EE.UU.">El Cronista ↗</a><a href="https://tn.com.ar/politica/2026/11/18/el-gobierno-asegura-que-tiene-los-votos-para-darle-media-sancion-a-la-ley-malvinas-y-espera-que-el-pj-acompane-parte-del-proyecto/" target="_blank" rel="noopener" title="En medio de un clima de tensión interna, el Gobierno responsabiliza a los diputados de Córdoba y Santa Fe por la sesión caída en Diputados">TN ↗</a><a href="https://www.parlamentario.com/2026/11/18/titular-de-arba-presentara-su-informe-sobre-la-ley-impositiva-2027-ante-los-legisladores/" target="_blank" rel="noopener" title="Titular de ARBA presentará su informe sobre la Ley Impositiva 2027 ante los legisladores">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/11/18/sesionara-diputados-con-la-ley-de-defensa-de-la-soberania-y-el-bcra-como-temas-principales/" target="_blank" rel="noopener" title="Sesionará Diputados con la ley de Defensa de la Soberanía y el BCRA como temas principales">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/diputados-hoy-vivo-debate-ley-malvinas-reforma-banco-central_0_pulEFdbuKL.html" target="_blank" rel="noopener" title="Diputados hoy, EN VIVO: el debate sobre la Ley Malvinas y la reforma del Banco Central">Clarín ↗</a><a href="https://www.lanacion.com.ar/politica/ley-malvinas-el-gobierno-volvio-a-modificar-el-proyecto-pero-persisten-las-diferencias-sobre-las-nid18112026/" target="_blank" rel="noopener" title="Ley Malvinas: el Gobierno volvió a modificar el proyecto, pero persisten las diferencias sobre las sanciones a la interferencia externa">La Nación ↗</a><a href="https://www.eldiarioar.com/politica/oficialismo-busca-aprobar-diputados-ley-malvinas-reforma-banco-central_1_13672928.html" target="_blank" rel="noopener" title="El oficialismo busca aprobar en Diputados la “Ley Malvinas&#34; y la reforma del Banco Central">elDiarioAR ↗</a><a href="https://www.clarin.com/politica/oposicion-advierten-ley-malvinas-complica-argumentos-argentinos-juicio-reino-unido-tribunal-mar_0_AGoaLbR10K.html" target="_blank" rel="noopener" title="En la oposición advierten que la ley Malvinas complica los argumentos argentinos en el juicio contra el Reino Unido ante el Tribunal del Mar">Clarín ↗</a><a href="https://www.infobae.com/politica/2026/11/18/el-gobierno-busca-aprobar-en-diputados-la-ley-de-defensa-de-la-soberania-y-la-reforma-del-banco-central/" target="_blank" rel="noopener" title="El Gobierno busca aprobar en Diputados la ley de Defensa de la Soberanía y la reforma del Banco Central">Infobae ↗</a><a href="https://www.a24.com/politica/diputados-sesiona-este-miercoles-una-agenda-que-incluye-la-ley-malvinas-y-la-reforma-del-banco-central-n1617446" target="_blank" rel="noopener" title="Diputados sesiona este miércoles con una agenda que incluye la ley Malvinas y la reforma del Banco Central">A24 ↗</a><a href="https://www.clarin.com/politica/sesion-diputados-cambios-oficialismo-busca-darle-media-sancion-ley-malvinas-ratificar-reforma-bcra_0_xQzCOqvTxj.html" target="_blank" rel="noopener" title="Sesión en Diputados: con cambios, el oficialismo busca darle media sanción a la Ley Malvinas y ratificar la reforma del BCRA">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>10</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 21 notas</span>
+    </div>
+    <h3><a href="https://www.a24.com/politica/el-senado-postergo-el-dictamen-la-reforma-electoral-que-impulsa-el-gobierno-n1617450" target="_blank" rel="noopener">El Senado postergó el dictamen de la reforma electoral que impulsa el Gobierno</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.a24.com/politica/el-senado-postergo-el-dictamen-la-reforma-electoral-que-impulsa-el-gobierno-n1617450" target="_blank" rel="noopener" title="El Senado postergó el dictamen de la reforma electoral que impulsa el Gobierno">A24 ↗</a><a href="https://www.infobae.com/politica/2026/11/18/congreso-en-vivo-el-debate-sobre-la-suspension-de-las-paso-en-la-comision-de-asuntos-constitucionales/" target="_blank" rel="noopener" title="Reforma Política: el oficialismo anunció la eliminación de las colectoras y el debate pasó a un cuarto intermedio en el Senado">Infobae ↗</a><a href="https://www.ambito.com/sin-la-habilitacion-listas-colectoras-el-senado-se-encamina-dictaminar-la-reforma-politica-n6346691" target="_blank" rel="noopener" title="Sin la habilitación de listas colectoras, el Senado se encamina a dictaminar la reforma política">Ámbito ↗</a><a href="https://www.lanacion.com.ar/politica/que-son-las-colectoras-el-sistema-que-de-votacion-que-analiza-el-gobierno-para-las-elecciones-2027-nid16112026/" target="_blank" rel="noopener" title="Qué son las colectoras, el sistema de votación que evaluó el Gobierno para las elecciones 2027">La Nación ↗</a><a href="https://www.cronista.com/economia-politica/reforma-electoral-con-un-cambio-de-ultimo-momento-sobre-las-colectoras-lla-quiere-firmar-hoy-dictamen/" target="_blank" rel="noopener" title="Reforma electoral: con un cambio de último momento sobre las colectoras, LLA quiere firmar hoy dictamen">El Cronista ↗</a><a href="https://www.pagina12.com.ar/2026/11/18/reforma-politica-el-proyecto-de-milei-podria-abrir-las-puertas-al-narcotrafico-y-el-crimen-organizado/" target="_blank" rel="noopener" title="Reforma política: el proyecto de Milei podría abrir las puertas al narcotráfico y el crimen organizado">Página/12 ↗</a><a href="https://www.infobae.com/politica/2026/11/18/el-gobierno-prepara-los-cambios-para-sacar-las-paso-a-contrarreloj-y-enfrenta-el-dilema-de-la-sabana-corta/" target="_blank" rel="noopener" title="El Gobierno prepara los cambios para sacar las PASO a contrarreloj y enfrenta el dilema de la sábana corta">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/11/17/reforma-electoral-el-gobierno-buscara-lograr-dictamen-este-miercoles-y-apunta-a-sesionar-la-proxima-semana-en-el-senado/" target="_blank" rel="noopener" title="Reforma electoral: el Gobierno buscará lograr dictamen hoy y apunta a sesionar la próxima semana en el Senado">TN ↗</a><a href="https://tn.com.ar/politica/2026/11/17/en-linea-con-nacion-entre-rios-suspendera-las-paso-en-2027-el-oficialismo-prepara-un-proyecto-para-modificar-el-codigo-electoral/" target="_blank" rel="noopener" title="En línea con Nación, Entre Ríos suspenderá las PASO en 2027: el oficialismo prepara un proyecto para modificar el Código Electoral">TN ↗</a><a href="https://tn.com.ar/politica/2026/11/17/pese-a-las-tensiones-la-casa-rosada-puso-a-patricia-bullrich-al-frente-de-las-negociaciones-por-la-reforma-electoral-en-el-senado/" target="_blank" rel="noopener" title="Pese a las tensiones internas, la Casa Rosada puso a Bullrich al frente de las negociaciones por la reforma electoral en el Senado">TN ↗</a><a href="https://www.infobae.com/politica/2026/11/18/tras-anunciar-que-apoyaran-al-gobierno-un-senador-del-pro-cuestiono-la-reforma-politica-es-un-parche-electoral/" target="_blank" rel="noopener" title="Tras anunciar que apoyarán al Gobierno, un senador del PRO cuestionó la reforma política: “Es un parche electoral”">Infobae ↗</a><a href="https://www.infobae.com/politica/2026/11/17/reforma-politica-el-oficialismo-pidio-un-cuarto-intermedio-por-falta-de-firmas-y-buscaria-dictaminar-manana/" target="_blank" rel="noopener" title="Reforma política: el oficialismo pidió un cuarto intermedio por falta de firmas y buscaría dictaminar mañana">Infobae ↗</a><a href="https://www.parlamentario.com/2026/11/17/el-oficialismo-afina-su-estrategia-legislativa-y-acelera-la-reforma-electoral/" target="_blank" rel="noopener" title="El oficialismo afina su estrategia legislativa y acelera la reforma electoral">Parlamentario.com ↗</a><a href="https://www.c5n.com/politica/senado-tres-horas-debate-el-oficialismo-buscara-dictaminar-la-reforma-electoral-este-miercoles-n254580" target="_blank" rel="noopener" title="Senado: tras tres horas de debate, el oficialismo buscará dictaminar la reforma electoral este miércoles">C5N ↗</a><a href="https://www.lanacion.com.ar/politica/paso-2027-que-se-sabe-de-la-reforma-electoral-y-de-los-votos-que-negocia-el-gobierno-nid17112026/" target="_blank" rel="noopener" title="PASO 2027: qué se sabe de la reforma electoral y de los votos que negocia el Gobierno">La Nación ↗</a><a href="https://www.parlamentario.com/2026/11/17/se-dilata-la-firma-del-dictamen-de-la-reforma-electoral-en-el-senado/" target="_blank" rel="noopener" title="Se dilata la firma del dictamen de la Reforma Electoral en el Senado">Parlamentario.com ↗</a><a href="https://www.lanacion.com.ar/politica/en-un-giro-sorpresivo-pro-definio-su-acompanamiento-a-la-reforma-electoral-de-milei-nid17112026/" target="_blank" rel="noopener" title="En un giro sorpresivo, Pro definió su acompañamiento a la reforma electoral de Milei">La Nación ↗</a><a href="https://www.infobae.com/politica/2026/11/17/en-medio-de-las-internas-se-reune-la-mesa-politica-para-definir-los-votos-para-la-reforma-politica-y-el-presupuesto/" target="_blank" rel="noopener" title="Suspensión de la PASO: el Gobierno reconoce que hoy no habrá dictamen en el Senado y cierran los nuevos cambios en el borrador">Infobae ↗</a><a href="https://www.clarin.com/politica/reforma-electoral-firmas-suficientes-sacar-dictamen-oficialismo-reune-comision-analiza-modificaciones_0_6hHcUPwLq2.html" target="_blank" rel="noopener" title="Reforma Electoral: sin los avales necesarios, el oficialismo pateó el dictamen para seguir negociando con aliados">Clarín ↗</a><a href="https://www.lanacion.com.ar/politica/reforma-electoral-el-gobierno-admite-que-todavia-no-cuenta-con-los-votos-en-comision-y-que-el-debate-nid17112026/" target="_blank" rel="noopener" title="Reforma electoral: el Gobierno admite que todavía no cuenta con los votos en comisión y que el debate podría extenderse">La Nación ↗</a><a href="https://www.infobae.com/politica/2026/11/17/el-gobierno-ratifico-que-impulsara-las-colectoras-para-2027-pese-a-las-diferencias-con-bullrich-por-la-reforma-electoral/" target="_blank" rel="noopener" title="El Gobierno ratificó que impulsará las colectoras para 2027 pese a las diferencias con Bullrich por la reforma electoral">Infobae ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>10</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 11 notas</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/11/17/presupuesto-2027-con-la-ayuda-de-aliados-lla-obtuvo-dictamen-de-mayoria-y-se-debate-la-proxima-semana/" target="_blank" rel="noopener">Presupuesto 2027: con la ayuda de aliados, LLA obtuvo dictamen de mayoría y se debate la próxima semana</a></h3>
+<p class="bajada">En la Comisión de Presupuesto y Hacienda, el oficialismo fue acompañado por el Pro, la UCR, el MID y bloques provinciales. La oposición presentó dictámenes propios. No hubo aumento en las partidas para universidades. Fondos en discapacidad, garantizados. La entrada Presupuesto 2027: con la ayuda de…</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/11/17/presupuesto-2027-con-la-ayuda-de-aliados-lla-obtuvo-dictamen-de-mayoria-y-se-debate-la-proxima-semana/" target="_blank" rel="noopener" title="Presupuesto 2027: con la ayuda de aliados, LLA obtuvo dictamen de mayoría y se debate la próxima semana">Parlamentario.com ↗</a><a href="https://www.pagina12.com.ar/2026/11/18/cordoba-de-aprobarse-el-presupuesto-2027-la-baja-de-ingresos-brutos-alcanzara-a-110-mil-contribuyentes/" target="_blank" rel="noopener" title="Córdoba: de aprobarse el Presupuesto 2027, la baja de Ingresos Brutos alcanzará a 110 mil contribuyentes">Página/12 ↗</a><a href="https://www.ambito.com/politica/martin-llaryora-redobla-la-baja-impuestos-el-presupuesto-2027-cordoba-n6346593" target="_blank" rel="noopener" title="Martín Llaryora redobla la baja de impuestos en el Presupuesto 2027 de Córdoba">Ámbito ↗</a><a href="https://www.eldiarioar.com/politica/presupuesto-2027-gobierno-acepto-cambios-discapacidad-auh-asegurar-apoyos-obtuvo-dictamen-diputados_1_13673342.html" target="_blank" rel="noopener" title="Presupuesto 2027: el Gobierno aceptó cambios en discapacidad y AUH para asegurar apoyos y obtuvo dictamen en Diputados">elDiarioAR ↗</a><a href="https://www.a24.com/politica/presupuesto-2027-el-oficialismo-consiguio-dictamen-mayoria-diputados-el-respaldo-bloques-aliados-n1617489" target="_blank" rel="noopener" title="Presupuesto 2027: el oficialismo consiguió dictamen de mayoría en Diputados con el respaldo de bloques aliados">A24 ↗</a><a href="https://www.letrap.com.ar/congreso/presupuesto-2027-aumentos-discapacidad-y-ajuste-universidades-el-gobierno-logro-dictaminar-n5428303" target="_blank" rel="noopener" title="Presupuesto 2027: con aumentos a discapacidad y ajuste en universidades, el Gobierno logró dictaminar">Letra P ↗</a><a href="https://tn.com.ar/politica/2026/11/17/el-oficialismo-busca-conseguir-dictamen-para-el-presupuesto-2027-tras-lograr-un-acuerdo-con-los-bloques-aliados/" target="_blank" rel="noopener" title="Presupuesto 2027: el oficialismo consiguió dictamen y el proyecto se tratará el 25 de noviembre en Diputados">TN ↗</a><a href="https://www.infobae.com/politica/2026/11/17/el-gobierno-hizo-concesiones-pero-logro-dictaminar-el-presupuesto-y-diputados-lo-debatira-la-semana-que-viene/" target="_blank" rel="noopener" title="El Gobierno hizo concesiones, pero logró dictaminar el Presupuesto y Diputados lo debatirá la semana que viene">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/presupuesto-2027-con-concesiones-a-sus-aliados-el-gobierno-obtuvo-el-aval-para-debatir-el-proyecto-nid17112026/" target="_blank" rel="noopener" title="Presupuesto 2027: con concesiones a sus aliados, el Gobierno obtuvo el aval para debatir el proyecto en Diputados la próxima semana">La Nación ↗</a><a href="https://www.c5n.com/politica/camara-diputados-comision-presupuesto-2027-dictamen-17-noviembre-2026" target="_blank" rel="noopener" title="Presupuesto 2027: con ayuda de aliados, el Gobierno consiguió dictamen en Diputados y quedó listo para llegar al recinto">C5N ↗</a><a href="https://www.ambito.com/politica/la-libertad-avanza-consiguio-respaldo-el-presupuesto-2027-y-lo-llevara-sesion-la-proxima-semana-n6346354" target="_blank" rel="noopener" title="La Libertad Avanza consiguió respaldo para el Presupuesto 2027 y lo llevará a sesión la próxima semana">Ámbito ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>7</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 9 notas</span>
+    </div>
+    <h3><a href="https://www.lapoliticaonline.com/politica/el-gobierno-tuvo-que-bajar-las-colectoras/" target="_blank" rel="noopener">El gobierno tuvo que bajar las colectoras para sacar la suspensión de las PASO</a></h3>
+<p class="bajada">El oficialismo no consiguió el apoyo de los aliados para aprobar el dictamen en la Comisión de Asuntos Constitucionales y tuvo que eliminar las colectoras.</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lapoliticaonline.com/politica/el-gobierno-tuvo-que-bajar-las-colectoras/" target="_blank" rel="noopener" title="El gobierno tuvo que bajar las colectoras para sacar la suspensión de las PASO">La Política Online ↗</a><a href="https://www.lanacion.com.ar/politica/el-gobierno-retiro-las-listas-colectoras-para-asegurarse-el-apoyo-para-suspender-las-paso-nid18112026/" target="_blank" rel="noopener" title="El Gobierno retiró las listas colectoras para asegurarse el apoyo para suspender las PASO">La Nación ↗</a><a href="https://www.pagina12.com.ar/2026/11/18/desesperado-por-los-votos-el-oficialismo-da-marcha-atras-con-las-colectoras/" target="_blank" rel="noopener" title="Desesperado por los votos, el oficialismo da marcha atrás con las colectoras">Página/12 ↗</a><a href="https://www.eldiarioar.com/politica/gobierno-dio-marcha-colectoras-destrabar-suspension-paso-senado_1_13674773.html" target="_blank" rel="noopener" title="El Gobierno dio marcha atrás con las colectoras para destrabar la suspensión de las PASO en el Senado">elDiarioAR ↗</a><a href="https://tn.com.ar/politica/2026/11/18/suspension-de-las-paso-lla-acepta-incluir-cambios-en-el-proyecto-para-sumar-apoyos-y-conseguir-el-dictamen/" target="_blank" rel="noopener" title="Suspensión de las PASO: LLA anunció que elimina las colectoras del proyecto para conseguir apoyos clave">TN ↗</a><a href="https://www.lanacion.com.ar/politica/senado-se-reune-una-comision-clave-para-tratar-la-reforma-electoral-pero-el-gobierno-no-tiene-aun-nid17112026/" target="_blank" rel="noopener" title="Senado: la resistencia a las listas colectoras complica el objetivo del Gobierno de suspender las PASO">La Nación ↗</a><a href="https://www.clarin.com/videos/oficialismo-postergar-dictamen-suspender-paso_3_wSTuq95e98.html" target="_blank" rel="noopener" title="El oficialismo tuvo que postergar el dictamen para suspender las PASO">Clarín ↗</a><a href="https://www.c5n.com/politica/el-oficialismo-no-consiguio-dictamen-suspender-las-paso-n254600" target="_blank" rel="noopener" title="El oficialismo no consiguió dictamen para suspender las PASO">C5N ↗</a><a href="https://tn.com.ar/politica/2026/11/17/suspension-de-las-paso-lla-afirma-que-tiene-los-apoyos-para-lograr-dictamen-y-tratar-el-proyecto-en-el-senado-la-proxima-semana/" target="_blank" rel="noopener" title="Suspensión de las PASO: LLA afirma que no tiene los apoyos para lograr dictamen hoy y continúa las negociaciones">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+· 4 notas</span>
+    </div>
+    <h3><a href="https://www.c5n.com/mundo/ueno-bank-renuncio-el-fiscal-general-paraguay-el-inminente-juicio-politico-su-contra-n254607" target="_blank" rel="noopener">Ueno Bank: renunció el fiscal general de Paraguay ante el inminente juicio político en su contra</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot "></span>Sin determinar</span>
+      <span class="chip">Otro</span>
+    </div>
+    <div class="medios">
+<a href="https://www.c5n.com/mundo/ueno-bank-renuncio-el-fiscal-general-paraguay-el-inminente-juicio-politico-su-contra-n254607" target="_blank" rel="noopener" title="Ueno Bank: renunció el fiscal general de Paraguay ante el inminente juicio político en su contra">C5N ↗</a><a href="https://www.clarin.com/politica/escandalo-fraile-pintado-iniciaron-juicio-politico-intendente-atrinchero-municipalidad_0_xZwZJiJkRV.html" target="_blank" rel="noopener" title="Escándalo en Fraile Pintado: iniciaron juicio político al intendente y se atrinchero en la Municipalidad">Clarín ↗</a><a href="https://www.clarin.com/videos/escandalo-fraile-pintado-iniciaron-juicio-politico-intendente-atrinchero_3_W17u5tavKo.html" target="_blank" rel="noopener" title="Escándalo en Fraile Pintado: iniciaron juicio político al intendente y se atrincheró">Clarín ↗</a><a href="https://www.ambito.com/mundo/crisis-politica-paraguay-renuncio-el-fiscal-general-acorralado-el-caso-ueno-bank-y-un-inminente-juicio-politico-n6346213" target="_blank" rel="noopener" title="Crisis política en Paraguay: renunció el fiscal general acorralado por el caso Ueno Bank y un inminente juicio político">Ámbito ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4><span class="hoy-tag">Hoy</span>Miércoles 18 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">09:00</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Mineria</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 2 - Anexo &#34;A&#34; · ver temario</summary>INVITADOS Proyectos de resolución y declaración. A continuación fueron invitados empresarios provinciales de la región del litio, quienes expondrán sobre desarrollos mineros en sus respectivas provincias. Ver citación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1392/archivo/WVS0FMGZX4CCA8GQ.pdf" target="_blank" rel="noopener">citación</a></details>
+<span class="tag">· dato de una corrida anterior</span>      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Audiencia Pública de la Comisión de Acuerdos</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario PE-237/26, mensaje N° 222/26 que solicita acuerdo para designar conjueces de los Juzgados Nacionales de Primera Instancia del Trabajo de la jurisdicción de la Cámara Nacional de Apelaciones del Trabajo de la Capital Federal: - Dra. Natalia Beatriz Caviglia. - Dr. Mariano Gastón Piacenti. - Dra. Alejandra Garcia. - Dr. Roberto Oscar Copertari. - Dr. Osvaldo Javier De Ugarte. - Dr. Alberto César Vega. - Dr. Ignacio Hermida. - Dr. Christian Gabriel Aparicio. - Dr. Pablo Alberto Gasquet. PE-260/26, mensaje N° 241/26 que solicita acuerdo para designar fiscal federal de la Sede Fiscal Descentralizada de Caleta Olivia, provincia de Santa Cruz, al Dr. Lucas Alberto Colla. PE-262/26, mensaje N° 243/26 que solicita acuerdo para designar juez penal federal del Juzgado Federal de Garantías…</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">11:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Turismo</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: proyectos de declaración: - Expte. S-720/25, López M. F.: Proyecto de declaración que declara de interés a la &#34;Ruta del Vino Riojano&#34;, iniciativa productiva público-privada para promover la cultura y tradición vitivinícola de la región. - Expte. S-1589/25, López M. F.: Proyecto de declaración que declara de interés turístico y cultural a la localidad de Famatina, provincia de La Rioja. - Expte. S-1590/25, López M. F.: Proyecto de declaración que expresa beneplácito por la nominación de la localidad de Famatina, provincia de La Rioja, al programa Best Tourism Villages, impulsado por ONU Turismo. - Expte. S-1826/25, Valenzuela y Vischi: Proyecto de declaración que expresa beneplácito por la distinción otorgada a la localidad de Colonia Carlos Pellegrini, provincia de Corrientes, en…</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">12:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Asuntos Constitucionales</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Continuación de la reunión para reanudar el tratamiento del siguiente temario: Expte. PE-102/26, Mensaje N.° 110/26 y proyecto de ley de reforma electoral integral.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Ciencia y Tecnología</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: se tratarán proyectos de comunicación y declaración. Ver temario completo .</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Justicia y Asuntos Penales</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Proyecto de ley: Expte. CD-19/26: en revisión, que modifica el Código Penal de la Nación, sobre vandalismo rural.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:30</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Asuntos Constitucionales (cuarto intermedio)</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul del Palacio Legislativo · ver temario</summary>La reunión de la Comisión de Asuntos Constitucionales se reanuda después de un cuarto intermedio con el siguiente temario: Expte. PE-102/26, mensaje nª 110/26 y proyecto de ley de Reforma Electoral Integral.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">17:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Asuntos Administrativos y Municipales</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: proyectos de ley: Expte. CD-21/26: Proyecto de ley en revisión que transfiere a título gratuito el inmueble propiedad del Estado nacional correspondiente al Centro de Acopio y Embarque Barranqueras a favor del Gobierno de la provincia del Chaco. Expte. S-20/26, Capitanich: Proyecto de ley que transfiere a título gratuito a la provincia del Chaco el dominio y todos los derechos y acciones que el Estado nacional posee sobre el inmueble de su propiedad, en la localidad de Barranqueras, en el departamento San Fernando. La reunión también analizará proyectos de declaración según el siguiente temario .</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">18:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Economías Regionales, Economía Social, Micro, Pequeña y Mediana Empresa</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Proyectos de ley: Expte. S-1902/26, Capitanich: proyecto de ley que sustituye el art. 2° de su similar 24.467, Marco Regulatorio de la Pequeña y Mediana Empresa, respecto a la inclusión de las cooperativas en el régimen MiPyME. Expte. S-1143/26, Atauche: proyecto de ley que incorpora el inc. c al art. 44 de su similar 25.300, Fomento para la Micro, Pequeña y Mediana Empresa, respecto a la integración del Consejo Federal. Proyectos de declaración: Expte. S-1963/26, Huala: proyecto de declaración que expresa beneplácito y reconoce a los emprendimientos pampeanos seleccionados para participar en la final nacional del concurso Emprendimiento Argentino 2026, en CABA, el 19 y 20 de noviembre. Expte. S-1722/26, Moisés: proyecto de declaración que declara de interés la 17° edición de…</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Jueves 19 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">11:30</span>
+      <span class="tit"><span class="dot c1" title="Diputados"></span>
+        <span class="t">Derechos humanos y garantias</span>
+</span>
+      <div class="det">
+<details><summary>Diputados · Sala 1 - Anexo &#34;A&#34; - Informativa · ver temario</summary>INVITADOS Fueron invitados especialistas con el objetivo de analizar la problemática de los discursos de odio y las dinámicas de estigmatización publica y su impacto en relación a los derechos de comunicación y a la libertad de expresión. Ver citación · <a href="https://parlamentaria.hcdn.gob.ar/comisiones/reuniones/1391/archivo/AP9W2YY299JN976Q.pdf" target="_blank" rel="noopener">citación</a></details>
+<span class="tag">· dato de una corrida anterior</span>      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Martes 24 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Ambiente y Desarrollo Sustentable y de Industria y Comercio</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Expte. S-1842/26, Terenzi: Proyecto de ley que establece los presupuestos mínimos de gestión ambiental de envases y embalajes post consumo mediante la responsabilidad extendida del productor.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión Bicameral Mixta Revisora de Cuentas</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Eva Perón, Palacio Legislativo · ver temario</summary>Temario: 1. Consideración de dictamen conforme al art. 5° de la Ley 23.847 (Cuenta de Inversión 2024). 2. Expte. OV 525/26. Auditoría General de la Nación: comunica Resolución N° 213/26 que aprueba el Programa de Acción Anual correspondiente al ejercicio 2027.</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 54</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Mi 11: 33 notas">
+        <div class="c" style="height: 25.6%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 12: 68 notas">
+        <div class="c" style="height: 52.7%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 13: 63 notas">
+        <div class="c" style="height: 48.8%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 14: 37 notas">
+        <div class="c" style="height: 28.7%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 15: 40 notas">
+        <div class="c" style="height: 31.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 16: 57 notas">
+        <div class="c" style="height: 44.2%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 17: 79 notas">
+        <div class="c" style="height: 61.2%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Mi 18: 129 notas">
+<span class="cap">129</span>        <div class="c" style="height: 100.0%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Mi 11</span><span class="">Ju 12</span><span class="">Vi 13</span><span class="">Sá 14</span><span class="">Do 15</span><span class="">Lu 16</span><span class="">Ma 17</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 22 hoy · promedio 10.9">
+        <span class="bar" style="width: 100.0%"></span><span class="v">22</span>
+<span class="tick" style="left: calc(49.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 21 hoy · promedio 8.3">
+        <span class="bar" style="width: 95.5%"></span><span class="v">21</span>
+<span class="tick" style="left: calc(37.7% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 14 hoy · promedio 8.1">
+        <span class="bar" style="width: 63.6%"></span><span class="v">14</span>
+<span class="tick" style="left: calc(37.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 13 hoy · promedio 5.4">
+        <span class="bar" style="width: 59.1%"></span><span class="v">13</span>
+<span class="tick" style="left: calc(24.7% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 12 hoy · promedio 3.0">
+        <span class="bar" style="width: 54.5%"></span><span class="v">12</span>
+<span class="tick" style="left: calc(13.6% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 11 hoy · promedio 4.9">
+        <span class="bar" style="width: 50.0%"></span><span class="v">11</span>
+<span class="tick" style="left: calc(22.1% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 8 hoy · promedio 2.4">
+        <span class="bar" style="width: 36.4%"></span><span class="v">8</span>
+<span class="tick" style="left: calc(11.0% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 7 hoy · promedio 1.1">
+        <span class="bar" style="width: 31.8%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(5.2% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 5 hoy · promedio 2.4">
+        <span class="bar" style="width: 22.7%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(11.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 4 hoy · promedio 2.0">
+        <span class="bar" style="width: 18.2%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(9.1% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 4 hoy · promedio 0.4">
+        <span class="bar" style="width: 18.2%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(1.9% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 3 hoy · promedio 1.3">
+        <span class="bar" style="width: 13.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(5.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 3 hoy · promedio 0.4">
+        <span class="bar" style="width: 13.6%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(1.9% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 2 hoy · promedio 0.9">
+        <span class="bar" style="width: 9.1%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(3.9% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Diputados: el oficialismo no consiguió quórum y se cayó la sesión por la Ley Malvinas y la reforma del Banco Central">1. Diputados: el oficialismo no consiguió quórum y se cayó la sesión por la Ley Malvinas y la reforma del Banco Central</span>
+      <span class="track" data-tip="Diputados: el oficialismo no consiguió quórum y se cayó la sesión por la Ley Malvinas y la reforma del Banco Central — 24 notas, 12 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">24 (12)</span>
+      </span>
+      <span class="lbl" title="El Senado postergó el dictamen de la reforma electoral que impulsa el Gobierno">2. El Senado postergó el dictamen de la reforma electoral que impulsa el Gobierno</span>
+      <span class="track" data-tip="El Senado postergó el dictamen de la reforma electoral que impulsa el Gobierno — 21 notas, 10 medios">
+        <span class="bar" style="width: 87.5%"></span><span class="v">21 (10)</span>
+      </span>
+      <span class="lbl" title="Presupuesto 2027: con la ayuda de aliados, LLA obtuvo dictamen de mayoría y se debate la próxima semana">3. Presupuesto 2027: con la ayuda de aliados, LLA obtuvo dictamen de mayoría y se debate la próxima semana</span>
+      <span class="track" data-tip="Presupuesto 2027: con la ayuda de aliados, LLA obtuvo dictamen de mayoría y se debate la próxima semana — 11 notas, 10 medios">
+        <span class="bar" style="width: 45.8%"></span><span class="v">11 (10)</span>
+      </span>
+      <span class="lbl" title="El gobierno tuvo que bajar las colectoras para sacar la suspensión de las PASO">4. El gobierno tuvo que bajar las colectoras para sacar la suspensión de las PASO</span>
+      <span class="track" data-tip="El gobierno tuvo que bajar las colectoras para sacar la suspensión de las PASO — 9 notas, 7 medios">
+        <span class="bar" style="width: 37.5%"></span><span class="v">9 (7)</span>
+      </span>
+      <span class="lbl" title="Ueno Bank: renunció el fiscal general de Paraguay ante el inminente juicio político en su contra">5. Ueno Bank: renunció el fiscal general de Paraguay ante el inminente juicio político en su contra</span>
+      <span class="track" data-tip="Ueno Bank: renunció el fiscal general de Paraguay ante el inminente juicio político en su contra — 4 notas, 3 medios">
+        <span class="bar" style="width: 16.7%"></span><span class="v">4 (3)</span>
+      </span>
+      <span class="lbl" title="Diputados inició el tratamiento del proyecto que busca fortalecer el sistema de salud">6. Diputados inició el tratamiento del proyecto que busca fortalecer el sistema de salud</span>
+      <span class="track" data-tip="Diputados inició el tratamiento del proyecto que busca fortalecer el sistema de salud — 3 notas, 3 medios">
+        <span class="bar" style="width: 12.5%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="Paris Hilton impulsa una ley bipartidista en EE.UU. contra los ‘deepfakes’: es por las imágenes sexuales falsas creadas con IA">7. Paris Hilton impulsa una ley bipartidista en EE.UU. contra los ‘deepfakes’: es por las imágenes sexuales falsas creadas con IA</span>
+      <span class="track" data-tip="Paris Hilton impulsa una ley bipartidista en EE.UU. contra los ‘deepfakes’: es por las imágenes sexuales falsas creadas con IA — 3 notas, 3 medios">
+        <span class="bar" style="width: 12.5%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="Los demócratas arrebatan Alaska a los republicanos y amplían su mayoría en el Senado">8. Los demócratas arrebatan Alaska a los republicanos y amplían su mayoría en el Senado</span>
+      <span class="track" data-tip="Los demócratas arrebatan Alaska a los republicanos y amplían su mayoría en el Senado — 6 notas, 2 medios">
+        <span class="bar" style="width: 25.0%"></span><span class="v">6 (2)</span>
+      </span>
+      <span class="lbl" title="Máximo K: “Vamos a trabajar hasta el último día para que Cristina sea candidata”">9. Máximo K: “Vamos a trabajar hasta el último día para que Cristina sea candidata”</span>
+      <span class="track" data-tip="Máximo K: “Vamos a trabajar hasta el último día para que Cristina sea candidata” — 2 notas, 2 medios">
+        <span class="bar" style="width: 8.3%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Alineado con Trump, el Gobierno se abstuvo de votar en la ONU una resolución para combatir la violencia contra mujeres y niñas">10. Alineado con Trump, el Gobierno se abstuvo de votar en la ONU una resolución para combatir la violencia contra mujeres y niñas</span>
+      <span class="track" data-tip="Alineado con Trump, el Gobierno se abstuvo de votar en la ONU una resolución para combatir la violencia contra mujeres y niñas — 2 notas, 2 medios">
+        <span class="bar" style="width: 8.3%"></span><span class="v">2 (2)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="diputados: el oficialismo no consiguió quórum y se cayó la sesión por la ley malvinas y la reforma del banco central  defensa de la soberanía nacional">
+        <td class="tema-col"><b>1</b> · 12 medios<br>Defensa de la soberanía nacional</td>
+        <td class="num">12:32</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/18/diputados-el-oficialismo-no-consiguio-quorum-y-se-cayo-la-sesion-por-la-ley-malvinas-y-la-reforma-del-banco-central/" target="_blank" rel="noopener">Diputados: el oficialismo no consiguió quórum y se cayó la sesión por la Ley Malvinas y la reforma del Banco Central</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="quiénes estuvieron sentados y quiénes no en la caída de la sesión en diputados los cordobeses y santafesinos de provincias unidas fueron clave en el fracaso de la reunión. el tablero alcanzó 126 presentes. aliados que faltaron y bancadas que no tuvieron asistencia plena. la entrada quiénes estuvieron sentados y quiénes no en la caída de la sesión en diputados se publicó… defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">13:52</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/18/quienes-estuvieron-sentados-y-quienes-no-en-la-caida-de-la-sesion-en-diputados/" target="_blank" rel="noopener">Quiénes estuvieron sentados y quiénes no en la caída de la sesión en Diputados</a><div class="baj">Los cordobeses y santafesinos de Provincias Unidas fueron clave en el fracaso de la reunión. El tablero alcanzó 126 presentes. Aliados que faltaron y bancadas que no tuvieron asistencia plena. La entrada Quiénes estuvieron sentados y quiénes no en la caída de la sesión en Diputados se publicó…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="diputados: llaryora y pullaro dejaron al gobierno sin quorum en medio de la disputa por el consejo de la magistratura los legisladores alineados con los gobernadores de córdoba y santa fe se negaron a sentarse en sus bancas; reclaman lugares en el organismo judicial y cuestionan la falta de acuerdos por el presupuesto y el freno al nuevo esquema de biocombustibles defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">13:32</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/diputados-llaryora-y-pullaro-dejaron-al-gobierno-sin-quorum-en-medio-de-la-disputa-por-el-consejo-de-nid18112026/" target="_blank" rel="noopener">Diputados: Llaryora y Pullaro dejaron al Gobierno sin quorum en medio de la disputa por el Consejo de la Magistratura</a><div class="baj">Los legisladores alineados con los gobernadores de Córdoba y Santa Fe se negaron a sentarse en sus bancas; reclaman lugares en el organismo judicial y cuestionan la falta de acuerdos por el presupuesto y el freno al nuevo esquema de biocombustibles</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Página/12" data-texto="el gobierno se quedó sin quorum en diputados y fracasó la sesión el oficialismo no logró reunir los 129 diputados necesarios y martín menem se vio obligado a dar por caída la sesión especial. la intención de la casa rosada era que se avanzara con ley de soberanía nacional y la reforma de la carta orgánica del banco central. defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">13:32</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/el-gobierno-se-quedo-sin-quorum-en-diputados-y-fracaso-la-sesion/" target="_blank" rel="noopener">El Gobierno se quedó sin quorum en Diputados y fracasó la sesión</a><div class="baj">El oficialismo no logró reunir los 129 diputados necesarios y Martín Menem se vio obligado a dar por caída la sesión especial. La intención de la Casa Rosada era que se avanzara con Ley de Soberanía Nacional y la reforma de la Carta Orgánica del Banco Central.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Ámbito" data-texto="fracaso libertario: por falta de quorum se cayó la sesión en diputados por la ley de malvinas y la reforma del bcra era la primera de cinco sesiones que el gobierno tenía pensado citar en las próximas dos semanas. pujas por el consejo de la magistratura y la ley de biocombustibles. defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:57</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/diputados-sesiona-la-ley-defensa-la-soberania-nacional-y-la-reforma-del-banco-central-n6346397" target="_blank" rel="noopener">Fracaso libertario: por falta de quorum se cayó la sesión en Diputados por la ley de Malvinas y la reforma del BCRA</a><div class="baj">Era la primera de cinco sesiones que el Gobierno tenía pensado citar en las próximas dos semanas. Pujas por el Consejo de la Magistratura y la ley de biocombustibles.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Letra P" data-texto="martín llaryora y pullaro boicotearon la sesión: piden lugares en la magistratura y la ley de biocombustibles  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:49</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/martin-llaryora-y-pullaro-boicotearon-la-sesion-piden-lugares-la-magistratura-y-la-ley-biocombustibles-n5428323" target="_blank" rel="noopener">Martín Llaryora y Pullaro boicotearon la sesión: piden lugares en la Magistratura y la ley de biocombustibles</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="no hubo quórum y se cayó el debate de la ley malvinas y la reforma del banco central  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:46</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/quorum-cayo-debate-ley-malvinas-reforma-banco-central_3_5EInRpMJqK.html" target="_blank" rel="noopener">No hubo quórum y se cayó el debate de la Ley Malvinas y la reforma del Banco Central</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="diputados: se cayó una sesión que iba a tratar malvinas, la reforma del banco central y otros cinco proyectos el oficialismo buscaba aprobar los proyectos de ley de defensa de la soberanía nacional y los cambios en la carta orgánica del bcra. también esperaban debatir acuerdos comerciales, el traspaso judicial a la ciudad y una reforma para las pymes. provincias unidas y el mid, los ausentes defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:43</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/diputados-se-cayo-una-sesion-que-iba-a-tratar-malvinas-la-reforma-del-banco-central-y-otros-cinco-proyectos-en-agenda/" target="_blank" rel="noopener">Diputados: se cayó una sesión que iba a tratar Malvinas, la reforma del Banco Central y otros cinco proyectos</a><div class="baj">El oficialismo buscaba aprobar los proyectos de ley de Defensa de la Soberanía Nacional y los cambios en la Carta Orgánica del BCRA. También esperaban debatir acuerdos comerciales, el traspaso judicial a la Ciudad y una reforma para las pymes. Provincias Unidas y el MID, los ausentes</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="A24" data-texto="sin quórum en diputados: se cayó la sesión en la que el gobierno buscaba avanzar con la ley malvinas y la reforma del bcra  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:40</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/sin-quorum-diputados-se-cayo-la-sesion-la-que-el-gobierno-buscaba-avanzar-la-ley-malvinas-y-la-reforma-del-bcra-n1617708" target="_blank" rel="noopener">Sin quórum en Diputados: se cayó la sesión en la que el Gobierno buscaba avanzar con la Ley Malvinas y la reforma del BCRA</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="se cayó la sesión en diputados donde el oficialismo buscaba tratar soberanía nacional y la reforma del banco central  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:38</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/segui-vivo-sesion-diputados-soberania-banco-central-miercoles-18-noviembre-2026" target="_blank" rel="noopener">Se cayó la sesión en Diputados donde el oficialismo buscaba tratar Soberanía Nacional y la reforma del Banco Central</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="El Cronista" data-texto="el abanico de reclamos que tiró la sesión: consejo de la magistratura, biocombustibles y la acusación a menem solamente se sentaron 126 diputados. en la oposición sospechan que lla tenía poco interés en aprobar la ley de soberanía nacional, el proyecto que impulsa santiago caputo. hubo pases de factura del pro, el mid y los gobernadores de córdoba y santa fe por varios frentes abiertos. defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:36</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/bcra-y-malvinas-con-cambios-el-oficialismo-avanza-en-dos-proyectos-emblema-de-milei/" target="_blank" rel="noopener">El abanico de reclamos que tiró la sesión: Consejo de la Magistratura, Biocombustibles y la acusación a Menem</a><div class="baj">Solamente se sentaron 126 diputados. En la oposición sospechan que LLA tenía poco interés en aprobar la Ley de Soberanía Nacional, el proyecto que impulsa Santiago Caputo. Hubo pases de factura del PRO, el MID y los gobernadores de Córdoba y Santa Fe por varios frentes abiertos.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="se cayó la sesión de diputados siendo las 12.31, el presidente de la cámara anunció la caída de la sesión en la que se pretendía avanzar con un temario dominado por el proyecto de defensa de la soberanía nacional y la reforma de la carta orgánica del banco central. también se iban a debatir acuerdos internacionales, convenios… defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">12:33</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/18/se-cayo-la-sesion-de-diputados/" target="_blank" rel="noopener">Se cayó la sesión de Diputados</a><div class="baj">Siendo las 12.31, el presidente de la Cámara anunció la caída de la sesión en la que se pretendía avanzar con un temario dominado por el proyecto de Defensa de la Soberanía Nacional y la reforma de la Carta Orgánica del Banco Central. También se iban a debatir acuerdos internacionales, convenios…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="C5N" data-texto="diputados: por falta de quorum se cayó la sesión sobre soberanía y la reforma del banco central  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">11:42</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/diputados-sesion-especial-ley-soberania-reforma-carta-organica-banco-central-18-noviembre-2026" target="_blank" rel="noopener">Diputados: por falta de quorum se cayó la sesión sobre Soberanía y la reforma del Banco Central</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="El Cronista" data-texto="ley malvinas: las 5 claves del proyecto y qué cambió tras el reclamo de ee.uu. el oficialismo llega con los votos para aprobarlo en general en diputados, pero no para todo su articulado. defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">11:08</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/ley-malvinas-las-5-claves-del-proyecto-y-que-cambio-tras-el-reclamo-de-eeuu/" target="_blank" rel="noopener">Ley Malvinas: las 5 claves del proyecto y qué cambió tras el reclamo de EE.UU.</a><div class="baj">El oficialismo llega con los votos para aprobarlo en general en Diputados, pero no para todo su articulado.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="TN" data-texto="en medio de un clima de tensión interna, el gobierno responsabiliza a los diputados de córdoba y santa fe por la sesión caída en diputados  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">10:57</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/18/el-gobierno-asegura-que-tiene-los-votos-para-darle-media-sancion-a-la-ley-malvinas-y-espera-que-el-pj-acompane-parte-del-proyecto/" target="_blank" rel="noopener">En medio de un clima de tensión interna, el Gobierno responsabiliza a los diputados de Córdoba y Santa Fe por la sesión caída en Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="titular de arba presentará su informe sobre la ley impositiva 2027 ante los legisladores el proyecto de ley impositiva 2027 presentado en diputados prevé mantener sin cambios reales la carga tributaria sobre los impuestos patrimoniales y congelar las alícuotas de ingresos brutos. la entrada titular de arba presentará su informe sobre la ley impositiva 2027 ante los legisladores se… defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">10:24</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/18/titular-de-arba-presentara-su-informe-sobre-la-ley-impositiva-2027-ante-los-legisladores/" target="_blank" rel="noopener">Titular de ARBA presentará su informe sobre la Ley Impositiva 2027 ante los legisladores</a><div class="baj">El proyecto de ley Impositiva 2027 presentado en Diputados prevé mantener sin cambios reales la carga tributaria sobre los impuestos patrimoniales y congelar las alícuotas de Ingresos Brutos. La entrada Titular de ARBA presentará su informe sobre la Ley Impositiva 2027 ante los legisladores se…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="sesionará diputados con la ley de defensa de la soberanía y el bcra como temas principales el proyecto de defensa de la soberanía es el “plato fuerte” de la sesión convocada para este mediodía. acuerdos internacionales, traspaso judicial a caba y una iniciativa sobre cooperativas, los otros temas. la entrada sesionará diputados con la ley de defensa de la soberanía y el bcra como temas… defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">10:04</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/18/sesionara-diputados-con-la-ley-de-defensa-de-la-soberania-y-el-bcra-como-temas-principales/" target="_blank" rel="noopener">Sesionará Diputados con la ley de Defensa de la Soberanía y el BCRA como temas principales</a><div class="baj">El proyecto de Defensa de la Soberanía es el “plato fuerte” de la sesión convocada para este mediodía. Acuerdos internacionales, traspaso judicial a CABA y una iniciativa sobre cooperativas, los otros temas. La entrada Sesionará Diputados con la ley de Defensa de la Soberanía y el BCRA como temas…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="diputados hoy, en vivo: el debate sobre la ley malvinas y la reforma del banco central la cámara baja sesionará desde las 12 del mediodía y se espera un largo debate que culminaría a altas horas de la madrugada. seguí todas las instancias de la sesión, minuto a minuto. defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">08:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diputados-hoy-vivo-debate-ley-malvinas-reforma-banco-central_0_pulEFdbuKL.html" target="_blank" rel="noopener">Diputados hoy, EN VIVO: el debate sobre la Ley Malvinas y la reforma del Banco Central</a><div class="baj">La Cámara baja sesionará desde las 12 del mediodía y se espera un largo debate que culminaría a altas horas de la madrugada. Seguí todas las instancias de la sesión, minuto a minuto.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="La Nación" data-texto="ley malvinas: el gobierno volvió a modificar el proyecto, pero persisten las diferencias sobre las sanciones a la interferencia externa antes de la sesión prevista para hoy a las 12, el oficialismo circuló entre sus aliados un nuevo borrador que excluye al ministerio de seguridad como miembro permanente del consejo y acota las conductas que podrán ser penadas por injerencia extranjera en procesos electorales defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">08:02</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/ley-malvinas-el-gobierno-volvio-a-modificar-el-proyecto-pero-persisten-las-diferencias-sobre-las-nid18112026/" target="_blank" rel="noopener">Ley Malvinas: el Gobierno volvió a modificar el proyecto, pero persisten las diferencias sobre las sanciones a la interferencia externa</a><div class="baj">Antes de la sesión prevista para hoy a las 12, el oficialismo circuló entre sus aliados un nuevo borrador que excluye al Ministerio de Seguridad como miembro permanente del Consejo y acota las conductas que podrán ser penadas por injerencia extranjera en procesos electorales</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="el oficialismo busca aprobar en diputados la “ley malvinas&#34; y la reforma del banco central la sesión especial comenzará a las 12 y se espera un largo debate que culminará a altas horas de la madrugada. el recinto de la cámara de diputados abrirá este miércoles para sesionar en torno a un menú de proyectos impulsados por el gobierno, entre los que se destacan la ley de defensa de la… defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">06:27</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/oficialismo-busca-aprobar-diputados-ley-malvinas-reforma-banco-central_1_13672928.html" target="_blank" rel="noopener">El oficialismo busca aprobar en Diputados la “Ley Malvinas&#34; y la reforma del Banco Central</a><div class="baj">La sesión especial comenzará a las 12 y se espera un largo debate que culminará a altas horas de la madrugada. El recinto de la Cámara de Diputados abrirá este miércoles para sesionar en torno a un menú de proyectos impulsados por el Gobierno, entre los que se destacan la Ley de Defensa de la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="en la oposición advierten que la ley malvinas complica los argumentos argentinos en el juicio contra el reino unido ante el tribunal del mar el proyecto de ley se trata en diputados este miércoles. el tribunal fallará sobre el pedido de cautelares de argentina para que los británicos frenen las explotaciones hidrocarburíferas el próximo 28 de noviembre defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">06:01</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/oposicion-advierten-ley-malvinas-complica-argumentos-argentinos-juicio-reino-unido-tribunal-mar_0_AGoaLbR10K.html" target="_blank" rel="noopener">En la oposición advierten que la ley Malvinas complica los argumentos argentinos en el juicio contra el Reino Unido ante el Tribunal del Mar</a><div class="baj">El proyecto de ley se trata en Diputados este miércoles. El Tribunal fallará sobre el pedido de cautelares de argentina para que los británicos frenen las explotaciones hidrocarburíferas el próximo 28 de noviembre</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Infobae" data-texto="el gobierno busca aprobar en diputados la ley de defensa de la soberanía y la reforma del banco central en una sesión que se extenderá alrededor de 12 horas, el oficialismo intentará avanzar con dos proyectos de alto impacto: el primero endurece las penas contra las empresas que exploten recursos en las islas malvinas y el otro prohíbe que la autoridad monetaria financie al tesoro con emisión defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">01:30</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/el-gobierno-busca-aprobar-en-diputados-la-ley-de-defensa-de-la-soberania-y-la-reforma-del-banco-central/" target="_blank" rel="noopener">El Gobierno busca aprobar en Diputados la ley de Defensa de la Soberanía y la reforma del Banco Central</a><div class="baj">En una sesión que se extenderá alrededor de 12 horas, el oficialismo intentará avanzar con dos proyectos de alto impacto: el primero endurece las penas contra las empresas que exploten recursos en las Islas Malvinas y el otro prohíbe que la autoridad monetaria financie al Tesoro con emisión</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="A24" data-texto="diputados sesiona este miércoles con una agenda que incluye la ley malvinas y la reforma del banco central  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">21:37</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/diputados-sesiona-este-miercoles-una-agenda-que-incluye-la-ley-malvinas-y-la-reforma-del-banco-central-n1617446" target="_blank" rel="noopener">Diputados sesiona este miércoles con una agenda que incluye la ley Malvinas y la reforma del Banco Central</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Sesión" data-medio="Clarín" data-texto="sesión en diputados: con cambios, el oficialismo busca darle media sanción a la ley malvinas y ratificar la reforma del bcra  defensa de la soberanía nacional">
+        <td class="tema-col"></td>
+        <td class="num">20:42</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/sesion-diputados-cambios-oficialismo-busca-darle-media-sancion-ley-malvinas-ratificar-reforma-bcra_0_xQzCOqvTxj.html" target="_blank" rel="noopener">Sesión en Diputados: con cambios, el oficialismo busca darle media sanción a la Ley Malvinas y ratificar la reforma del BCRA</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="A24" data-texto="el senado postergó el dictamen de la reforma electoral que impulsa el gobierno  ">
+        <td class="tema-col"><b>2</b> · 10 medios</td>
+        <td class="num">19:35</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/el-senado-postergo-el-dictamen-la-reforma-electoral-que-impulsa-el-gobierno-n1617450" target="_blank" rel="noopener">El Senado postergó el dictamen de la reforma electoral que impulsa el Gobierno</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="reforma política: el oficialismo anunció la eliminación de las colectoras y el debate pasó a un cuarto intermedio en el senado se trata de uno de los puntos que había generado cuestionamientos durante el tratamiento en la comisión de asuntos constitucionales. el gobierno espera suspender las paso la semana que viene en el recinto ">
+        <td class="tema-col"></td>
+        <td class="num">13:53</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/congreso-en-vivo-el-debate-sobre-la-suspension-de-las-paso-en-la-comision-de-asuntos-constitucionales/" target="_blank" rel="noopener">Reforma Política: el oficialismo anunció la eliminación de las colectoras y el debate pasó a un cuarto intermedio en el Senado</a><div class="baj">Se trata de uno de los puntos que había generado cuestionamientos durante el tratamiento en la Comisión de Asuntos Constitucionales. El Gobierno espera suspender las PASO la semana que viene en el recinto</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="sin la habilitación de listas colectoras, el senado se encamina a dictaminar la reforma política patricia bullrich anunció que la versión final no habilita las listas colectoras, aunque mantiene la suspensión de las paso por única vez, para los comicios del 2027. con ese cambio, el oficialismo quedó cerca de firmar el dictamen y apunta a llevar el texto al recinto el próximo jueves 26 de… ">
+        <td class="tema-col"></td>
+        <td class="num">13:35</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/sin-la-habilitacion-listas-colectoras-el-senado-se-encamina-dictaminar-la-reforma-politica-n6346691" target="_blank" rel="noopener">Sin la habilitación de listas colectoras, el Senado se encamina a dictaminar la reforma política</a><div class="baj">Patricia Bullrich anunció que la versión final no habilita las listas colectoras, aunque mantiene la suspensión de las PASO por única vez, para los comicios del 2027. Con ese cambio, el oficialismo quedó cerca de firmar el dictamen y apunta a llevar el texto al recinto el próximo jueves 26 de…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="qué son las colectoras, el sistema de votación que evaluó el gobierno para las elecciones 2027 lo incluyó en el borrador de la reforma política para permitir que más de una lista de legisladores pueda acompañar en la boleta única a un mismo candidato a presidente ">
+        <td class="tema-col"></td>
+        <td class="num">13:31</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/que-son-las-colectoras-el-sistema-que-de-votacion-que-analiza-el-gobierno-para-las-elecciones-2027-nid16112026/" target="_blank" rel="noopener">Qué son las colectoras, el sistema de votación que evaluó el Gobierno para las elecciones 2027</a><div class="baj">Lo incluyó en el borrador de la reforma política para permitir que más de una lista de legisladores pueda acompañar en la boleta única a un mismo candidato a presidente</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="El Cronista" data-texto="reforma electoral: con un cambio de último momento sobre las colectoras, lla quiere firmar hoy dictamen la decisión destrabó la negociación con los aliados en el senado. la comisión de asuntos constitucionales pasó a un cuarto intermedio hasta las 16:30 y el oficialismo espera reunir las diez firmas necesarias para avanzar ">
+        <td class="tema-col"></td>
+        <td class="num">12:55</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/reforma-electoral-con-un-cambio-de-ultimo-momento-sobre-las-colectoras-lla-quiere-firmar-hoy-dictamen/" target="_blank" rel="noopener">Reforma electoral: con un cambio de último momento sobre las colectoras, LLA quiere firmar hoy dictamen</a><div class="baj">La decisión destrabó la negociación con los aliados en el Senado. La Comisión de Asuntos Constitucionales pasó a un cuarto intermedio hasta las 16:30 y el oficialismo espera reunir las diez firmas necesarias para avanzar</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Página/12" data-texto="reforma política: el proyecto de milei podría abrir las puertas al narcotráfico y el crimen organizado además de la suspensión de las paso, la iniciativa que impulsa la libertad avanza elimina los aportes del estado para que los partidos financien las campañas electorales y habilita la intervención de grandes capitales privados. según expertos, podría ser una vía de penetración de dinero de origen… ">
+        <td class="tema-col"></td>
+        <td class="num">12:28</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/reforma-politica-el-proyecto-de-milei-podria-abrir-las-puertas-al-narcotrafico-y-el-crimen-organizado/" target="_blank" rel="noopener">Reforma política: el proyecto de Milei podría abrir las puertas al narcotráfico y el crimen organizado</a><div class="baj">Además de la suspensión de las PASO, la iniciativa que impulsa La Libertad Avanza elimina los aportes del Estado para que los partidos financien las campañas electorales y habilita la intervención de grandes capitales privados. Según expertos, podría ser una vía de penetración de dinero de origen…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno prepara los cambios para sacar las paso a contrarreloj y enfrenta el dilema de la sábana corta la casa rosada introducirá modificaciones de último momento en el dictamen de la reforma política, pero las concesiones a los gobernadores amenazan con profundizar las diferencias con patricia bullrich. alivio porque el pro prometió acompañar, aunque los números todavía no están garantizados ">
+        <td class="tema-col"></td>
+        <td class="num">01:44</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/el-gobierno-prepara-los-cambios-para-sacar-las-paso-a-contrarreloj-y-enfrenta-el-dilema-de-la-sabana-corta/" target="_blank" rel="noopener">El Gobierno prepara los cambios para sacar las PASO a contrarreloj y enfrenta el dilema de la sábana corta</a><div class="baj">La Casa Rosada introducirá modificaciones de último momento en el dictamen de la reforma política, pero las concesiones a los gobernadores amenazan con profundizar las diferencias con Patricia Bullrich. Alivio porque el PRO prometió acompañar, aunque los números todavía no están garantizados</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="reforma electoral: el gobierno buscará lograr dictamen hoy y apunta a sesionar la próxima semana en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/17/reforma-electoral-el-gobierno-buscara-lograr-dictamen-este-miercoles-y-apunta-a-sesionar-la-proxima-semana-en-el-senado/" target="_blank" rel="noopener">Reforma electoral: el Gobierno buscará lograr dictamen hoy y apunta a sesionar la próxima semana en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="en línea con nación, entre ríos suspenderá las paso en 2027: el oficialismo prepara un proyecto para modificar el código electoral  ">
+        <td class="tema-col"></td>
+        <td class="num">22:06</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/17/en-linea-con-nacion-entre-rios-suspendera-las-paso-en-2027-el-oficialismo-prepara-un-proyecto-para-modificar-el-codigo-electoral/" target="_blank" rel="noopener">En línea con Nación, Entre Ríos suspenderá las PASO en 2027: el oficialismo prepara un proyecto para modificar el Código Electoral</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="pese a las tensiones internas, la casa rosada puso a bullrich al frente de las negociaciones por la reforma electoral en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">21:51</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/17/pese-a-las-tensiones-la-casa-rosada-puso-a-patricia-bullrich-al-frente-de-las-negociaciones-por-la-reforma-electoral-en-el-senado/" target="_blank" rel="noopener">Pese a las tensiones internas, la Casa Rosada puso a Bullrich al frente de las negociaciones por la reforma electoral en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="tras anunciar que apoyarán al gobierno, un senador del pro cuestionó la reforma política: “es un parche electoral” el jefe del bloque pro en el senado, martín goerling, explicó en infobae al regreso las diferencias con la conducción partidaria, cuestionó la suspensión de las primarias para 2027 y advirtió sobre las consecuencias de incorporar colectoras al sistema electoral ">
+        <td class="tema-col"></td>
+        <td class="num">21:03</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/tras-anunciar-que-apoyaran-al-gobierno-un-senador-del-pro-cuestiono-la-reforma-politica-es-un-parche-electoral/" target="_blank" rel="noopener">Tras anunciar que apoyarán al Gobierno, un senador del PRO cuestionó la reforma política: “Es un parche electoral”</a><div class="baj">El jefe del bloque PRO en el Senado, Martín Goerling, explicó en Infobae al Regreso las diferencias con la conducción partidaria, cuestionó la suspensión de las primarias para 2027 y advirtió sobre las consecuencias de incorporar colectoras al sistema electoral</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="reforma política: el oficialismo pidió un cuarto intermedio por falta de firmas y buscaría dictaminar mañana como se preveía, el gobierno no logró cerrar a los dialoguistas de la comisión de asuntos constitucionales del senado. sin embargo, algunos aliados reconocieron a infobae que se precipitaría un acuerdo las próximas horas ">
+        <td class="tema-col"></td>
+        <td class="num">20:18</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/17/reforma-politica-el-oficialismo-pidio-un-cuarto-intermedio-por-falta-de-firmas-y-buscaria-dictaminar-manana/" target="_blank" rel="noopener">Reforma política: el oficialismo pidió un cuarto intermedio por falta de firmas y buscaría dictaminar mañana</a><div class="baj">Como se preveía, el Gobierno no logró cerrar a los dialoguistas de la comisión de Asuntos Constitucionales del Senado. Sin embargo, algunos aliados reconocieron a Infobae que se precipitaría un acuerdo las próximas horas</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="el oficialismo afina su estrategia legislativa y acelera la reforma electoral la mesa política encabezada por karina milei pasó revista a los proyectos que llegarán esta semana al recinto en diputados y el senado, mientras avanza la negociación de cambios al sistema electoral y se prepara el envío al congreso del acuerdo comercial con estados unidos. la entrada el… ">
+        <td class="tema-col"></td>
+        <td class="num">19:25</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/el-oficialismo-afina-su-estrategia-legislativa-y-acelera-la-reforma-electoral/" target="_blank" rel="noopener">El oficialismo afina su estrategia legislativa y acelera la reforma electoral</a><div class="baj">La Mesa Política encabezada por Karina Milei pasó revista a los proyectos que llegarán esta semana al recinto en Diputados y el Senado, mientras avanza la negociación de cambios al sistema electoral y se prepara el envío al Congreso del acuerdo comercial con Estados Unidos. La entrada El…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="C5N" data-texto="senado: tras tres horas de debate, el oficialismo buscará dictaminar la reforma electoral este miércoles  ">
+        <td class="tema-col"></td>
+        <td class="num">18:05</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/senado-tres-horas-debate-el-oficialismo-buscara-dictaminar-la-reforma-electoral-este-miercoles-n254580" target="_blank" rel="noopener">Senado: tras tres horas de debate, el oficialismo buscará dictaminar la reforma electoral este miércoles</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="paso 2027: qué se sabe de la reforma electoral y de los votos que negocia el gobierno la casa rosada busca avanzar con la suspensión de las primarias y sumar apoyos mediante acuerdos con los gobernadores; el debate continuará mañana ">
+        <td class="tema-col"></td>
+        <td class="num">17:55</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/paso-2027-que-se-sabe-de-la-reforma-electoral-y-de-los-votos-que-negocia-el-gobierno-nid17112026/" target="_blank" rel="noopener">PASO 2027: qué se sabe de la reforma electoral y de los votos que negocia el Gobierno</a><div class="baj">La Casa Rosada busca avanzar con la suspensión de las primarias y sumar apoyos mediante acuerdos con los gobernadores; el debate continuará mañana</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="se dilata la firma del dictamen de la reforma electoral en el senado la reunión de asuntos constitucionales pasó a un cuarto intermedio y seguirá este miércoles desde el mediodía. hubo representantes de la cámara de diputados en el salón arturo illia. la entrada se dilata la firma del dictamen de la reforma electoral en el senado se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">17:12</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/se-dilata-la-firma-del-dictamen-de-la-reforma-electoral-en-el-senado/" target="_blank" rel="noopener">Se dilata la firma del dictamen de la Reforma Electoral en el Senado</a><div class="baj">La reunión de Asuntos Constitucionales pasó a un cuarto intermedio y seguirá este miércoles desde el mediodía. Hubo representantes de la Cámara de Diputados en el Salón Arturo Illia. La entrada Se dilata la firma del dictamen de la Reforma Electoral en el Senado se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="en un giro sorpresivo, pro definió su acompañamiento a la reforma electoral de milei lo decidió hoy en una reunión encabezada por mauricio macri antes del tratamiento en comisión en el senado; el senador goerling había hablado de “manoseo de la estrategia” y en 2019 la gestión macrista había eliminado por decreto las colectoras ">
+        <td class="tema-col"></td>
+        <td class="num">16:31</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/en-un-giro-sorpresivo-pro-definio-su-acompanamiento-a-la-reforma-electoral-de-milei-nid17112026/" target="_blank" rel="noopener">En un giro sorpresivo, Pro definió su acompañamiento a la reforma electoral de Milei</a><div class="baj">Lo decidió hoy en una reunión encabezada por Mauricio Macri antes del tratamiento en comisión en el Senado; el senador Goerling había hablado de “manoseo de la estrategia” y en 2019 la gestión macrista había eliminado por decreto las colectoras</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="suspensión de la paso: el gobierno reconoce que hoy no habrá dictamen en el senado y cierran los nuevos cambios en el borrador así lo dejaron trascender tras la reunión de la mesa política en casa rosada. aclararon que trabajan en más modificaciones para conseguir los apoyos. las listas colectoras y la posición de bullrich ">
+        <td class="tema-col"></td>
+        <td class="num">16:20</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/17/en-medio-de-las-internas-se-reune-la-mesa-politica-para-definir-los-votos-para-la-reforma-politica-y-el-presupuesto/" target="_blank" rel="noopener">Suspensión de la PASO: el Gobierno reconoce que hoy no habrá dictamen en el Senado y cierran los nuevos cambios en el borrador</a><div class="baj">Así lo dejaron trascender tras la reunión de la mesa política en Casa Rosada. Aclararon que trabajan en más modificaciones para conseguir los apoyos. Las listas colectoras y la posición de Bullrich</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="reforma electoral: sin los avales necesarios, el oficialismo pateó el dictamen para seguir negociando con aliados  ">
+        <td class="tema-col"></td>
+        <td class="num">14:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/reforma-electoral-firmas-suficientes-sacar-dictamen-oficialismo-reune-comision-analiza-modificaciones_0_6hHcUPwLq2.html" target="_blank" rel="noopener">Reforma Electoral: sin los avales necesarios, el oficialismo pateó el dictamen para seguir negociando con aliados</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="reforma electoral: el gobierno admite que todavía no cuenta con los votos en comisión y que el debate podría extenderse en la casa rosada trabajan a contrarreloj para conseguir avales no solo a la suspensión de las paso, sino también a las listas colectoras; bullrich se alinea con el proyecto tras la reunión de mesa política ">
+        <td class="tema-col"></td>
+        <td class="num">14:48</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/reforma-electoral-el-gobierno-admite-que-todavia-no-cuenta-con-los-votos-en-comision-y-que-el-debate-nid17112026/" target="_blank" rel="noopener">Reforma electoral: el Gobierno admite que todavía no cuenta con los votos en comisión y que el debate podría extenderse</a><div class="baj">En la Casa Rosada trabajan a contrarreloj para conseguir avales no solo a la suspensión de las PASO, sino también a las listas colectoras; Bullrich se alinea con el proyecto tras la reunión de mesa política</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno ratificó que impulsará las colectoras para 2027 pese a las diferencias con bullrich por la reforma electoral ravier confirmó esta mañana que la iniciativa forma parte de los planes oficiales y que su aprobación dependerá del congreso. la propuesta ya había generado resistencias en el sector de la senadora, que hoy regresó a la mesa política después de tres semanas sin reuniones ">
+        <td class="tema-col"></td>
+        <td class="num">14:44</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/17/el-gobierno-ratifico-que-impulsara-las-colectoras-para-2027-pese-a-las-diferencias-con-bullrich-por-la-reforma-electoral/" target="_blank" rel="noopener">El Gobierno ratificó que impulsará las colectoras para 2027 pese a las diferencias con Bullrich por la reforma electoral</a><div class="baj">Ravier confirmó esta mañana que la iniciativa forma parte de los planes oficiales y que su aprobación dependerá del Congreso. La propuesta ya había generado resistencias en el sector de la senadora, que hoy regresó a la mesa política después de tres semanas sin reuniones</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="presupuesto 2027: con la ayuda de aliados, lla obtuvo dictamen de mayoría y se debate la próxima semana en la comisión de presupuesto y hacienda, el oficialismo fue acompañado por el pro, la ucr, el mid y bloques provinciales. la oposición presentó dictámenes propios. no hubo aumento en las partidas para universidades. fondos en discapacidad, garantizados. la entrada presupuesto 2027: con la ayuda de… presupuesto 2027">
+        <td class="tema-col"><b>3</b> · 10 medios<br>Presupuesto 2027</td>
+        <td class="num">18:54</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/presupuesto-2027-con-la-ayuda-de-aliados-lla-obtuvo-dictamen-de-mayoria-y-se-debate-la-proxima-semana/" target="_blank" rel="noopener">Presupuesto 2027: con la ayuda de aliados, LLA obtuvo dictamen de mayoría y se debate la próxima semana</a><div class="baj">En la Comisión de Presupuesto y Hacienda, el oficialismo fue acompañado por el Pro, la UCR, el MID y bloques provinciales. La oposición presentó dictámenes propios. No hubo aumento en las partidas para universidades. Fondos en discapacidad, garantizados. La entrada Presupuesto 2027: con la ayuda de…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Página/12" data-texto="córdoba: de aprobarse el presupuesto 2027, la baja de ingresos brutos alcanzará a 110 mil contribuyentes  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:56</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/cordoba-de-aprobarse-el-presupuesto-2027-la-baja-de-ingresos-brutos-alcanzara-a-110-mil-contribuyentes/" target="_blank" rel="noopener">Córdoba: de aprobarse el Presupuesto 2027, la baja de Ingresos Brutos alcanzará a 110 mil contribuyentes</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="martín llaryora redobla la baja de impuestos en el presupuesto 2027 de córdoba el presupuesto 2027 contempla rebajas en el inmobiliario urbano y en ingresos brutos, incentivos para el comercio y beneficios para el campo y la industria, en un contexto de caída del consumo y el empleo. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:04</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/martin-llaryora-redobla-la-baja-impuestos-el-presupuesto-2027-cordoba-n6346593" target="_blank" rel="noopener">Martín Llaryora redobla la baja de impuestos en el Presupuesto 2027 de Córdoba</a><div class="baj">El Presupuesto 2027 contempla rebajas en el Inmobiliario Urbano y en Ingresos Brutos, incentivos para el comercio y beneficios para el campo y la industria, en un contexto de caída del consumo y el empleo.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="presupuesto 2027: el gobierno aceptó cambios en discapacidad y auh para asegurar apoyos y obtuvo dictamen en diputados la libertad avanza logró avanzar con el proyecto tras incorporar reclamos de bloques aliados. se mantuvo la actualización de la auh y las asignaciones familiares, se retiraron artículos cuestionados sobre discapacidad y se abrieron instancias de negociación sobre universidades y obras de… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">08:31</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/presupuesto-2027-gobierno-acepto-cambios-discapacidad-auh-asegurar-apoyos-obtuvo-dictamen-diputados_1_13673342.html" target="_blank" rel="noopener">Presupuesto 2027: el Gobierno aceptó cambios en discapacidad y AUH para asegurar apoyos y obtuvo dictamen en Diputados</a><div class="baj">La Libertad Avanza logró avanzar con el proyecto tras incorporar reclamos de bloques aliados. Se mantuvo la actualización de la AUH y las asignaciones familiares, se retiraron artículos cuestionados sobre discapacidad y se abrieron instancias de negociación sobre universidades y obras de…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="A24" data-texto="presupuesto 2027: el oficialismo consiguió dictamen de mayoría en diputados con el respaldo de bloques aliados  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">21:39</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/presupuesto-2027-el-oficialismo-consiguio-dictamen-mayoria-diputados-el-respaldo-bloques-aliados-n1617489" target="_blank" rel="noopener">Presupuesto 2027: el oficialismo consiguió dictamen de mayoría en Diputados con el respaldo de bloques aliados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Letra P" data-texto="presupuesto 2027: con aumentos a discapacidad y ajuste en universidades, el gobierno logró dictaminar  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">21:08</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/presupuesto-2027-aumentos-discapacidad-y-ajuste-universidades-el-gobierno-logro-dictaminar-n5428303" target="_blank" rel="noopener">Presupuesto 2027: con aumentos a discapacidad y ajuste en universidades, el Gobierno logró dictaminar</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="presupuesto 2027: el oficialismo consiguió dictamen y el proyecto se tratará el 25 de noviembre en diputados  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">20:33</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/17/el-oficialismo-busca-conseguir-dictamen-para-el-presupuesto-2027-tras-lograr-un-acuerdo-con-los-bloques-aliados/" target="_blank" rel="noopener">Presupuesto 2027: el oficialismo consiguió dictamen y el proyecto se tratará el 25 de noviembre en Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno hizo concesiones, pero logró dictaminar el presupuesto y diputados lo debatirá la semana que viene el oficialismo contó con el apoyo del pro, la ucr, el mid, producción y trabajo, elijo catamarca e independencia. incluyeron los fondos para la nueva ley de discapacidad, pero no aceptaron aumentar las partidas para las universidades. con caba se alcanzó un “compromiso” de regularizar las deudas… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">19:40</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/17/el-gobierno-hizo-concesiones-pero-logro-dictaminar-el-presupuesto-y-diputados-lo-debatira-la-semana-que-viene/" target="_blank" rel="noopener">El Gobierno hizo concesiones, pero logró dictaminar el Presupuesto y Diputados lo debatirá la semana que viene</a><div class="baj">El oficialismo contó con el apoyo del PRO, la UCR, el MID, Producción y Trabajo, Elijo Catamarca e Independencia. Incluyeron los fondos para la nueva ley de Discapacidad, pero no aceptaron aumentar las partidas para las universidades. Con CABA se alcanzó un “compromiso” de regularizar las deudas…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="presupuesto 2027: con concesiones a sus aliados, el gobierno obtuvo el aval para debatir el proyecto en diputados la próxima semana el oficialismo mantuvo la actualización automática de las asignaciones familiares y retiró los artículos que desarticulaban el régimen de discapacidad; reunió el apoyo de pro, la ucr, el mid y legisladores de tucumán, catamarca y san juan presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:49</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/presupuesto-2027-con-concesiones-a-sus-aliados-el-gobierno-obtuvo-el-aval-para-debatir-el-proyecto-nid17112026/" target="_blank" rel="noopener">Presupuesto 2027: con concesiones a sus aliados, el Gobierno obtuvo el aval para debatir el proyecto en Diputados la próxima semana</a><div class="baj">El oficialismo mantuvo la actualización automática de las asignaciones familiares y retiró los artículos que desarticulaban el régimen de discapacidad; reunió el apoyo de Pro, la UCR, el MID y legisladores de Tucumán, Catamarca y San Juan</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="C5N" data-texto="presupuesto 2027: con ayuda de aliados, el gobierno consiguió dictamen en diputados y quedó listo para llegar al recinto  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:11</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/camara-diputados-comision-presupuesto-2027-dictamen-17-noviembre-2026" target="_blank" rel="noopener">Presupuesto 2027: con ayuda de aliados, el Gobierno consiguió dictamen en Diputados y quedó listo para llegar al recinto</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="la libertad avanza consiguió respaldo para el presupuesto 2027 y lo llevará a sesión la próxima semana después de cuatro jornadas de debate, el oficialismo consiguió el respaldo de seis bloques aliados prometiendo fondos de partidas discrecionales. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">18:04</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/la-libertad-avanza-consiguio-respaldo-el-presupuesto-2027-y-lo-llevara-sesion-la-proxima-semana-n6346354" target="_blank" rel="noopener">La Libertad Avanza consiguió respaldo para el Presupuesto 2027 y lo llevará a sesión la próxima semana</a><div class="baj">Después de cuatro jornadas de debate, el oficialismo consiguió el respaldo de seis bloques aliados prometiendo fondos de partidas discrecionales.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="La Política Online" data-texto="el gobierno tuvo que bajar las colectoras para sacar la suspensión de las paso el oficialismo no consiguió el apoyo de los aliados para aprobar el dictamen en la comisión de asuntos constitucionales y tuvo que eliminar las colectoras. ">
+        <td class="tema-col"><b>4</b> · 7 medios</td>
+        <td class="num">12:55</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/el-gobierno-tuvo-que-bajar-las-colectoras/" target="_blank" rel="noopener">El gobierno tuvo que bajar las colectoras para sacar la suspensión de las PASO</a><div class="baj">El oficialismo no consiguió el apoyo de los aliados para aprobar el dictamen en la Comisión de Asuntos Constitucionales y tuvo que eliminar las colectoras.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="el gobierno retiró las listas colectoras para asegurarse el apoyo para suspender las paso el proyecto de ley con cambios se debatirá esta tarde en comisión en el senado; con las modificaciones, el oficialismo lograría el dictamen ">
+        <td class="tema-col"></td>
+        <td class="num">13:59</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-gobierno-retiro-las-listas-colectoras-para-asegurarse-el-apoyo-para-suspender-las-paso-nid18112026/" target="_blank" rel="noopener">El Gobierno retiró las listas colectoras para asegurarse el apoyo para suspender las PASO</a><div class="baj">El proyecto de ley con cambios se debatirá esta tarde en comisión en el Senado; con las modificaciones, el oficialismo lograría el dictamen</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Página/12" data-texto="desesperado por los votos, el oficialismo da marcha atrás con las colectoras patricia bullrich anunció en la comisión de asuntos constitucionales la decisión de eliminar el artículo que generaba resistencias en algunos aliados. por la tarde los libertarios esperan lograr las firmas para el dictamen y avanzar con la suspensión de las paso. ">
+        <td class="tema-col"></td>
+        <td class="num">13:54</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/desesperado-por-los-votos-el-oficialismo-da-marcha-atras-con-las-colectoras/" target="_blank" rel="noopener">Desesperado por los votos, el oficialismo da marcha atrás con las colectoras</a><div class="baj">Patricia Bullrich anunció en la Comisión de Asuntos Constitucionales la decisión de eliminar el artículo que generaba resistencias en algunos aliados. Por la tarde los libertarios esperan lograr las firmas para el dictamen y avanzar con la suspensión de las PASO.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="el gobierno dio marcha atrás con las colectoras para destrabar la suspensión de las paso en el senado patricia bullrich anunció que el oficialismo retirará el artículo que habilitaba ese mecanismo, uno de los principales puntos de conflicto con los bloques dialoguistas. la libertad avanza buscará conseguir este miércoles el dictamen en comisión para llevar el proyecto al recinto la próxima semana… ">
+        <td class="tema-col"></td>
+        <td class="num">13:34</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/gobierno-dio-marcha-colectoras-destrabar-suspension-paso-senado_1_13674773.html" target="_blank" rel="noopener">El Gobierno dio marcha atrás con las colectoras para destrabar la suspensión de las PASO en el Senado</a><div class="baj">Patricia Bullrich anunció que el oficialismo retirará el artículo que habilitaba ese mecanismo, uno de los principales puntos de conflicto con los bloques dialoguistas. La Libertad Avanza buscará conseguir este miércoles el dictamen en comisión para llevar el proyecto al recinto la próxima semana…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="suspensión de las paso: lla anunció que elimina las colectoras del proyecto para conseguir apoyos clave  ">
+        <td class="tema-col"></td>
+        <td class="num">12:45</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/18/suspension-de-las-paso-lla-acepta-incluir-cambios-en-el-proyecto-para-sumar-apoyos-y-conseguir-el-dictamen/" target="_blank" rel="noopener">Suspensión de las PASO: LLA anunció que elimina las colectoras del proyecto para conseguir apoyos clave</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="senado: la resistencia a las listas colectoras complica el objetivo del gobierno de suspender las paso el oficialismo admitió dificultades para conseguir el dictamen y se determinó un cuarto intermedio hasta este miércoles; incluir los acoples fue la condición que pusieron gobernadores radicales para apoyar la anulación de las primaras ">
+        <td class="tema-col"></td>
+        <td class="num">22:14</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/senado-se-reune-una-comision-clave-para-tratar-la-reforma-electoral-pero-el-gobierno-no-tiene-aun-nid17112026/" target="_blank" rel="noopener">Senado: la resistencia a las listas colectoras complica el objetivo del Gobierno de suspender las PASO</a><div class="baj">El oficialismo admitió dificultades para conseguir el dictamen y se determinó un cuarto intermedio hasta este miércoles; incluir los acoples fue la condición que pusieron gobernadores radicales para apoyar la anulación de las primaras</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Clarín" data-texto="el oficialismo tuvo que postergar el dictamen para suspender las paso  ">
+        <td class="tema-col"></td>
+        <td class="num">19:23</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/oficialismo-postergar-dictamen-suspender-paso_3_wSTuq95e98.html" target="_blank" rel="noopener">El oficialismo tuvo que postergar el dictamen para suspender las PASO</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="C5N" data-texto="el oficialismo no consiguió dictamen para suspender las paso  ">
+        <td class="tema-col"></td>
+        <td class="num">17:13</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/el-oficialismo-no-consiguio-dictamen-suspender-las-paso-n254600" target="_blank" rel="noopener">El oficialismo no consiguió dictamen para suspender las PASO</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="suspensión de las paso: lla afirma que no tiene los apoyos para lograr dictamen hoy y continúa las negociaciones  ">
+        <td class="tema-col"></td>
+        <td class="num">16:39</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/17/suspension-de-las-paso-lla-afirma-que-tiene-los-apoyos-para-lograr-dictamen-y-tratar-el-proyecto-en-el-senado-la-proxima-semana/" target="_blank" rel="noopener">Suspensión de las PASO: LLA afirma que no tiene los apoyos para lograr dictamen hoy y continúa las negociaciones</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="C5N" data-texto="ueno bank: renunció el fiscal general de paraguay ante el inminente juicio político en su contra  ">
+        <td class="tema-col"><b>5</b> · 3 medios</td>
+        <td class="num">18:05</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/mundo/ueno-bank-renuncio-el-fiscal-general-paraguay-el-inminente-juicio-politico-su-contra-n254607" target="_blank" rel="noopener">Ueno Bank: renunció el fiscal general de Paraguay ante el inminente juicio político en su contra</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="escándalo en fraile pintado: iniciaron juicio político al intendente y se atrinchero en la municipalidad  ">
+        <td class="tema-col"></td>
+        <td class="num">15:39</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/escandalo-fraile-pintado-iniciaron-juicio-politico-intendente-atrinchero-municipalidad_0_xZwZJiJkRV.html" target="_blank" rel="noopener">Escándalo en Fraile Pintado: iniciaron juicio político al intendente y se atrinchero en la Municipalidad</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="escándalo en fraile pintado: iniciaron juicio político al intendente y se atrincheró  ">
+        <td class="tema-col"></td>
+        <td class="num">15:35</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/escandalo-fraile-pintado-iniciaron-juicio-politico-intendente-atrinchero_3_W17u5tavKo.html" target="_blank" rel="noopener">Escándalo en Fraile Pintado: iniciaron juicio político al intendente y se atrincheró</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Ámbito" data-texto="crisis política en paraguay: renunció el fiscal general acorralado por el caso ueno bank y un inminente juicio político  ">
+        <td class="tema-col"></td>
+        <td class="num">14:35</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/crisis-politica-paraguay-renuncio-el-fiscal-general-acorralado-el-caso-ueno-bank-y-un-inminente-juicio-politico-n6346213" target="_blank" rel="noopener">Crisis política en Paraguay: renunció el fiscal general acorralado por el caso Ueno Bank y un inminente juicio político</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados inició el tratamiento del proyecto que busca fortalecer el sistema de salud la iniciativa es impulsada por el diputado salteño bernardo biella quien explicó que la misma propone una moratoria hasta 180 cuotas, un recupero de iva, un relevamiento y compensación de créditos sobre la deuda del pami y una cuenta esencial sanatorial. la entrada diputados inició el tratamiento… emergencia en discapacidad">
+        <td class="tema-col"><b>6</b> · 3 medios<br>Emergencia en discapacidad</td>
+        <td class="num">16:32</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/diputados-inicio-el-tratamiento-del-proyecto-que-busca-fortalecer-el-sistema-de-salud/" target="_blank" rel="noopener">Diputados inició el tratamiento del proyecto que busca fortalecer el sistema de salud</a><div class="baj">La iniciativa es impulsada por el diputado salteño Bernardo Biella quien explicó que la misma propone una moratoria hasta 180 cuotas, un recupero de IVA, un relevamiento y compensación de créditos sobre la deuda del PAMI y una cuenta esencial sanatorial. La entrada Diputados inició el tratamiento…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Página/12" data-texto="convocan a una movilización al congreso por el tratamiento de la ley de discapacidad: ¿qué dice el proyecto? “no podemos esperar más y no queremos ningún cambio”, advirtieron desde la federación argentina de transportistas para personas con discapacidad (fatradis). emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">12:28</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/convocan-a-una-movilizacion-al-congreso-por-el-tratamiento-de-la-ley-de-discapacidad-que-dice-el-proyecto/" target="_blank" rel="noopener">Convocan a una movilización al Congreso por el tratamiento de la Ley de Discapacidad: ¿qué dice el proyecto?</a><div class="baj">“No podemos esperar más y no queremos ningún cambio”, advirtieron desde la Federación Argentina de Transportistas para Personas con Discapacidad (FATRADIS).</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Proyecto" data-medio="Ámbito" data-texto="se presentó en diputados un proyecto de ley con beneficios impositivos para el sistema privado de salud  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">14:36</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/se-presento-diputados-un-proyecto-ley-beneficios-impositivos-el-sistema-privado-salud-n6346214" target="_blank" rel="noopener">Se presentó en Diputados un proyecto de ley con beneficios impositivos para el sistema privado de salud</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Clarín" data-texto="paris hilton impulsa una ley bipartidista en ee.uu. contra los ‘deepfakes’: es por las imágenes sexuales falsas creadas con ia  ">
+        <td class="tema-col"><b>7</b> · 3 medios</td>
+        <td class="num">01:36</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/paris-hilton-impulsa-ley-bipartidista-eeuu-deepfakes-imagenes-sexuales-falsas-creadas-ia_0_7zDSC8JDK3.html" target="_blank" rel="noopener">Paris Hilton impulsa una ley bipartidista en EE.UU. contra los ‘deepfakes’: es por las imágenes sexuales falsas creadas con IA</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Página/12" data-texto="ee.uu: paris hilton exigió que aprueben un proyecto bipartidista para combatir las “deep fakes” sexuales “estas imágenes pueden ser artificiales, pero el miedo es real. la vulneración es real”, denunció la empresaria, que pide que el documento, aprobado en el senado, sea tratado cuanto antes en la cámara de representantes. ">
+        <td class="tema-col"></td>
+        <td class="num">12:00</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/eeuu-paris-hilton-exigio-que-aprueben-un-proyecto-bipartidista-para-combatir-las-deep-fakes-sexuales/" target="_blank" rel="noopener">EE.UU: Paris Hilton exigió que aprueben un proyecto bipartidista para combatir las “deep fakes” sexuales</a><div class="baj">“Estas imágenes pueden ser artificiales, pero el miedo es real. La vulneración es real”, denunció la empresaria, que pide que el documento, aprobado en el Senado, sea tratado cuanto antes en la Cámara de Representantes.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="Ámbito" data-texto="paris hilton impulsa una ley contra los deepfakes en eeuu para combatir las imágenes sexuales creadas con ia  ">
+        <td class="tema-col"></td>
+        <td class="num">12:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/paris-hilton-impulsa-una-ley-contra-los-deepfakes-eeuu-combatir-las-imagenes-sexuales-creadas-ia-n6346639" target="_blank" rel="noopener">Paris Hilton impulsa una ley contra los deepfakes en EEUU para combatir las imágenes sexuales creadas con IA</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="los demócratas arrebatan alaska a los republicanos y amplían su mayoría en el senado  ">
+        <td class="tema-col"><b>8</b> · 2 medios</td>
+        <td class="num">00:40</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/los-democratas-arrebatan-alaska-a-los-republicanos-y-amplian-su-mayoria-en-el-senado_0_H1imcm2v6u.html" target="_blank" rel="noopener">Los demócratas arrebatan Alaska a los republicanos y amplían su mayoría en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Ámbito" data-texto="elecciones en eeuu: los demócratas ampliaron el control del senado con el triunfo de mary peltola en alaska  ">
+        <td class="tema-col"></td>
+        <td class="num">09:42</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/mundo/elecciones-eeuu-mary-peltola-gano-alaska-y-amplio-la-mayoria-democrata-el-senado-n6346520" target="_blank" rel="noopener">Elecciones en EEUU: los demócratas ampliaron el control del Senado con el triunfo de Mary Peltola en Alaska</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="ola azul en estados unidos: los demócratas también ganan en la conservadora alaska y amplían su avance en el senado a nueve bancas  ">
+        <td class="tema-col"></td>
+        <td class="num">08:59</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/ola-azul-estados-unidos-democratas-ganan-conservadora-alaska-amplian-avance-senado-bancas_0_7U4NbHHPgO.html" target="_blank" rel="noopener">Ola azul en Estados Unidos: los demócratas también ganan en la conservadora Alaska y amplían su avance en el Senado a nueve bancas</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="demócratas se apoderaron de 9 escaños republicanos en el senado, la mayor cifra en casi 70 años  ">
+        <td class="tema-col"></td>
+        <td class="num">01:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-se-apoderaron-de-9-escanos-republicanos-en-el-senado-la-mayor-cifra-en-casi-70-anos_0_lNhqsbsJCD.html" target="_blank" rel="noopener">Demócratas se apoderaron de 9 escaños republicanos en el Senado, la mayor cifra en casi 70 años</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="la demócrata mary peltola gana la elección al senado federal en alaska y vence a dan sullivan  ">
+        <td class="tema-col"></td>
+        <td class="num">00:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/la-democrata-mary-peltola-gana-la-eleccion-al-senado-federal-en-alaska-y-vence-a-dan-sullivan_0_S4OEYjqPCm.html" target="_blank" rel="noopener">La demócrata Mary Peltola gana la elección al Senado federal en Alaska y vence a Dan Sullivan</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="republicanos del senado discrepan sobre aprobar fondos para renovar sistema aéreo de eeuu  ">
+        <td class="tema-col"></td>
+        <td class="num">19:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/republicanos-del-senado-discrepan-sobre-aprobar-fondos-para-renovar-sistema-aereo-de-eeuu_0_5zTQDFTu5Z.html" target="_blank" rel="noopener">Republicanos del Senado discrepan sobre aprobar fondos para renovar sistema aéreo de EEUU</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="máximo k: “vamos a trabajar hasta el último día para que cristina sea candidata” en su visita a la pampa, en el marco del día de la militancia, el diputado nacional insistió que su madre “está buscando recuperar su derecho y somos millones quienes queremos elegir libremente”. la entrada máximo k: “vamos a trabajar hasta el último día para que cristina sea candidata” se publicó… ">
+        <td class="tema-col"><b>9</b> · 2 medios</td>
+        <td class="num">15:39</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/maximo-k-vamos-a-trabajar-hasta-el-ultimo-dia-para-que-cristina-sea-candidata/" target="_blank" rel="noopener">Máximo K: “Vamos a trabajar hasta el último día para que Cristina sea candidata”</a><div class="baj">En su visita a La Pampa, en el marco del Día de la Militancia, el diputado nacional insistió que su madre “está buscando recuperar su derecho y somos millones quienes queremos elegir libremente”. La entrada Máximo K: “Vamos a trabajar hasta el último día para que Cristina sea candidata” se publicó…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="máximo kirchner se mostró junto a sergio ziliotto en la pampa el diputado nacional y el gobernador compartieron una actividad en el marco del día de la militancia. ">
+        <td class="tema-col"></td>
+        <td class="num">13:34</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/maximo-kirchner-se-mostro-junto-sergio-ziliotto-la-pampa-n6346708" target="_blank" rel="noopener">Máximo Kirchner se mostró junto a Sergio Ziliotto en la Pampa</a><div class="baj">El diputado nacional y el gobernador compartieron una actividad en el marco del Día de la Militancia.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="La Nación" data-texto="alineado con trump, el gobierno se abstuvo de votar en la onu una resolución para combatir la violencia contra mujeres y niñas la delegación argentina evitó apoyar una iniciativa de francia, que se aprobó por 175 votos a favor, solo uno en contra (somalía) y seis abstenciones; críticas de la oposición ">
+        <td class="tema-col"><b>10</b> · 2 medios</td>
+        <td class="num">12:23</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/alineado-con-trump-el-gobierno-se-abstuvo-de-votar-en-la-onu-una-resolucion-para-combatir-la-nid18112026/" target="_blank" rel="noopener">Alineado con Trump, el Gobierno se abstuvo de votar en la ONU una resolución para combatir la violencia contra mujeres y niñas</a><div class="baj">La delegación argentina evitó apoyar una iniciativa de Francia, que se aprobó por 175 votos a favor, solo uno en contra (Somalía) y seis abstenciones; críticas de la oposición</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Infobae" data-texto="la argentina se abstuvo en la onu en la votación de una resolución contra la violencia de género como en otras instancias, el gobierno acompañó la postura de washington y quedó entre los seis países que no respaldaron el texto aprobado por 175 estados en la tercera comisión de la asamblea general ">
+        <td class="tema-col"></td>
+        <td class="num">13:29</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/la-argentina-se-abstuvo-en-la-onu-en-la-votacion-de-una-resolucion-contra-la-violencia-de-genero/" target="_blank" rel="noopener">La Argentina se abstuvo en la ONU en la votación de una resolución contra la violencia de género</a><div class="baj">Como en otras instancias, el Gobierno acompañó la postura de Washington y quedó entre los seis países que no respaldaron el texto aprobado por 175 Estados en la Tercera Comisión de la Asamblea General</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="La Política Online" data-texto="patricia rechaza el ofrecimiento de ser vice de milei y pide cambiar el plan económico la senadora dijo que tiene que reelegir el proyecto, sin mencionar a milei. advirtió que las elecciones se definen por la economía. ">
+        <td class="tema-col"><b>11</b> · 2 medios</td>
+        <td class="num">10:39</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/patricia-rechaza-el-ofrecimiento-de-ser-vice-de-milei-y-pide-cambiar-el-plan-economico/" target="_blank" rel="noopener">Patricia rechaza el ofrecimiento de ser vice de Milei y pide cambiar el plan económico</a><div class="baj">La senadora dijo que tiene que reelegir el proyecto, sin mencionar a Milei. Advirtió que las elecciones se definen por la economía.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Proyecto" data-medio="El Cronista" data-texto="bullrich pide más medidas para impulsar la economía: “tenemos que ganar las elecciones sí o sí” la senadora aseguró que su relación con milei es de “10 puntos” y que no representa un riesgo para el oficialismo. pidió que la mejora le llegue a sectores como la industria y el comercio. ">
+        <td class="tema-col"></td>
+        <td class="num">13:04</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/bullrich-pide-mas-medidas-para-impulsar-la-economia-tenemos-que-ganar-las-elecciones-si-o-si/" target="_blank" rel="noopener">Bullrich pide más medidas para impulsar la economía: “Tenemos que ganar las elecciones sí o sí”</a><div class="baj">La senadora aseguró que su relación con Milei es de “10 puntos” y que no representa un riesgo para el oficialismo. Pidió que la mejora le llegue a sectores como la industria y el comercio.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Clarín" data-texto="javier milei y sus medidas, en vivo: &#34;estamos entrando en el siglo de oro liberal y argentina será grande nuevamente&#34; el presidente habló esta mañana al recibir el título honoris causa de la universidad de belgrano. en el congreso, el gobierno busca avanzar con el dictamen para suspender las paso y con la ley malvinas. inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>12</b> · 2 medios<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">07:31</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/javier-milei-medidas-vivo-presidente-recibe-premio-honoris-causa-universidad-belgrano_0_QVnnD1RFQj.html" target="_blank" rel="noopener">Javier Milei y sus medidas, EN VIVO: &#34;Estamos entrando en el siglo de oro liberal y Argentina será grande nuevamente&#34;</a><div class="baj">El Presidente habló esta mañana al recibir el título Honoris Causa de la Universidad de Belgrano. En el Congreso, el Gobierno busca avanzar con el dictamen para suspender las PASO y con la Ley Malvinas.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Comisión" data-medio="Infobae" data-texto="javier milei recibió el título de doctor honoris causa y afirmó que “la justicia social nos hunde” durante una exposición sobre crecimiento económico, el mandatario cuestionó las políticas redistributivas, defendió la propiedad privada y reivindicó las reformas de su administración inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">12:42</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/javier-milei-recibio-el-titulo-de-doctor-honoris-causa-y-afirmo-que-la-justicia-social-nos-hunde/" target="_blank" rel="noopener">Javier Milei recibió el título de Doctor Honoris Causa y afirmó que “la justicia social nos hunde”</a><div class="baj">Durante una exposición sobre crecimiento económico, el mandatario cuestionó las políticas redistributivas, defendió la propiedad privada y reivindicó las reformas de su administración</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="diputados distinguió a emilce cuda con la máxima mención de honor de la cámara la teóloga argentina y funcionaria de la santa sede recibió la mención de honor “diputado nacional dr. juan bautista alberdi”. durante el acto, reivindicó el mensaje del papa león xiv sobre la misión cristiana, el encuentro con quienes sufren y la construcción de puentes frente a la polarización… ">
+        <td class="tema-col"><b>13</b> · 2 medios</td>
+        <td class="num">00:49</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/18/diputados-distinguio-a-emilce-cuda-con-la-maxima-mencion-de-honor-de-la-camara/" target="_blank" rel="noopener">Diputados distinguió a Emilce Cuda con la máxima mención de honor de la Cámara</a><div class="baj">La teóloga argentina y funcionaria de la Santa Sede recibió la Mención de Honor “Diputado Nacional Dr. Juan Bautista Alberdi”. Durante el acto, reivindicó el mensaje del papa León XIV sobre la misión cristiana, el encuentro con quienes sufren y la construcción de puentes frente a la polarización…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Otro" data-medio="Página/12" data-texto="emilce cuda fue reconocida con la máxima distinción de la cámara de diputados  ">
+        <td class="tema-col"></td>
+        <td class="num">10:46</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/emilce-cuda-fue-reconocida-con-la-maxima-distincion-de-la-camara-de-diputados/" target="_blank" rel="noopener">Emilce Cuda fue reconocida con la máxima distinción de la Cámara de Diputados</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Ámbito" data-texto="elección en la magistratura de la ciudad: ganó el oficialismo del colegio público, y retuvo dos de las tres bancas en juego la lista encabezada por unidad en defensa de la abogacía obtuvo el 53,85% de los votos y se aseguró cinco de los ocho lugares en el jurado de enjuiciamiento. la nueva composición tendrá un rol clave en la selección de jueces laborales. ">
+        <td class="tema-col"><b>14</b> · 2 medios</td>
+        <td class="num">23:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/eleccion-la-magistratura-la-ciudad-gano-el-oficialismo-del-colegio-publico-y-retuvo-dos-las-tres-bancas-juego-n6346450" target="_blank" rel="noopener">Elección en la Magistratura de la Ciudad: ganó el oficialismo del Colegio Público, y retuvo dos de las tres bancas en juego</a><div class="baj">La lista encabezada por Unidad en Defensa de la Abogacía obtuvo el 53,85% de los votos y se aseguró cinco de los ocho lugares en el Jurado de Enjuiciamiento. La nueva composición tendrá un rol clave en la selección de jueces laborales.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Clarín" data-texto="el oficialismo de los abogados ganó las elecciones para el consejo de la magistratura de la ciudad la alianza de la ucr, el pr y la cc obtuvo el 53 por ciento de los votos. lleva al organismo a hernán najenson y alejandra garcía. el peronismo segundo y la libertad avanza tercero. ">
+        <td class="tema-col"></td>
+        <td class="num">10:24</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/oficialismo-abogados-gano-elecciones-consejo-magistratura-ciudad_0_wjPelkP1X9.html" target="_blank" rel="noopener">El oficialismo de los abogados ganó las elecciones para el Consejo de la Magistratura de la Ciudad</a><div class="baj">La alianza de la UCR, el PR y la CC obtuvo el 53 por ciento de los votos. Lleva al organismo a Hernán Najenson y Alejandra García. El peronismo segundo y La Libertad Avanza tercero.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="TN" data-texto="la casa rosada respaldó el pedido del papa león xiv de no politizar sus homilías  ">
+        <td class="tema-col"><b>15</b> · 2 medios</td>
+        <td class="num">22:39</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/17/suspension-de-las-paso-un-legislador-cercano-a-bullrich-responsabilizo-a-la-casa-rosada-por-el-resultado-del-debate-en-el-senado/" target="_blank" rel="noopener">La Casa Rosada respaldó el pedido del papa León XIV de no politizar sus homilías</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Letra P" data-texto="la casa rosada pone en pausa las reuniones con el pro y el congreso de lla  ">
+        <td class="tema-col"></td>
+        <td class="num">10:11</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/la-casa-rosada-pone-pausa-las-reuniones-el-pro-y-el-congreso-lla-n5428253" target="_blank" rel="noopener">La Casa Rosada pone en pausa las reuniones con el PRO y el congreso de LLA</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Infobae" data-texto="senado: el oficialismo quiere dictaminar la suspensión de las paso y ya hay dudas por lo que ocurra en el recinto se precisarán diez firmas en comisión, ya sea en uno o varios despachos. de lograrlo, la clave pasará hacia la mayoría absoluta necesaria -37- en una eventual sesión -jueves 26-, con legisladores que demandan cambios según realidades diversas. una potencial votación en particular sería delicada ">
+        <td class="tema-col"><b>16</b> · 2 medios</td>
+        <td class="num">01:13</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/senado-el-oficialismo-quiere-dictaminar-la-suspension-de-las-paso-y-ya-hay-dudas-por-lo-que-ocurra-en-el-recinto/" target="_blank" rel="noopener">Senado: el oficialismo quiere dictaminar la suspensión de las PASO y ya hay dudas por lo que ocurra en el recinto</a><div class="baj">Se precisarán diez firmas en comisión, ya sea en uno o varios despachos. De lograrlo, la clave pasará hacia la mayoría absoluta necesaria -37- en una eventual sesión -jueves 26-, con legisladores que demandan cambios según realidades diversas. Una potencial votación en particular sería delicada</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Letra P" data-texto="paso: el gobierno no juntó los votos para dictaminar, pero confía en aprobar la suspensión antes de fin de mes  ">
+        <td class="tema-col"></td>
+        <td class="num">16:01</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/paso-el-gobierno-no-junto-los-votos-dictaminar-pero-confia-aprobar-la-suspension-antes-fin-mes-n5428290" target="_blank" rel="noopener">PASO: el Gobierno no juntó los votos para dictaminar, pero confía en aprobar la suspensión antes de fin de mes</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="C5N" data-texto="&#34;gerardo zamora, sergio uñac y natalia de la sota&#34;: sergio massa mencionó a tres posibles candidatos a presidente del peronismo  ">
+        <td class="tema-col"><b>17</b> · 2 medios</td>
+        <td class="num">21:45</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/gerardo-zamora-sergio-unac-y-natalia-la-sota-sergio-massa-menciono-tres-posibles-candidatos-presidente-del-peronismo-n254641" target="_blank" rel="noopener">&#34;Gerardo Zamora, Sergio Uñac y Natalia De la Sota&#34;: Sergio Massa mencionó a tres posibles candidatos a presidente del peronismo</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Ámbito" data-texto="sergio massa y el peronismo federal se reunieron en san fernando para armar un frente contra javier milei uñac, pichetto, urtubey e intendentes participaron del encuentro, donde plantearon priorizar la unidad por encima de las aspiraciones individuales para 2027. ">
+        <td class="tema-col"></td>
+        <td class="num">20:44</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/sergio-massa-y-el-peronismo-federal-se-reunieron-san-fernando-armar-un-frente-contra-javier-milei-n6346416" target="_blank" rel="noopener">Sergio Massa y el peronismo federal se reunieron en San Fernando para armar un frente contra Javier Milei</a><div class="baj">Uñac, Pichetto, Urtubey e intendentes participaron del encuentro, donde plantearon priorizar la unidad por encima de las aspiraciones individuales para 2027.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="la comisión de acuerdos avanzó con el análisis de 21 pliegos judiciales y del ministerio público la audiencia pública encabezada por maximiliano abad evaluó postulaciones para juzgados federales, tribunales orales, defensorías públicas y cámaras nacionales. los candidatos expusieron sus antecedentes y respondieron preguntas de los senadores. la entrada la comisión de acuerdos avanzó con el… ">
+        <td class="tema-col"><b>18</b> · 2 medios</td>
+        <td class="num">21:17</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/la-comision-de-acuerdos-avanzo-con-el-analisis-de-21-pliegos-judiciales-y-del-ministerio-publico/" target="_blank" rel="noopener">La Comisión de Acuerdos avanzó con el análisis de 21 pliegos judiciales y del Ministerio Público</a><div class="baj">La audiencia pública encabezada por Maximiliano Abad evaluó postulaciones para juzgados federales, tribunales orales, defensorías públicas y cámaras nacionales. Los candidatos expusieron sus antecedentes y respondieron preguntas de los senadores. La entrada La Comisión de Acuerdos avanzó con el…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Senado (prensa)" data-texto="la comisión de acuerdos trató 21 pliegos en audiencia pública se analizaron propuestas del poder ejecutivo para la designación de jueces, conjueces, defensores públicos y vocales de distintas cámaras y tribunales. ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24622/noticias" target="_blank" rel="noopener">LA COMISIÓN DE ACUERDOS TRATÓ 21 PLIEGOS EN AUDIENCIA PÚBLICA</a><div class="baj">Se analizaron propuestas del Poder Ejecutivo para la designación de jueces, conjueces, defensores públicos y vocales de distintas cámaras y tribunales.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Ámbito" data-texto="un diputado del pro reveló su deseo de competir contra jorge macri en caba y abrió la puerta a una interna fernando de andreis, mano derecha de mauricio macri, habló sobre sus intenciones de jugar por la jefatura porteña. &#34;jorge sabe que quiero ser candidato&#34;, dijo aunque aclaró que aún no decidió si será en 2027 o 2031. ">
+        <td class="tema-col"><b>19</b> · 2 medios</td>
+        <td class="num">20:24</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/un-diputado-del-pro-revelo-su-deseo-competir-contra-jorge-macri-caba-y-abrio-la-puerta-una-interna-n6346410" target="_blank" rel="noopener">Un diputado del PRO reveló su deseo de competir contra Jorge Macri en CABA y abrió la puerta a una interna</a><div class="baj">Fernando De Andreis, mano derecha de Mauricio Macri, habló sobre sus intenciones de jugar por la jefatura porteña. &#34;Jorge sabe que quiero ser candidato&#34;, dijo aunque aclaró que aún no decidió si será en 2027 o 2031.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Otro" data-medio="La Nación" data-texto="“quiero ser candidato a jefe de gobierno”, dijo fernando de andreis, mano derecha de mauricio macri el diputado nacional y secretario general de pro admitió que tiene deseos de competir y no descartó enfrentar a jorge macri en 2027, aunque aclaró que no tiene apuro ">
+        <td class="tema-col"></td>
+        <td class="num">15:21</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/quiero-ser-candidato-a-jefe-de-gobierno-dijo-fernando-de-andreis-mano-derecha-de-mauricio-macri-nid17112026/" target="_blank" rel="noopener">“Quiero ser candidato a jefe de gobierno”, dijo Fernando De Andreis, mano derecha de Mauricio Macri</a><div class="baj">El diputado nacional y secretario general de Pro admitió que tiene deseos de competir y no descartó enfrentar a Jorge Macri en 2027, aunque aclaró que no tiene apuro</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="avanza un &#34;nuevo proyecto de ley integral” para regular las apuestas en línea la comisión de juegos de azar, lotería y prevención de la ludopatía de la cámara de diputados alumbró un despacho alternativo al ventilado por integrantes del oficialismo y emitió dos despachos, uno de minoría y otro de mayoría. la entrada avanza un &#34;nuevo proyecto de ley integral” para regular las… ">
+        <td class="tema-col"><b>20</b> · 2 medios</td>
+        <td class="num">15:11</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/avanzar-un-nuevo-proyecto-de-ley-integral-para-regular-las-apuestas-en-linea/" target="_blank" rel="noopener">Avanza un &#34;nuevo proyecto de ley integral” para regular las apuestas en línea</a><div class="baj">La Comisión de Juegos de Azar, Lotería y Prevención de la Ludopatía de la Cámara de Diputados alumbró un despacho alternativo al ventilado por integrantes del oficialismo y emitió dos despachos, uno de minoría y otro de mayoría. La entrada Avanza un &#34;nuevo proyecto de ley integral” para regular las…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Senado (prensa)" data-texto="continúa el debate sobre el proyecto de reforma electoral integral se analizaron las modificaciones propuestas y los artículos que serán objeto de sustitución.tras el intercambio de posiciones y los cuestionamientos planteados por los senadores, se acordó pasar a un cuarto intermedio hasta mañana a las 12 horas, par... ">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24623/noticias" target="_blank" rel="noopener">CONTINÚA EL DEBATE SOBRE EL PROYECTO DE REFORMA ELECTORAL INTEGRAL</a><div class="baj">Se analizaron las modificaciones propuestas y los artículos que serán objeto de sustitución.Tras el intercambio de posiciones y los cuestionamientos planteados por los senadores, se acordó pasar a un cuarto intermedio hasta mañana a las 12 horas, par...</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el gpa con panamá mantuvo un encuentro virtual con representantes de la asamblea nacional de ese país con representantes diplomáticos también participando, la reunión tuvo lugar en el salón delia parodi de la cámara de diputados. la entrada el gpa con panamá mantuvo un encuentro virtual con representantes de la asamblea nacional de ese país se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">16:09</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/el-gpa-con-panama-mantuvo-un-encuentro-virtual-con-representantes-de-la-asamblea-nacional-de-ese-pais/" target="_blank" rel="noopener">El GPA con Panamá mantuvo un encuentro virtual con representantes de la Asamblea Nacional de ese país</a><div class="baj">Con representantes diplomáticos también participando, la reunión tuvo lugar en el Salón Delia Parodi de la Cámara de Diputados. La entrada El GPA con Panamá mantuvo un encuentro virtual con representantes de la Asamblea Nacional de ese país se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="bajo la presencia del embajador, se constituyó el gpa con finlandia asistió veikko roobert kiljunen. el grupo quedó presidido por la diputada oficialista vanesa tomassoni. la reunión se realizó en el salón blanco. la entrada bajo la presencia del embajador, se constituyó el gpa con finlandia se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">16:06</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/bajo-la-presencia-del-embajador-se-constituyo-el-gpa-con-finlandia/" target="_blank" rel="noopener">Bajo la presencia del embajador, se constituyó el GPA con Finlandia</a><div class="baj">Asistió Veikko Roobert Kiljunen. El grupo quedó presidido por la diputada oficialista Vanesa Tomassoni. La reunión se realizó en el Salón Blanco. La entrada Bajo la presencia del embajador, se constituyó el GPA con Finlandia se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="senadores de estados unidos advierten sobre fallas de seguridad vinculadas a la inteligencia artificial tras apagones tecnológicos masivos  ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">13:52</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/senadores-estados-unidos-advierten-fallas-seguridad-vinculadas-inteligencia-artificial-apagones-tecnologicos-masivos_0_B06bXtLBhr.html" target="_blank" rel="noopener">Senadores de Estados Unidos advierten sobre fallas de seguridad vinculadas a la inteligencia artificial tras apagones tecnológicos masivos</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="demócratas del congreso preparan investigación por presunta corrupción en entorno de trump  ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">12:50</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-del-congreso-preparan-investigacion-por-presunta-corrupcion-en-entorno-de-trump_0_R9US3RIxHK.html" target="_blank" rel="noopener">Demócratas del Congreso preparan investigación por presunta corrupción en entorno de Trump</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="El Cronista" data-texto="por la ley 24.449, los conductores deberán esperar hasta los 21 años para tramitar esta categoría de licencia de conducir y no podrán hacerlo a los 18 la ley nacional de tránsito establece un requisito de edad para quienes buscan manejar camiones, vehículos de transporte de pasajeros y unidades con acoplado. ley 24.449">
+        <td class="tema-col"><b>24</b> · 1 medio<br>Ley 24.449</td>
+        <td class="num">12:05</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/informacion-gral/por-la-ley-24449-los-conductores-deberan-esperar-hasta-los-21-anos-para-tramitar-esta-categoria-de-licencia-de-conducir-y-no-podran-hacerlo-a-los-18/" target="_blank" rel="noopener">Por la Ley 24.449, los conductores deberán esperar hasta los 21 años para tramitar esta categoría de licencia de conducir y no podrán hacerlo a los 18</a><div class="baj">La Ley Nacional de Tránsito establece un requisito de edad para quienes buscan manejar camiones, vehículos de transporte de pasajeros y unidades con acoplado.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Página/12" data-texto="kelly olmos: “estamos pensando en una gran paso” la diputada participó del encuentro por el día de la militancia y sostuvo que el justicialismo “busca priorizar ideas para la gestión”. ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">12:02</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/18/kelly-olmos-estamos-pensando-en-una-gran-paso/" target="_blank" rel="noopener">Kelly Olmos: “Estamos pensando en una gran PASO”</a><div class="baj">La diputada participó del encuentro por el Día de la Militancia y sostuvo que el justicialismo “busca priorizar ideas para la gestión”.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="a cien años de su colocación, se encontró la piedra fundamental de la legislatura porteña los trabajos del área de patrimonio permitieron identificar la estructura enterrada y aportaron datos sobre la posible cápsula del tiempo instalada en 1926. la entrada a cien años de su colocación, se encontró la piedra fundamental de la legislatura porteña se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">10:50</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/18/a-cien-anos-de-su-colocacion-se-encontro-la-piedra-fundamental-de-la-legislatura-portena/" target="_blank" rel="noopener">A cien años de su colocación, se encontró la piedra fundamental de la Legislatura porteña</a><div class="baj">Los trabajos del área de Patrimonio permitieron identificar la estructura enterrada y aportaron datos sobre la posible cápsula del tiempo instalada en 1926. La entrada A cien años de su colocación, se encontró la piedra fundamental de la Legislatura porteña se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Infobae" data-texto="tolosa paz resaltó el acto del peronismo en san fernando y envió un mensaje a kicillof: &#34;nadie puede sentirse ofendido&#34; de cara a la interna del pj, la diputada nacional defendió la confluencia de sectores de la actividad por el día de la militancia en san fernando. y señaló que fue un ámbito para aglutinar peronistas que &#34;durante mucho tiempo no estuvimos ni cerca&#34; ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">10:37</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/tolosa-paz-resalto-el-acto-del-peronismo-en-san-fernando-y-envio-un-mensaje-a-kicillof-nadie-puede-sentirse-ofendido/" target="_blank" rel="noopener">Tolosa Paz resaltó el acto del peronismo en San Fernando y envió un mensaje a Kicillof: &#34;Nadie puede sentirse ofendido&#34;</a><div class="baj">De cara a la interna del PJ, la diputada nacional defendió la confluencia de sectores de la actividad por el Día de la Militancia en San Fernando. Y señaló que fue un ámbito para aglutinar peronistas que &#34;durante mucho tiempo no estuvimos ni cerca&#34;</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="sin novedades en el frente: los votos no estaban y el gobierno acelera entre la niebla por las paso &#34;lule&#34; menem negocia con gobernadores y diego santilli presiona con aportes del tesoro nacional (atn). la jugada de macri y los archivos sobre las colectoras ">
+        <td class="tema-col"><b>28</b> · 1 medio</td>
+        <td class="num">01:42</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/18/sin-novedades-en-el-frente-los-votos-no-estaban-y-el-gobierno-acelera-entre-la-niebla-por-las-paso/" target="_blank" rel="noopener">Sin novedades en el frente: los votos no estaban y el Gobierno acelera entre la niebla por las PASO</a><div class="baj">&#34;Lule&#34; Menem negocia con gobernadores y Diego Santilli presiona con Aportes del Tesoro Nacional (ATN). La jugada de Macri y los archivos sobre las colectoras</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="provincias unidas postuló a brügge y farías para el consejo de la magistratura el bloque que preside gisela scaglia anunció a los legisladores que propone para representar a la segunda minoría de la cámara de diputados en el consejo de la magistratura durante el período 2026-2030. polémica a la vista con el pro. la entrada provincias unidas postuló a brügge y farías para el… ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">00:35</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/18/provincias-unidas-postulo-a-brugge-y-farias-para-el-consejo-de-la-magistratura/" target="_blank" rel="noopener">Provincias Unidas postuló a Brügge y Farías para el Consejo de la Magistratura</a><div class="baj">El bloque que preside Gisela Scaglia anunció a los legisladores que propone para representar a la segunda minoría de la Cámara de Diputados en el Consejo de la Magistratura durante el período 2026-2030. Polémica a la vista con el Pro. La entrada Provincias Unidas postuló a Brügge y Farías para el…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="diputados debatieron los desafíos que plantea la manipulación de contenidos digitales la comisión de ciencia, tecnología e innovación productiva recibió a especialistas en derecho, informática y comunicación para analizar los riesgos asociados a la inteligencia artificial, los delitos informáticos y la necesidad de actualizar la legislación frente a la creciente manipulación de… ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">22:24</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/diputados-debatieron-los-desafios-que-plantea-la-manipulacion-de-contenidos-digitales/" target="_blank" rel="noopener">Diputados debatieron los desafíos que plantea la manipulación de contenidos digitales</a><div class="baj">La Comisión de Ciencia, Tecnología e Innovación Productiva recibió a especialistas en derecho, informática y comunicación para analizar los riesgos asociados a la inteligencia artificial, los delitos informáticos y la necesidad de actualizar la legislación frente a la creciente manipulación de…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados analizaron proyectos para implementar la trazabilidad de la pesca la comisión de intereses marítimos, fluviales, pesqueros y portuarios recibió a especialistas, sindicalistas y exfuncionarios para debatir mecanismos que permitan seguir el recorrido de los productos pesqueros desde su captura hasta su comercialización. el tema está vinculado al combate de la pesca… ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">22:13</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/diputados-analizaron-proyectos-para-implementar-la-trazabilidad-de-la-pesca/" target="_blank" rel="noopener">Diputados analizaron proyectos para implementar la trazabilidad de la pesca</a><div class="baj">La Comisión de Intereses Marítimos, Fluviales, Pesqueros y Portuarios recibió a especialistas, sindicalistas y exfuncionarios para debatir mecanismos que permitan seguir el recorrido de los productos pesqueros desde su captura hasta su comercialización. El tema está vinculado al combate de la pesca…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="la oposición logró dictamen para declarar la emergencia de las pymes la comisión de pequeñas y medianas empresas avanzó con un proyecto que declara la emergencia productiva, fiscal, laboral, financiera y tarifaria del sector. legisladores de distintos bloques advirtieron sobre el cierre de empresas y la pérdida de empleo, mientras el oficialismo rechazó el… ">
+        <td class="tema-col"><b>32</b> · 1 medio</td>
+        <td class="num">21:59</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/la-oposicion-logro-dictamen-para-declarar-la-emergencia-de-las-pymes/" target="_blank" rel="noopener">La oposición logró dictamen para declarar la emergencia de las PyMEs</a><div class="baj">La Comisión de Pequeñas y Medianas Empresas avanzó con un proyecto que declara la emergencia productiva, fiscal, laboral, financiera y tarifaria del sector. Legisladores de distintos bloques advirtieron sobre el cierre de empresas y la pérdida de empleo, mientras el oficialismo rechazó el…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="la comisión de familias, niñez y juventudes respaldó un seminario internacional sobre derechos de niños y adolescentes diputados y representantes de organizaciones sociales analizaron proyectos de resolución y declaración vinculados a la protección de derechos de las infancias. durante la reunión se destacó la realización de un seminario internacional sobre pobreza, desigualdad y vulneración de derechos en américa… ">
+        <td class="tema-col"><b>33</b> · 1 medio</td>
+        <td class="num">21:40</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/la-comision-de-familias-ninez-y-juventudes-respaldo-un-seminario-internacional-sobre-derechos-de-ninos-y-adolescentes/" target="_blank" rel="noopener">La Comisión de Familias, Niñez y Juventudes respaldó un seminario internacional sobre derechos de niños y adolescentes</a><div class="baj">Diputados y representantes de organizaciones sociales analizaron proyectos de resolución y declaración vinculados a la protección de derechos de las infancias. Durante la reunión se destacó la realización de un seminario internacional sobre pobreza, desigualdad y vulneración de derechos en América…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="TN" data-texto="después del caos en los aeropuertos, trump pidió us$50.100 millones al congreso para modernizar la infraestructura aérea de ee.uu.  ">
+        <td class="tema-col"><b>34</b> · 1 medio</td>
+        <td class="num">20:24</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/11/17/despues-del-caos-en-los-aeropuertos-trump-pidio-us50100-millones-al-congreso-para-modernizar-la-infraestructura-aerea-de-eeuu/" target="_blank" rel="noopener">Después del caos en los aeropuertos, Trump pidió US$50.100 millones al Congreso para modernizar la infraestructura aérea de EE.UU.</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="la comisión de comercio analizó junto al sector telefónico el avance del contrabando de celulares representantes de la industria, el comercio y los trabajadores expusieron ante diputados sobre el crecimiento del mercado ilegal de teléfonos móviles. advirtieron que cuatro de cada diez equipos vendidos en el país ingresan por canales irregulares y reclamaron medidas para combatir el fenómeno. la… ">
+        <td class="tema-col"><b>35</b> · 1 medio</td>
+        <td class="num">20:01</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/la-comision-de-comercio-analizo-junto-al-sector-telefonico-el-avance-del-contrabando-de-celulares/" target="_blank" rel="noopener">La Comisión de Comercio analizó junto al sector telefónico el avance del contrabando de celulares</a><div class="baj">Representantes de la industria, el comercio y los trabajadores expusieron ante diputados sobre el crecimiento del mercado ilegal de teléfonos móviles. Advirtieron que cuatro de cada diez equipos vendidos en el país ingresan por canales irregulares y reclamaron medidas para combatir el fenómeno. La…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="TN" data-texto="revés para benjamin netanyahu en israel: la oposición le arrebató al oficialismo la presidencia del parlamento  ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">19:04</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/11/17/reves-para-benjamin-netanyahu-en-israel-la-oposicion-le-arrebato-al-oficialismo-la-presidencia-del-parlamento/" target="_blank" rel="noopener">Revés para Benjamin Netanyahu en Israel: la oposición le arrebató al oficialismo la presidencia del Parlamento</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="el senado presentó una nueva edición de “la noche de las casas de provincia” con eje en el federalismo y la identidad cultural, la cámara alta fue escenario del lanzamiento de una iniciativa que abrirá al público las representaciones provinciales de la ciudad de buenos aires el próximo 19 de noviembre. la entrada el senado presentó una nueva edición de “la noche de las… ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">18:37</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/17/el-senado-presento-una-nueva-edicion-de-la-noche-de-las-casas-de-provincia/" target="_blank" rel="noopener">El Senado presentó una nueva edición de “La Noche de las Casas de Provincia”</a><div class="baj">Con eje en el federalismo y la identidad cultural, la Cámara alta fue escenario del lanzamiento de una iniciativa que abrirá al público las representaciones provinciales de la Ciudad de Buenos Aires el próximo 19 de noviembre. La entrada El Senado presentó una nueva edición de “La Noche de las…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="con la mira en las elecciones, el gobierno da marcha atrás en recortes en discapacidad, auh y asignaciones familiares  ">
+        <td class="tema-col"><b>38</b> · 1 medio</td>
+        <td class="num">18:02</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/economia/luego-hacer-concesiones-aliados-gobierno-logro-dictamen-presupuesto-2027_0_8rUE1a4H2F.html" target="_blank" rel="noopener">Con la mira en las elecciones, el Gobierno da marcha atrás en recortes en discapacidad, AUH y asignaciones familiares</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="el senador de eeuu rubén gallego pide trabajar por el costo de vida de los latinos  ">
+        <td class="tema-col"><b>39</b> · 1 medio</td>
+        <td class="num">17:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/el-senador-de-eeuu-ruben-gallego-pide-trabajar-por-el-costo-de-vida-de-los-latinos_0_76p0f5rawP.html" target="_blank" rel="noopener">El senador de EEUU Rubén Gallego pide trabajar por el costo de vida de los latinos</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="demócratas en el senado obligados a elegir entre van hollen y schumer como líder  ">
+        <td class="tema-col"><b>40</b> · 1 medio</td>
+        <td class="num">17:20</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democratas-en-el-senado-obligados-a-elegir-entre-van-hollen-y-schumer-como-lider_0_fjOC45wlsb.html" target="_blank" rel="noopener">Demócratas en el Senado obligados a elegir entre Van Hollen y Schumer como líder</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="TN" data-texto="un diputado ucraniano mostró sus genitales por accidente durante una entrevista en vivo: “perdón”  ">
+        <td class="tema-col"><b>41</b> · 1 medio</td>
+        <td class="num">16:03</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/internacional/2026/11/17/un-diputado-ucraniano-mostro-sus-genitales-por-accidente-durante-una-entrevista-en-vivo-perdon/" target="_blank" rel="noopener">Un diputado ucraniano mostró sus genitales por accidente durante una entrevista en vivo: “Perdón”</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Ámbito" data-texto="karina milei reunió a la mesa política y confirmó que enviará al congreso el acuerdo comercial con eeuu  ">
+        <td class="tema-col"><b>42</b> · 1 medio</td>
+        <td class="num">14:10</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/karina-milei-reunio-la-mesa-y-confirmo-que-enviara-al-congreso-el-acuerdo-comercial-eeuu-n6346203" target="_blank" rel="noopener">Karina Milei reunió a la mesa política y confirmó que enviará al Congreso el acuerdo comercial con EEUU</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="jornada “diabetes: conocimiento, cuidado y comunidad” la actividad reunió a especialistas médicos, profesionales de la salud y expertos en concientización y educación sobre la condición. ">
+        <td class="tema-col"><b>43</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24618/noticias" target="_blank" rel="noopener">JORNADA “DIABETES: CONOCIMIENTO, CUIDADO Y COMUNIDAD”</a><div class="baj">La actividad reunió a especialistas médicos, profesionales de la salud y expertos en concientización y educación sobre la condición.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-18 a las 14:09 hs (hora argentina) ·
+    <span class="estado-ok">19 respondieron bien</span> · <span class="estado-mal">2 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Diputados (agenda)</b>: https://www.hcdn.gob.ar/comisiones/agenda/: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: _ssl.c:994: The handshake operation timed out)</li><li><span class="estado-mal">✕</span> <b>Diputados (prensa)</b>: https://www.hcdn.gob.ar/prensa/: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: _ssl.c:994: The handshake operation timed out)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
