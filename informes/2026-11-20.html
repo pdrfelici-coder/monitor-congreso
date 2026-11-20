@@ -1,0 +1,1523 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-20</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Viernes 20 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 13:54 hs · 19/21 fuentes respondieron · <a href="#fuentes">2 caídas</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">123</div>
+      <div class="sub up">▲ +60% vs. promedio de 7 días (77)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">38</div>
+    <div class="sub">13 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">14</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>2</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>12</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 26 notas</span>
+    </div>
+    <h3><a href="https://www.pagina12.com.ar/2026/11/19/el-senado-aprobo-por-unanimidad-la-nueva-ley-de-discapacidad/" target="_blank" rel="noopener">El Senado aprobó por unanimidad la nueva Ley de Discapacidad</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">Emergencia en discapacidad</span>    </div>
+    <div class="medios">
+<a href="https://www.pagina12.com.ar/2026/11/19/el-senado-aprobo-por-unanimidad-la-nueva-ley-de-discapacidad/" target="_blank" rel="noopener" title="El Senado aprobó por unanimidad la nueva Ley de Discapacidad">Página/12 ↗</a><a href="https://www.pagina12.com.ar/2026/11/20/el-senado-provincial-le-dio-sancion-definitiva-a-la-reforma-de-seguridad/" target="_blank" rel="noopener" title="El Senado provincial le dio sanción definitiva a la reforma de seguridad">Página/12 ↗</a><a href="https://www.clarin.com/rural/oportunidad-historica-senado-dio-media-sancion-modificacion-ley-cabotaje-agroindustria-pide-pronto-tratamiento-diputados_0_dLEEM690Xx.html" target="_blank" rel="noopener" title="&#34;Oportunidad histórica&#34;: el Senado dio media sanción a la modificación de la Ley de Cabotaje y la agroindustria pide un &#34;pronto tratamiento&#34; en Diputados">Clarín ↗</a><a href="https://tn.com.ar/campo/2026/11/20/el-consejo-agroindustrial-celebro-la-media-sancion-de-la-ley-de-cabotaje/" target="_blank" rel="noopener" title="El Consejo Agroindustrial celebró la media sanción de la ley de cabotaje">TN ↗</a><a href="https://www.pagina12.com.ar/2026/11/20/un-voto-unanime-fruto-de-la-movilizacion-y-la-lucha/" target="_blank" rel="noopener" title="El Senado aprobó la Ley de Discapacidad: un voto unánime fruto de la movilización y la lucha">Página/12 ↗</a><a href="https://www.a24.com/politica/el-senado-convirtio-ley-el-nuevo-regimen-pensiones-discapacidad-y-aprobo-la-reforma-del-regimen-propiedad-privada-n1618276" target="_blank" rel="noopener" title="El Senado convirtió en ley el nuevo régimen de pensiones por discapacidad y aprobó la reforma del régimen de propiedad privada">A24 ↗</a><a href="https://www.lanacion.com.ar/politica/el-senado-sanciono-la-ley-de-discapacidad-y-la-oposicion-reclamo-al-gobierno-que-cumpla-con-su-nid19112026/" target="_blank" rel="noopener" title="Aprueban la nueva ley de Discapacidad y reclaman que el Gobierno cumpla con su reglamentación">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/11/19/senado-empezo-la-sesion-por-la-nueva-ley-de-discapacidad-y-la-restitucion-de-los-limites-a-la-compra-de-tierras-por-extranjeros/" target="_blank" rel="noopener" title="El Senado aprobó por unanimidad la nueva Ley de Discapacidad">TN ↗</a><a href="https://www.pagina12.com.ar/2026/11/20/ley-de-discapacidad-las-organizaciones-acompanaron-el-tratamiento-y-celebraron-la-sancion/" target="_blank" rel="noopener" title="Ley de Discapacidad: las organizaciones acompañaron el tratamiento y celebraron la sanción">Página/12 ↗</a><a href="https://www.senado.gob.ar/prensa/24647/noticias" target="_blank" rel="noopener" title="ES LEY EL FORTALECIMIENTO, SOSTENIBILIDAD Y EFICIENCIA PERMANENTE DEL SISTEMA DE DISCAPACIDAD">Senado (prensa) ↗</a><a href="https://www.c5n.com/politica/segui-en-vivo-sesion-senado-19-noviembre-2026" target="_blank" rel="noopener" title="Seguí en vivo el debate por el Régimen de Cabotaje y otros proyectos en el Senado">C5N ↗</a><a href="https://tn.com.ar/politica/2026/11/19/fin-de-la-emergencia-como-y-desde-cuando-se-va-a-aplicar-la-nueva-ley-de-discapacidad-que-aprobo-el-senado/" target="_blank" rel="noopener" title="Fin de la emergencia: cómo y desde cuándo se va a aplicar la nueva Ley de Discapacidad que aprobó el Senado">TN ↗</a><a href="https://www.ambito.com/politica/ley-discapacidad-que-cambia-las-pensiones-y-las-prestaciones-la-aprobacion-del-senado-n6347172" target="_blank" rel="noopener" title="Ley de Discapacidad: qué cambia para las pensiones y las prestaciones tras la aprobación del Senado">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/11/19/el-senado-sanciono-la-ley-de-discapacidad-se-mantienen-el-nomenclador-universal-y-la-actualizacion-por-inflacion/" target="_blank" rel="noopener" title="El Senado sancionó por unanimidad la nueva ley de discapacidad con los cambios que pidió la oposición">Infobae ↗</a><a href="https://www.letrap.com.ar/desafio-toto-caputo-el-senado-sanciono-la-ley-discapacidad-unanimidad-y-le-prohibe-ajustar-n5428377" target="_blank" rel="noopener" title="Desafío a Toto Caputo: el Senado sancionó la ley de discapacidad por unanimidad y le prohíbe ajustar">Letra P ↗</a><a href="https://tn.com.ar/politica/2026/11/19/punto-por-punto-que-cambia-con-la-nueva-ley-de-discapacidad-que-aprobo-el-senado/" target="_blank" rel="noopener" title="Punto por punto, qué cambia con la nueva Ley de Discapacidad que aprobó el Senado">TN ↗</a><a href="https://www.clarin.com/videos/senado-aprobo-ley-fortalecimiento-sistema-discapacidad_3_SGyTVhKkuY.html" target="_blank" rel="noopener" title="El Senado aprobó la Ley de Fortalecimiento del Sistema de Discapacidad">Clarín ↗</a><a href="https://www.eldiarioar.com/politica/senado-convirtio-ley-regimen-permanente-discapacidad-apoyo-bloques_1_13679027.html" target="_blank" rel="noopener" title="El Senado convirtió en ley un régimen permanente de discapacidad con el apoyo de todos los bloques">elDiarioAR ↗</a><a href="https://www.clarin.com/politica/senado-sanciono-unanimidad-nueva-ley-discapacidad_0_Ylvom4hFlv.html" target="_blank" rel="noopener" title="El Senado sancionó por unanimidad la nueva ley de Discapacidad">Clarín ↗</a><a href="https://www.a24.com/politica/por-unanimidad-el-senado-convirtio-ley-el-proyecto-que-establece-un-nuevo-regimen-pensiones-discapacidad-n1618227" target="_blank" rel="noopener" title="Por unanimidad, el Senado convirtió en ley el proyecto que establece un nuevo régimen de pensiones por discapacidad">A24 ↗</a><a href="https://www.c5n.com/politica/con-la-media-sancion-del-senado-es-ley-el-proyecto-fortalecimiento-del-sistema-discapacidad-n254843" target="_blank" rel="noopener" title="Con la media sanción del Senado, es ley el proyecto de Fortalecimiento del Sistema de Discapacidad">C5N ↗</a><a href="https://www.parlamentario.com/2026/11/19/discapacidad-por-unanimidad-el-senado-convirtio-en-ley-una-reforma-integral-para-fortalecer-el-sistema-de-proteccion-y-prestaciones/" target="_blank" rel="noopener" title="Discapacidad: Por unanimidad, el Senado convirtió en ley una reforma integral para fortalecer el sistema de protección y prestaciones">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/11/19/came-reclamo-a-diputados-la-aprobacion-de-la-nueva-ley-de-biocombustibles/" target="_blank" rel="noopener" title="CAME reclamó a diputados la aprobación de la nueva Ley de Biocombustibles">Parlamentario.com ↗</a><a href="https://tn.com.ar/politica/2026/11/19/ley-de-ludopatia-el-senado-acordo-debatir-el-proyecto-el-proximo-jueves-tras-los-reclamos-de-la-iglesia/" target="_blank" rel="noopener" title="Ley de Ludopatía: tras los reclamos de la Iglesia, el Senado acordó debatir el proyecto el próximo jueves">TN ↗</a><a href="https://www.lanacion.com.ar/politica/el-senado-se-encamina-a-sancionar-una-nueva-ley-de-discapacidad-pese-a-las-resistencias-del-gobierno-nid19112026/" target="_blank" rel="noopener" title="El Senado se encamina a sancionar una nueva ley de discapacidad pese a las resistencias del Gobierno">La Nación ↗</a><a href="https://www.parlamentario.com/2026/11/19/discapacidad-el-senado-debate-una-reforma-para-fortalecer-el-sistema-de-proteccion-y-prestaciones/" target="_blank" rel="noopener" title="Discapacidad: el Senado debate una reforma para fortalecer el sistema de protección y prestaciones">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>9</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 18 notas</span>
+    </div>
+    <h3><a href="https://tn.com.ar/politica/2026/11/19/el-senado-aprobo-el-tratado-de-patentes-y-continua-el-debate-por-la-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener">El Senado aprobó el tratado de patentes y la Ley de Inviolabilidad de la Propiedad Privada</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Sesión</span>
+<span class="chip proyecto">Inviolabilidad de la propiedad privada</span>    </div>
+    <div class="medios">
+<a href="https://tn.com.ar/politica/2026/11/19/el-senado-aprobo-el-tratado-de-patentes-y-continua-el-debate-por-la-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener" title="El Senado aprobó el tratado de patentes y la Ley de Inviolabilidad de la Propiedad Privada">TN ↗</a><a href="https://www.ambito.com/politica/tratado-patentes-que-cambia-los-medicamentos-y-que-pasara-los-precios-la-adhesion-n6347457" target="_blank" rel="noopener" title="Tratado de Patentes: qué cambia para los medicamentos y qué pasará con los precios tras la adhesión">Ámbito ↗</a><a href="https://www.eldiarioar.com/politica/gobierno-consiguio-votos-ley-tierras-seguira-vigente-mantienen-limites-extranjerizacion-campos_1_13679747.html" target="_blank" rel="noopener" title="El Gobierno consiguió los votos para la Ley de Tierras: permite desalojos exprés y otros privilegios a la propiedad privada">elDiarioAR ↗</a><a href="https://www.eldiarioar.com/politica/oficialismo-consiguio-senado-convierta-ley-adhesion-argentina-tratado-patentes_1_13679696.html" target="_blank" rel="noopener" title="El Senado aprobó la adhesión argentina al Tratado de Patentes y celebran los laboratorios extranjeros">elDiarioAR ↗</a><a href="https://www.clarin.com/sociedad/senado-voto-adhesion-argentina-tratado-patentes-impacto-farmacias-medicamentos_0_MYzOL6rCHG.html" target="_blank" rel="noopener" title="El Senado votó la adhesión de Argentina a un tratado de patentes: qué impacto tendrá en las farmacias con los medicamentos">Clarín ↗</a><a href="https://www.infobae.com/politica/2026/11/20/el-senado-sanciono-el-tratado-de-patentes-y-la-ley-de-propiedad-privada-con-tope-a-venta-de-tierras-a-extranjeros/" target="_blank" rel="noopener" title="El Senado sancionó el Tratado de Patentes y la ley de propiedad privada con tope a venta de tierras a extranjeros">Infobae ↗</a><a href="https://www.lanacion.com.ar/politica/el-senado-aprobo-la-reforma-del-regimen-de-propiedad-privada-que-restablece-la-ley-de-tierras-nid19112026/" target="_blank" rel="noopener" title="El Senado aprobó la reforma del régimen de propiedad privada que restablece la Ley de Tierras">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/11/20/pese-a-las-tensiones-el-senado-aprobo-tres-leyes-clave-discapacidad-propiedad-privada-y-tratado-de-patentes/" target="_blank" rel="noopener" title="Pese a las tensiones, el Senado aprobó tres leyes clave: discapacidad, propiedad privada y tratado de patentes">TN ↗</a><a href="https://www.letrap.com.ar/congreso/propiedad-privada-la-libertad-avanza-sanciono-el-proyecto-sturzenegger-y-le-sumo-la-ley-tierras-cfk-n5428383" target="_blank" rel="noopener" title="Propiedad privada: La Libertad Avanza sancionó el proyecto de Sturzenegger y le sumó la ley de tierras de CFK">Letra P ↗</a><a href="https://www.c5n.com/politica/el-senado-aprobo-los-cambios-la-ley-inviolabilidad-la-propiedad-privada-y-restituyo-la-ley-tierras-n254863" target="_blank" rel="noopener" title="El Senado aprobó los cambios a la Ley de Inviolabilidad de la Propiedad Privada y restituyó la Ley de Tierras">C5N ↗</a><a href="https://www.parlamentario.com/2026/11/19/ley-de-tierras-desalojos-y-expropiaciones-es-ley-el-proyecto-de-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener" title="Ley de Tierras, desalojos y expropiaciones: es ley el proyecto de Inviolabilidad de la Propiedad Privada">Parlamentario.com ↗</a><a href="https://www.letrap.com.ar/congreso/limite-donald-trump-el-congreso-ratifico-el-tratado-patentes-proteccion-los-laboratorios-locales-n5428382" target="_blank" rel="noopener" title="Límite a Donald Trump: el Congreso ratificó el Tratado de Patentes con protección a los laboratorios locales">Letra P ↗</a><a href="https://www.clarin.com/politica/senado-sanciono-ley-inviolabilidad-propiedad-ratifica-ley-tierras_0_ZtWrXUl7zg.html" target="_blank" rel="noopener" title="El Senado sancionó la Ley de Inviolabilidad de la Propiedad, que ratifica la Ley de Tierras">Clarín ↗</a><a href="https://www.infobae.com/politica/2026/11/19/senado-en-vivo-las-ultimas-noticias-del-debate-sobre-los-proyectos-de-discapacidad-propiedad-privada-y-patentes/" target="_blank" rel="noopener" title="El Senado aprobó las leyes de Discapacidad, inviolabilidad de la propiedad privada y un tratado de patentes con EEUU">Infobae ↗</a><a href="https://www.ambito.com/politica/el-senado-define-el-futuro-la-ley-tierras-y-la-adhesion-al-tratado-global-patentes-n6347359" target="_blank" rel="noopener" title="El Senado aprobó la adhesión al Tratado global de Patentes y blindó la ley de Tierras">Ámbito ↗</a><a href="https://www.lanacion.com.ar/politica/el-oficialismo-aprobo-la-adhesion-al-tratado-sobre-patentes-acordado-con-estados-unidos-nid19112026/" target="_blank" rel="noopener" title="El oficialismo aprobó la adhesión al tratado sobre patentes, un proyecto clave en la alianza de Milei con Estados Unidos">La Nación ↗</a><a href="https://www.parlamentario.com/2026/11/19/el-senado-sanciono-la-adhesion-al-tratado-de-patentes-solicitado-por-estados-unidos/" target="_blank" rel="noopener" title="El Senado sancionó la adhesión al Tratado de Patentes, solicitado por Estados Unidos">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/capitulo-clave-senado-ratifico-tratado-patentes-acordado-donald-trump_0_GMzDQnQJ5e.html" target="_blank" rel="noopener" title="Sin un capítulo clave, el Senado ratificó el Tratado de Patentes acordado con Donald Trump">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>7</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 11 notas</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/un-diputado-nacional-se-va-del-bloque-de-la-libertad-avanza-y-denuncia-un-pacto-con-el-pj-en-su-nid19112026/" target="_blank" rel="noopener">Un diputado nacional se va del bloque de La Libertad Avanza y denuncia un pacto con el PJ en su provincia</a></h3>
+<p class="bajada">El tucumano Mariano Campero, de origen radical, conformará un monobloque y apuntó contra los libertarios por los acercamientos con Jaldo; es uno de los que integra el equipo de Patricia Bullrich</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/un-diputado-nacional-se-va-del-bloque-de-la-libertad-avanza-y-denuncia-un-pacto-con-el-pj-en-su-nid19112026/" target="_blank" rel="noopener" title="Un diputado nacional se va del bloque de La Libertad Avanza y denuncia un pacto con el PJ en su provincia">La Nación ↗</a><a href="https://www.ambito.com/politica/avanza-diputados-un-proyecto-la-formalizacion-gratuita-los-clubes-barrio-n6347610" target="_blank" rel="noopener" title="Avanza en Diputados un proyecto para la formalización gratuita de los clubes de barrio">Ámbito ↗</a><a href="https://www.lanacion.com.ar/politica/di-tullio-le-apunto-a-bullrich-en-el-senado-hay-que-ser-cobarde-y-miserable-para-reprimir-a-personas-nid19112026/" target="_blank" rel="noopener" title="Di Tullio apuntó contra Bullrich: “Hay que ser cobarde y miserable para reprimir a personas con discapacidad”">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/11/19/el-diputado-que-rompio-con-lla-dijo-que-quiere-ser-gobernador-de-tucuman-y-respaldo-una-candidatura-presidencial-de-bullrich/" target="_blank" rel="noopener" title="El diputado que rompió con LLA dijo que quiere ser gobernador de Tucumán y respaldó una candidatura presidencial de Patricia Bullrich">TN ↗</a><a href="https://www.lanacion.com.ar/politica/el-diputado-que-abandono-el-bloque-de-la-libertad-avanza-dijo-que-le-gustaria-que-patricia-bullrich-nid19112026/" target="_blank" rel="noopener" title="El diputado que abandonó el bloque de La Libertad Avanza dijo que “le gustaría” que Patricia Bullrich sea candidata a presidenta">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/11/19/un-diputado-nacional-renuncio-al-bloque-oficialista-tras-denunciar-un-acuerdo-de-lla-con-el-pj-en-tucuman/" target="_blank" rel="noopener" title="Un diputado nacional renunció al bloque oficialista tras denunciar un acuerdo de LLA con el PJ en Tucumán">TN ↗</a><a href="https://www.c5n.com/politica/un-diputado-libertario-se-va-del-bloque-y-hace-temblar-los-numeros-que-necesita-milei-el-congreso-n254816" target="_blank" rel="noopener" title="Un diputado libertario se va del bloque y hace temblar los números que necesita Milei en el Congreso">C5N ↗</a><a href="https://www.ambito.com/ambito-nacional/el-diputado-tucumano-mariano-campero-dio-el-portazo-y-renuncio-al-bloque-lla-n6347256" target="_blank" rel="noopener" title="El diputado tucumano Mariano Campero dio el portazo y renunció al bloque de La Libertad Avanza">Ámbito ↗</a><a href="https://www.infobae.com/politica/2026/11/19/un-aliado-de-bullrich-se-va-del-bloque-libertario-denuncio-un-acuerdo-entre-lla-y-el-pj-en-su-provincia/" target="_blank" rel="noopener" title="Un aliado de Bullrich se va del bloque libertario: denunció un acuerdo entre LLA y el PJ en su provincia">Infobae ↗</a><a href="https://www.parlamentario.com/2026/11/19/campero-rompio-con-la-libertad-avanza-y-denuncio-un-acuerdo-entre-el-oficialismo-y-jaldo-en-tucuman/" target="_blank" rel="noopener" title="Campero rompió con La Libertad Avanza y denunció un acuerdo entre el oficialismo y Jaldo en Tucumán">Parlamentario.com ↗</a><a href="https://www.clarin.com/politica/diputado-libertario-deja-bloque-oficialista-denunciar-pacto-gobernador-peronista-osvaldo-jaldo-tucuman_0_TPsDdYciJP.html" target="_blank" rel="noopener" title="Un diputado libertario deja el bloque oficialista tras denunciar un pacto con el gobernador peronista Osvaldo Jaldo en Tucumán">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>6</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 13 notas</span>
+    </div>
+    <h3><a href="https://www.letrap.com.ar/congreso/con-un-guino-patricia-bullrich-el-pj-forzo-el-debate-la-ley-ludopatia-y-presiona-javier-milei-n5428352" target="_blank" rel="noopener">Con un guiño de Patricia Bullrich, el PJ forzó el debate de la ley de ludopatía y presiona a Javier Milei</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Emergencia en discapacidad</span>    </div>
+    <div class="medios">
+<a href="https://www.letrap.com.ar/congreso/con-un-guino-patricia-bullrich-el-pj-forzo-el-debate-la-ley-ludopatia-y-presiona-javier-milei-n5428352" target="_blank" rel="noopener" title="Con un guiño de Patricia Bullrich, el PJ forzó el debate de la ley de ludopatía y presiona a Javier Milei">Letra P ↗</a><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-el-senado-aprobo-la-nueva-ley-de-discapacidad-y-la-adhesion-al-nid20112026/" target="_blank" rel="noopener" title="Javier Milei y sus medidas, en vivo: “Los responsables van a ser juzgados”, dijo el Presidente sobre el atentado a la AMIA">La Nación ↗</a><a href="https://www.pagina12.com.ar/2026/11/20/oscar-zago-contra-milei-y-caputo-estoy-buscando-quien-es-ali-baba-porque-ladrones-hay-un-monton/" target="_blank" rel="noopener" title="Oscar Zago contra Milei y Caputo: “Estoy buscando quién es Alí Babá, porque ladrones hay un montón”">Página/12 ↗</a><a href="https://www.lanacion.com.ar/politica/nadia-marquez-busca-ser-la-candidata-a-gobernadora-de-milei-en-neuquen-pero-la-ley-de-ficha-limpia-nid20112026/" target="_blank" rel="noopener" title="Nadia Márquez busca ser la candidata a gobernadora de Milei en Neuquén, pero la ley de ficha limpia le impediría competir">La Nación ↗</a><a href="https://www.pagina12.com.ar/2026/11/20/milei-nos-arrastro-al-sinsentido-lapidario-editorial-de-victor-hugo-morales/" target="_blank" rel="noopener" title="“Milei nos arrastró al sinsentido”: lapidario editorial de Víctor Hugo Morales">Página/12 ↗</a><a href="https://www.ambito.com/politica/cuatro-gobernadores-dialoguistas-se-reunen-medio-la-ofensiva-legislativa-javier-milei-n6347468" target="_blank" rel="noopener" title="Cuatro gobernadores &#34;dialoguistas&#34; se reúnen en medio de la ofensiva legislativa de Javier Milei">Ámbito ↗</a><a href="https://www.clarin.com/politica/javier-milei-medidas-vivo-sancion-ley-discapacidad-oposicion-reclama-presidente-reglamente_0_gaGaIA399S.html" target="_blank" rel="noopener" title="Javier Milei y sus medidas, EN VIVO: la oposición le reclama al Presidente que reglamente la nueva Ley de Discapacidad">Clarín ↗</a><a href="https://www.pagina12.com.ar/2026/11/20/javier-milei-premio-a-la-side-con-otros-6-mil-millones-de-pesos/" target="_blank" rel="noopener" title="Javier Milei premió a la SIDE con otros 6 mil millones de pesos">Página/12 ↗</a><a href="https://www.ambito.com/politica/javier-milei-disertara-una-cena-contra-el-antisemitismo-plena-tension-patricia-bullrich-n6347364" target="_blank" rel="noopener" title="En medio de tensiones en el Gobierno, Javier Milei disertó en una cena contra el antisemitismo y aseguró que &#34;nos afecta a todos&#34;">Ámbito ↗</a><a href="https://www.ambito.com/politica/nadia-marquez-se-candidatea-ser-vice-javier-milei-2027-las-dudas-el-futuro-patricia-bullrich-n6347284" target="_blank" rel="noopener" title="Nadia Márquez se candidatea para ser vice de Javier Milei en 2027 ante las dudas sobre el futuro de Patricia Bullrich">Ámbito ↗</a><a href="https://www.c5n.com/sociedad/el-reclamo-familias-la-ley-discapacidad-es-indignante-el-odio-que-irradia-el-presidente-javier-milei-n254807" target="_blank" rel="noopener" title="El reclamo de familias por la Ley de Discapacidad: &#34;Es indignante el odio que irradia el presidente Javier Milei&#34;">C5N ↗</a><a href="https://www.ambito.com/politica/patricia-bullrich-pidio-un-plan-alivio-las-pymes-y-volvio-marcar-diferencias-javier-milei-n6347230" target="_blank" rel="noopener" title="Patricia Bullrich pidió un plan de alivio para las pymes y volvió a marcar diferencias con Javier Milei">Ámbito ↗</a><a href="https://www.clarin.com/politica/patricia-bullrich-gana-pulseada-karina-milei-conduccion-comision-clave-senado_0_uZyCOEFdsD.html" target="_blank" rel="noopener" title="Patricia Bullrich le gana la pulseada a Karina Milei por la conducción de una comisión clave del Senado">Clarín ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>4</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+· 6 notas</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/11/19/lla-pidio-suspender-las-paso-en-la-ciudad/" target="_blank" rel="noopener">LLA pidió suspender las PASO en la Ciudad</a></h3>
+<p class="bajada">Pilar Ramírez impulsó una iniciativa para que las PASO no se lleven cabo en 2027. &#34;Es una medida concreta de austeridad y de respeto por el esfuerzo de quienes sostienen la Ciudad&#34;, afirmó. La entrada LLA pidió suspender las PASO en la Ciudad se publicó primero en Parlamentario .</p>    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/11/19/lla-pidio-suspender-las-paso-en-la-ciudad/" target="_blank" rel="noopener" title="LLA pidió suspender las PASO en la Ciudad">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/11/20/moreau-con-paso-o-sin-paso-el-peronismo-va-a-ir-unido-a-la-eleccion/" target="_blank" rel="noopener" title="Moreau: &#34;Con PASO o sin PASO, el peronismo va a ir unido a la elección&#34;">Parlamentario.com ↗</a><a href="https://www.infobae.com/politica/2026/11/20/en-sintonia-con-el-dictamen-del-congreso-la-libertad-avanza-volvio-a-pedir-la-suspension-de-las-paso-en-caba/" target="_blank" rel="noopener" title="En sintonía con el dictamen del Congreso, La Libertad Avanza volvió a pedir la suspensión de las PASO en CABA">Infobae ↗</a><a href="https://www.infobae.com/politica/2026/11/20/los-lugares-que-el-gobierno-pacto-con-las-provincias-para-2027-y-el-pedido-desesperado-que-asoma/" target="_blank" rel="noopener" title="Los lugares que el Gobierno pactó con las provincias para 2027 y el pedido desesperado que asoma">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/11/19/suspension-de-las-paso-el-gobierno-acelera-los-acuerdos-con-los-gobernadores-y-confia-en-lograr-la-media-sancion-en-el-senado/" target="_blank" rel="noopener" title="El Gobierno ratificó los acuerdos electorales con los gobernadores aliados y asegura que tiene los votos para suspender las PASO">TN ↗</a><a href="https://www.clarin.com/politica/gobierno-avanza-suspension-paso-congreso-peronismo-blinda-ciudad-provincia_0_Nu7s9L3AkH.html" target="_blank" rel="noopener" title="El Gobierno avanza con la suspensión de las PASO en el Congreso, pero el peronismo las blinda en la Ciudad y la Provincia">Clarín ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4>Martes 24 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Ambiente y Desarrollo Sustentable y de Industria y Comercio</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Expte. S-1842/26, Terenzi: Proyecto de ley que establece los presupuestos mínimos de gestión ambiental de envases y embalajes post consumo mediante la responsabilidad extendida del productor.</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión Bicameral Mixta Revisora de Cuentas</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Eva Perón, Palacio Legislativo · ver temario</summary>Temario: 1. Consideración de dictamen conforme al art. 5° de la Ley 23.847 (Cuenta de Inversión 2024). 2. Expte. OV 525/26. Auditoría General de la Nación: comunica Resolución N° 213/26 que aprueba el Programa de Acción Anual correspondiente al ejercicio 2027.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 25 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Salud, de Legislación General y de Justicia y Asuntos Penales</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Proyectos de ley: Expte. CD-26/24: en revisión de prevención de la ludopatía y regulación de juegos de azar y apuestas en línea. Expte. PE-185/26 Mensaje N° 179/26 y proyecto de ley de prevención de la ludopatía y regulación de juegos de azar en línea. Expte. S-1116/25 Carambia: sobre marco regulatorio de los juegos de apuestas en línea y prohibición de su publicidad, patrocinio, promoción, auspicio y sponsoreo para la prevención de la ciberludopatía infantil. Expte. S-1437/25 Cora y otros: que crea la campaña nacional de concientización sobre ludopatía en el ámbito deportivo. Expte. S-203/26 Fernández Sagasti: reproduce proyecto de ley de marco regulatorio de los juegos de azar, apuestas en línea, prohibición de su publicidad, promoción, patrocinio, sponsoreo para la prevención…</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 77</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Vi 13: 63 notas">
+        <div class="c" style="height: 47.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 14: 37 notas">
+        <div class="c" style="height: 27.6%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 15: 40 notas">
+        <div class="c" style="height: 29.9%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 16: 57 notas">
+        <div class="c" style="height: 42.5%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ma 17: 79 notas">
+        <div class="c" style="height: 59.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 18: 129 notas">
+        <div class="c" style="height: 96.3%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 19: 134 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Vi 20: 123 notas">
+<span class="cap">123</span>        <div class="c" style="height: 91.8%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Vi 13</span><span class="">Sá 14</span><span class="">Do 15</span><span class="">Lu 16</span><span class="">Ma 17</span><span class="">Mi 18</span><span class="">Ju 19</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 24 hoy · promedio 13.3">
+        <span class="bar" style="width: 100.0%"></span><span class="v">24</span>
+<span class="tick" style="left: calc(55.4% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 16 hoy · promedio 11.9">
+        <span class="bar" style="width: 66.7%"></span><span class="v">16</span>
+<span class="tick" style="left: calc(49.4% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 14 hoy · promedio 4.9">
+        <span class="bar" style="width: 58.3%"></span><span class="v">14</span>
+<span class="tick" style="left: calc(20.2% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 14 hoy · promedio 6.3">
+        <span class="bar" style="width: 58.3%"></span><span class="v">14</span>
+<span class="tick" style="left: calc(26.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 13 hoy · promedio 6.4">
+        <span class="bar" style="width: 54.2%"></span><span class="v">13</span>
+<span class="tick" style="left: calc(26.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 10 hoy · promedio 10.9">
+        <span class="bar" style="width: 41.7%"></span><span class="v">10</span>
+<span class="tick" style="left: calc(45.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 9 hoy · promedio 4.0">
+        <span class="bar" style="width: 37.5%"></span><span class="v">9</span>
+<span class="tick" style="left: calc(16.7% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 7 hoy · promedio 2.9">
+        <span class="bar" style="width: 29.2%"></span><span class="v">7</span>
+<span class="tick" style="left: calc(11.9% - 1px)"></span>      </span>
+      <span class="lbl" title="Letra P">Letra P</span>
+      <span class="track" data-tip="Letra P: 5 hoy · promedio 2.6">
+        <span class="bar" style="width: 20.8%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(10.7% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 5 hoy · promedio 2.3">
+        <span class="bar" style="width: 20.8%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(9.5% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 2 hoy · promedio 1.3">
+        <span class="bar" style="width: 8.3%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(5.4% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 2 hoy · promedio 3.9">
+        <span class="bar" style="width: 8.3%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(16.1% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 1.3">
+        <span class="bar" style="width: 4.2%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(5.4% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 1 hoy · promedio 1.0">
+        <span class="bar" style="width: 4.2%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(4.2% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="El Senado aprobó por unanimidad la nueva Ley de Discapacidad">1. El Senado aprobó por unanimidad la nueva Ley de Discapacidad</span>
+      <span class="track" data-tip="El Senado aprobó por unanimidad la nueva Ley de Discapacidad — 26 notas, 12 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">26 (12)</span>
+      </span>
+      <span class="lbl" title="El Senado aprobó el tratado de patentes y la Ley de Inviolabilidad de la Propiedad Privada">2. El Senado aprobó el tratado de patentes y la Ley de Inviolabilidad de la Propiedad Privada</span>
+      <span class="track" data-tip="El Senado aprobó el tratado de patentes y la Ley de Inviolabilidad de la Propiedad Privada — 18 notas, 9 medios">
+        <span class="bar" style="width: 69.2%"></span><span class="v">18 (9)</span>
+      </span>
+      <span class="lbl" title="Un diputado nacional se va del bloque de La Libertad Avanza y denuncia un pacto con el PJ en su provincia">3. Un diputado nacional se va del bloque de La Libertad Avanza y denuncia un pacto con el PJ en su provincia</span>
+      <span class="track" data-tip="Un diputado nacional se va del bloque de La Libertad Avanza y denuncia un pacto con el PJ en su provincia — 11 notas, 7 medios">
+        <span class="bar" style="width: 42.3%"></span><span class="v">11 (7)</span>
+      </span>
+      <span class="lbl" title="Con un guiño de Patricia Bullrich, el PJ forzó el debate de la ley de ludopatía y presiona a Javier Milei">4. Con un guiño de Patricia Bullrich, el PJ forzó el debate de la ley de ludopatía y presiona a Javier Milei</span>
+      <span class="track" data-tip="Con un guiño de Patricia Bullrich, el PJ forzó el debate de la ley de ludopatía y presiona a Javier Milei — 13 notas, 6 medios">
+        <span class="bar" style="width: 50.0%"></span><span class="v">13 (6)</span>
+      </span>
+      <span class="lbl" title="LLA pidió suspender las PASO en la Ciudad">5. LLA pidió suspender las PASO en la Ciudad</span>
+      <span class="track" data-tip="LLA pidió suspender las PASO en la Ciudad — 6 notas, 4 medios">
+        <span class="bar" style="width: 23.1%"></span><span class="v">6 (4)</span>
+      </span>
+      <span class="lbl" title="Consejo de la Magistratura: el Senado definió a sus representantes, mientras en Diputados continúa la puja por una silla">6. Consejo de la Magistratura: el Senado definió a sus representantes, mientras en Diputados continúa la puja por una silla</span>
+      <span class="track" data-tip="Consejo de la Magistratura: el Senado definió a sus representantes, mientras en Diputados continúa la puja por una silla — 4 notas, 4 medios">
+        <span class="bar" style="width: 15.4%"></span><span class="v">4 (4)</span>
+      </span>
+      <span class="lbl" title="Mansión de Pilar: piden el juicio político de los dos jueces que enviaron la causa a un magistrado cercano a la AFA">7. Mansión de Pilar: piden el juicio político de los dos jueces que enviaron la causa a un magistrado cercano a la AFA</span>
+      <span class="track" data-tip="Mansión de Pilar: piden el juicio político de los dos jueces que enviaron la causa a un magistrado cercano a la AFA — 5 notas, 3 medios">
+        <span class="bar" style="width: 19.2%"></span><span class="v">5 (3)</span>
+      </span>
+      <span class="lbl" title="Es oficial la convocatoria para debatir la Ley de Ludopatía en el Senado">8. Es oficial la convocatoria para debatir la Ley de Ludopatía en el Senado</span>
+      <span class="track" data-tip="Es oficial la convocatoria para debatir la Ley de Ludopatía en el Senado — 3 notas, 3 medios">
+        <span class="bar" style="width: 11.5%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="Fallo contra el DNU de Javier Milei: la Corte Suprema restituyó los controles estatales sobre las cuotas de las prepagas">9. Fallo contra el DNU de Javier Milei: la Corte Suprema restituyó los controles estatales sobre las cuotas de las prepagas</span>
+      <span class="track" data-tip="Fallo contra el DNU de Javier Milei: la Corte Suprema restituyó los controles estatales sobre las cuotas de las prepagas — 3 notas, 2 medios">
+        <span class="bar" style="width: 11.5%"></span><span class="v">3 (2)</span>
+      </span>
+      <span class="lbl" title="Reforma del cabotaje: el Senado aprobó la apertura del transporte marítimo y la modernización de la marina mercante">10. Reforma del cabotaje: el Senado aprobó la apertura del transporte marítimo y la modernización de la marina mercante</span>
+      <span class="track" data-tip="Reforma del cabotaje: el Senado aprobó la apertura del transporte marítimo y la modernización de la marina mercante — 2 notas, 2 medios">
+        <span class="bar" style="width: 7.7%"></span><span class="v">2 (2)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Comisión</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Letra P</option><option>Parlamentario.com</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Página/12" data-texto="el senado aprobó por unanimidad la nueva ley de discapacidad  emergencia en discapacidad">
+        <td class="tema-col"><b>1</b> · 12 medios<br>Emergencia en discapacidad</td>
+        <td class="num">20:08</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/19/el-senado-aprobo-por-unanimidad-la-nueva-ley-de-discapacidad/" target="_blank" rel="noopener">El Senado aprobó por unanimidad la nueva Ley de Discapacidad</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Página/12" data-texto="el senado provincial le dio sanción definitiva a la reforma de seguridad la cámara de senadores de la provincia sancionó este jueves las “herramientas para el fortalecimiento de la seguridad pública” . se trata de la iniciativa de un paquete de reformas impulsada por el gobernador -que tuvo varios cambios en diputados-, que introduce modificaciones e incorporaciones en… emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">10:58</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/20/el-senado-provincial-le-dio-sancion-definitiva-a-la-reforma-de-seguridad/" target="_blank" rel="noopener">El Senado provincial le dio sanción definitiva a la reforma de seguridad</a><div class="baj">La Cámara de Senadores de la provincia sancionó este jueves las “Herramientas para el Fortalecimiento de la Seguridad Pública” . Se trata de la iniciativa de un paquete de reformas impulsada por el gobernador -que tuvo varios cambios en Diputados-, que introduce modificaciones e incorporaciones en…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="&#34;oportunidad histórica&#34;: el senado dio media sanción a la modificación de la ley de cabotaje y la agroindustria pide un &#34;pronto tratamiento&#34; en diputados  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">10:34</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/rural/oportunidad-historica-senado-dio-media-sancion-modificacion-ley-cabotaje-agroindustria-pide-pronto-tratamiento-diputados_0_dLEEM690Xx.html" target="_blank" rel="noopener">&#34;Oportunidad histórica&#34;: el Senado dio media sanción a la modificación de la Ley de Cabotaje y la agroindustria pide un &#34;pronto tratamiento&#34; en Diputados</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="TN" data-texto="el consejo agroindustrial celebró la media sanción de la ley de cabotaje  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">10:24</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/campo/2026/11/20/el-consejo-agroindustrial-celebro-la-media-sancion-de-la-ley-de-cabotaje/" target="_blank" rel="noopener">El Consejo Agroindustrial celebró la media sanción de la ley de cabotaje</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Página/12" data-texto="el senado aprobó la ley de discapacidad: un voto unánime fruto de la movilización y la lucha  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">07:27</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/20/un-voto-unanime-fruto-de-la-movilizacion-y-la-lucha/" target="_blank" rel="noopener">El Senado aprobó la Ley de Discapacidad: un voto unánime fruto de la movilización y la lucha</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="A24" data-texto="el senado convirtió en ley el nuevo régimen de pensiones por discapacidad y aprobó la reforma del régimen de propiedad privada  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">06:40</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/el-senado-convirtio-ley-el-nuevo-regimen-pensiones-discapacidad-y-aprobo-la-reforma-del-regimen-propiedad-privada-n1618276" target="_blank" rel="noopener">El Senado convirtió en ley el nuevo régimen de pensiones por discapacidad y aprobó la reforma del régimen de propiedad privada</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="La Nación" data-texto="aprueban la nueva ley de discapacidad y reclaman que el gobierno cumpla con su reglamentación con 71 votos a favor y ninguno en contra, el proyecto, que ya había obtenido un respaldo casi unánime en diputados, con 237 avales, fue aprobado el jueves por la tarde emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">03:04</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-senado-sanciono-la-ley-de-discapacidad-y-la-oposicion-reclamo-al-gobierno-que-cumpla-con-su-nid19112026/" target="_blank" rel="noopener">Aprueban la nueva ley de Discapacidad y reclaman que el Gobierno cumpla con su reglamentación</a><div class="baj">Con 71 votos a favor y ninguno en contra, el proyecto, que ya había obtenido un respaldo casi unánime en Diputados, con 237 avales, fue aprobado el jueves por la tarde</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="TN" data-texto="el senado aprobó por unanimidad la nueva ley de discapacidad  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">01:50</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/senado-empezo-la-sesion-por-la-nueva-ley-de-discapacidad-y-la-restitucion-de-los-limites-a-la-compra-de-tierras-por-extranjeros/" target="_blank" rel="noopener">El Senado aprobó por unanimidad la nueva Ley de Discapacidad</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Página/12" data-texto="ley de discapacidad: las organizaciones acompañaron el tratamiento y celebraron la sanción  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">00:03</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/20/ley-de-discapacidad-las-organizaciones-acompanaron-el-tratamiento-y-celebraron-la-sancion/" target="_blank" rel="noopener">Ley de Discapacidad: las organizaciones acompañaron el tratamiento y celebraron la sanción</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Senado (prensa)" data-texto="es ley el fortalecimiento, sostenibilidad y eficiencia permanente del sistema de discapacidad luego de más de 12 horas de sesión, además se convirtieron en ley la adhesión al tratado internacional de patentes, la reforma del régimen de propiedad privada y la denominada ley joaquín, entre otras iniciativas.... emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24647/noticias" target="_blank" rel="noopener">ES LEY EL FORTALECIMIENTO, SOSTENIBILIDAD Y EFICIENCIA PERMANENTE DEL SISTEMA DE DISCAPACIDAD</a><div class="baj">Luego de más de 12 horas de sesión, además se convirtieron en ley la adhesión al tratado internacional de patentes, la reforma del régimen de propiedad privada y la denominada Ley Joaquín, entre otras iniciativas....</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="C5N" data-texto="seguí en vivo el debate por el régimen de cabotaje y otros proyectos en el senado  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">22:26</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/segui-en-vivo-sesion-senado-19-noviembre-2026" target="_blank" rel="noopener">Seguí en vivo el debate por el Régimen de Cabotaje y otros proyectos en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="TN" data-texto="fin de la emergencia: cómo y desde cuándo se va a aplicar la nueva ley de discapacidad que aprobó el senado  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">21:25</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/fin-de-la-emergencia-como-y-desde-cuando-se-va-a-aplicar-la-nueva-ley-de-discapacidad-que-aprobo-el-senado/" target="_blank" rel="noopener">Fin de la emergencia: cómo y desde cuándo se va a aplicar la nueva Ley de Discapacidad que aprobó el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Ámbito" data-texto="ley de discapacidad: qué cambia para las pensiones y las prestaciones tras la aprobación del senado el congreso convirtió en ley el nuevo régimen. se mantienen las pensiones equivalentes al 70% del haber mínimo, se habilita su compatibilidad con el empleo registrado bajo un límite de ingresos y se establecen nuevas condiciones de acceso, auditorías y mecanismos de financiamiento para los… emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">20:40</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/ley-discapacidad-que-cambia-las-pensiones-y-las-prestaciones-la-aprobacion-del-senado-n6347172" target="_blank" rel="noopener">Ley de Discapacidad: qué cambia para las pensiones y las prestaciones tras la aprobación del Senado</a><div class="baj">El Congreso convirtió en ley el nuevo régimen. Se mantienen las pensiones equivalentes al 70% del haber mínimo, se habilita su compatibilidad con el empleo registrado bajo un límite de ingresos y se establecen nuevas condiciones de acceso, auditorías y mecanismos de financiamiento para los…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Infobae" data-texto="el senado sancionó por unanimidad la nueva ley de discapacidad con los cambios que pidió la oposición de esta manera, se sale de la emergencia, que vence a fin de año. la iniciativa obtuvo 71 votos a favor y ninguno en contra. se mantienen el nomenclador universal y la actualización por inflación. resta la reglamentación del ejecutivo, que tiene potestad para realizar vetos parciales o total emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">20:33</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/19/el-senado-sanciono-la-ley-de-discapacidad-se-mantienen-el-nomenclador-universal-y-la-actualizacion-por-inflacion/" target="_blank" rel="noopener">El Senado sancionó por unanimidad la nueva ley de discapacidad con los cambios que pidió la oposición</a><div class="baj">De esta manera, se sale de la emergencia, que vence a fin de año. La iniciativa obtuvo 71 votos a favor y ninguno en contra. Se mantienen el nomenclador universal y la actualización por inflación. Resta la reglamentación del Ejecutivo, que tiene potestad para realizar vetos parciales o total</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Letra P" data-texto="desafío a toto caputo: el senado sancionó la ley de discapacidad por unanimidad y le prohíbe ajustar  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">20:20</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/desafio-toto-caputo-el-senado-sanciono-la-ley-discapacidad-unanimidad-y-le-prohibe-ajustar-n5428377" target="_blank" rel="noopener">Desafío a Toto Caputo: el Senado sancionó la ley de discapacidad por unanimidad y le prohíbe ajustar</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="TN" data-texto="punto por punto, qué cambia con la nueva ley de discapacidad que aprobó el senado  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">20:11</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/punto-por-punto-que-cambia-con-la-nueva-ley-de-discapacidad-que-aprobo-el-senado/" target="_blank" rel="noopener">Punto por punto, qué cambia con la nueva Ley de Discapacidad que aprobó el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="el senado aprobó la ley de fortalecimiento del sistema de discapacidad  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">20:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/videos/senado-aprobo-ley-fortalecimiento-sistema-discapacidad_3_SGyTVhKkuY.html" target="_blank" rel="noopener">El Senado aprobó la Ley de Fortalecimiento del Sistema de Discapacidad</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="el senado convirtió en ley un régimen permanente de discapacidad con el apoyo de todos los bloques la iniciativa obtuvo 71 votos a favor y conserva las principales prestaciones previstas en la emergencia que el gobierno había vetado en 2025. la nueva norma garantiza la continuidad de las pensiones, establece mecanismos de actualización de aranceles y busca dar estabilidad al sistema. el senado… emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">19:52</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/senado-convirtio-ley-regimen-permanente-discapacidad-apoyo-bloques_1_13679027.html" target="_blank" rel="noopener">El Senado convirtió en ley un régimen permanente de discapacidad con el apoyo de todos los bloques</a><div class="baj">La iniciativa obtuvo 71 votos a favor y conserva las principales prestaciones previstas en la emergencia que el Gobierno había vetado en 2025. La nueva norma garantiza la continuidad de las pensiones, establece mecanismos de actualización de aranceles y busca dar estabilidad al sistema. El Senado…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="el senado sancionó por unanimidad la nueva ley de discapacidad el texto se aprobó con 71 votos a favor tras más de cuatro horas de debate. tras el giro estratégico del oficialismo, la norma acordada elimina el concepto de &#34;emergencia&#34; pero mantiene los principales ejes de la ley vigente. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">19:43</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/senado-sanciono-unanimidad-nueva-ley-discapacidad_0_Ylvom4hFlv.html" target="_blank" rel="noopener">El Senado sancionó por unanimidad la nueva ley de Discapacidad</a><div class="baj">El texto se aprobó con 71 votos a favor tras más de cuatro horas de debate. Tras el giro estratégico del oficialismo, la norma acordada elimina el concepto de &#34;emergencia&#34; pero mantiene los principales ejes de la ley vigente.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="A24" data-texto="por unanimidad, el senado convirtió en ley el proyecto que establece un nuevo régimen de pensiones por discapacidad  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">19:43</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/por-unanimidad-el-senado-convirtio-ley-el-proyecto-que-establece-un-nuevo-regimen-pensiones-discapacidad-n1618227" target="_blank" rel="noopener">Por unanimidad, el Senado convirtió en ley el proyecto que establece un nuevo régimen de pensiones por discapacidad</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="C5N" data-texto="con la media sanción del senado, es ley el proyecto de fortalecimiento del sistema de discapacidad  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">19:42</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/con-la-media-sancion-del-senado-es-ley-el-proyecto-fortalecimiento-del-sistema-discapacidad-n254843" target="_blank" rel="noopener">Con la media sanción del Senado, es ley el proyecto de Fortalecimiento del Sistema de Discapacidad</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="discapacidad: por unanimidad, el senado convirtió en ley una reforma integral para fortalecer el sistema de protección y prestaciones la cámara alta sancionó este jueves una profunda actualización del régimen de discapacidad que apunta a consolidar derechos, asegurar la continuidad de las prestaciones, garantizar financiamiento y promover la inclusión laboral. el proyecto fue aprobado por unanimidad. la entrada discapacidad: por… emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">19:40</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/discapacidad-por-unanimidad-el-senado-convirtio-en-ley-una-reforma-integral-para-fortalecer-el-sistema-de-proteccion-y-prestaciones/" target="_blank" rel="noopener">Discapacidad: Por unanimidad, el Senado convirtió en ley una reforma integral para fortalecer el sistema de protección y prestaciones</a><div class="baj">La Cámara alta sancionó este jueves una profunda actualización del régimen de discapacidad que apunta a consolidar derechos, asegurar la continuidad de las prestaciones, garantizar financiamiento y promover la inclusión laboral. El proyecto fue aprobado por unanimidad. La entrada Discapacidad: Por…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="came reclamó a diputados la aprobación de la nueva ley de biocombustibles la entidad empresaria instó a la cámara baja a convertir en ley el proyecto que ya cuenta con media sanción del senado. sostuvo que la iniciativa favorecerá a las pymes, promoverá inversiones y fortalecerá las economías regionales. la entrada came reclamó a diputados la aprobación de la nueva ley… emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">19:04</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/came-reclamo-a-diputados-la-aprobacion-de-la-nueva-ley-de-biocombustibles/" target="_blank" rel="noopener">CAME reclamó a diputados la aprobación de la nueva Ley de Biocombustibles</a><div class="baj">La entidad empresaria instó a la Cámara baja a convertir en ley el proyecto que ya cuenta con media sanción del Senado. Sostuvo que la iniciativa favorecerá a las pymes, promoverá inversiones y fortalecerá las economías regionales. La entrada CAME reclamó a diputados la aprobación de la nueva Ley…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="TN" data-texto="ley de ludopatía: tras los reclamos de la iglesia, el senado acordó debatir el proyecto el próximo jueves  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">17:19</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/ley-de-ludopatia-el-senado-acordo-debatir-el-proyecto-el-proximo-jueves-tras-los-reclamos-de-la-iglesia/" target="_blank" rel="noopener">Ley de Ludopatía: tras los reclamos de la Iglesia, el Senado acordó debatir el proyecto el próximo jueves</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="La Nación" data-texto="el senado se encamina a sancionar una nueva ley de discapacidad pese a las resistencias del gobierno también se discute una serie de proyectos que incluyen la adhesión al tratado internacional de patentes y la reforma del régimen de propiedad privada; se acordó que la semana que viene abordará la iniciativa sobre ludopatía y la prórroga del estatuto del periodista emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">15:22</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-senado-se-encamina-a-sancionar-una-nueva-ley-de-discapacidad-pese-a-las-resistencias-del-gobierno-nid19112026/" target="_blank" rel="noopener">El Senado se encamina a sancionar una nueva ley de discapacidad pese a las resistencias del Gobierno</a><div class="baj">También se discute una serie de proyectos que incluyen la adhesión al tratado internacional de patentes y la reforma del régimen de propiedad privada; se acordó que la semana que viene abordará la iniciativa sobre ludopatía y la prórroga del Estatuto del Periodista</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="discapacidad: el senado debate una reforma para fortalecer el sistema de protección y prestaciones se trata de una profunda actualización del régimen de discapacidad que apunta a consolidar derechos, asegurar la continuidad de las prestaciones, garantizar financiamiento y promover la inclusión laboral. la entrada discapacidad: el senado debate una reforma para fortalecer el sistema de protección… emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">15:21</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/discapacidad-el-senado-debate-una-reforma-para-fortalecer-el-sistema-de-proteccion-y-prestaciones/" target="_blank" rel="noopener">Discapacidad: el Senado debate una reforma para fortalecer el sistema de protección y prestaciones</a><div class="baj">Se trata de una profunda actualización del régimen de discapacidad que apunta a consolidar derechos, asegurar la continuidad de las prestaciones, garantizar financiamiento y promover la inclusión laboral. La entrada Discapacidad: el Senado debate una reforma para fortalecer el sistema de protección…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="TN" data-texto="el senado aprobó el tratado de patentes y la ley de inviolabilidad de la propiedad privada  inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>2</b> · 9 medios<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">22:05</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/el-senado-aprobo-el-tratado-de-patentes-y-continua-el-debate-por-la-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener">El Senado aprobó el tratado de patentes y la Ley de Inviolabilidad de la Propiedad Privada</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Ámbito" data-texto="tratado de patentes: qué cambia para los medicamentos y qué pasará con los precios tras la adhesión el senado convirtió en ley la incorporación de argentina al tratado de cooperación en materia de patentes (pct), un acuerdo internacional que simplifica los trámites para proteger invenciones en distintos países. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">08:53</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/tratado-patentes-que-cambia-los-medicamentos-y-que-pasara-los-precios-la-adhesion-n6347457" target="_blank" rel="noopener">Tratado de Patentes: qué cambia para los medicamentos y qué pasará con los precios tras la adhesión</a><div class="baj">El Senado convirtió en ley la incorporación de Argentina al Tratado de Cooperación en materia de Patentes (PCT), un acuerdo internacional que simplifica los trámites para proteger invenciones en distintos países.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="el gobierno consiguió los votos para la ley de tierras: permite desalojos exprés y otros privilegios a la propiedad privada además de la libertad avanza, votaron a favor la ucr, el pro, despierta chubut, provincias unidas, convicción federal, y movimiento por misiones. en tanto, lo hicieron en contra el bloque justicialista, movere santa cruz, la neuquenidad, primero los salteños, frente cívico de santiago del estero, y… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:35</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/gobierno-consiguio-votos-ley-tierras-seguira-vigente-mantienen-limites-extranjerizacion-campos_1_13679747.html" target="_blank" rel="noopener">El Gobierno consiguió los votos para la Ley de Tierras: permite desalojos exprés y otros privilegios a la propiedad privada</a><div class="baj">Además de la Libertad Avanza, votaron a favor la UCR, el PRO, Despierta Chubut, Provincias Unidas, Convicción Federal, y Movimiento por Misiones. En tanto, lo hicieron en contra el bloque Justicialista, Movere Santa Cruz, La Neuquenidad, Primero los Salteños, Frente Cívico de Santiago del Estero, y…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="el senado aprobó la adhesión argentina al tratado de patentes y celebran los laboratorios extranjeros el proyecto se había aprobado orginalmente en el senado en 1998. casi tres décadas después, el gobierno de javier milei reactivó el debate y la cámara alta le le dio sanción definitiva. tuvo 47 votos afirmativos y 22 negativos. el senado sancionó este jueves y convirtió en ley e l proyecto de… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">07:27</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/oficialismo-consiguio-senado-convierta-ley-adhesion-argentina-tratado-patentes_1_13679696.html" target="_blank" rel="noopener">El Senado aprobó la adhesión argentina al Tratado de Patentes y celebran los laboratorios extranjeros</a><div class="baj">El proyecto se había aprobado orginalmente en el Senado en 1998. Casi tres décadas después, el Gobierno de Javier Milei reactivó el debate y la Cámara alta le le dio sanción definitiva. Tuvo 47 votos afirmativos y 22 negativos. El Senado sancionó este jueves y convirtió en ley e l proyecto de…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="el senado votó la adhesión de argentina a un tratado de patentes: qué impacto tendrá en las farmacias con los medicamentos  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">06:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/sociedad/senado-voto-adhesion-argentina-tratado-patentes-impacto-farmacias-medicamentos_0_MYzOL6rCHG.html" target="_blank" rel="noopener">El Senado votó la adhesión de Argentina a un tratado de patentes: qué impacto tendrá en las farmacias con los medicamentos</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Infobae" data-texto="el senado sancionó el tratado de patentes y la ley de propiedad privada con tope a venta de tierras a extranjeros la cámara alta aprobó el primer tema en 1998 -no pierde vigencia-, pero diputados hizo reserva de un capítulo en agosto y lo devolvió modificado para su aval final. la segunda iniciativa reincorpora el tope de 15%, las 1.000 hectáreas en zona núcleo y el 30% por nacionalidad inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">01:49</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/20/el-senado-sanciono-el-tratado-de-patentes-y-la-ley-de-propiedad-privada-con-tope-a-venta-de-tierras-a-extranjeros/" target="_blank" rel="noopener">El Senado sancionó el Tratado de Patentes y la ley de propiedad privada con tope a venta de tierras a extranjeros</a><div class="baj">La Cámara alta aprobó el primer tema en 1998 -no pierde vigencia-, pero Diputados hizo reserva de un capítulo en agosto y lo devolvió modificado para su aval final. La segunda iniciativa reincorpora el tope de 15%, las 1.000 hectáreas en zona núcleo y el 30% por nacionalidad</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="La Nación" data-texto="el senado aprobó la reforma del régimen de propiedad privada que restablece la ley de tierras con 42 votos a favor y 26 en contra, el oficialismo consiguió la sanción definitiva de una iniciativa que afrontó modificaciones en ambas cámaras; el giro en la estrategia libertaria que destrabó el proyecto inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:45</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-senado-aprobo-la-reforma-del-regimen-de-propiedad-privada-que-restablece-la-ley-de-tierras-nid19112026/" target="_blank" rel="noopener">El Senado aprobó la reforma del régimen de propiedad privada que restablece la Ley de Tierras</a><div class="baj">Con 42 votos a favor y 26 en contra, el oficialismo consiguió la sanción definitiva de una iniciativa que afrontó modificaciones en ambas cámaras; el giro en la estrategia libertaria que destrabó el proyecto</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="TN" data-texto="pese a las tensiones, el senado aprobó tres leyes clave: discapacidad, propiedad privada y tratado de patentes  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">00:01</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/20/pese-a-las-tensiones-el-senado-aprobo-tres-leyes-clave-discapacidad-propiedad-privada-y-tratado-de-patentes/" target="_blank" rel="noopener">Pese a las tensiones, el Senado aprobó tres leyes clave: discapacidad, propiedad privada y tratado de patentes</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Letra P" data-texto="propiedad privada: la libertad avanza sancionó el proyecto de sturzenegger y le sumó la ley de tierras de cfk  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">22:43</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/propiedad-privada-la-libertad-avanza-sanciono-el-proyecto-sturzenegger-y-le-sumo-la-ley-tierras-cfk-n5428383" target="_blank" rel="noopener">Propiedad privada: La Libertad Avanza sancionó el proyecto de Sturzenegger y le sumó la ley de tierras de CFK</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="C5N" data-texto="el senado aprobó los cambios a la ley de inviolabilidad de la propiedad privada y restituyó la ley de tierras  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">22:40</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/el-senado-aprobo-los-cambios-la-ley-inviolabilidad-la-propiedad-privada-y-restituyo-la-ley-tierras-n254863" target="_blank" rel="noopener">El Senado aprobó los cambios a la Ley de Inviolabilidad de la Propiedad Privada y restituyó la Ley de Tierras</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="ley de tierras, desalojos y expropiaciones: es ley el proyecto de inviolabilidad de la propiedad privada tras un largo derrotero, marcado por momentos polémicos, el senado sancionó el proyecto diseñado por el ministro federico sturzenegger. recibió 42 votos positivos, 26 negativos y 0 abstenciones. la entrada ley de tierras, desalojos y expropiaciones: es ley el proyecto de inviolabilidad de la… inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">22:10</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/ley-de-tierras-desalojos-y-expropiaciones-es-ley-el-proyecto-de-inviolabilidad-de-la-propiedad-privada/" target="_blank" rel="noopener">Ley de Tierras, desalojos y expropiaciones: es ley el proyecto de Inviolabilidad de la Propiedad Privada</a><div class="baj">Tras un largo derrotero, marcado por momentos polémicos, el Senado sancionó el proyecto diseñado por el ministro Federico Sturzenegger. Recibió 42 votos positivos, 26 negativos y 0 abstenciones. La entrada Ley de Tierras, desalojos y expropiaciones: es ley el proyecto de Inviolabilidad de la…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Letra P" data-texto="límite a donald trump: el congreso ratificó el tratado de patentes con protección a los laboratorios locales  inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">22:09</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/limite-donald-trump-el-congreso-ratifico-el-tratado-patentes-proteccion-los-laboratorios-locales-n5428382" target="_blank" rel="noopener">Límite a Donald Trump: el Congreso ratificó el Tratado de Patentes con protección a los laboratorios locales</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="el senado sancionó la ley de inviolabilidad de la propiedad, que ratifica la ley de tierras se aprobó con 42 votos a favor y 26 en contra, sobre todo del pj. el texto había sido retocado en diputados y por eso volvió al senado. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">22:07</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/senado-sanciono-ley-inviolabilidad-propiedad-ratifica-ley-tierras_0_ZtWrXUl7zg.html" target="_blank" rel="noopener">El Senado sancionó la Ley de Inviolabilidad de la Propiedad, que ratifica la Ley de Tierras</a><div class="baj">Se aprobó con 42 votos a favor y 26 en contra, sobre todo del PJ. El texto había sido retocado en Diputados y por eso volvió al Senado.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Infobae" data-texto="el senado aprobó las leyes de discapacidad, inviolabilidad de la propiedad privada y un tratado de patentes con eeuu la cámara alta avanza con el temario de la sesión. la ley de discapacidad fue sancionada por unanimidad. patentes se aprobó en medio de una discusión entre oficialistas y opositores inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">22:05</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/19/senado-en-vivo-las-ultimas-noticias-del-debate-sobre-los-proyectos-de-discapacidad-propiedad-privada-y-patentes/" target="_blank" rel="noopener">El Senado aprobó las leyes de Discapacidad, inviolabilidad de la propiedad privada y un tratado de patentes con EEUU</a><div class="baj">La cámara alta avanza con el temario de la sesión. La ley de discapacidad fue sancionada por unanimidad. Patentes se aprobó en medio de una discusión entre oficialistas y opositores</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Ámbito" data-texto="el senado aprobó la adhesión al tratado global de patentes y blindó la ley de tierras después de meses de tratamiento, se sancionó la ley de &#34;inviolabilidad de la propiedad privada&#34;. hay consenso en la &#34;ley joaquín&#34; para la seguridad de espacios recreativos. polémica por el régimen de cabotaje y una designación en el comité nacional para la prevención de la tortura. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">22:02</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-senado-define-el-futuro-la-ley-tierras-y-la-adhesion-al-tratado-global-patentes-n6347359" target="_blank" rel="noopener">El Senado aprobó la adhesión al Tratado global de Patentes y blindó la ley de Tierras</a><div class="baj">Después de meses de tratamiento, se sancionó la ley de &#34;Inviolabilidad de la propiedad Privada&#34;. Hay consenso en la &#34;ley Joaquín&#34; para la seguridad de espacios recreativos. Polémica por el régimen de cabotaje y una designación en el Comité Nacional para la Prevención de la Tortura.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="La Nación" data-texto="el oficialismo aprobó la adhesión al tratado sobre patentes, un proyecto clave en la alianza de milei con estados unidos con 47 votos a favor y 22 en contra se sancionó el acuerdo internacional en el senado; el tema llevaba casi tres décadas con frustrados intentos de sanción inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">21:58</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-oficialismo-aprobo-la-adhesion-al-tratado-sobre-patentes-acordado-con-estados-unidos-nid19112026/" target="_blank" rel="noopener">El oficialismo aprobó la adhesión al tratado sobre patentes, un proyecto clave en la alianza de Milei con Estados Unidos</a><div class="baj">Con 47 votos a favor y 22 en contra se sancionó el acuerdo internacional en el Senado; el tema llevaba casi tres décadas con frustrados intentos de sanción</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="el senado sancionó la adhesión al tratado de patentes, solicitado por estados unidos la cámara alta aprobó el proyecto por 47 votos a favor y 22 en contra. salió con la reserva del capítulo ii, referido al examen preliminar internacional. la entrada el senado sancionó la adhesión al tratado de patentes, solicitado por estados unidos se publicó primero en parlamentario . inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">21:08</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/el-senado-sanciono-la-adhesion-al-tratado-de-patentes-solicitado-por-estados-unidos/" target="_blank" rel="noopener">El Senado sancionó la adhesión al Tratado de Patentes, solicitado por Estados Unidos</a><div class="baj">La Cámara alta aprobó el proyecto por 47 votos a favor y 22 en contra. Salió con la reserva del Capítulo II, referido al examen preliminar internacional. La entrada El Senado sancionó la adhesión al Tratado de Patentes, solicitado por Estados Unidos se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Clarín" data-texto="sin un capítulo clave, el senado ratificó el tratado de patentes acordado con donald trump el congreso lo terminó de aprobar 50 años después de su firma y con reservas de la industria farmacéutica. obtuvo 47 votos a favor y 22 en contra. inviolabilidad de la propiedad privada">
+        <td class="tema-col"></td>
+        <td class="num">21:07</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/capitulo-clave-senado-ratifico-tratado-patentes-acordado-donald-trump_0_GMzDQnQJ5e.html" target="_blank" rel="noopener">Sin un capítulo clave, el Senado ratificó el Tratado de Patentes acordado con Donald Trump</a><div class="baj">El Congreso lo terminó de aprobar 50 años después de su firma y con reservas de la industria farmacéutica. Obtuvo 47 votos a favor y 22 en contra.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="un diputado nacional se va del bloque de la libertad avanza y denuncia un pacto con el pj en su provincia el tucumano mariano campero, de origen radical, conformará un monobloque y apuntó contra los libertarios por los acercamientos con jaldo; es uno de los que integra el equipo de patricia bullrich ">
+        <td class="tema-col"><b>3</b> · 7 medios</td>
+        <td class="num">15:26</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/un-diputado-nacional-se-va-del-bloque-de-la-libertad-avanza-y-denuncia-un-pacto-con-el-pj-en-su-nid19112026/" target="_blank" rel="noopener">Un diputado nacional se va del bloque de La Libertad Avanza y denuncia un pacto con el PJ en su provincia</a><div class="baj">El tucumano Mariano Campero, de origen radical, conformará un monobloque y apuntó contra los libertarios por los acercamientos con Jaldo; es uno de los que integra el equipo de Patricia Bullrich</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="avanza en diputados un proyecto para la formalización gratuita de los clubes de barrio la iniciativa modifica la ley del deporte para crear un régimen simplificado bajo la figura de simple asociación, sin costo fiscal y con el respaldo de distintos bloques políticos. ">
+        <td class="tema-col"></td>
+        <td class="num">12:32</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/avanza-diputados-un-proyecto-la-formalizacion-gratuita-los-clubes-barrio-n6347610" target="_blank" rel="noopener">Avanza en Diputados un proyecto para la formalización gratuita de los clubes de barrio</a><div class="baj">La iniciativa modifica la ley del Deporte para crear un régimen simplificado bajo la figura de simple asociación, sin costo fiscal y con el respaldo de distintos bloques políticos.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="di tullio apuntó contra bullrich: “hay que ser cobarde y miserable para reprimir a personas con discapacidad” la senadora del bloque justicialista criticó a la jefa del bloque de lla por su rol como ministra de seguridad durante las protestas en el congreso ">
+        <td class="tema-col"></td>
+        <td class="num">20:52</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/di-tullio-le-apunto-a-bullrich-en-el-senado-hay-que-ser-cobarde-y-miserable-para-reprimir-a-personas-nid19112026/" target="_blank" rel="noopener">Di Tullio apuntó contra Bullrich: “Hay que ser cobarde y miserable para reprimir a personas con discapacidad”</a><div class="baj">La senadora del bloque Justicialista criticó a la jefa del bloque de LLA por su rol como ministra de Seguridad durante las protestas en el Congreso</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="el diputado que rompió con lla dijo que quiere ser gobernador de tucumán y respaldó una candidatura presidencial de patricia bullrich  ">
+        <td class="tema-col"></td>
+        <td class="num">19:24</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/el-diputado-que-rompio-con-lla-dijo-que-quiere-ser-gobernador-de-tucuman-y-respaldo-una-candidatura-presidencial-de-bullrich/" target="_blank" rel="noopener">El diputado que rompió con LLA dijo que quiere ser gobernador de Tucumán y respaldó una candidatura presidencial de Patricia Bullrich</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Nación" data-texto="el diputado que abandonó el bloque de la libertad avanza dijo que “le gustaría” que patricia bullrich sea candidata a presidenta en el mismo día en que rompió con la bancada libertaria al denunciar un pacto del oficialismo con el pj en tucumán, el legislador mariano campero explicitó sus apetencias electorales ">
+        <td class="tema-col"></td>
+        <td class="num">19:19</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-diputado-que-abandono-el-bloque-de-la-libertad-avanza-dijo-que-le-gustaria-que-patricia-bullrich-nid19112026/" target="_blank" rel="noopener">El diputado que abandonó el bloque de La Libertad Avanza dijo que “le gustaría” que Patricia Bullrich sea candidata a presidenta</a><div class="baj">En el mismo día en que rompió con la bancada libertaria al denunciar un pacto del oficialismo con el PJ en Tucumán, el legislador Mariano Campero explicitó sus apetencias electorales</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="un diputado nacional renunció al bloque oficialista tras denunciar un acuerdo de lla con el pj en tucumán  ">
+        <td class="tema-col"></td>
+        <td class="num">17:52</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/un-diputado-nacional-renuncio-al-bloque-oficialista-tras-denunciar-un-acuerdo-de-lla-con-el-pj-en-tucuman/" target="_blank" rel="noopener">Un diputado nacional renunció al bloque oficialista tras denunciar un acuerdo de LLA con el PJ en Tucumán</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="C5N" data-texto="un diputado libertario se va del bloque y hace temblar los números que necesita milei en el congreso  ">
+        <td class="tema-col"></td>
+        <td class="num">16:01</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/un-diputado-libertario-se-va-del-bloque-y-hace-temblar-los-numeros-que-necesita-milei-el-congreso-n254816" target="_blank" rel="noopener">Un diputado libertario se va del bloque y hace temblar los números que necesita Milei en el Congreso</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="el diputado tucumano mariano campero dio el portazo y renunció al bloque de la libertad avanza  ">
+        <td class="tema-col"></td>
+        <td class="num">15:39</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/ambito-nacional/el-diputado-tucumano-mariano-campero-dio-el-portazo-y-renuncio-al-bloque-lla-n6347256" target="_blank" rel="noopener">El diputado tucumano Mariano Campero dio el portazo y renunció al bloque de La Libertad Avanza</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="un aliado de bullrich se va del bloque libertario: denunció un acuerdo entre lla y el pj en su provincia mariano campero conformará un monobloque llamado cambia tucumán. había sido uno de los llamados “radicales con peluca” que abandonaron la ucr para sumarse al oficialismo. su intención es ser gobernador, pero está enfrentado a lisandro catalán, principal referente local de la libertad avanza ">
+        <td class="tema-col"></td>
+        <td class="num">14:59</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/19/un-aliado-de-bullrich-se-va-del-bloque-libertario-denuncio-un-acuerdo-entre-lla-y-el-pj-en-su-provincia/" target="_blank" rel="noopener">Un aliado de Bullrich se va del bloque libertario: denunció un acuerdo entre LLA y el PJ en su provincia</a><div class="baj">Mariano Campero conformará un monobloque llamado Cambia Tucumán. Había sido uno de los llamados “radicales con peluca” que abandonaron la UCR para sumarse al oficialismo. Su intención es ser gobernador, pero está enfrentado a Lisandro Catalán, principal referente local de La Libertad Avanza</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="campero rompió con la libertad avanza y denunció un acuerdo entre el oficialismo y jaldo en tucumán la decisión expone las tensiones que atraviesa el oficialismo en tucumán y reduce en un integrante la bancada libertaria en diputados. el legislador tucumano formalizó su alejamiento mediante una carta enviada a martín menem. la entrada campero rompió con la libertad avanza y denunció un acuerdo… ">
+        <td class="tema-col"></td>
+        <td class="num">14:30</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/campero-rompio-con-la-libertad-avanza-y-denuncio-un-acuerdo-entre-el-oficialismo-y-jaldo-en-tucuman/" target="_blank" rel="noopener">Campero rompió con La Libertad Avanza y denunció un acuerdo entre el oficialismo y Jaldo en Tucumán</a><div class="baj">La decisión expone las tensiones que atraviesa el oficialismo en Tucumán y reduce en un integrante la bancada libertaria en Diputados. El legislador tucumano formalizó su alejamiento mediante una carta enviada a Martín Menem. La entrada Campero rompió con La Libertad Avanza y denunció un acuerdo…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="un diputado libertario deja el bloque oficialista tras denunciar un pacto con el gobernador peronista osvaldo jaldo en tucumán  ">
+        <td class="tema-col"></td>
+        <td class="num">14:21</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/diputado-libertario-deja-bloque-oficialista-denunciar-pacto-gobernador-peronista-osvaldo-jaldo-tucuman_0_TPsDdYciJP.html" target="_blank" rel="noopener">Un diputado libertario deja el bloque oficialista tras denunciar un pacto con el gobernador peronista Osvaldo Jaldo en Tucumán</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Letra P" data-texto="con un guiño de patricia bullrich, el pj forzó el debate de la ley de ludopatía y presiona a javier milei  emergencia en discapacidad">
+        <td class="tema-col"><b>4</b> · 6 medios<br>Emergencia en discapacidad</td>
+        <td class="num">14:11</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/congreso/con-un-guino-patricia-bullrich-el-pj-forzo-el-debate-la-ley-ludopatia-y-presiona-javier-milei-n5428352" target="_blank" rel="noopener">Con un guiño de Patricia Bullrich, el PJ forzó el debate de la ley de ludopatía y presiona a Javier Milei</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="javier milei y sus medidas, en vivo: “los responsables van a ser juzgados”, dijo el presidente sobre el atentado a la amia el minuto a minuto de las decisiones del jefe de estado, las reacciones de la oposición y las declaraciones de los funcionarios emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">13:13</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-el-senado-aprobo-la-nueva-ley-de-discapacidad-y-la-adhesion-al-nid20112026/" target="_blank" rel="noopener">Javier Milei y sus medidas, en vivo: “Los responsables van a ser juzgados”, dijo el Presidente sobre el atentado a la AMIA</a><div class="baj">El minuto a minuto de las decisiones del jefe de Estado, las reacciones de la oposición y las declaraciones de los funcionarios</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Página/12" data-texto="oscar zago contra milei y caputo: “estoy buscando quién es alí babá, porque ladrones hay un montón” el diputado nacional del bloque mid cuestionó por radio 750 al presidente javier milei y aseguró que no es la misma persona que él conoció en 2023. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">12:03</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/20/oscar-zago-contra-milei-y-caputo-estoy-buscando-quien-es-ali-baba-porque-ladrones-hay-un-monton/" target="_blank" rel="noopener">Oscar Zago contra Milei y Caputo: “Estoy buscando quién es Alí Babá, porque ladrones hay un montón”</a><div class="baj">El diputado nacional del bloque MID cuestionó por Radio 750 al presidente Javier Milei y aseguró que no es la misma persona que él conoció en 2023.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="La Nación" data-texto="nadia márquez busca ser la candidata a gobernadora de milei en neuquén, pero la ley de ficha limpia le impediría competir la senadora, quien reconoció que le gustaría acompañar en la fórmula al presidente en 2027, podría ser ungida tras un congreso partidario de lla; el obstáculo legal que podría marginarla de la carrera emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">11:45</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/nadia-marquez-busca-ser-la-candidata-a-gobernadora-de-milei-en-neuquen-pero-la-ley-de-ficha-limpia-nid20112026/" target="_blank" rel="noopener">Nadia Márquez busca ser la candidata a gobernadora de Milei en Neuquén, pero la ley de ficha limpia le impediría competir</a><div class="baj">La senadora, quien reconoció que le gustaría acompañar en la fórmula al Presidente en 2027, podría ser ungida tras un congreso partidario de LLA; el obstáculo legal que podría marginarla de la carrera</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Página/12" data-texto="“milei nos arrastró al sinsentido”: lapidario editorial de víctor hugo morales en su editorial, el periodista y conductor de la mañana reflexionó sobre la ley de discapacidad aprobada por unanimidad, luego de una larga batalla de organizaciones y familias contra el gobierno de javier milei. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">09:52</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/20/milei-nos-arrastro-al-sinsentido-lapidario-editorial-de-victor-hugo-morales/" target="_blank" rel="noopener">“Milei nos arrastró al sinsentido”: lapidario editorial de Víctor Hugo Morales</a><div class="baj">En su editorial, el periodista y conductor de La Mañana reflexionó sobre la ley de Discapacidad aprobada por unanimidad, luego de una larga batalla de organizaciones y familias contra el Gobierno de Javier Milei.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="cuatro gobernadores &#34;dialoguistas&#34; se reúnen en medio de la ofensiva legislativa de javier milei los cuatro gobernadores encabezan este viernes un panel en la semana de integración federal que organiza el consejo federal de inversiones. más tarde habrá un intercambio con el titular del organismo, ignacio lamothe. el encuentro llega en plena negociación por el presupuesto 2027. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">09:49</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/cuatro-gobernadores-dialoguistas-se-reunen-medio-la-ofensiva-legislativa-javier-milei-n6347468" target="_blank" rel="noopener">Cuatro gobernadores &#34;dialoguistas&#34; se reúnen en medio de la ofensiva legislativa de Javier Milei</a><div class="baj">Los cuatro gobernadores encabezan este viernes un panel en la Semana de Integración Federal que organiza el Consejo Federal de Inversiones. Más tarde habrá un intercambio con el titular del organismo, Ignacio Lamothe. El encuentro llega en plena negociación por el Presupuesto 2027.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Clarín" data-texto="javier milei y sus medidas, en vivo: la oposición le reclama al presidente que reglamente la nueva ley de discapacidad la senadora del pj ana marks pidió que “no se transformen en palabras vacías”, mientras que el radical bonaerense maximiliano abad llamó a traducir el mensaje en acciones. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">08:18</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/javier-milei-medidas-vivo-sancion-ley-discapacidad-oposicion-reclama-presidente-reglamente_0_gaGaIA399S.html" target="_blank" rel="noopener">Javier Milei y sus medidas, EN VIVO: la oposición le reclama al Presidente que reglamente la nueva Ley de Discapacidad</a><div class="baj">La senadora del PJ Ana Marks pidió que “no se transformen en palabras vacías”, mientras que el radical bonaerense Maximiliano Abad llamó a traducir el mensaje en acciones.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Página/12" data-texto="javier milei premió a la side con otros 6 mil millones de pesos la medida llegó después de que fracasara en diputados la aprobación del proyecto de soberanía, que introduce cambios en inteligencia. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">00:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/20/javier-milei-premio-a-la-side-con-otros-6-mil-millones-de-pesos/" target="_blank" rel="noopener">Javier Milei premió a la SIDE con otros 6 mil millones de pesos</a><div class="baj">La medida llegó después de que fracasara en Diputados la aprobación del proyecto de Soberanía, que introduce cambios en Inteligencia.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="en medio de tensiones en el gobierno, javier milei disertó en una cena contra el antisemitismo y aseguró que &#34;nos afecta a todos&#34; en medio de rispideces con patricia bullrich, quien no asistió a la cena por la sesión en el congreso, el presidente será el principal orador del encuentro organizado por sabrina ajmechet. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">20:55</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/javier-milei-disertara-una-cena-contra-el-antisemitismo-plena-tension-patricia-bullrich-n6347364" target="_blank" rel="noopener">En medio de tensiones en el Gobierno, Javier Milei disertó en una cena contra el antisemitismo y aseguró que &#34;nos afecta a todos&#34;</a><div class="baj">En medio de rispideces con Patricia Bullrich, quien no asistió a la cena por la sesión en el Congreso, el Presidente será el principal orador del encuentro organizado por Sabrina Ajmechet.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="nadia márquez se candidatea para ser vice de javier milei en 2027 ante las dudas sobre el futuro de patricia bullrich la senadora neuquina se anotó en la carrera para acompañar al presidente en la boleta violeta del año próximo. &#34;por supuesto que me gustaría&#34;, dijo al manifestar su deseo personal. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">17:09</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/nadia-marquez-se-candidatea-ser-vice-javier-milei-2027-las-dudas-el-futuro-patricia-bullrich-n6347284" target="_blank" rel="noopener">Nadia Márquez se candidatea para ser vice de Javier Milei en 2027 ante las dudas sobre el futuro de Patricia Bullrich</a><div class="baj">La senadora neuquina se anotó en la carrera para acompañar al Presidente en la boleta violeta del año próximo. &#34;Por supuesto que me gustaría&#34;, dijo al manifestar su deseo personal.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="C5N" data-texto="el reclamo de familias por la ley de discapacidad: &#34;es indignante el odio que irradia el presidente javier milei&#34;  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">15:44</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/sociedad/el-reclamo-familias-la-ley-discapacidad-es-indignante-el-odio-que-irradia-el-presidente-javier-milei-n254807" target="_blank" rel="noopener">El reclamo de familias por la Ley de Discapacidad: &#34;Es indignante el odio que irradia el presidente Javier Milei&#34;</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="patricia bullrich pidió un plan de alivio para las pymes y volvió a marcar diferencias con javier milei la senadora reclamó cambios tributarios y laborales para &#34;sacarles el pie de encima&#34; a las pequeñas y medianas empresas. durante un encuentro de somos pyme, enumeró una serie de propuestas para que el ejecutivo ponga en marcha. emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">15:04</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/patricia-bullrich-pidio-un-plan-alivio-las-pymes-y-volvio-marcar-diferencias-javier-milei-n6347230" target="_blank" rel="noopener">Patricia Bullrich pidió un plan de alivio para las pymes y volvió a marcar diferencias con Javier Milei</a><div class="baj">La senadora reclamó cambios tributarios y laborales para &#34;sacarles el pie de encima&#34; a las pequeñas y medianas empresas. Durante un encuentro de Somos Pyme, enumeró una serie de propuestas para que el Ejecutivo ponga en marcha.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Clarín" data-texto="patricia bullrich le gana la pulseada a karina milei por la conducción de una comisión clave del senado  emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">14:57</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/patricia-bullrich-gana-pulseada-karina-milei-conduccion-comision-clave-senado_0_uZyCOEFdsD.html" target="_blank" rel="noopener">Patricia Bullrich le gana la pulseada a Karina Milei por la conducción de una comisión clave del Senado</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="lla pidió suspender las paso en la ciudad pilar ramírez impulsó una iniciativa para que las paso no se lleven cabo en 2027. &#34;es una medida concreta de austeridad y de respeto por el esfuerzo de quienes sostienen la ciudad&#34;, afirmó. la entrada lla pidió suspender las paso en la ciudad se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>5</b> · 4 medios</td>
+        <td class="num">14:30</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/lla-pidio-suspender-las-paso-en-la-ciudad/" target="_blank" rel="noopener">LLA pidió suspender las PASO en la Ciudad</a><div class="baj">Pilar Ramírez impulsó una iniciativa para que las PASO no se lleven cabo en 2027. &#34;Es una medida concreta de austeridad y de respeto por el esfuerzo de quienes sostienen la Ciudad&#34;, afirmó. La entrada LLA pidió suspender las PASO en la Ciudad se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="moreau: &#34;con paso o sin paso, el peronismo va a ir unido a la elección&#34; así lo aseguró la diputada massista, quien habló de &#34;responsabilidad política&#34; y &#34;mandato popular&#34; para hacerle frente a milei el año que viene. la entrada moreau: &#34;con paso o sin paso, el peronismo va a ir unido a la elección&#34; se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">10:15</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/moreau-con-paso-o-sin-paso-el-peronismo-va-a-ir-unido-a-la-eleccion/" target="_blank" rel="noopener">Moreau: &#34;Con PASO o sin PASO, el peronismo va a ir unido a la elección&#34;</a><div class="baj">Así lo aseguró la diputada massista, quien habló de &#34;responsabilidad política&#34; y &#34;mandato popular&#34; para hacerle frente a Milei el año que viene. La entrada Moreau: &#34;Con PASO o sin PASO, el peronismo va a ir unido a la elección&#34; se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="en sintonía con el dictamen del congreso, la libertad avanza volvió a pedir la suspensión de las paso en caba “la ciudad tiene que avanzar al mismo ritmo”, señaló la jefa del bloque libertario en la legislatura porteña, pilar ramírez. el peronismo puede bloquearl culquier cambio en el sistema electoral ">
+        <td class="tema-col"></td>
+        <td class="num">09:47</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/20/en-sintonia-con-el-dictamen-del-congreso-la-libertad-avanza-volvio-a-pedir-la-suspension-de-las-paso-en-caba/" target="_blank" rel="noopener">En sintonía con el dictamen del Congreso, La Libertad Avanza volvió a pedir la suspensión de las PASO en CABA</a><div class="baj">“La Ciudad tiene que avanzar al mismo ritmo”, señaló la jefa del bloque libertario en la Legislatura porteña, Pilar Ramírez. El peronismo puede bloquearl culquier cambio en el sistema electoral</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="los lugares que el gobierno pactó con las provincias para 2027 y el pedido desesperado que asoma la obtención del dictamen para suspender las paso revela una ingeniería política construida durante meses entre la casa rosada y gobernadores aliados, con repartos legislativos que definirán el mapa de poder. qué puede pasar en el plano interno y la subtrama del primer diputado que rompió con el… ">
+        <td class="tema-col"></td>
+        <td class="num">01:36</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/20/los-lugares-que-el-gobierno-pacto-con-las-provincias-para-2027-y-el-pedido-desesperado-que-asoma/" target="_blank" rel="noopener">Los lugares que el Gobierno pactó con las provincias para 2027 y el pedido desesperado que asoma</a><div class="baj">La obtención del dictamen para suspender las PASO revela una ingeniería política construida durante meses entre la Casa Rosada y gobernadores aliados, con repartos legislativos que definirán el mapa de poder. Qué puede pasar en el plano interno y la subtrama del primer diputado que rompió con el…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="el gobierno ratificó los acuerdos electorales con los gobernadores aliados y asegura que tiene los votos para suspender las paso  ">
+        <td class="tema-col"></td>
+        <td class="num">16:59</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/suspension-de-las-paso-el-gobierno-acelera-los-acuerdos-con-los-gobernadores-y-confia-en-lograr-la-media-sancion-en-el-senado/" target="_blank" rel="noopener">El Gobierno ratificó los acuerdos electorales con los gobernadores aliados y asegura que tiene los votos para suspender las PASO</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="el gobierno avanza con la suspensión de las paso en el congreso, pero el peronismo las blinda en la ciudad y la provincia  ">
+        <td class="tema-col"></td>
+        <td class="num">13:58</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/gobierno-avanza-suspension-paso-congreso-peronismo-blinda-ciudad-provincia_0_Nu7s9L3AkH.html" target="_blank" rel="noopener">El Gobierno avanza con la suspensión de las PASO en el Congreso, pero el peronismo las blinda en la Ciudad y la Provincia</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="consejo de la magistratura: el senado definió a sus representantes, mientras en diputados continúa la puja por una silla el peronismo ocupará dos de las cuatro sillas. aunque karina milei no logró su cometido, sí colocó a una senadora de su confianza. en la cámara baja hay pelea entre provincias unidas y el pro. la entrada consejo de la magistratura: el senado definió a sus representantes, mientras en diputados… ">
+        <td class="tema-col"><b>6</b> · 4 medios</td>
+        <td class="num">13:18</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/consejo-de-la-magistratura-el-senado-definio-a-sus-representantes-mientras-en-diputados-continua-la-puja-por-una-silla/" target="_blank" rel="noopener">Consejo de la Magistratura: el Senado definió a sus representantes, mientras en Diputados continúa la puja por una silla</a><div class="baj">El peronismo ocupará dos de las cuatro sillas. Aunque Karina Milei no logró su cometido, sí colocó a una senadora de su confianza. En la Cámara baja hay pelea entre Provincias Unidas y el Pro. La entrada Consejo de la Magistratura: el Senado definió a sus representantes, mientras en Diputados…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="TN" data-texto="el congreso define ocho lugares para el consejo de la magistratura luego de las peleas en lla y el pj  ">
+        <td class="tema-col"></td>
+        <td class="num">22:16</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/el-congreso-define-ocho-lugares-para-el-consejo-de-la-magistratura-luego-de-las-peleas-en-lla-y-el-pj/" target="_blank" rel="noopener">El Congreso define ocho lugares para el Consejo de la Magistratura luego de las peleas en LLA y el PJ</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Ámbito" data-texto="el senado definió a sus cuatro representantes para el consejo de la magistratura serán eduardo &#34;wado&#34; de pedro y florencia lópez por el peronismo, nadia márquez por la libertad avanza, y maximiliano abad por la ucr. ">
+        <td class="tema-col"></td>
+        <td class="num">20:46</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-senado-definio-sus-cuatro-representantes-el-consejo-la-magistratura-n6347374" target="_blank" rel="noopener">El Senado definió a sus cuatro representantes para el Consejo de la Magistratura</a><div class="baj">Serán Eduardo &#34;Wado&#34; de Pedro y Florencia López por el peronismo, Nadia Márquez por La Libertad Avanza, y Maximiliano Abad por la UCR.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Negociación política" data-medio="Infobae" data-texto="villarruel definió los nombres del senado para el consejo de la magistratura: el pj tendrá una silla más que lla la vicepresidenta y titular de la cámara alta firmó esta tarde un decreto que confirmó las previsiones realizadas semanas atrás por infobae. se basó en un dictamen solicitado ayer al secretario parlamentario. ni oficialismo ni oposición objetaron la resolución ">
+        <td class="tema-col"></td>
+        <td class="num">20:11</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/19/villarruel-definio-los-nombres-del-senado-para-el-consejo-de-la-magistratura-el-pj-tendra-una-silla-mas-que-lla/" target="_blank" rel="noopener">Villarruel definió los nombres del Senado para el Consejo de la Magistratura: el PJ tendrá una silla más que LLA</a><div class="baj">La vicepresidenta y titular de la Cámara alta firmó esta tarde un decreto que confirmó las previsiones realizadas semanas atrás por Infobae. Se basó en un dictamen solicitado ayer al secretario parlamentario. Ni oficialismo ni oposición objetaron la resolución</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="TN" data-texto="mansión de pilar: piden el juicio político de los dos jueces que enviaron la causa a un magistrado cercano a la afa  ">
+        <td class="tema-col"><b>7</b> · 3 medios</td>
+        <td class="num">09:30</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/20/mansion-de-pilar-piden-el-juicio-politico-de-los-dos-jueces-que-enviaron-la-causa-a-un-magistrado-cercano-a-la-afa/" target="_blank" rel="noopener">Mansión de Pilar: piden el juicio político de los dos jueces que enviaron la causa a un magistrado cercano a la AFA</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="La Nación" data-texto="talerico pidió el juicio político de los camaristas de casación borinsky y barroetaveña, cuestionados por la corte la abogada y vicepresidenta de será justicia basó su denuncia en el fallo de la corte de ayer sobre la quinta de pilar, que dejó sin efecto una sentencia de los dos jueces ">
+        <td class="tema-col"></td>
+        <td class="num">11:38</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/talerico-pidio-el-juicio-politico-de-los-camaristas-de-casacion-borinsky-y-barroetavena-cuestionados-nid20112026/" target="_blank" rel="noopener">Talerico pidió el juicio político de los camaristas de Casación Borinsky y Barroetaveña, cuestionados por la Corte</a><div class="baj">La abogada y vicepresidenta de Será Justicia basó su denuncia en el fallo de la Corte de ayer sobre la quinta de Pilar, que dejó sin efecto una sentencia de los dos jueces</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="TN" data-texto="mansión de pilar: piden el juicio político de los dos jueces que enviaron la causa a un magistrado cercano a la afa  ">
+        <td class="tema-col"></td>
+        <td class="num">11:14</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/videos/politica/2026/11/20/mansion-de-pilar-piden-el-juicio-politico-de-los-dos-jueces-que-enviaron-la-causa-a-un-magistrado-cercano-a-la-afa/" target="_blank" rel="noopener">Mansión de Pilar: piden el juicio político de los dos jueces que enviaron la causa a un magistrado cercano a la AFA</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="mansión de pilar: piden el juicio político contra dos jueces por mal desempeño se trata de los magistrados mariano borinsky y diego barroetaveña, de la cámara de casación penal. la presentación fue realizada por la abogada y exvicepresidenta de la unidad de información financiera (uif), maría eugenia talerico. ">
+        <td class="tema-col"></td>
+        <td class="num">10:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/mansion-pilar-piden-juicio-politico-jueces-mal-desempeno_0_4puKduwObq.html" target="_blank" rel="noopener">Mansión de Pilar: piden el juicio político contra dos jueces por mal desempeño</a><div class="baj">Se trata de los magistrados Mariano Borinsky y Diego Barroetaveña, de la Cámara de Casación Penal. La presentación fue realizada por la abogada y exvicepresidenta de la Unidad de Información Financiera (UIF), María Eugenia Talerico.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Otro" data-medio="Clarín" data-texto="corrupción en el fútbol: mahiques acelera el pliego de rafecas para sacarlo de la causa de la mansión de pilar lo envió al senado el mismo día que salió el fallo de la corte suprema que ordenó que se quede con la causa. si rafecas pasa a ser camarista dejará la investigación sobre la mansión que se le atribuye a pablo toviggino. ">
+        <td class="tema-col"></td>
+        <td class="num">10:25</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/corrupcion-futbol-gobierno-acelera-pliego-rafecas-sacarlo-causa-mansion-pilar_0_juXjhkdnsC.html" target="_blank" rel="noopener">Corrupción en el fútbol: Mahiques acelera el pliego de Rafecas para sacarlo de la causa de la mansión de Pilar</a><div class="baj">Lo envió al Senado el mismo día que salió el fallo de la Corte Suprema que ordenó que se quede con la causa. Si Rafecas pasa a ser camarista dejará la investigación sobre la mansión que se le atribuye a Pablo Toviggino.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Comisión" data-medio="Parlamentario.com" data-texto="es oficial la convocatoria para debatir la ley de ludopatía en el senado después de ser anunciado por la jefa de bloque del oficialismo, las comisiones de legislación general, salud y justicia fijaron fecha para tratar 14 expedientes que abordan la problemática del juego online. la entrada es oficial la convocatoria para debatir la ley de ludopatía en el senado se… ">
+        <td class="tema-col"><b>8</b> · 3 medios</td>
+        <td class="num">17:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/es-oficial-la-convocatoria-para-debatir-la-ley-de-ludopatia-en-el-senado/" target="_blank" rel="noopener">Es oficial la convocatoria para debatir la Ley de Ludopatía en el Senado</a><div class="baj">Después de ser anunciado por la jefa de bloque del oficialismo, las comisiones de Legislación General, Salud y Justicia fijaron fecha para tratar 14 expedientes que abordan la problemática del juego online. La entrada Es oficial la convocatoria para debatir la Ley de Ludopatía en el Senado se…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="Infobae" data-texto="el senado convocó al plenario de comisiones para debatir la ley de ludopatía el próximo miércoles la bancada libertaria habilitó la discusión de iniciativas sobre apuestas tras más de 700 días de bloqueo y fijó el encuentro para el 25 de noviembre a las 10, con tres cuerpos legislativos ">
+        <td class="tema-col"></td>
+        <td class="num">12:22</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/20/el-senado-convoco-al-plenario-de-comisiones-para-debatir-la-ley-de-ludopatia-el-proximo-miercoles/" target="_blank" rel="noopener">El Senado convocó al plenario de comisiones para debatir la ley de ludopatía el próximo miércoles</a><div class="baj">La bancada libertaria habilitó la discusión de iniciativas sobre apuestas tras más de 700 días de bloqueo y fijó el encuentro para el 25 de noviembre a las 10, con tres cuerpos legislativos</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Comisión" data-medio="C5N" data-texto="ludopatía y apuestas online: el oficialismo frenó el debate, pero se comprometió a tratar la ley en una próxima sesión  ">
+        <td class="tema-col"></td>
+        <td class="num">17:31</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/ludopatia-y-apuestas-online-el-oficialismo-freno-el-debate-pero-se-comprometio-tratar-la-ley-una-proxima-sesion-n254832" target="_blank" rel="noopener">Ludopatía y apuestas online: el oficialismo frenó el debate, pero se comprometió a tratar la ley en una próxima sesión</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Comisión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Ámbito" data-texto="fallo contra el dnu de javier milei: la corte suprema restituyó los controles estatales sobre las cuotas de las prepagas en un fallo, el máximo tribunal sostuvo que el gobierno no justificó la necesidad y urgencia para eliminar los controles estatales sobre las cuotas de la medicina privada. confirmó la inconstitucionalidad de dos artículos del dnu 70/2023 y dispuso que la autoridad de aplicación reasuma sus… dnu 70/2023">
+        <td class="tema-col"><b>9</b> · 2 medios<br>DNU 70/2023</td>
+        <td class="num">16:09</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/prepagas-y-aumentos-la-corte-suprema-declaro-inconstitucionales-dos-articulos-del-dnu-javier-milei-que-desregularon-las-cuotas-n6347259" target="_blank" rel="noopener">Fallo contra el DNU de Javier Milei: la Corte Suprema restituyó los controles estatales sobre las cuotas de las prepagas</a><div class="baj">En un fallo, el máximo tribunal sostuvo que el Gobierno no justificó la necesidad y urgencia para eliminar los controles estatales sobre las cuotas de la medicina privada. Confirmó la inconstitucionalidad de dos artículos del DNU 70/2023 y dispuso que la autoridad de aplicación reasuma sus…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Ámbito" data-texto="la corte suprema frena los aumentos de las prepagas: cuándo se implementa el cambio y qué hacer si no se respeta el máximo tribunal declaró inconstitucionales los artículos del dnu 70/2023 que suprimían los controles oficiales sobre las cuotas de los afiliados. dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">10:48</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/la-corte-suprema-frena-los-aumentos-las-prepagas-cuando-se-implementa-el-cambio-y-que-hacer-si-no-se-respeta-n6347534" target="_blank" rel="noopener">La Corte Suprema frena los aumentos de las prepagas: cuándo se implementa el cambio y qué hacer si no se respeta</a><div class="baj">El máximo tribunal declaró inconstitucionales los artículos del DNU 70/2023 que suprimían los controles oficiales sobre las cuotas de los afiliados.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="La Nación" data-texto="primer freno de la corte a un dnu de milei: declaró inconstitucional la liberación de los precios de las prepagas el máximo tribunal confirmó una sentencia de la cámara federal de la plata contra dos artículos del dnu 70/23, que eliminaron los límites a los aumentos de la medicina privada, y reafirmó los límites a los decretos de necesidad y urgencia dnu 70/2023">
+        <td class="tema-col"></td>
+        <td class="num">16:39</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-corte-declaro-inconstitucional-la-decision-de-milei-de-permitir-que-las-prepagas-fijen-libremente-nid19112026/" target="_blank" rel="noopener">Primer freno de la Corte a un DNU de Milei: declaró inconstitucional la liberación de los precios de las prepagas</a><div class="baj">El máximo tribunal confirmó una sentencia de la Cámara Federal de La Plata contra dos artículos del DNU 70/23, que eliminaron los límites a los aumentos de la medicina privada, y reafirmó los límites a los decretos de necesidad y urgencia</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="reforma del cabotaje: el senado aprobó la apertura del transporte marítimo y la modernización de la marina mercante se trata de una profunda reforma del régimen de cabotaje nacional que habilita la participación de buques extranjeros en buena parte del transporte entre puertos argentinos. la norma incorpora incentivos para armadores locales, simplifica trámites aduaneros y busca reducir costos logísticos, aunque… ">
+        <td class="tema-col"><b>10</b> · 2 medios</td>
+        <td class="num">00:37</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/reforma-del-cabotaje-el-senado-aprobo-la-apertura-del-transporte-maritimo-y-la-modernizacion-de-la-marina-mercante/" target="_blank" rel="noopener">Reforma del cabotaje: el Senado aprobó la apertura del transporte marítimo y la modernización de la marina mercante</a><div class="baj">Se trata de una profunda reforma del régimen de cabotaje nacional que habilita la participación de buques extranjeros en buena parte del transporte entre puertos argentinos. La norma incorpora incentivos para armadores locales, simplifica trámites aduaneros y busca reducir costos logísticos, aunque…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Sesión" data-medio="Clarín" data-texto="entidades de usuarios de la hidrovía respaldaron la reforma del cabotaje y pidieron su pronta aprobación en diputados  ">
+        <td class="tema-col"></td>
+        <td class="num">13:51</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/rural/entidades-usuarios-hidrovia-respaldaron-reforma-cabotaje-pidieron-pronta-aprobacion-diputados_0_uRlpAIu9xK.html" target="_blank" rel="noopener">Entidades de usuarios de la hidrovía respaldaron la reforma del cabotaje y pidieron su pronta aprobación en Diputados</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="se sancionó la “ley joaquín”, sobre medidas de seguridad en actividades deportivas y recreativas la norma salió por unanimidad. fue inspirada en el caso de joaquín stefano gatto, un niño que murió luego que un arco de fútbol le cayera encima. qué establece el texto. la entrada se sancionó la “ley joaquín”, sobre medidas de seguridad en actividades deportivas y recreativas se publicó primero en… ">
+        <td class="tema-col"><b>11</b> · 2 medios</td>
+        <td class="num">22:34</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/se-sanciono-la-ley-joaquin-sobre-medidas-de-seguridad-en-actividades-deportivas-y-recreativas/" target="_blank" rel="noopener">Se sancionó la “Ley Joaquín”, sobre medidas de seguridad en actividades deportivas y recreativas</a><div class="baj">La norma salió por unanimidad. Fue inspirada en el caso de Joaquín Stefano Gatto, un niño que murió luego que un arco de fútbol le cayera encima. Qué establece el texto. La entrada Se sancionó la “Ley Joaquín”, sobre medidas de seguridad en actividades deportivas y recreativas se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="el senado respaldó la ley joaquín, que busca prevenir accidentes en espacios deportivos y recreativos el proyecto lleva el nombre de joaquín stefano gatto, un niño de 12 años que falleció tras ser golpeado por un arco de fútbol que no estaba correctamente sujetado y su familia impulsó el proyecto para que su historia se transforme en una herramienta de prevención. las medidas deberán ser cumplidas… ">
+        <td class="tema-col"></td>
+        <td class="num">07:15</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/senado-respaldo-ley-joaquin-busca-prevenir-accidentes-espacios-deportivos-recreativos_1_13679664.html" target="_blank" rel="noopener">El Senado respaldó la Ley Joaquín, que busca prevenir accidentes en espacios deportivos y recreativos</a><div class="baj">El proyecto lleva el nombre de Joaquín Stefano Gatto, un niño de 12 años que falleció tras ser golpeado por un arco de fútbol que no estaba correctamente sujetado y su familia impulsó el proyecto para que su historia se transforme en una herramienta de prevención. Las medidas deberán ser cumplidas…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="La Nación" data-texto="luego de una maratónica sesión, el senado aprobó el régimen de cabotaje y marina mercante el minuto a minuto de las decisiones del jefe de estado, las reacciones de la oposición y las declaraciones de los funcionarios ">
+        <td class="tema-col"><b>12</b> · 2 medios</td>
+        <td class="num">01:41</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-nid19112026/" target="_blank" rel="noopener">Luego de una maratónica sesión, el Senado aprobó el Régimen de cabotaje y marina mercante</a><div class="baj">El minuto a minuto de las decisiones del jefe de Estado, las reacciones de la oposición y las declaraciones de los funcionarios</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="C5N" data-texto="reviví el minuto a minuto de la maratónica sesión en el senado  ">
+        <td class="tema-col"></td>
+        <td class="num">20:59</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/senado-sesion-discapacidad-congreso-19-noviembre-2026" target="_blank" rel="noopener">Reviví el minuto a minuto de la maratónica sesión en el Senado</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Otro" data-medio="La Nación" data-texto="el nuevo consejo de la magistratura debe empezar a funcionar y no logra completarse: quedan dos bancas sin oficializar el senado avanzó con definiciones; provincias unidas y pro se disputan al cuarto representante de los diputados y los académicos llevan su pelea a los tribunales ">
+        <td class="tema-col"><b>13</b> · 2 medios</td>
+        <td class="num">20:50</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-nuevo-consejo-de-la-magistratura-debe-empezar-a-funcionar-y-no-logra-completarse-hay-seis-bancas-nid19112026/" target="_blank" rel="noopener">El nuevo Consejo de la Magistratura debe empezar a funcionar y no logra completarse: quedan dos bancas sin oficializar</a><div class="baj">El Senado avanzó con definiciones; Provincias Unidas y Pro se disputan al cuarto representante de los diputados y los académicos llevan su pelea a los tribunales</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Otro" data-medio="Clarín" data-texto="la pelea por una banca en el consejo de la magistratura entre el pro y provincias unidas que debe dirimir martín menem  ">
+        <td class="tema-col"></td>
+        <td class="num">17:46</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/pelea-banca-consejo-magistratura-pro-provincias-unidas-debe-dirimir-martin-menem_0_t9sXRvtORa.html" target="_blank" rel="noopener">La pelea por una banca en el Consejo de la Magistratura entre el PRO y Provincias Unidas que debe dirimir Martín Menem</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="falleció noemí geminiani, legisladora de fuerza por buenos aires lo informó la legislatura de la ciudad, que además dispuso el cese de las actividades parlamentarias en señal de duelo. la entrada falleció noemí geminiani, legisladora de fuerza por buenos aires se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">11:13</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/fallecio-noemi-geminiani-legisladora-de-fuerza-por-buenos-aires/" target="_blank" rel="noopener">Falleció Noemí Geminiani, legisladora de Fuerza por Buenos Aires</a><div class="baj">Lo informó la Legislatura de la Ciudad, que además dispuso el cese de las actividades parlamentarias en señal de duelo. La entrada Falleció Noemí Geminiani, legisladora de Fuerza por Buenos Aires se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="legisladores porteños despidieron a noemí geminiani desde las diversas bancadas, despidieron a la legisladora que falleció este viernes. &#34;quienes la conocimos pudimos apreciar su gran calidad humana y su nobleza&#34;, afirmaron. la entrada legisladores porteños despidieron a noemí geminiani se publicó primero en parlamentario . ">
+        <td class="tema-col"></td>
+        <td class="num">12:08</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/legisladores-portenos-despidieron-a-noemi-geminiani/" target="_blank" rel="noopener">Legisladores porteños despidieron a Noemí Geminiani</a><div class="baj">Desde las diversas bancadas, despidieron a la legisladora que falleció este viernes. &#34;Quienes la conocimos pudimos apreciar su gran calidad humana y su nobleza&#34;, afirmaron. La entrada Legisladores porteños despidieron a Noemí Geminiani se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Clarín" data-texto="demócrata de cámara baja de eeuu revisa uso de apps cifradas como signal en gobierno de trump  ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">12:30</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/estados-unidos/democrata-de-camara-baja-de-eeuu-revisa-uso-de-apps-cifradas-como-signal-en-gobierno-de-trump_0_kng80d5CHF.html" target="_blank" rel="noopener">Demócrata de cámara baja de EEUU revisa uso de apps cifradas como Signal en gobierno de Trump</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Página/12" data-texto="explosión en escalada: avanzan las tareas de demolición y el municipio busca declarar la emergencia el gobierno de lanús envió un proyecto de ley para declarar el estado de emergencia en el partido bonaerense. además, organizaron una colecta y festival solidario para recaudar fondos para los vecinos que perdieron todo. ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">11:43</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/20/explosion-en-escalada-avanzan-las-tareas-de-demolicion-y-el-municipio-busca-declarar-la-emergencia/" target="_blank" rel="noopener">Explosión en Escalada: avanzan las tareas de demolición y el Municipio busca declarar la Emergencia</a><div class="baj">El gobierno de Lanús envió un proyecto de Ley para declarar el estado de Emergencia en el partido bonaerense. Además, organizaron una colecta y festival solidario para recaudar fondos para los vecinos que perdieron todo.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="El Cronista" data-texto="por orden de la ley 26.994, el registro civil debe decidir por sorteo el apellido de los hijos si al momento de la inscripción los padres no se ponen de acuerdo el artículo 64 del código civil y comercial qué sucede cuando la filiación se determina en distintos momentos y cómo se resuelve ante un eventual conflicto entre los padres. ley 26.994">
+        <td class="tema-col"><b>17</b> · 1 medio<br>Ley 26.994</td>
+        <td class="num">10:54</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/informacion-gral/por-orden-de-la-ley-26994-el-registro-civil-debe-decidir-por-sorteo-el-apellido-de-los-hijos-si-al-momento-de-la-inscripcion-los-padres-no-se-ponen-de-acuerdo/" target="_blank" rel="noopener">Por orden de la Ley 26.994, el Registro Civil debe decidir por sorteo el apellido de los hijos si al momento de la inscripción los padres no se ponen de acuerdo</a><div class="baj">El artículo 64 del Código Civil y Comercial qué sucede cuando la filiación se determina en distintos momentos y cómo se resuelve ante un eventual conflicto entre los padres.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="&#34;hay que hacer un frente político que tenga como eje la recuperación de la soberanía económica&#34;, dijo máximo k. el diputado nacional cuestionó que el gobierno &#34;está más preocupado en discutir el instrumento electoral que en solucionar los problemas de la gente&#34;. la entrada &#34;hay que hacer un frente político que tenga como eje la recuperación de la soberanía económica&#34;, dijo máximo k. se publicó primero en… ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">10:50</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/hay-que-hacer-un-frente-politico-que-tenga-como-eje-la-recuperacion-de-la-soberania-economica-dijo-maximo-k/" target="_blank" rel="noopener">&#34;Hay que hacer un frente político que tenga como eje la recuperación de la soberanía económica&#34;, dijo Máximo K.</a><div class="baj">El diputado nacional cuestionó que el Gobierno &#34;está más preocupado en discutir el instrumento electoral que en solucionar los problemas de la gente&#34;. La entrada &#34;Hay que hacer un frente político que tenga como eje la recuperación de la soberanía económica&#34;, dijo Máximo K. se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Ámbito" data-texto="españa lleva la pelea por el voto exterior a la campaña electoral: qué pasa en argentina el senador socialista césar mogo denunció que vox busca restringir el derecho al voto de los españoles residentes en el exterior. tras un fallo del tribunal supremo que dejó fuera de los comicios a más de 160.000 ciudadanos, la disputa política vuelve a poner el foco en una comunidad que en… ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">10:05</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/espana-lleva-la-pelea-el-voto-exterior-la-campana-electoral-que-pasa-argentina-n6347497" target="_blank" rel="noopener">España lleva la pelea por el voto exterior a la campaña electoral: qué pasa en Argentina</a><div class="baj">El senador socialista César Mogo denunció que Vox busca restringir el derecho al voto de los españoles residentes en el exterior. Tras un fallo del Tribunal Supremo que dejó fuera de los comicios a más de 160.000 ciudadanos, la disputa política vuelve a poner el foco en una comunidad que en…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Negociación política" data-medio="El Cronista" data-texto="la silla que perdió milei y la puja por los siete votos clave: la guerra por quién elige a los jueces el regreso de un senador al bloque justicialista y un informe de la presidencia del senado le dieron al pj dos de las cuatro bancas de la cámara alta. en diputados, la corte le cerró la puerta a la reelección del consejero del pro álvaro gonzález, y la cuarta silla, que disputan el pro y provincias… ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">09:35</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/la-silla-que-perdio-milei-y-la-puja-por-los-siete-votos-clave-la-guerra-por-quien-elige-a-los-jueces/" target="_blank" rel="noopener">La silla que perdió Milei y la puja por los siete votos clave: la guerra por quién elige a los jueces</a><div class="baj">El regreso de un senador al bloque justicialista y un informe de la Presidencia del Senado le dieron al PJ dos de las cuatro bancas de la Cámara alta. En Diputados, la Corte le cerró la puerta a la reelección del consejero del PRO Álvaro González, y la cuarta silla, que disputan el PRO y Provincias…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Sesión" data-medio="elDiarioAR" data-texto="santilli debutará en el senado en una semana de alto voltaje para milei, entre las paso, el presupuesto y las internas del gobierno el próximo miércoles, el jefe de gabinete deberá responder más de 1.600 preguntas sobre la gestión. la exposición será la antesala de una sesión decisiva por la suspensión de las primarias. el oficialismo llega golpeado por el fracaso en diputados, con la disputa entre santiago caputo y los menem… ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">06:11</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/santilli-debutara-senado-semana-alto-voltaje-milei-paso-presupuesto-internas-gobierno_1_13678417.html" target="_blank" rel="noopener">Santilli debutará en el Senado en una semana de alto voltaje para Milei, entre las PASO, el Presupuesto y las internas del Gobierno</a><div class="baj">El próximo miércoles, el jefe de Gabinete deberá responder más de 1.600 preguntas sobre la gestión. La exposición será la antesala de una sesión decisiva por la suspensión de las primarias. El oficialismo llega golpeado por el fracaso en Diputados, con la disputa entre Santiago Caputo y los Menem…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="2027, año del centenario del nacimiento del raúl alfonsín el proyecto de resolución fue impulsado por la unión cívica radical y establece que todas las áreas del senado incorporen esa leyenda en su papelería oficial durante todo el año. cruce de mayans con la libertad avanza. la entrada 2027, año del centenario del nacimiento del raúl alfonsín se publicó… ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">02:46</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/2027-ano-del-centenario-del-nacimiento-del-raul-alfonsin/" target="_blank" rel="noopener">2027, Año del Centenario del Nacimiento del Raúl Alfonsín</a><div class="baj">El proyecto de resolución fue impulsado por la Unión Cívica Radical y establece que todas las áreas del Senado incorporen esa leyenda en su papelería oficial durante todo el año. Cruce de Mayans con La Libertad Avanza. La entrada 2027, Año del Centenario del Nacimiento del Raúl Alfonsín se publicó…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="se aprobaron seis convenios internacionales la cámara alta giró a diputados seis acuerdos, entre los que se destaca el acuerdo con paraguay sobre servicios aéreos. rechazo justicialista a la mitad de los acuerdos. la entrada se aprobaron seis convenios internacionales se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">02:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/se-aprobaron-seis-convenios-internacionales/" target="_blank" rel="noopener">Se aprobaron seis convenios internacionales</a><div class="baj">La Cámara alta giró a Diputados seis acuerdos, entre los que se destaca el Acuerdo con Paraguay sobre servicios aéreos. Rechazo justicialista a la mitad de los acuerdos. La entrada Se aprobaron seis convenios internacionales se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="con una objeción del peronismo, la cámara alta dio luz verde a los integrantes del comité nacional para la prevención de la tortura el comité será integrado por dos exlegisladores nacionales, uno del pro y un exdiputado de unión por la patria. fueron 62 a favor, 2 en contra y cero abstenciones. la entrada con una objeción del peronismo, la cámara alta dio luz verde a los integrantes del comité nacional para la prevención de la… ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">02:20</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/con-una-objecion-del-peronismo-la-camara-alta-dio-luz-verde-a-los-integrantes-del-comite-nacional-para-la-prevencion-de-la-tortura/" target="_blank" rel="noopener">Con una objeción del peronismo, la Cámara alta dio luz verde a los integrantes del Comité Nacional para la Prevención de la Tortura</a><div class="baj">El Comité será integrado por dos exlegisladores nacionales, uno del Pro y un exdiputado de Unión por la Patria. Fueron 62 a favor, 2 en contra y cero abstenciones. La entrada Con una objeción del peronismo, la Cámara alta dio luz verde a los integrantes del Comité Nacional para la Prevención de la…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el senado avaló transferencias inmobiliarias la universidad de santiago del estero y municipios de santa fe san juan fueron los beneficiarios. homenaje a un periodista misionero. la entrada el senado avaló transferencias inmobiliarias se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">02:03</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/el-senado-avalo-transferencias-inmobiliarias/" target="_blank" rel="noopener">El Senado avaló transferencias inmobiliarias</a><div class="baj">La Universidad de Santiago del Estero y municipios de Santa Fe San Juan fueron los beneficiarios. Homenaje a un periodista misionero. La entrada El Senado avaló transferencias inmobiliarias se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="Infobae" data-texto="kicillof se aferra a sostener las paso en buenos aires para negociar a nivel nacional con massa y cfk la discusión ocurre en paralelo a las intenciones del gobierno de suspendar las primarias en 2027. el gobernador bonaerense lo definirá en base a lo que suceda en el congreso, pero distintas terminales del peronismo creen que servirá para descomprimir ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">01:40</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/20/kicillof-se-aferra-a-sostener-las-paso-en-buenos-aires-para-negociar-a-nivel-nacional-con-massa-y-cfk/" target="_blank" rel="noopener">Kicillof se aferra a sostener las PASO en Buenos Aires para negociar a nivel nacional con Massa y CFK</a><div class="baj">La discusión ocurre en paralelo a las intenciones del Gobierno de suspendar las Primarias en 2027. El gobernador bonaerense lo definirá en base a lo que suceda en el Congreso, pero distintas terminales del peronismo creen que servirá para descomprimir</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="de forma unánime, se sancionó un régimen de promoción de los derechos de los menores el proyecto se aprobó con 62 votos a favor. entre los tipos de violencia que deberán contemplar los protocolos se incluyen el abuso sexual y la violencia física. la entrada de forma unánime, se sancionó un régimen de promoción de los derechos de los menores se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">01:11</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/20/de-forma-unanime-se-sanciono-un-regimen-de-promocion-de-los-derechos-de-los-menores/" target="_blank" rel="noopener">De forma unánime, se sancionó un régimen de Promoción de los Derechos de los Menores</a><div class="baj">El proyecto se aprobó con 62 votos a favor. Entre los tipos de violencia que deberán contemplar los protocolos se incluyen el abuso sexual y la violencia física. La entrada De forma unánime, se sancionó un régimen de Promoción de los Derechos de los Menores se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Clarín" data-texto="river aprobó el presupuesto 2027 con proyección de superávit, más récord de inversión en fútbol y obras por 108 millones de dólares  presupuesto 2027">
+        <td class="tema-col"><b>28</b> · 1 medio<br>Presupuesto 2027</td>
+        <td class="num">21:43</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/deportes/river-aprobo-presupuesto-2027-proyeccion-superavit-record-inversion-futbol-obras-108-millones-dolares_0_7nmJgXX9Pe.html" target="_blank" rel="noopener">River aprobó el presupuesto 2027 con proyección de superávit, más récord de inversión en fútbol y obras por 108 millones de dólares</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="La Nación" data-texto="el detrás de escena del encuentro que encabezó milei con personajes políticos de alto perfil en puerto madero el presidente participó de la cena de faca, que comanda la diputada nacional sabrina ajmechet; destacó el juicio en ausencia para condenar a los culpables de amia ">
+        <td class="tema-col"><b>29</b> · 1 medio</td>
+        <td class="num">21:20</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-detras-de-escena-del-encuentro-que-encabezo-milei-con-personajes-politicos-de-alto-perfil-en-nid19112026/" target="_blank" rel="noopener">El detrás de escena del encuentro que encabezó Milei con personajes políticos de alto perfil en Puerto Madero</a><div class="baj">El Presidente participó de la cena de FACA, que comanda la diputada nacional Sabrina Ajmechet; destacó el juicio en ausencia para condenar a los culpables de AMIA</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="diputados distinguió a alberto crescenti con la mención de honor “juan bautista alberdi” el director del same recibió el máximo reconocimiento que otorga la cámara baja por su trayectoria profesional y su compromiso al frente del sistema de emergencias médicas. la distinción fue impulsada por el diputado manuel quintar. la entrada diputados distinguió a alberto crescenti con la mención… ">
+        <td class="tema-col"><b>30</b> · 1 medio</td>
+        <td class="num">20:43</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/diputados-distinguio-a-alberto-crescenti-con-la-mencion-de-honor-juan-bautista-alberdi/" target="_blank" rel="noopener">Diputados distinguió a Alberto Crescenti con la Mención de Honor “Juan Bautista Alberdi”</a><div class="baj">El director del SAME recibió el máximo reconocimiento que otorga la Cámara baja por su trayectoria profesional y su compromiso al frente del sistema de emergencias médicas. La distinción fue impulsada por el diputado Manuel Quintar. La entrada Diputados distinguió a Alberto Crescenti con la Mención…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="TN" data-texto="consejo de la magistratura: juraron diego molea y santiago viola, pero el congreso demora la designación de sus representantes  ">
+        <td class="tema-col"><b>31</b> · 1 medio</td>
+        <td class="num">20:05</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/19/consejo-de-la-magistratura-juraron-diego-molea-y-santiago-viola-pero-el-congreso-demora-la-designacion-de-sus-representantes/" target="_blank" rel="noopener">Consejo de la Magistratura: juraron Diego Molea y Santiago Viola, pero el Congreso demora la designación de sus representantes</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Letra P" data-texto="rosario: aleart se cortó solo con un proyecto para encarcelar cuidacoches y complica su relación en el bloque  ">
+        <td class="tema-col"><b>32</b> · 1 medio</td>
+        <td class="num">18:25</td>
+        <td>Letra P</td>
+        <td><a href="https://www.letrap.com.ar/politica/rosario-aleart-se-corto-solo-un-proyecto-encarcelar-cuidacoches-y-complica-su-relacion-el-bloque-n5428367" target="_blank" rel="noopener">Rosario: Aleart se cortó solo con un proyecto para encarcelar cuidacoches y complica su relación en el bloque</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Página/12" data-texto="“fue un viento fuerte”, lo que dejó la visita del papa en la lucha por la ley de discapacidad  emergencia en discapacidad">
+        <td class="tema-col"><b>33</b> · 1 medio<br>Emergencia en discapacidad</td>
+        <td class="num">17:46</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/19/fue-un-viento-fuerte-lo-que-dejo-la-visita-del-papa-en-la-lucha-por-la-ley-de-discapacidad/" target="_blank" rel="noopener">“Fue un viento fuerte”, lo que dejó la visita del Papa en la lucha por la ley de Discapacidad</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Infobae" data-texto="martín lousteau defendió el rol de los impuestos y advirtió: “todos los derechos cuestan y alguien los tiene que pagar” en una columna en infobae a la tarde, el economista comparó los tributos con la cuota de un club, recordó el costo de garantizar la propiedad privada y cuestionó la gestión estatal inviolabilidad de la propiedad privada">
+        <td class="tema-col"><b>34</b> · 1 medio<br>Inviolabilidad de la propiedad privada</td>
+        <td class="num">16:47</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/19/martin-lousteau-defendio-el-rol-de-los-impuestos-y-advirtio-todos-los-derechos-cuestan-y-alguien-los-tiene-que-pagar/" target="_blank" rel="noopener">Martín Lousteau defendió el rol de los impuestos y advirtió: “Todos los derechos cuestan y alguien los tiene que pagar”</a><div class="baj">En una columna en Infobae a la Tarde, el economista comparó los tributos con la cuota de un club, recordó el costo de garantizar la propiedad privada y cuestionó la gestión estatal</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Política Online" data-texto="petri le traba a cornejo un crédito de usd 200 millones que tiene el aval de caputo los legisladores del ex ministro de defensa de milei no quieren votar el capítulo del presupuesto mendocino que autoriza al gobernador a endeudarse con el bid. ">
+        <td class="tema-col"><b>35</b> · 1 medio</td>
+        <td class="num">16:03</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/petri-le-traba-a-cornejo-un-credito-de-usd-200-millones-que-tiene-el-aval-de-caputo/" target="_blank" rel="noopener">Petri le traba a Cornejo un crédito de USD 200 millones que tiene el aval de Caputo</a><div class="baj">Los legisladores del ex ministro de Defensa de Milei no quieren votar el capítulo del Presupuesto mendocino que autoriza al gobernador a endeudarse con el BID.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="diputados y la biblioteca del congreso organizarán un encuentro sobre la industria audiovisual china en el marco de una iniciativa destinada a profundizar los vínculos culturales entre argentina y china, se realizará la próxima semana una jornada orientada a la difusión de producciones audiovisuales del país asiático. la actividad tendrá lugar en el espacio cultural de la biblioteca del congreso y… ">
+        <td class="tema-col"><b>36</b> · 1 medio</td>
+        <td class="num">15:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/diputados-y-la-biblioteca-del-congreso-organizaran-un-encuentro-sobre-la-industria-audiovisual-china/" target="_blank" rel="noopener">Diputados y la Biblioteca del Congreso organizarán un encuentro sobre la industria audiovisual china</a><div class="baj">En el marco de una iniciativa destinada a profundizar los vínculos culturales entre Argentina y China, se realizará la próxima semana una jornada orientada a la difusión de producciones audiovisuales del país asiático. La actividad tendrá lugar en el Espacio Cultural de la Biblioteca del Congreso y…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="el senado aprobó el ascenso del jefe de la casa militar, sebastián ibáñez la cámara alta dio acuerdo este jueves al ascenso del general de brigada al actual jefe de la casa militar, organismo encargado de la seguridad presidencial. la entrada el senado aprobó el ascenso del jefe de la casa militar, sebastián ibáñez se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>37</b> · 1 medio</td>
+        <td class="num">14:52</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/el-senado-aprobo-el-ascenso-del-jefe-de-la-casa-militar-sebastian-ibanez/" target="_blank" rel="noopener">El Senado aprobó el ascenso del jefe de la Casa Militar, Sebastián Ibáñez</a><div class="baj">La Cámara alta dio acuerdo este jueves al ascenso del general de brigada al actual jefe de la Casa Militar, organismo encargado de la seguridad presidencial. La entrada El Senado aprobó el ascenso del jefe de la Casa Militar, Sebastián Ibáñez se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Parlamentario.com" data-texto="tomó estado parlamentario el pliego de daniel rafecas, propuesto para integrar la cámara nacional de casación además de la postulación del juez federal, en la sesión de este jueves se le dio ingreso formal a otra treintena de expedientes enviados por el poder ejecutivo. el listado completo. la entrada tomó estado parlamentario el pliego de daniel rafecas, propuesto para integrar la cámara nacional de… ">
+        <td class="tema-col"><b>38</b> · 1 medio</td>
+        <td class="num">14:42</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/19/tomo-estado-parlamentario-el-pliego-de-daniel-rafecas-propuesto-para-integrar-la-camara-nacional-de-casacion/" target="_blank" rel="noopener">Tomó estado parlamentario el pliego de Daniel Rafecas, propuesto para integrar la Cámara Nacional de Casación</a><div class="baj">Además de la postulación del juez federal, en la sesión de este jueves se le dio ingreso formal a otra treintena de expedientes enviados por el Poder Ejecutivo. El listado completo. La entrada Tomó estado parlamentario el pliego de Daniel Rafecas, propuesto para integrar la Cámara Nacional de…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-20 a las 13:54 hs (hora argentina) ·
+    <span class="estado-ok">19 respondieron bien</span> · <span class="estado-mal">2 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Diputados (agenda)</b>: https://www.hcdn.gob.ar/comisiones/agenda/: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: _ssl.c:994: The handshake operation timed out)</li><li><span class="estado-mal">✕</span> <b>Diputados (prensa)</b>: https://www.hcdn.gob.ar/prensa/: ConnectionError: no se pudo leer robots.txt (ConnectTimeout: _ssl.c:994: The handshake operation timed out)</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
