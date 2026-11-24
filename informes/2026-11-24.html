@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Congreso · 2026-11-24</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6d6b65;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10); --wash: #f0efec;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --deemph: #aeaca4;
+  --link: #1c5cab; --good: #006300; --critical: #d03b3b; --warning-ink: #8a5a00;
+  --sesion-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+    --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+    --sesion-bg: #17263a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10); --wash: #262624;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --deemph: #4a4945;
+  --link: #86b6ef; --good: #0ca30c; --critical: #e66767; --warning-ink: #fab219;
+  --sesion-bg: #17263a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 26px; margin: 2px 0 0; font-weight: 650; }
+h2 { font-size: 13px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); margin: 32px 0 12px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.panel { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { padding: 14px 16px; }
+.kpi .lbl { font-size: 13px; color: var(--ink-2); }
+.kpi .val { font-size: 34px; font-weight: 650; line-height: 1.15; margin-top: 2px; }
+.kpi .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.kpi .sub.up { color: var(--good); }
+.kpi.alerta .val { color: var(--critical); }
+.icono { display: inline-block; width: 1em; text-align: center; }
+
+/* Tarjetas top */
+.top { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card.primero { grid-column: 1 / -1; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.puesto { width: 26px; height: 26px; border-radius: 50%; background: var(--wash); display: grid; place-items: center;
+  font-weight: 650; font-size: 13px; color: var(--ink-2); flex: none; }
+.cobertura { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.cobertura b { font-size: 20px; color: var(--ink); font-weight: 650; }
+.pips { display: inline-flex; gap: 2px; }
+.pips i { width: 8px; height: 8px; border-radius: 2px; background: var(--s1); display: block; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; }
+.card.primero h3 { font-size: 21px; }
+.card h3 a { color: var(--ink); }
+.card p.bajada { margin: 0; color: var(--ink-2); font-size: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--wash); color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.chip.proyecto { box-shadow: inset 0 0 0 1px var(--axis); background: transparent; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot.c1 { background: var(--s1); } .dot.c2 { background: var(--s2); } .dot.c3 { background: var(--s3); }
+.medios { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: auto;
+  padding-top: 8px; border-top: 1px solid var(--grid); }
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.dia { padding: 12px 14px; }
+.dia h4 { margin: 0 0 8px; font-size: 14px; font-weight: 650; display: flex; gap: 8px; align-items: center; }
+.hoy-tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; background: var(--s1); color: #fff;
+  padding: 1px 6px; border-radius: 4px; }
+.ev { display: grid; grid-template-columns: 44px 1fr; gap: 2px 8px; padding: 6px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.ev:first-of-type { border-top: 0; }
+.ev .hora { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ev .tit { font-weight: 550; display: flex; gap: 6px; align-items: baseline; }
+.ev .tit .dot { transform: translateY(-1px); }
+.ev .det { grid-column: 2; color: var(--ink-2); font-size: 12.5px; }
+.ev.sesion { background: var(--sesion-bg); margin: 0 -8px; padding: 8px; border-radius: 8px; border-top: 0; }
+.ev.sesion .tit { font-weight: 700; }
+.ev.suspendida .tit span.t { text-decoration: line-through; color: var(--muted); }
+.tag { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); }
+.tag.warn { color: var(--warning-ink); }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 2px; }
+.vacio { color: var(--muted); font-size: 13.5px; padding: 12px 14px; }
+
+/* Gráficos */
+.graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.graf { padding: 14px 16px 16px; }
+.graf.ancho { grid-column: 1 / -1; }
+.graf h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.graf .nota { font-size: 12.5px; color: var(--muted); margin: 2px 0 12px; }
+.leyenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); margin: -4px 0 10px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.key-bar { width: 14px; height: 8px; border-radius: 2px; background: var(--s1); }
+.key-tick { width: 2px; height: 14px; background: var(--ink); }
+.barras { display: grid; grid-template-columns: minmax(90px, 34%) 1fr; gap: 4px 10px; align-items: center; }
+.barras .lbl { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 22px; display: flex; align-items: center; border-left: 1px solid var(--axis); }
+.bar { height: 16px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.track .v { font-size: 12.5px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tick { position: absolute; top: 1px; bottom: 1px; width: 2px; background: var(--ink); border-radius: 1px;
+  box-shadow: 0 0 0 2px var(--surface); }
+.columnas { display: flex; align-items: flex-end; gap: 2px; height: 150px; border-bottom: 1px solid var(--axis); padding: 18px 0 0; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.col .c { width: 100%; max-width: 24px; background: var(--deemph); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col.hoy .c { background: var(--s1); }
+.col .cap { font-size: 12.5px; font-weight: 650; margin-bottom: 4px; }
+.col.sin-datos .c { background: transparent; box-shadow: inset 0 0 0 1px var(--grid); height: 100%; border-radius: 4px 4px 0 0; }
+.ejes { display: flex; gap: 2px; margin-top: 6px; }
+.ejes span { flex: 1; text-align: center; font-size: 11.5px; color: var(--muted); }
+.ejes span.hoy { color: var(--ink); font-weight: 650; }
+[data-tip] { cursor: default; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font-size: 12.5px;
+  padding: 6px 9px; border-radius: 6px; max-width: 320px; opacity: 0; transition: opacity .08s; }
+
+/* Tabla */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+.filtros select, .filtros input { font: inherit; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--axis);
+  background: var(--surface); color: var(--ink); }
+.filtros input { flex: 1; min-width: 160px; }
+.filtros .cuenta { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+td .baj { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+tr.inicio-tema td { border-top: 2px solid var(--axis); }
+td.tema-col { color: var(--ink-2); font-size: 12.5px; min-width: 150px; }
+tr[hidden] { display: none; }
+
+/* X y pie */
+.tuits { padding: 4px 14px; }
+.tuit { padding: 8px 0; border-top: 1px solid var(--grid); font-size: 13.5px; }
+.tuit:first-child { border-top: 0; }
+footer { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+footer .panel { padding: 12px 14px; }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer li { margin: 2px 0; overflow-wrap: anywhere; }
+.estado-ok { color: var(--good); font-weight: 600; }
+.estado-mal { color: var(--critical); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .graficos { grid-template-columns: 1fr; }
+  .top, .agenda { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  .kpi .val { font-size: 28px; }
+}
+@media print {
+  .filtros, #tip { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="eyebrow">Monitor del Congreso</div>
+    <h1>Martes 24 de noviembre de 2026</h1>
+  </div>
+  <div class="meta"><a href="archivo.html">Días anteriores</a> · Corrida 16:28 hs · 19/21 fuentes respondieron · <a href="#fuentes">2 caídas</a></div>
+</header>
+
+<section class="kpis" aria-label="Resumen">
+  <div class="panel kpi">
+    <div class="lbl">Notas sobre el Congreso</div>
+    <div class="val">62</div>
+      <div class="sub ">▼ -24% vs. promedio de 7 días (82)</div>
+  </div>
+  <div class="panel kpi"><div class="lbl">Temas</div><div class="val">28</div>
+    <div class="sub">6 cubiertos por 2+ medios</div></div>
+  <div class="panel kpi"><div class="lbl">Medios con cobertura</div><div class="val">13</div>
+    <div class="sub">incluye fuentes oficiales</div></div>
+  <div class="panel kpi alerta"><div class="lbl">Fuentes caídas</div>
+    <div class="val"><span class="icono" aria-hidden="true">!</span>2</div>
+    <div class="sub"><a href="#fuentes">ver cuáles</a></div></div>
+</section>
+
+<h2>Lo más cubierto</h2>
+<section class="top">
+  <article class="panel card primero">
+    <div class="card-head">
+      <span class="puesto">1</span>
+      <span class="cobertura"><b>9</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 12 notas</span>
+    </div>
+    <h3><a href="https://www.c5n.com/politica/reforma-electoral-y-presupuesto-2027-el-centro-una-nueva-reunion-la-mesa-politica-del-gobierno-n255124" target="_blank" rel="noopener">Reforma electoral y Presupuesto 2027, en el centro de una nueva reunión de la mesa política del Gobierno</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c1"></span>Diputados</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Presupuesto 2027</span>    </div>
+    <div class="medios">
+<a href="https://www.c5n.com/politica/reforma-electoral-y-presupuesto-2027-el-centro-una-nueva-reunion-la-mesa-politica-del-gobierno-n255124" target="_blank" rel="noopener" title="Reforma electoral y Presupuesto 2027, en el centro de una nueva reunión de la mesa política del Gobierno">C5N ↗</a><a href="https://www.infobae.com/politica/2026/11/24/karina-milei-reune-a-la-mesa-politica-para-avanzar-con-la-agenda-legislativa/" target="_blank" rel="noopener" title="El Gobierno convocará este viernes a sesiones extraordinarias durante todo diciembre">Infobae ↗</a><a href="https://www.cronista.com/economia-politica/la-mesa-politica-se-prepara-para-el-super-jueves-del-congreso-y-ultima-la-lista-de-extraordinarias/" target="_blank" rel="noopener" title="La Mesa Política se prepara para el súper jueves del Congreso y pone a Malvinas al frente de las extraordinarias">El Cronista ↗</a><a href="https://www.clarin.com/politica/cumbre-libertaria-inicio-semana-clave-dudas-economia-urgencia-paso-presupuesto_0_jqLIazob6Y.html" target="_blank" rel="noopener" title="Cumbre libertaria en el inicio de una semana clave: dudas por la economía y la urgencia por las PASO y el Presupuesto">Clarín ↗</a><a href="https://www.parlamentario.com/2026/11/24/el-comite-de-la-ucr-le-pidio-a-los-diputados-que-rechacen-el-ajuste-sobre-las-universidades-en-el-presupuesto-2027/" target="_blank" rel="noopener" title="El Comité de la UCR le pidió a los diputados que &#34;rechacen el ajuste sobre las universidades&#34; en el Presupuesto 2027">Parlamentario.com ↗</a><a href="https://www.ambito.com/politica/el-gobierno-reune-su-mesa-ordenar-la-agenda-legislativa-y-asegurar-votos-una-semana-definiciones-n6348567" target="_blank" rel="noopener" title="El Gobierno reúne a su mesa política para ordenar la agenda legislativa y asegurar votos en una semana de definiciones">Ámbito ↗</a><a href="https://www.clarin.com/politica/javier-milei-medidas-vivo-mesa-politica-gobierno-reune-semana-clave-congreso_0_flEM7R39Qj.html" target="_blank" rel="noopener" title="Javier Milei y sus medidas, EN VIVO: la mesa política del Gobierno se reúne en una semana clave en el Congreso">Clarín ↗</a><a href="https://www.a24.com/politica/nueva-reunion-la-mesa-politica-el-gobierno-busca-los-votos-suspender-las-paso-y-aprobar-el-presupuesto-2027-n1619280" target="_blank" rel="noopener" title="Nueva reunión de la mesa política: el Gobierno busca los votos para suspender las PASO y aprobar el Presupuesto 2027">A24 ↗</a><a href="https://www.infobae.com/politica/2026/11/24/el-gobierno-encara-otra-reunion-clave-para-aplacar-sus-conflictos-y-acomodarse-antes-de-un-desafiante-fin-de-ano/" target="_blank" rel="noopener" title="El Gobierno encara otra reunión clave para aplacar sus conflictos y reordenarse ante un fin de año desafiante">Infobae ↗</a><a href="https://www.eldiarioar.com/politica/gobierno-reune-mesa-politica-definir-estrategia-legislativa-semana-clave-congreso_1_13688120.html" target="_blank" rel="noopener" title="El Gobierno reúne a la mesa política para definir la estrategia legislativa de una semana clave en el Congreso">elDiarioAR ↗</a><a href="https://tn.com.ar/politica/2026/11/24/el-gobierno-busca-asegurar-en-el-presupuesto-2027-los-fondos-para-la-nueva-ley-de-discapacidad/" target="_blank" rel="noopener" title="El Gobierno busca asegurar en el Presupuesto 2027 los fondos para la nueva Ley de Discapacidad">TN ↗</a><a href="https://tn.com.ar/politica/2026/11/23/la-ucr-les-pidio-a-los-legisladores-que-rechacen-el-recorte-a-las-universidades-del-presupuesto-2027/" target="_blank" rel="noopener" title="La UCR les pidió a los legisladores que rechacen el recorte a las universidades del Presupuesto 2027">TN ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">2</span>
+      <span class="cobertura"><b>7</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+· 16 notas</span>
+    </div>
+    <h3><a href="https://www.a24.com/politica/la-iglesia-volvio-pedirle-al-senado-que-apruebe-la-ley-contra-la-ludopatia-la-situacion-es-dramatica-n1619398" target="_blank" rel="noopener">La Iglesia volvió a pedirle al Senado que apruebe la ley contra la ludopatía: &#34;La situación es dramática&#34;</a></h3>
+    <div class="chips">
+      <span class="chip"><span class="dot c3"></span>Ambas</span>
+      <span class="chip">Proyecto</span>
+    </div>
+    <div class="medios">
+<a href="https://www.a24.com/politica/la-iglesia-volvio-pedirle-al-senado-que-apruebe-la-ley-contra-la-ludopatia-la-situacion-es-dramatica-n1619398" target="_blank" rel="noopener" title="La Iglesia volvió a pedirle al Senado que apruebe la ley contra la ludopatía: &#34;La situación es dramática&#34;">A24 ↗</a><a href="https://www.lanacion.com.ar/politica/la-iglesia-convoco-a-los-diputados-bonaerenses-para-expresar-su-profunda-preocupacion-por-la-nid24112026/" target="_blank" rel="noopener" title="La Iglesia convocó a los diputados bonaerenses para expresar su “profunda preocupación” por la ludopatía">La Nación ↗</a><a href="https://www.parlamentario.com/2026/11/24/avanzo-en-el-senado-el-proyecto-de-ley-para-regular-el-trabajo-en-plataformas-digitales/" target="_blank" rel="noopener" title="Avanzó en el Senado el proyecto de ley para regular el trabajo en plataformas digitales">Parlamentario.com ↗</a><a href="https://www.pagina12.com.ar/2026/11/24/nefasto-la-iglesia-insiste-en-el-tratamiento-urgente-de-la-ley-de-ludopatia/" target="_blank" rel="noopener" title="“Nefasto”: la Iglesia insiste en el tratamiento urgente de la ley de Ludopatía">Página/12 ↗</a><a href="https://www.infobae.com/politica/2026/11/24/ludopatia-adolescente-el-reclamo-de-la-iglesia-y-las-familias-para-que-el-senado-apruebe-una-ley-antes-de-que-pierda-vigencia/" target="_blank" rel="noopener" title="Ludopatía adolescente: el reclamo de la Iglesia y las familias para que el Senado apruebe una ley antes de que pierda vigencia">Infobae ↗</a><a href="https://tn.com.ar/politica/2026/11/24/la-iglesia-volvio-a-reclamarle-al-senado-que-apruebe-la-ley-de-prevencion-de-ludopatia-la-situacion-es-dramatica/" target="_blank" rel="noopener" title="La Iglesia volvió a reclamarle al Senado que apruebe la Ley de Prevención de Ludopatía: &#34;La situación es dramática&#34;">TN ↗</a><a href="https://www.pagina12.com.ar/2026/11/24/el-senado-dilata-la-ley-de-ludopatia-estan-a-favor-de-empresas-que-enferman-a-los-jovenes/" target="_blank" rel="noopener" title="El Senado dilata la ley de Ludopatía: “Están a favor de empresas que enferman a los jóvenes”">Página/12 ↗</a><a href="https://www.infobae.com/politica/2026/11/24/la-huella-de-leon-xiv-el-proyecto-sobre-ludopatia-agrega-un-tema-ineludible-y-ajeno-a-la-apretada-agenda-del-oficialismo/" target="_blank" rel="noopener" title="La huella de León XIV: el proyecto sobre ludopatía agrega un tema ineludible y ajeno a la apretada agenda del oficialismo">Infobae ↗</a><a href="https://www.pagina12.com.ar/2026/11/23/la-iglesia-catolica-le-pone-presion-al-oficialismo-pidio-que-se-apruebe-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener" title="La Iglesia Católica le pone presión al oficialismo: pidió que se apruebe la ley contra la ludopatía">Página/12 ↗</a><a href="https://www.parlamentario.com/2026/11/23/aciera-pidio-al-senado-tratar-con-urgencia-la-ley-para-regular-las-apuestas-online/" target="_blank" rel="noopener" title="ACIERA pidió al Senado tratar con urgencia la ley para regular las apuestas online">Parlamentario.com ↗</a><a href="https://www.lanacion.com.ar/politica/el-gobierno-recibio-el-mensaje-de-la-iglesia-por-la-ley-de-ludopatia-pero-no-va-a-apurar-los-tiempos-nid23112026/" target="_blank" rel="noopener" title="El Gobierno recibió el mensaje de la Iglesia por la ley de ludopatía, pero no va a apurar los tiempos legislativos">La Nación ↗</a><a href="https://www.lapoliticaonline.com/politica/la-iglesia-presiona-para-que-salga-la-ley-contra-las-apuestas-online-y-en-la-provincia-convoco-a-los-bloques/" target="_blank" rel="noopener" title="La Iglesia cruzó al gobierno por oponerse a la ley contra las apuestas online">La Política Online ↗</a><a href="https://tn.com.ar/politica/2026/11/23/ley-contra-la-ludopatia-aumenta-la-presion-de-la-iglesia-sobre-el-senado-mientras-el-gobierno-busca-modificar-el-proyecto/" target="_blank" rel="noopener" title="Ley de Prevención de Ludopatía: aumenta la presión de la Iglesia sobre el Senado mientras el Gobierno busca modificar el proyecto">TN ↗</a><a href="https://www.parlamentario.com/2026/11/23/la-iglesia-convoco-a-los-legisladores-bonaerenses-para-analizar-la-problematica-de-la-ludopatia/" target="_blank" rel="noopener" title="La Iglesia convocó a los legisladores bonaerenses para analizar la problemática de la ludopatía">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/11/23/la-iglesia-redoblo-la-presion-sobre-el-senado-para-que-avance-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener" title="La Iglesia redobló la presión sobre el Senado para que avance la ley contra la ludopatía">Parlamentario.com ↗</a><a href="https://www.parlamentario.com/2026/11/23/la-iglesia-convoco-a-los-jefes-de-bloque-de-diputados-bonaerenses-para-reclamar-avances-contra-la-ludopatia/" target="_blank" rel="noopener" title="La Iglesia convocó a los jefes de bloque de Diputados bonaerenses para reclamar avances contra la ludopatía">Parlamentario.com ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">3</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+· 5 notas</span>
+    </div>
+    <h3><a href="https://www.lanacion.com.ar/politica/las-reacciones-del-arco-politico-al-homenaje-a-mario-santucho-anunciado-por-la-facultad-de-ciencias-nid23112026/" target="_blank" rel="noopener">Las reacciones del arco político al homenaje a Mario Santucho anunciado por la facultad de Ciencias Sociales de la UBA</a></h3>
+<p class="bajada">El oficialismo y parte de la oposición rechazaron el reconocimiento, mientras que la izquierda apuntó contra el Gobierno</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.lanacion.com.ar/politica/las-reacciones-del-arco-politico-al-homenaje-a-mario-santucho-anunciado-por-la-facultad-de-ciencias-nid23112026/" target="_blank" rel="noopener" title="Las reacciones del arco político al homenaje a Mario Santucho anunciado por la facultad de Ciencias Sociales de la UBA">La Nación ↗</a><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-continua-el-escandalo-por-el-homenaje-a-santucho-y-se-define-la-nid24112026/" target="_blank" rel="noopener" title="Javier Milei y sus medidas, en vivo: crece la polémica por el homenaje a Santucho en la UBA y se define la sesión por las PASO">La Nación ↗</a><a href="https://tn.com.ar/politica/2026/11/23/los-senadores-de-la-libertad-avanza-criticaron-el-homenaje-a-mario-santucho-en-la-uba-la-memoria-no-puede-ser-selectiva/" target="_blank" rel="noopener" title="Los senadores de La Libertad Avanza criticaron el homenaje a Mario Santucho en la UBA: “La memoria no puede ser selectiva”">TN ↗</a><a href="https://tn.com.ar/politica/2026/11/23/el-gobierno-encara-una-semana-clave-en-el-congreso-presupuesto-2027-suspension-de-las-paso-y-ley-contra-la-ludopatia/" target="_blank" rel="noopener" title="El hijo de Santucho defendió el homenaje a su padre en la UBA y cuestionó al Gobierno">TN ↗</a><a href="https://www.infobae.com/politica/2026/11/23/la-decana-de-la-facultad-de-sociales-de-la-uba-defendio-el-polemico-homenaje-al-terrorista-santucho-su-vinculo-con-montoneros/" target="_blank" rel="noopener" title="La decana de la Facultad de Sociales de la UBA defendió el polémico homenaje al terrorista Santucho: su vínculo con Montoneros">Infobae ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">4</span>
+      <span class="cobertura"><b>3</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.parlamentario.com/2026/11/24/santilli-llega-al-senado-con-1-287-respuestas-y-la-economia-en-el-centro-del-informe/" target="_blank" rel="noopener">Santilli llega al Senado con 1.287 respuestas y la economía en el centro del informe</a></h3>
+<p class="bajada">El jefe de Gabinete brindará este miércoles su primer informe de gestión ante el Congreso. En el documento enviado previamente a los senadores, el Gobierno defendió la evolución del consumo, los salarios y el empleo privado, confirmó un acuerdo técnico con el FMI y evitó precisar el nivel de…</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+<span class="chip proyecto">Emergencia en discapacidad</span>    </div>
+    <div class="medios">
+<a href="https://www.parlamentario.com/2026/11/24/santilli-llega-al-senado-con-1-287-respuestas-y-la-economia-en-el-centro-del-informe/" target="_blank" rel="noopener" title="Santilli llega al Senado con 1.287 respuestas y la economía en el centro del informe">Parlamentario.com ↗</a><a href="https://www.infobae.com/politica/2026/11/24/santilli-debuta-en-el-senado-defendera-la-gestion-economica-admitiendo-un-crecimiento-desigual/" target="_blank" rel="noopener" title="Santilli debuta en el Senado: defenderá la gestión económica admitiendo un crecimiento desigual">Infobae ↗</a><a href="https://www.ambito.com/politica/diego-santilli-brinda-su-primer-informe-gestion-y-ya-envio-las-casi-1300-respuestas-los-senadores-n6348665" target="_blank" rel="noopener" title="Diego Santilli brinda su primer informe de gestión y ya envió las casi 1300 respuestas a los senadores">Ámbito ↗</a>    </div>
+  </article>
+  <article class="panel card ">
+    <div class="card-head">
+      <span class="puesto">5</span>
+      <span class="cobertura"><b>2</b> medios
+        <span class="pips" aria-hidden="true"><i></i><i></i></span>
+</span>
+    </div>
+    <h3><a href="https://www.infobae.com/politica/2026/11/24/el-gobierno-posterga-las-diferencias-internas-evita-confrontar-con-bullrich-y-apuesta-a-ordenar-la-tropa/" target="_blank" rel="noopener">El Gobierno posterga las diferencias internas, evita confrontar con Bullrich y apuesta a ordenar la tropa</a></h3>
+<p class="bajada">Los objetivos legislativos obligaron a la Casa Rosada a dejar de lado los conflictos e intentar cerrar filas. Los temores que genera la senadora y los planes del oficialismo</p>    <div class="chips">
+      <span class="chip"><span class="dot c2"></span>Senado</span>
+      <span class="chip">Negociación política</span>
+    </div>
+    <div class="medios">
+<a href="https://www.infobae.com/politica/2026/11/24/el-gobierno-posterga-las-diferencias-internas-evita-confrontar-con-bullrich-y-apuesta-a-ordenar-la-tropa/" target="_blank" rel="noopener" title="El Gobierno posterga las diferencias internas, evita confrontar con Bullrich y apuesta a ordenar la tropa">Infobae ↗</a><a href="https://www.ambito.com/politica/patricia-bullrich-no-quiere-ser-victoria-villarruel-apuesta-la-presidencia-o-seguir-como-senadora-n6348603" target="_blank" rel="noopener" title="Patricia Bullrich no quiere ser Victoria Villarruel: apuesta a la Presidencia o seguir como senadora">Ámbito ↗</a>    </div>
+  </article>
+</section>
+
+<h2>Agenda legislativa</h2>
+<section class="agenda">
+  <div class="panel dia">
+    <h4><span class="hoy-tag">Hoy</span>Martes 24 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">14:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Ambiente y Desarrollo Sustentable y de Industria y Comercio</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: expte. S-1842/26, Terenzi - proyecto de ley que establece los presupuestos mínimos de gestión ambiental de envases y embalajes post consumo mediante la responsabilidad extendida del productor. Expositores: Juan Trebino, subsecretario de Ambiente de la Nación. Juan José Galeano, jefe de Gabinete de la Subsecretaría de Industria y Economía del Conocimiento, Ministerio de Economía de la Nación. Manuel Frávega, presidente del Departamento de Ambiente y Desarrollo Sustentable de la Unión Industrial Argentina. Renata Santa Cruz Carauni, jefa de Departamento de Ambiente y Sustentabilidad de COPAL (Coordinadora de las Industrias de Productos Alimenticios). Florencia Canzonieri, directora ejecutiva de CADIBSA (Cámara Argentina de la Industria de Bebidas sin Alcohol). Fernando Luis…</details>
+      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">16:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión Bicameral Mixta Revisora de Cuentas</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Eva Perón, Palacio Legislativo · ver temario</summary>Temario: Consideración de dictamen conforme al art. 5° de la ley 23.847 (Cuenta de Inversión 2024). Expte. OV 525/26. Auditoría General de la Nación: comunica Resolución N° 213/26 que aprueba el Programa de Acción Anual correspondiente al ejercicio 2027.</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Miércoles 25 de noviembre</h4>
+    <div class="ev sesion ">
+      <span class="hora">15:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Senado · Sesión informativa especial</span>
+</span>
+      <div class="det">
+Temario: se brindará el informe 146 de la Jefatura de Gabinete de Ministros.      </div>
+    </div>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión plenaria de las comisiones de Salud, de Legislación General y de Justicia y Asuntos Penales</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Arturo Illia, Palacio Legislativo · ver temario</summary>Temario: Proyectos de ley: Expte. CD-26/24: en revisión de prevención de la ludopatía y regulación de juegos de azar y apuestas en línea. Expte. PE-185/26 Mensaje N° 179/26 y proyecto de ley de prevención de la ludopatía y regulación de juegos de azar en línea. Expte. S-1116/25 Carambia: sobre marco regulatorio de los juegos de apuestas en línea y prohibición de su publicidad, patrocinio, promoción, auspicio y sponsoreo para la prevención de la ciberludopatía infantil. Expte. S-1437/25 Cora y otros: que crea la campaña nacional de concientización sobre ludopatía en el ámbito deportivo. Expte. S-203/26 Fernández Sagasti: reproduce proyecto de ley de marco regulatorio de los juegos de azar, apuestas en línea, prohibición de su publicidad, promoción, patrocinio, sponsoreo para la prevención…</details>
+      </div>
+    </div>
+  </div>
+  <div class="panel dia">
+    <h4>Viernes 27 de noviembre</h4>
+    <div class="ev comision ">
+      <span class="hora">10:00</span>
+      <span class="tit"><span class="dot c2" title="Senado"></span>
+        <span class="t">Reunión de la Comisión de Acuerdos</span>
+</span>
+      <div class="det">
+<details><summary>Senado · Salón Azul, Palacio Legislativo · ver temario</summary>Temario: Expte. PE-308/26: Mensaje N.º 276/26 que solicita acuerdo para designar juez del Juzgado Federal de Primera Instancia N.º 1 de San Juan, provincia de San Juan, al Dr. Gonzalo Luis Gassull. Expte. PE-309/26: Mensaje N.º 277/26 que solicita acuerdo para designar defensora pública oficial ante los Juzgados y Cámara Nacional de Apelaciones en lo Civil, Comercial y del Trabajo de la Capital Federal, Defensoría N.º 4, a la Dra. Analía Isabel Cascone. Expte. PE-310/26: Mensaje N.º 278/26 que solicita acuerdo para designar juez del Juzgado Federal de Primera Instancia N.º 1 de Corrientes, provincia de Corrientes, al Dr. Juan Carlos Vallejos. Expte. PE-311/26: Mensaje N.º 279/26 que solicita acuerdo para designar jueza de Cámara del Tribunal Oral en lo Criminal y Correccional N.º 22 de la…</details>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="meta" style="margin-top:8px"><span class="dot c1"></span> Diputados &nbsp; <span class="dot c2"></span> Senado &nbsp; <span class="dot c3"></span> Ambas / bicameral</p>
+
+<h2>Volumen</h2>
+<section class="graficos">
+  <div class="panel graf">
+    <h3>Notas sobre el Congreso por día</h3>
+    <div class="nota">Hoy contra los 7 días anteriores · promedio 82</div>
+    <div class="columnas" role="img" aria-label="Notas por día, últimos 8 días">
+      <div class="col  "
+           data-tip="Ma 17: 79 notas">
+        <div class="c" style="height: 59.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Mi 18: 129 notas">
+        <div class="c" style="height: 96.3%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Ju 19: 134 notas">
+        <div class="c" style="height: 100.0%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Vi 20: 123 notas">
+        <div class="c" style="height: 91.8%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Sá 21: 42 notas">
+        <div class="c" style="height: 31.3%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Do 22: 29 notas">
+        <div class="c" style="height: 21.6%"></div>
+      </div>
+      <div class="col  "
+           data-tip="Lu 23: 36 notas">
+        <div class="c" style="height: 26.9%"></div>
+      </div>
+      <div class="col hoy "
+           data-tip="Ma 24: 62 notas">
+<span class="cap">62</span>        <div class="c" style="height: 46.3%"></div>
+      </div>
+    </div>
+    <div class="ejes"><span class="">Ma 17</span><span class="">Mi 18</span><span class="">Ju 19</span><span class="">Vi 20</span><span class="">Sá 21</span><span class="">Do 22</span><span class="">Lu 23</span><span class="hoy">Hoy</span></div>
+  </div>
+
+  <div class="panel graf">
+    <h3>Notas por medio</h3>
+    <div class="nota">Hoy, con el promedio diario de los 7 días anteriores</div>
+<div class="leyenda"><span><i class="key-bar"></i>Hoy</span><span><i class="key-tick"></i>Promedio 7 días</span></div>    <div class="barras">
+      <span class="lbl" title="Parlamentario.com">Parlamentario.com</span>
+      <span class="track" data-tip="Parlamentario.com: 14 hoy · promedio 14.4">
+        <span class="bar" style="width: 97.0%"></span><span class="v">14</span>
+<span class="tick" style="left: calc(100.0% - 1px)"></span>      </span>
+      <span class="lbl" title="Infobae">Infobae</span>
+      <span class="track" data-tip="Infobae: 13 hoy · promedio 9.0">
+        <span class="bar" style="width: 90.1%"></span><span class="v">13</span>
+<span class="tick" style="left: calc(62.4% - 1px)"></span>      </span>
+      <span class="lbl" title="TN">TN</span>
+      <span class="track" data-tip="TN: 6 hoy · promedio 6.6">
+        <span class="bar" style="width: 41.6%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(45.5% - 1px)"></span>      </span>
+      <span class="lbl" title="La Nación">La Nación</span>
+      <span class="track" data-tip="La Nación: 6 hoy · promedio 7.0">
+        <span class="bar" style="width: 41.6%"></span><span class="v">6</span>
+<span class="tick" style="left: calc(48.5% - 1px)"></span>      </span>
+      <span class="lbl" title="Clarín">Clarín</span>
+      <span class="track" data-tip="Clarín: 5 hoy · promedio 11.6">
+        <span class="bar" style="width: 34.7%"></span><span class="v">5</span>
+<span class="tick" style="left: calc(80.2% - 1px)"></span>      </span>
+      <span class="lbl" title="Ámbito">Ámbito</span>
+      <span class="track" data-tip="Ámbito: 4 hoy · promedio 6.3">
+        <span class="bar" style="width: 27.7%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(43.6% - 1px)"></span>      </span>
+      <span class="lbl" title="Página/12">Página/12</span>
+      <span class="track" data-tip="Página/12: 4 hoy · promedio 4.9">
+        <span class="bar" style="width: 27.7%"></span><span class="v">4</span>
+<span class="tick" style="left: calc(33.7% - 1px)"></span>      </span>
+      <span class="lbl" title="El Cronista">El Cronista</span>
+      <span class="track" data-tip="El Cronista: 3 hoy · promedio 3.9">
+        <span class="bar" style="width: 20.8%"></span><span class="v">3</span>
+<span class="tick" style="left: calc(26.7% - 1px)"></span>      </span>
+      <span class="lbl" title="A24">A24</span>
+      <span class="track" data-tip="A24: 2 hoy · promedio 2.0">
+        <span class="bar" style="width: 13.9%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(13.9% - 1px)"></span>      </span>
+      <span class="lbl" title="La Política Online">La Política Online</span>
+      <span class="track" data-tip="La Política Online: 2 hoy · promedio 1.4">
+        <span class="bar" style="width: 13.9%"></span><span class="v">2</span>
+<span class="tick" style="left: calc(9.9% - 1px)"></span>      </span>
+      <span class="lbl" title="C5N">C5N</span>
+      <span class="track" data-tip="C5N: 1 hoy · promedio 3.0">
+        <span class="bar" style="width: 6.9%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(20.8% - 1px)"></span>      </span>
+      <span class="lbl" title="elDiarioAR">elDiarioAR</span>
+      <span class="track" data-tip="elDiarioAR: 1 hoy · promedio 2.6">
+        <span class="bar" style="width: 6.9%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(17.8% - 1px)"></span>      </span>
+      <span class="lbl" title="Senado (prensa)">Senado (prensa)</span>
+      <span class="track" data-tip="Senado (prensa): 1 hoy · promedio 1.6">
+        <span class="bar" style="width: 6.9%"></span><span class="v">1</span>
+<span class="tick" style="left: calc(10.9% - 1px)"></span>      </span>
+    </div>
+  </div>
+
+  <div class="panel graf ancho">
+    <h3>Notas por tema</h3>
+    <div class="nota">Los 10 temas con más cobertura · el número entre paréntesis es la cantidad de medios</div>
+    <div class="barras">
+      <span class="lbl" title="Reforma electoral y Presupuesto 2027, en el centro de una nueva reunión de la mesa política del Gobierno">1. Reforma electoral y Presupuesto 2027, en el centro de una nueva reunión de la mesa política del Gobierno</span>
+      <span class="track" data-tip="Reforma electoral y Presupuesto 2027, en el centro de una nueva reunión de la mesa política del Gobierno — 12 notas, 9 medios">
+        <span class="bar" style="width: 75.0%"></span><span class="v">12 (9)</span>
+      </span>
+      <span class="lbl" title="La Iglesia volvió a pedirle al Senado que apruebe la ley contra la ludopatía: &#34;La situación es dramática&#34;">2. La Iglesia volvió a pedirle al Senado que apruebe la ley contra la ludopatía: &#34;La situación es dramática&#34;</span>
+      <span class="track" data-tip="La Iglesia volvió a pedirle al Senado que apruebe la ley contra la ludopatía: &#34;La situación es dramática&#34; — 16 notas, 7 medios">
+        <span class="bar" style="width: 100.0%"></span><span class="v">16 (7)</span>
+      </span>
+      <span class="lbl" title="Las reacciones del arco político al homenaje a Mario Santucho anunciado por la facultad de Ciencias Sociales de la UBA">3. Las reacciones del arco político al homenaje a Mario Santucho anunciado por la facultad de Ciencias Sociales de la UBA</span>
+      <span class="track" data-tip="Las reacciones del arco político al homenaje a Mario Santucho anunciado por la facultad de Ciencias Sociales de la UBA — 5 notas, 3 medios">
+        <span class="bar" style="width: 31.2%"></span><span class="v">5 (3)</span>
+      </span>
+      <span class="lbl" title="Santilli llega al Senado con 1.287 respuestas y la economía en el centro del informe">4. Santilli llega al Senado con 1.287 respuestas y la economía en el centro del informe</span>
+      <span class="track" data-tip="Santilli llega al Senado con 1.287 respuestas y la economía en el centro del informe — 3 notas, 3 medios">
+        <span class="bar" style="width: 18.8%"></span><span class="v">3 (3)</span>
+      </span>
+      <span class="lbl" title="El Gobierno posterga las diferencias internas, evita confrontar con Bullrich y apuesta a ordenar la tropa">5. El Gobierno posterga las diferencias internas, evita confrontar con Bullrich y apuesta a ordenar la tropa</span>
+      <span class="track" data-tip="El Gobierno posterga las diferencias internas, evita confrontar con Bullrich y apuesta a ordenar la tropa — 2 notas, 2 medios">
+        <span class="bar" style="width: 12.5%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Con la suspensión de las PASO como foco principal, el Senado inicia su última semana de sesiones ordinarias">6. Con la suspensión de las PASO como foco principal, el Senado inicia su última semana de sesiones ordinarias</span>
+      <span class="track" data-tip="Con la suspensión de las PASO como foco principal, el Senado inicia su última semana de sesiones ordinarias — 2 notas, 2 medios">
+        <span class="bar" style="width: 12.5%"></span><span class="v">2 (2)</span>
+      </span>
+      <span class="lbl" title="Argentina busca recuperar su capacidad de ataque antibuque: el plan para equipar a los F-16 con misiles aire-mar">7. Argentina busca recuperar su capacidad de ataque antibuque: el plan para equipar a los F-16 con misiles aire-mar</span>
+      <span class="track" data-tip="Argentina busca recuperar su capacidad de ataque antibuque: el plan para equipar a los F-16 con misiles aire-mar — 1 nota, 1 medio">
+        <span class="bar" style="width: 6.2%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Santa Fe busca un lugar en la cadena minera">8. Santa Fe busca un lugar en la cadena minera</span>
+      <span class="track" data-tip="Santa Fe busca un lugar en la cadena minera — 1 nota, 1 medio">
+        <span class="bar" style="width: 6.2%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Lousteau: “Estoy convencido de que en Argentina necesitamos una oposición disruptiva”">9. Lousteau: “Estoy convencido de que en Argentina necesitamos una oposición disruptiva”</span>
+      <span class="track" data-tip="Lousteau: “Estoy convencido de que en Argentina necesitamos una oposición disruptiva” — 1 nota, 1 medio">
+        <span class="bar" style="width: 6.2%"></span><span class="v">1 (1)</span>
+      </span>
+      <span class="lbl" title="Chubut: el peronismo acelera la definición de su candidato para intentar disputarle la gobernación a Torres">10. Chubut: el peronismo acelera la definición de su candidato para intentar disputarle la gobernación a Torres</span>
+      <span class="track" data-tip="Chubut: el peronismo acelera la definición de su candidato para intentar disputarle la gobernación a Torres — 1 nota, 1 medio">
+        <span class="bar" style="width: 6.2%"></span><span class="v">1 (1)</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<h2>Todas las notas</h2>
+<section class="panel">
+  <div class="filtros">
+    <select id="f-camara" aria-label="Cámara"><option value="">Todas las cámaras</option><option>Diputados</option><option>Senado</option><option>Ambas</option><option>Sin determinar</option></select>
+    <select id="f-tipo" aria-label="Tipo"><option value="">Todos los tipos</option><option>Negociación política</option><option>Otro</option><option>Proyecto</option><option>Sesión</option><option>Veto / DNU</option></select>
+    <select id="f-medio" aria-label="Medio"><option value="">Todos los medios</option><option>A24</option><option>C5N</option><option>Clarín</option><option>El Cronista</option><option>Infobae</option><option>La Nación</option><option>La Política Online</option><option>Parlamentario.com</option><option>Página/12</option><option>Senado (prensa)</option><option>TN</option><option>elDiarioAR</option><option>Ámbito</option></select>
+    <input id="f-texto" type="search" placeholder="Buscar en títulos…" aria-label="Buscar">
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="tabla-wrap">
+  <table id="tabla">
+    <thead><tr><th>Tema</th><th>Hora</th><th>Medio</th><th>Nota</th><th>Cámara</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="C5N" data-texto="reforma electoral y presupuesto 2027, en el centro de una nueva reunión de la mesa política del gobierno  presupuesto 2027">
+        <td class="tema-col"><b>1</b> · 9 medios<br>Presupuesto 2027</td>
+        <td class="num">21:11</td>
+        <td>C5N</td>
+        <td><a href="https://www.c5n.com/politica/reforma-electoral-y-presupuesto-2027-el-centro-una-nueva-reunion-la-mesa-politica-del-gobierno-n255124" target="_blank" rel="noopener">Reforma electoral y Presupuesto 2027, en el centro de una nueva reunión de la mesa política del Gobierno</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno convocará este viernes a sesiones extraordinarias durante todo diciembre sobre el cierre del año, el gobierno aspira a avanzar en el debate por la reforma electoral y el presupuesto 2027. la convocatoria a sesiones extraordinarias y los planes para diciembre presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:23</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/karina-milei-reune-a-la-mesa-politica-para-avanzar-con-la-agenda-legislativa/" target="_blank" rel="noopener">El Gobierno convocará este viernes a sesiones extraordinarias durante todo diciembre</a><div class="baj">Sobre el cierre del año, el Gobierno aspira a avanzar en el debate por la reforma electoral y el Presupuesto 2027. La convocatoria a sesiones extraordinarias y los planes para diciembre</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="El Cronista" data-texto="la mesa política se prepara para el súper jueves del congreso y pone a malvinas al frente de las extraordinarias la reunión que encabeza karina milei cierra los votos para presupuesto y reforma política, mientras que hace las cuentas de cara a diciembre y las leyes que entrarán en la próxima etapa del congreso. cuál es el único proyecto con posibilidades reales de ser sancionado antes de que termine la semana presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">16:16</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/la-mesa-politica-se-prepara-para-el-super-jueves-del-congreso-y-ultima-la-lista-de-extraordinarias/" target="_blank" rel="noopener">La Mesa Política se prepara para el súper jueves del Congreso y pone a Malvinas al frente de las extraordinarias</a><div class="baj">La reunión que encabeza Karina Milei cierra los votos para Presupuesto y Reforma Política, mientras que hace las cuentas de cara a diciembre y las leyes que entrarán en la próxima etapa del Congreso. Cuál es el único proyecto con posibilidades reales de ser sancionado antes de que termine la semana</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="cumbre libertaria en el inicio de una semana clave: dudas por la economía y la urgencia por las paso y el presupuesto karina milei reúne a la mesa política, que acumula cuentas pendientes e internas. el miércoles, diego santilli brinda su informe en la cámara alta. el jueves, se debate la reforma política y el presupuesto. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">13:23</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/cumbre-libertaria-inicio-semana-clave-dudas-economia-urgencia-paso-presupuesto_0_jqLIazob6Y.html" target="_blank" rel="noopener">Cumbre libertaria en el inicio de una semana clave: dudas por la economía y la urgencia por las PASO y el Presupuesto</a><div class="baj">Karina Milei reúne a la mesa política, que acumula cuentas pendientes e internas. El miércoles, Diego Santilli brinda su informe en la Cámara Alta. El jueves, se debate la Reforma Política y el Presupuesto.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="el comité de la ucr le pidió a los diputados que &#34;rechacen el ajuste sobre las universidades&#34; en el presupuesto 2027 a través de un comunicado, las autoridades del partido hicieron un llamado a todos los legisladores nacionales. &#34;no hay país que se desarrolle sin universidad pública&#34;, afirmó leonel chiarella. la entrada el comité de la ucr le pidió a los diputados que &#34;rechacen el ajuste sobre las universidades&#34;… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">11:33</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/el-comite-de-la-ucr-le-pidio-a-los-diputados-que-rechacen-el-ajuste-sobre-las-universidades-en-el-presupuesto-2027/" target="_blank" rel="noopener">El Comité de la UCR le pidió a los diputados que &#34;rechacen el ajuste sobre las universidades&#34; en el Presupuesto 2027</a><div class="baj">A través de un comunicado, las autoridades del partido hicieron un llamado a todos los legisladores nacionales. &#34;No hay país que se desarrolle sin universidad pública&#34;, afirmó Leonel Chiarella. La entrada El Comité de la UCR le pidió a los diputados que &#34;rechacen el ajuste sobre las universidades&#34;…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Ámbito" data-texto="el gobierno reúne a su mesa política para ordenar la agenda legislativa y asegurar votos en una semana de definiciones karina milei encabezará el encuentro para coordinar las prioridades parlamentarias. la reforma electoral y el presupuesto 2027 estarán entre los principales temas de una semana clave para las negociaciones con la oposición dialoguista. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">10:36</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/el-gobierno-reune-su-mesa-ordenar-la-agenda-legislativa-y-asegurar-votos-una-semana-definiciones-n6348567" target="_blank" rel="noopener">El Gobierno reúne a su mesa política para ordenar la agenda legislativa y asegurar votos en una semana de definiciones</a><div class="baj">Karina Milei encabezará el encuentro para coordinar las prioridades parlamentarias. La reforma electoral y el Presupuesto 2027 estarán entre los principales temas de una semana clave para las negociaciones con la oposición dialoguista.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Clarín" data-texto="javier milei y sus medidas, en vivo: la mesa política del gobierno se reúne en una semana clave en el congreso los principales referentes de la libertad avanza definen en casa rosada la estrategia para avanzar con la reforma política, el presupuesto 2027 y la reforma del banco central. milei se reúne con el presidente de polonia. presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">08:15</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/javier-milei-medidas-vivo-mesa-politica-gobierno-reune-semana-clave-congreso_0_flEM7R39Qj.html" target="_blank" rel="noopener">Javier Milei y sus medidas, EN VIVO: la mesa política del Gobierno se reúne en una semana clave en el Congreso</a><div class="baj">Los principales referentes de La Libertad Avanza definen en Casa Rosada la estrategia para avanzar con la reforma política, el Presupuesto 2027 y la reforma del Banco Central. Milei se reúne con el presidente de Polonia.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="A24" data-texto="nueva reunión de la mesa política: el gobierno busca los votos para suspender las paso y aprobar el presupuesto 2027  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">07:39</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/nueva-reunion-la-mesa-politica-el-gobierno-busca-los-votos-suspender-las-paso-y-aprobar-el-presupuesto-2027-n1619280" target="_blank" rel="noopener">Nueva reunión de la mesa política: el Gobierno busca los votos para suspender las PASO y aprobar el Presupuesto 2027</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno encara otra reunión clave para aplacar sus conflictos y reordenarse ante un fin de año desafiante la mesa política se convocó en la casa rosada para definir la estrategia legislativa y electoral, en medio de la mejora de la imagen oficial y de la salida de un diputado cercano a patricia bullrich. esa baja en el bloque expuso nuevas fisuras internas por la estrategia con las provincias presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">07:08</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/el-gobierno-encara-otra-reunion-clave-para-aplacar-sus-conflictos-y-acomodarse-antes-de-un-desafiante-fin-de-ano/" target="_blank" rel="noopener">El Gobierno encara otra reunión clave para aplacar sus conflictos y reordenarse ante un fin de año desafiante</a><div class="baj">La mesa política se convocó en la Casa Rosada para definir la estrategia legislativa y electoral, en medio de la mejora de la imagen oficial y de la salida de un diputado cercano a Patricia Bullrich. Esa baja en el bloque expuso nuevas fisuras internas por la estrategia con las provincias</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="elDiarioAR" data-texto="el gobierno reúne a la mesa política para definir la estrategia legislativa de una semana clave en el congreso el encuentro se desarrollará este martes desde las 13 en la casa rosada, en una semana clave para las aspiraciones parlamentarias del oficialismo, que además prevé avanzar el jueves con el tratamiento del presupuesto 2027 y la modificación de la carta orgánica del banco central (bcra). el gobierno… presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">06:01</td>
+        <td>elDiarioAR</td>
+        <td><a href="https://www.eldiarioar.com/politica/gobierno-reune-mesa-politica-definir-estrategia-legislativa-semana-clave-congreso_1_13688120.html" target="_blank" rel="noopener">El Gobierno reúne a la mesa política para definir la estrategia legislativa de una semana clave en el Congreso</a><div class="baj">El encuentro se desarrollará este martes desde las 13 en la Casa Rosada, en una semana clave para las aspiraciones parlamentarias del oficialismo, que además prevé avanzar el jueves con el tratamiento del Presupuesto 2027 y la modificación de la Carta Orgánica del Banco Central (BCRA). El Gobierno…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="el gobierno busca asegurar en el presupuesto 2027 los fondos para la nueva ley de discapacidad  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">06:00</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/24/el-gobierno-busca-asegurar-en-el-presupuesto-2027-los-fondos-para-la-nueva-ley-de-discapacidad/" target="_blank" rel="noopener">El Gobierno busca asegurar en el Presupuesto 2027 los fondos para la nueva Ley de Discapacidad</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Diputados" data-tipo="Negociación política" data-medio="TN" data-texto="la ucr les pidió a los legisladores que rechacen el recorte a las universidades del presupuesto 2027  presupuesto 2027">
+        <td class="tema-col"></td>
+        <td class="num">21:03</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/23/la-ucr-les-pidio-a-los-legisladores-que-rechacen-el-recorte-a-las-universidades-del-presupuesto-2027/" target="_blank" rel="noopener">La UCR les pidió a los legisladores que rechacen el recorte a las universidades del Presupuesto 2027</a></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Proyecto" data-medio="A24" data-texto="la iglesia volvió a pedirle al senado que apruebe la ley contra la ludopatía: &#34;la situación es dramática&#34;  ">
+        <td class="tema-col"><b>2</b> · 7 medios</td>
+        <td class="num">11:57</td>
+        <td>A24</td>
+        <td><a href="https://www.a24.com/politica/la-iglesia-volvio-pedirle-al-senado-que-apruebe-la-ley-contra-la-ludopatia-la-situacion-es-dramatica-n1619398" target="_blank" rel="noopener">La Iglesia volvió a pedirle al Senado que apruebe la ley contra la ludopatía: &#34;La situación es dramática&#34;</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="La Nación" data-texto="la iglesia convocó a los diputados bonaerenses para expresar su “profunda preocupación” por la ludopatía el arzobispo de la plata se encontrará con jefes de bloque y autoridades de la cámara y reforzará “los recientes llamados del papa león xiv”; hay proyectos en pugna y el mañana será la última sesión ordinaria del año ">
+        <td class="tema-col"></td>
+        <td class="num">14:44</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/la-iglesia-convoco-a-los-diputados-bonaerenses-para-expresar-su-profunda-preocupacion-por-la-nid24112026/" target="_blank" rel="noopener">La Iglesia convocó a los diputados bonaerenses para expresar su “profunda preocupación” por la ludopatía</a><div class="baj">El arzobispo de La Plata se encontrará con jefes de bloque y autoridades de la Cámara y reforzará “los recientes llamados del Papa León XIV”; hay proyectos en pugna y el mañana será la última sesión ordinaria del año</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="avanzó en el senado el proyecto de ley para regular el trabajo en plataformas digitales la comisión de legislación general dio el visto bueno por mayoría al plan integral impulsado por el ejecutivo bonaerense que ahora podría ingresar al orden del día de la proxima sesión del senado bonaerense. la entrada avanzó en el senado el proyecto de ley para regular el trabajo en plataformas… ">
+        <td class="tema-col"></td>
+        <td class="num">12:15</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/avanzo-en-el-senado-el-proyecto-de-ley-para-regular-el-trabajo-en-plataformas-digitales/" target="_blank" rel="noopener">Avanzó en el Senado el proyecto de ley para regular el trabajo en plataformas digitales</a><div class="baj">La Comisión de Legislación General dio el visto bueno por mayoría al plan integral impulsado por el Ejecutivo bonaerense que ahora podría ingresar al orden del día de la proxima sesión del Senado bonaerense. La entrada Avanzó en el Senado el proyecto de ley para regular el trabajo en plataformas…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Página/12" data-texto="“nefasto”: la iglesia insiste en el tratamiento urgente de la ley de ludopatía  ">
+        <td class="tema-col"></td>
+        <td class="num">11:53</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/24/nefasto-la-iglesia-insiste-en-el-tratamiento-urgente-de-la-ley-de-ludopatia/" target="_blank" rel="noopener">“Nefasto”: la Iglesia insiste en el tratamiento urgente de la ley de Ludopatía</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Infobae" data-texto="ludopatía adolescente: el reclamo de la iglesia y las familias para que el senado apruebe una ley antes de que pierda vigencia el proyecto, que ya obtuvo media sanción en diputados, permanece sin tratamiento desde noviembre de 2024 ">
+        <td class="tema-col"></td>
+        <td class="num">10:22</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/ludopatia-adolescente-el-reclamo-de-la-iglesia-y-las-familias-para-que-el-senado-apruebe-una-ley-antes-de-que-pierda-vigencia/" target="_blank" rel="noopener">Ludopatía adolescente: el reclamo de la Iglesia y las familias para que el Senado apruebe una ley antes de que pierda vigencia</a><div class="baj">El proyecto, que ya obtuvo media sanción en Diputados, permanece sin tratamiento desde noviembre de 2024</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="TN" data-texto="la iglesia volvió a reclamarle al senado que apruebe la ley de prevención de ludopatía: &#34;la situación es dramática&#34;  ">
+        <td class="tema-col"></td>
+        <td class="num">09:54</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/24/la-iglesia-volvio-a-reclamarle-al-senado-que-apruebe-la-ley-de-prevencion-de-ludopatia-la-situacion-es-dramatica/" target="_blank" rel="noopener">La Iglesia volvió a reclamarle al Senado que apruebe la Ley de Prevención de Ludopatía: &#34;La situación es dramática&#34;</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Página/12" data-texto="el senado dilata la ley de ludopatía: “están a favor de empresas que enferman a los jóvenes”  ">
+        <td class="tema-col"></td>
+        <td class="num">09:21</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/24/el-senado-dilata-la-ley-de-ludopatia-estan-a-favor-de-empresas-que-enferman-a-los-jovenes/" target="_blank" rel="noopener">El Senado dilata la ley de Ludopatía: “Están a favor de empresas que enferman a los jóvenes”</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Infobae" data-texto="la huella de león xiv: el proyecto sobre ludopatía agrega un tema ineludible y ajeno a la apretada agenda del oficialismo la iglesia reclamó que el senado trate ahora el texto aprobado por diputados hace dos años. si no lo hace esta semana, la iniciativa quedaría en la nada y debería comenzar otra vez de cero. y si hay cambios, volvería la cámara baja. el gobierno está centrado en las paso y el presupuesto ">
+        <td class="tema-col"></td>
+        <td class="num">02:08</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/la-huella-de-leon-xiv-el-proyecto-sobre-ludopatia-agrega-un-tema-ineludible-y-ajeno-a-la-apretada-agenda-del-oficialismo/" target="_blank" rel="noopener">La huella de León XIV: el proyecto sobre ludopatía agrega un tema ineludible y ajeno a la apretada agenda del oficialismo</a><div class="baj">La Iglesia reclamó que el Senado trate ahora el texto aprobado por Diputados hace dos años. Si no lo hace esta semana, la iniciativa quedaría en la nada y debería comenzar otra vez de cero. Y si hay cambios, volvería la Cámara baja. El Gobierno está centrado en las PASO y el Presupuesto</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Página/12" data-texto="la iglesia católica le pone presión al oficialismo: pidió que se apruebe la ley contra la ludopatía  ">
+        <td class="tema-col"></td>
+        <td class="num">00:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/23/la-iglesia-catolica-le-pone-presion-al-oficialismo-pidio-que-se-apruebe-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener">La Iglesia Católica le pone presión al oficialismo: pidió que se apruebe la ley contra la ludopatía</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="aciera pidió al senado tratar con urgencia la ley para regular las apuestas online la entidad evangélica advirtió sobre el crecimiento de la ludopatía vinculada a los juegos de azar en línea y reclamó que avance el proyecto aprobado por diputados antes de que pierda estado parlamentario. la entrada aciera pidió al senado tratar con urgencia la ley para regular las apuestas online… ">
+        <td class="tema-col"></td>
+        <td class="num">21:29</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/23/aciera-pidio-al-senado-tratar-con-urgencia-la-ley-para-regular-las-apuestas-online/" target="_blank" rel="noopener">ACIERA pidió al Senado tratar con urgencia la ley para regular las apuestas online</a><div class="baj">La entidad evangélica advirtió sobre el crecimiento de la ludopatía vinculada a los juegos de azar en línea y reclamó que avance el proyecto aprobado por Diputados antes de que pierda estado parlamentario. La entrada ACIERA pidió al Senado tratar con urgencia la ley para regular las apuestas online…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="La Nación" data-texto="el gobierno recibió el mensaje de la iglesia por la ley de ludopatía, pero no va a apurar los tiempos legislativos los operadores libertarios trabajan en modificaciones al proyecto en el senado, lo que implicaría que vuelva a diputados y se dilate su aprobación final; la mesa política fijará otras prioridades ">
+        <td class="tema-col"></td>
+        <td class="num">20:04</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-gobierno-recibio-el-mensaje-de-la-iglesia-por-la-ley-de-ludopatia-pero-no-va-a-apurar-los-tiempos-nid23112026/" target="_blank" rel="noopener">El Gobierno recibió el mensaje de la Iglesia por la ley de ludopatía, pero no va a apurar los tiempos legislativos</a><div class="baj">Los operadores libertarios trabajan en modificaciones al proyecto en el Senado, lo que implicaría que vuelva a Diputados y se dilate su aprobación final; la mesa política fijará otras prioridades</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="La Política Online" data-texto="la iglesia cruzó al gobierno por oponerse a la ley contra las apuestas online la conferencia episcopal cuestionó a los senadores de milei. el arzobispo de la plata, gustavo carrara, convocó a los jefes de los bloques bonaerenses. ">
+        <td class="tema-col"></td>
+        <td class="num">18:29</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/la-iglesia-presiona-para-que-salga-la-ley-contra-las-apuestas-online-y-en-la-provincia-convoco-a-los-bloques/" target="_blank" rel="noopener">La Iglesia cruzó al gobierno por oponerse a la ley contra las apuestas online</a><div class="baj">La Conferencia Episcopal cuestionó a los senadores de Milei. El arzobispo de La Plata, Gustavo Carrara, convocó a los jefes de los bloques bonaerenses.</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="TN" data-texto="ley de prevención de ludopatía: aumenta la presión de la iglesia sobre el senado mientras el gobierno busca modificar el proyecto  ">
+        <td class="tema-col"></td>
+        <td class="num">17:58</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/23/ley-contra-la-ludopatia-aumenta-la-presion-de-la-iglesia-sobre-el-senado-mientras-el-gobierno-busca-modificar-el-proyecto/" target="_blank" rel="noopener">Ley de Prevención de Ludopatía: aumenta la presión de la Iglesia sobre el Senado mientras el Gobierno busca modificar el proyecto</a></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="la iglesia convocó a los legisladores bonaerenses para analizar la problemática de la ludopatía la iglesia católica busca involucrarse de manera directa en el debate legislativo bonaerense sobre la ludopatía y las apuestas online y en la previa de las sesiones de esta semana convocó a los líderes parlamentario. la entrada la iglesia convocó a los legisladores bonaerenses para analizar la… ">
+        <td class="tema-col"></td>
+        <td class="num">17:35</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/23/la-iglesia-convoco-a-los-legisladores-bonaerenses-para-analizar-la-problematica-de-la-ludopatia/" target="_blank" rel="noopener">La Iglesia convocó a los legisladores bonaerenses para analizar la problemática de la ludopatía</a><div class="baj">La Iglesia Católica busca involucrarse de manera directa en el debate legislativo bonaerense sobre la ludopatía y las apuestas online y en la previa de las sesiones de esta semana convocó a los líderes parlamentario. La entrada La Iglesia convocó a los legisladores bonaerenses para analizar la…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="la iglesia redobló la presión sobre el senado para que avance la ley contra la ludopatía a pocos días de que pierda estado parlamentario el proyecto que ya cuenta con media sanción de diputados, la conferencia episcopal argentina difundió una carta abierta dirigida a los senadores nacionales en la que reclama el tratamiento urgente de la iniciativa y advierte sobre el impacto de las… ">
+        <td class="tema-col"></td>
+        <td class="num">16:44</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/23/la-iglesia-redoblo-la-presion-sobre-el-senado-para-que-avance-la-ley-contra-la-ludopatia/" target="_blank" rel="noopener">La Iglesia redobló la presión sobre el Senado para que avance la ley contra la ludopatía</a><div class="baj">A pocos días de que pierda estado parlamentario el proyecto que ya cuenta con media sanción de Diputados, la Conferencia Episcopal Argentina difundió una carta abierta dirigida a los senadores nacionales en la que reclama el tratamiento urgente de la iniciativa y advierte sobre el impacto de las…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="" data-camara="Ambas" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="la iglesia convocó a los jefes de bloque de diputados bonaerenses para reclamar avances contra la ludopatía obispos de toda la provincia de buenso aires mantendrán este martes una reunión con las autoridades de la cámara baja y los presidentes de bloque. la entrada la iglesia convocó a los jefes de bloque de diputados bonaerenses para reclamar avances contra la ludopatía se publicó primero en… ">
+        <td class="tema-col"></td>
+        <td class="num">16:33</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/23/la-iglesia-convoco-a-los-jefes-de-bloque-de-diputados-bonaerenses-para-reclamar-avances-contra-la-ludopatia/" target="_blank" rel="noopener">La Iglesia convocó a los jefes de bloque de Diputados bonaerenses para reclamar avances contra la ludopatía</a><div class="baj">Obispos de toda la provincia de Buenso Aires mantendrán este martes una reunión con las autoridades de la Cámara baja y los presidentes de bloque. La entrada La Iglesia convocó a los jefes de bloque de Diputados bonaerenses para reclamar avances contra la ludopatía se publicó primero en…</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="las reacciones del arco político al homenaje a mario santucho anunciado por la facultad de ciencias sociales de la uba el oficialismo y parte de la oposición rechazaron el reconocimiento, mientras que la izquierda apuntó contra el gobierno ">
+        <td class="tema-col"><b>3</b> · 3 medios</td>
+        <td class="num">21:27</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/las-reacciones-del-arco-politico-al-homenaje-a-mario-santucho-anunciado-por-la-facultad-de-ciencias-nid23112026/" target="_blank" rel="noopener">Las reacciones del arco político al homenaje a Mario Santucho anunciado por la facultad de Ciencias Sociales de la UBA</a><div class="baj">El oficialismo y parte de la oposición rechazaron el reconocimiento, mientras que la izquierda apuntó contra el Gobierno</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="La Nación" data-texto="javier milei y sus medidas, en vivo: crece la polémica por el homenaje a santucho en la uba y se define la sesión por las paso el minuto a minuto de las decisiones del presidente, las reacciones de la oposición y las declaraciones de los funcionarios ">
+        <td class="tema-col"></td>
+        <td class="num">16:10</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-continua-el-escandalo-por-el-homenaje-a-santucho-y-se-define-la-nid24112026/" target="_blank" rel="noopener">Javier Milei y sus medidas, en vivo: crece la polémica por el homenaje a Santucho en la UBA y se define la sesión por las PASO</a><div class="baj">El minuto a minuto de las decisiones del Presidente, las reacciones de la oposición y las declaraciones de los funcionarios</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="los senadores de la libertad avanza criticaron el homenaje a mario santucho en la uba: “la memoria no puede ser selectiva”  ">
+        <td class="tema-col"></td>
+        <td class="num">07:55</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/23/los-senadores-de-la-libertad-avanza-criticaron-el-homenaje-a-mario-santucho-en-la-uba-la-memoria-no-puede-ser-selectiva/" target="_blank" rel="noopener">Los senadores de La Libertad Avanza criticaron el homenaje a Mario Santucho en la UBA: “La memoria no puede ser selectiva”</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="TN" data-texto="el hijo de santucho defendió el homenaje a su padre en la uba y cuestionó al gobierno  ">
+        <td class="tema-col"></td>
+        <td class="num">20:01</td>
+        <td>TN</td>
+        <td><a href="https://tn.com.ar/politica/2026/11/23/el-gobierno-encara-una-semana-clave-en-el-congreso-presupuesto-2027-suspension-de-las-paso-y-ley-contra-la-ludopatia/" target="_blank" rel="noopener">El hijo de Santucho defendió el homenaje a su padre en la UBA y cuestionó al Gobierno</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="la decana de la facultad de sociales de la uba defendió el polémico homenaje al terrorista santucho: su vínculo con montoneros ana josefina arias aseguró que la colocación del cuadro del jefe guerrillero apunta a &#34;reivindicar las militancias&#34; durante esos años en la argentina. también es militante del kirchnerismo y encabezó junto a mariano recalde, la lista de candidatos a senadores del peronismo para las elecciones en… ">
+        <td class="tema-col"></td>
+        <td class="num">19:31</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/23/la-decana-de-la-facultad-de-sociales-de-la-uba-defendio-el-polemico-homenaje-al-terrorista-santucho-su-vinculo-con-montoneros/" target="_blank" rel="noopener">La decana de la Facultad de Sociales de la UBA defendió el polémico homenaje al terrorista Santucho: su vínculo con Montoneros</a><div class="baj">Ana Josefina Arias aseguró que la colocación del cuadro del jefe guerrillero apunta a &#34;reivindicar las militancias&#34; durante esos años en la Argentina. También es militante del kirchnerismo y encabezó junto a Mariano Recalde, la lista de candidatos a senadores del peronismo para las elecciones en…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="santilli llega al senado con 1.287 respuestas y la economía en el centro del informe el jefe de gabinete brindará este miércoles su primer informe de gestión ante el congreso. en el documento enviado previamente a los senadores, el gobierno defendió la evolución del consumo, los salarios y el empleo privado, confirmó un acuerdo técnico con el fmi y evitó precisar el nivel de… emergencia en discapacidad">
+        <td class="tema-col"><b>4</b> · 3 medios<br>Emergencia en discapacidad</td>
+        <td class="num">11:12</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/santilli-llega-al-senado-con-1-287-respuestas-y-la-economia-en-el-centro-del-informe/" target="_blank" rel="noopener">Santilli llega al Senado con 1.287 respuestas y la economía en el centro del informe</a><div class="baj">El jefe de Gabinete brindará este miércoles su primer informe de gestión ante el Congreso. En el documento enviado previamente a los senadores, el Gobierno defendió la evolución del consumo, los salarios y el empleo privado, confirmó un acuerdo técnico con el FMI y evitó precisar el nivel de…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="santilli debuta en el senado: defenderá la gestión económica admitiendo un crecimiento desigual el jefe de gabinete realizará este jueves el informe 146, con foco en los indicadores económicos. ajuste, malvinas y corrupción en el eje de las preguntas de la oposición emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">15:29</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/santilli-debuta-en-el-senado-defendera-la-gestion-economica-admitiendo-un-crecimiento-desigual/" target="_blank" rel="noopener">Santilli debuta en el Senado: defenderá la gestión económica admitiendo un crecimiento desigual</a><div class="baj">El Jefe de Gabinete realizará este jueves el Informe 146, con foco en los indicadores económicos. Ajuste, Malvinas y corrupción en el eje de las preguntas de la oposición</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="diego santilli brinda su primer informe de gestión y ya envió las casi 1300 respuestas a los senadores entre los temas sobre los que fue consultado el jefe de gabinete se encuentra el costo fiscal del rigi; el bono de los jubilados; el cumplimiento de la emergencia en discapacidad y de la ley de financiamiento universitario. en las respuestas, el gobierno apela al equilibrio fiscal para justificar… emergencia en discapacidad">
+        <td class="tema-col"></td>
+        <td class="num">12:00</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/diego-santilli-brinda-su-primer-informe-gestion-y-ya-envio-las-casi-1300-respuestas-los-senadores-n6348665" target="_blank" rel="noopener">Diego Santilli brinda su primer informe de gestión y ya envió las casi 1300 respuestas a los senadores</a><div class="baj">Entre los temas sobre los que fue consultado el jefe de Gabinete se encuentra el costo fiscal del RIGI; el bono de los jubilados; el cumplimiento de la Emergencia en Discapacidad y de la ley de Financiamiento Universitario. En las respuestas, el Gobierno apela al equilibrio fiscal para justificar…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Negociación política" data-medio="Infobae" data-texto="el gobierno posterga las diferencias internas, evita confrontar con bullrich y apuesta a ordenar la tropa los objetivos legislativos obligaron a la casa rosada a dejar de lado los conflictos e intentar cerrar filas. los temores que genera la senadora y los planes del oficialismo ">
+        <td class="tema-col"><b>5</b> · 2 medios</td>
+        <td class="num">03:06</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/el-gobierno-posterga-las-diferencias-internas-evita-confrontar-con-bullrich-y-apuesta-a-ordenar-la-tropa/" target="_blank" rel="noopener">El Gobierno posterga las diferencias internas, evita confrontar con Bullrich y apuesta a ordenar la tropa</a><div class="baj">Los objetivos legislativos obligaron a la Casa Rosada a dejar de lado los conflictos e intentar cerrar filas. Los temores que genera la senadora y los planes del oficialismo</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Negociación política" data-medio="Ámbito" data-texto="patricia bullrich no quiere ser victoria villarruel: apuesta a la presidencia o seguir como senadora la excandidata de juntos ya despliega un plan económico propio y rechaza el callejón sin salida que le ofrecen los hermanos milei para 2027. ">
+        <td class="tema-col"></td>
+        <td class="num">10:28</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/politica/patricia-bullrich-no-quiere-ser-victoria-villarruel-apuesta-la-presidencia-o-seguir-como-senadora-n6348603" target="_blank" rel="noopener">Patricia Bullrich no quiere ser Victoria Villarruel: apuesta a la Presidencia o seguir como senadora</a><div class="baj">La excandidata de Juntos ya despliega un plan económico propio y rechaza el callejón sin salida que le ofrecen los hermanos Milei para 2027.</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Sesión" data-medio="Infobae" data-texto="con la suspensión de las paso como foco principal, el senado inicia su última semana de sesiones ordinarias la libertad avanza eleva la guardia para sellar votos que desactiven las primarias. mientras tanto, buscará dictaminar mañana cambios al proyecto sobre ludopatía ">
+        <td class="tema-col"><b>6</b> · 2 medios</td>
+        <td class="num">03:03</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/con-la-suspension-de-las-paso-como-foco-principal-el-senado-inicia-su-ultima-semana-de-sesiones-ordinarias/" target="_blank" rel="noopener">Con la suspensión de las PASO como foco principal, el Senado inicia su última semana de sesiones ordinarias</a><div class="baj">La Libertad Avanza eleva la guardia para sellar votos que desactiven las Primarias. Mientras tanto, buscará dictaminar mañana cambios al proyecto sobre ludopatía</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="" data-camara="Senado" data-tipo="Sesión" data-medio="Página/12" data-texto="senado: el gobierno trabaja en la sesión del jueves para avanzar con la suspensión de las paso  ">
+        <td class="tema-col"></td>
+        <td class="num">00:01</td>
+        <td>Página/12</td>
+        <td><a href="https://www.pagina12.com.ar/2026/11/23/senado-el-gobierno-trabaja-en-la-sesion-del-jueves-para-avanzar-con-la-suspension-de-las-paso/" target="_blank" rel="noopener">Senado: el Gobierno trabaja en la sesión del jueves para avanzar con la suspensión de las PASO</a></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Infobae" data-texto="argentina busca recuperar su capacidad de ataque antibuque: el plan para equipar a los f-16 con misiles aire-mar la jefatura de gabinete confirmó ante el senado que el gobierno proyecta incorporar este armamento. andrei serbin pont analizó en infobae al mediodía las alternativas disponibles y el posible papel del harpoon en la defensa del litoral marítimo ">
+        <td class="tema-col"><b>7</b> · 1 medio</td>
+        <td class="num">16:24</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/argentina-busca-recuperar-su-capacidad-de-ataque-antibuque-el-plan-para-equipar-a-los-f-16-con-misiles-aire-mar/" target="_blank" rel="noopener">Argentina busca recuperar su capacidad de ataque antibuque: el plan para equipar a los F-16 con misiles aire-mar</a><div class="baj">La Jefatura de Gabinete confirmó ante el Senado que el Gobierno proyecta incorporar este armamento. Andrei Serbin Pont analizó en Infobae al Mediodía las alternativas disponibles y el posible papel del Harpoon en la defensa del litoral marítimo</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="santa fe busca un lugar en la cadena minera la participación de santa fe reflejó cómo la minería comienza a movilizar economías alejadas de los yacimientos. la entrada santa fe busca un lugar en la cadena minera se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>8</b> · 1 medio</td>
+        <td class="num">15:48</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/santa-fe-busca-un-lugar-en-la-cadena-minera/" target="_blank" rel="noopener">Santa Fe busca un lugar en la cadena minera</a><div class="baj">La participación de Santa Fe reflejó cómo la minería comienza a movilizar economías alejadas de los yacimientos. La entrada Santa Fe busca un lugar en la cadena minera se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Parlamentario.com" data-texto="lousteau: “estoy convencido de que en argentina necesitamos una oposición disruptiva” el diputado radical explicó en qué consiste el seminario “coordinar para ganar”, que se hará este viernes en la uba con expertos internacionales y dirigentes políticos argentinos opositores. la entrada lousteau: “estoy convencido de que en argentina necesitamos una oposición disruptiva” se publicó… ">
+        <td class="tema-col"><b>9</b> · 1 medio</td>
+        <td class="num">15:28</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/lousteau-estoy-convencido-de-que-en-argentina-necesitamos-una-oposicion-disruptiva/" target="_blank" rel="noopener">Lousteau: “Estoy convencido de que en Argentina necesitamos una oposición disruptiva”</a><div class="baj">El diputado radical explicó en qué consiste el seminario “Coordinar para Ganar”, que se hará este viernes en la UBA con expertos internacionales y dirigentes políticos argentinos opositores. La entrada Lousteau: “Estoy convencido de que en Argentina necesitamos una oposición disruptiva” se publicó…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="Infobae" data-texto="chubut: el peronismo acelera la definición de su candidato para intentar disputarle la gobernación a torres el diputado nacional juan pablo luque quiere volver a competir por el ejecutivo provincial y apuesta a una candidatura de unidad. el intendente de dolavon, dante bowen, y el diputado josé glinski reclaman una interna para definir al postulante. el gobernador buscará su reelección ">
+        <td class="tema-col"><b>10</b> · 1 medio</td>
+        <td class="num">15:04</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/chubut-el-peronismo-acelera-la-definicion-de-su-candidato-para-intentar-disputarle-la-gobernacion-a-torres/" target="_blank" rel="noopener">Chubut: el peronismo acelera la definición de su candidato para intentar disputarle la gobernación a Torres</a><div class="baj">El diputado nacional Juan Pablo Luque quiere volver a competir por el Ejecutivo provincial y apuesta a una candidatura de unidad. El intendente de Dolavon, Dante Bowen, y el diputado José Glinski reclaman una interna para definir al postulante. El gobernador buscará su reelección</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="El Cronista" data-texto="malamud y la ecuación que puede definir 2027: qué pasa con milei si la recesión se prolonga el politólogo advirtió que la oposición todavía no tiene una propuesta de futuro, pero sostuvo que una recesión prolongada “disolvería” al oficialismo. ">
+        <td class="tema-col"><b>11</b> · 1 medio</td>
+        <td class="num">14:17</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/la-bomba-politica-de-malamud-de-cara-a-las-elecciones-2027-con-esta-recesion-el-gobierno-pierde/" target="_blank" rel="noopener">Malamud y la ecuación que puede definir 2027: qué pasa con Milei si la recesión se prolonga</a><div class="baj">El politólogo advirtió que la oposición todavía no tiene una propuesta de futuro, pero sostuvo que una recesión prolongada “disolvería” al oficialismo.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Clarín" data-texto="el corpiño rojo de jensen huang: trump bromea en redes por el caso nvidia, pero en el congreso asoma una investigación  ">
+        <td class="tema-col"><b>12</b> · 1 medio</td>
+        <td class="num">13:41</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/mundo/corpino-rojo-jensen-huang-trump-bromea-redes-caso-nvidia-congreso-asoma-investigacion_0_vhGzL7BPeH.html" target="_blank" rel="noopener">El corpiño rojo de Jensen Huang: Trump bromea en redes por el caso Nvidia, pero en el Congreso asoma una investigación</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Sesión" data-medio="Ámbito" data-texto="brasil profundiza el ajuste fiscal: el congreso aprobó un paquete de recortes y lula prepara nuevas medidas  ">
+        <td class="tema-col"><b>13</b> · 1 medio</td>
+        <td class="num">12:46</td>
+        <td>Ámbito</td>
+        <td><a href="https://www.ambito.com/economia/brasil-profundiza-el-ajuste-fiscal-el-congreso-aprobo-un-paquete-recortes-y-lula-prepara-nuevas-medidas-n6348640" target="_blank" rel="noopener">Brasil profundiza el ajuste fiscal: el Congreso aprobó un paquete de recortes y Lula prepara nuevas medidas</a></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Negociación política" data-medio="La Nación" data-texto="córdoba: mientras llaryora estira la incógnita sobre la fecha electoral, los libertarios mueven sus fichas y exploran un acuerdo con de loredo a la espera de que el gobernador confirme la convocatoria a los comicios, los libertarios ya definieron la fórmula que competirá por la intendencia de la capital provincial; con chicanas, bornoroni y juez invitaron al dirigente de la ucr a sumarse al frente opositor ">
+        <td class="tema-col"><b>14</b> · 1 medio</td>
+        <td class="num">12:32</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/cordoba-mientras-llaryora-estira-la-incognita-sobre-la-fecha-electoral-los-libertarios-mueven-sus-nid24112026/" target="_blank" rel="noopener">Córdoba: mientras Llaryora estira la incógnita sobre la fecha electoral, los libertarios mueven sus fichas y exploran un acuerdo con De Loredo</a><div class="baj">A la espera de que el gobernador confirme la convocatoria a los comicios, los libertarios ya definieron la fórmula que competirá por la intendencia de la capital provincial; con chicanas, Bornoroni y Juez invitaron al dirigente de la UCR a sumarse al frente opositor</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Negociación política</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Clarín" data-texto="polémica en tucumán por el avance de un proyecto de ley del peronismo para eliminar contenidos digitales en menos de 12 horas la legislatura provincial dio dictamen favorable a una iniciativa para que la junta electoral pueda exigir la baja de publicaciones digitales, con multas de hasta $30 millones. el proyecto es de la diputada carolina vargas aignasse, muy cercana al gobernador osvaldo jaldo. duras críticas de la… ">
+        <td class="tema-col"><b>15</b> · 1 medio</td>
+        <td class="num">11:55</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/polemica-tucuman-avance-proyecto-ley-peronismo-eliminar-contenidos-digitales-12-horas_0_IR7TBmSRQT.html" target="_blank" rel="noopener">Polémica en Tucumán por el avance de un proyecto de ley del peronismo para eliminar contenidos digitales en menos de 12 horas</a><div class="baj">La Legislatura provincial dio dictamen favorable a una iniciativa para que la Junta Electoral pueda exigir la baja de publicaciones digitales, con multas de hasta $30 millones. El proyecto es de la diputada Carolina Vargas Aignasse, muy cercana al gobernador Osvaldo Jaldo. Duras críticas de la…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="el gobierno reivindica su política universitaria y niega un desfinanciamiento en el informe enviado al senado antes de la presentación de diego santilli, el ejecutivo aseguró que comenzó a cumplir la medida cautelar una vez que quedó firme, pero confirmó que mantiene una disputa judicial con el cin por la forma de instrumentarla. también remitió a anexos para responder sobre… ">
+        <td class="tema-col"><b>16</b> · 1 medio</td>
+        <td class="num">11:44</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/el-gobierno-reivindica-su-politica-universitaria-y-niega-un-desfinanciamiento/" target="_blank" rel="noopener">El Gobierno reivindica su política universitaria y niega un desfinanciamiento</a><div class="baj">En el informe enviado al Senado antes de la presentación de Diego Santilli, el Ejecutivo aseguró que comenzó a cumplir la medida cautelar una vez que quedó firme, pero confirmó que mantiene una disputa judicial con el CIN por la forma de instrumentarla. También remitió a anexos para responder sobre…</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Otro" data-medio="Infobae" data-texto="el gobierno no hará cambios aunque se declare una recesión técnica y apuesta al congreso para calmar a los mercados con el riesgo país por encima de los 1.000 puntos y la brecha del dólar en máximos desde 2025, el indec confirmaría hoy un segundo trimestre con caída del pbi. en la casa rosada minimizan esa lectura, descartan un golpe de timón y apuestan a un aplacamiento de la volatilidad por eventuales… ">
+        <td class="tema-col"><b>17</b> · 1 medio</td>
+        <td class="num">11:38</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/el-gobierno-no-hara-cambios-aunque-se-declare-una-recesion-tecnica-y-apuesta-al-congreso-para-calmar-a-los-mercados/" target="_blank" rel="noopener">El Gobierno no hará cambios aunque se declare una recesión técnica y apuesta al Congreso para calmar a los mercados</a><div class="baj">Con el riesgo país por encima de los 1.000 puntos y la brecha del dólar en máximos desde 2025, el INDEC confirmaría hoy un segundo trimestre con caída del PBI. En la Casa Rosada minimizan esa lectura, descartan un golpe de timón y apuestan a un aplacamiento de la volatilidad por eventuales…</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="El Cronista" data-texto="el millonario patrimonio de los diputados: quiénes lideran el ranking de las mayores fortunas un relevamiento de el cronista sobre las declaraciones juradas de 2025 revela quiénes concentran las mayores fortunas en diputados y cómo evolucionaron sus patrimonios durante el último año, con aumentos que en algunos casos superaron ampliamente a la inflación. ">
+        <td class="tema-col"><b>18</b> · 1 medio</td>
+        <td class="num">11:26</td>
+        <td>El Cronista</td>
+        <td><a href="https://www.cronista.com/economia-politica/el-millonario-patrimonio-de-los-diputados-quienes-lideran-el-ranking-de-las-mayores-fortunas/" target="_blank" rel="noopener">El millonario patrimonio de los diputados: quiénes lideran el ranking de las mayores fortunas</a><div class="baj">Un relevamiento de El Cronista sobre las declaraciones juradas de 2025 revela quiénes concentran las mayores fortunas en Diputados y cómo evolucionaron sus patrimonios durante el último año, con aumentos que en algunos casos superaron ampliamente a la inflación.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="olivetto: “es un negocio multimillonario que sólo deja problemas en nuestras comunidades” la diputada micaela olivetto presentó un de los proyectos de ley que la cámara baja podría llegar a tratar en la sesión ordinaria prevista para este miércoles sobre regulación de las apuestas en línea y prevención de ludopatía. la entrada olivetto: “es un negocio multimillonario que sólo deja… ">
+        <td class="tema-col"><b>19</b> · 1 medio</td>
+        <td class="num">11:09</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/olivetto-es-un-negocio-multimillonario-que-solo-deja-problemas-en-nuestras-comunidades/" target="_blank" rel="noopener">Olivetto: “es un negocio multimillonario que sólo deja problemas en nuestras comunidades”</a><div class="baj">La diputada Micaela Olivetto presentó un de los proyectos de ley que la Cámara baja podría llegar a tratar en la sesión ordinaria prevista para este miércoles sobre regulación de las apuestas en línea y prevención de ludopatía. La entrada Olivetto: “es un negocio multimillonario que sólo deja…</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Veto / DNU" data-medio="Clarín" data-texto="el gobierno de la libertad avanza se encamina a ser la administración con menos leyes aprobadas los datos surgen de un informe en base a datos oficiales. cuál fue el presidente que más leyes vetó y cuál es la norma que está pendiente desde hace más de 30 años. ">
+        <td class="tema-col"><b>20</b> · 1 medio</td>
+        <td class="num">11:00</td>
+        <td>Clarín</td>
+        <td><a href="https://www.clarin.com/politica/gobierno-libertad-avanza-encamina-administracion-leyes-aprobadas_0_xUajGWq7o0.html" target="_blank" rel="noopener">El gobierno de La Libertad Avanza se encamina a ser la administración con menos leyes aprobadas</a><div class="baj">Los datos surgen de un informe en base a datos oficiales. Cuál fue el presidente que más leyes vetó y cuál es la norma que está pendiente desde hace más de 30 años.</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Veto / DNU</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="La Nación" data-texto="el senado prevé aprobar ascensos de 139 diplomáticos, incluidos 16 que no pidió la cancillería y reclamó el kirchnerismo la cámara alta avalaría el jueves los pliegos de 123 diplomáticos impulsados por quirno y otros que estuvieron frenados por sus roles importantes en el gobierno anterio; el agradecimiento de wado de pedro ">
+        <td class="tema-col"><b>21</b> · 1 medio</td>
+        <td class="num">09:57</td>
+        <td>La Nación</td>
+        <td><a href="https://www.lanacion.com.ar/politica/el-senado-preve-aprobar-ascensos-de-139-diplomaticos-incluidos-16-que-no-pidio-la-cancilleria-y-nid24112026/" target="_blank" rel="noopener">El Senado prevé aprobar ascensos de 139 diplomáticos, incluidos 16 que no pidió la Cancillería y reclamó el kirchnerismo</a><div class="baj">La Cámara alta avalaría el jueves los pliegos de 123 diplomáticos impulsados por Quirno y otros que estuvieron frenados por sus roles importantes en el gobierno anterio; el agradecimiento de Wado De Pedro</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="piden fortalecer la red de salud mental de la ciudad se trata de una iniciativa de guadalupe tagliaferri (cyd), mediante la cuál se prevé garantizar la continuidad de los tratamientos psicológicos y psiquiátricos de los vecinos del distrito. la entrada piden fortalecer la red de salud mental de la ciudad se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>22</b> · 1 medio</td>
+        <td class="num">09:54</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/piden-fortalecer-la-red-de-salud-mental-de-la-ciudad/" target="_blank" rel="noopener">Piden fortalecer la red de salud mental de la Ciudad</a><div class="baj">Se trata de una iniciativa de Guadalupe Tagliaferri (CyD), mediante la cuál se prevé garantizar la continuidad de los tratamientos psicológicos y psiquiátricos de los vecinos del distrito. La entrada Piden fortalecer la red de salud mental de la Ciudad se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Otro" data-medio="Parlamentario.com" data-texto="diputados buscan crear el &#34;mapa interactivo de arsénico en agua&#34; analizan crear una plataforma digital de acceso público, gratuito e irrestricto, destinada a monitorear la calidad del agua para consumo humano en todo el territorio bonaerense. la entrada diputados buscan crear el &#34;mapa interactivo de arsénico en agua&#34; se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>23</b> · 1 medio</td>
+        <td class="num">09:47</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/diputados-buscan-crear-el-mapa-interactivo-de-arsenico-en-agua/" target="_blank" rel="noopener">Diputados buscan crear el &#34;mapa interactivo de arsénico en agua&#34;</a><div class="baj">Analizan crear una plataforma digital de acceso público, gratuito e irrestricto, destinada a monitorear la calidad del agua para consumo humano en todo el territorio bonaerense. La entrada Diputados buscan crear el &#34;mapa interactivo de arsénico en agua&#34; se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Sin determinar" data-tipo="Proyecto" data-medio="Parlamentario.com" data-texto="por sus 30 años de trayectoria, distinguirán a nonpalidece será este miércoles a partir de las 16 en el salón san martín del palacio legislativo, gracias a una iniciativa impulsada por alejandro grillo (fxba). la entrada por sus 30 años de trayectoria, distinguirán a nonpalidece se publicó primero en parlamentario . ">
+        <td class="tema-col"><b>24</b> · 1 medio</td>
+        <td class="num">09:36</td>
+        <td>Parlamentario.com</td>
+        <td><a href="https://www.parlamentario.com/2026/11/24/por-sus-30-anos-de-trayectoria-distinguiran-a-nonpalidece/" target="_blank" rel="noopener">Por sus 30 años de trayectoria, distinguirán a Nonpalidece</a><div class="baj">Será este miércoles a partir de las 16 en el salón San Martín del Palacio Legislativo, gracias a una iniciativa impulsada por Alejandro Grillo (FxBA). La entrada Por sus 30 años de trayectoria, distinguirán a Nonpalidece se publicó primero en Parlamentario .</div></td>
+        <td><span class="chip"><span class="dot "></span>Sin determinar</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Ambas" data-tipo="Sesión" data-medio="Infobae" data-texto="con un escenario incierto, kicillof buscará avanzar en extraordinarias con las reelecciones indefinidas esta semana culmina el período ordinario en la legislatura bonaerense. sesionará el senado y diputados, pero la ley que buscan tumbar los intendentes no entrará en el temario. diciembre frenético ">
+        <td class="tema-col"><b>25</b> · 1 medio</td>
+        <td class="num">03:17</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/con-un-escenario-incierto-kicillof-buscara-avanzar-en-extraordinarias-con-las-reelecciones-indefinidas/" target="_blank" rel="noopener">Con un escenario incierto, Kicillof buscará avanzar en extraordinarias con las reelecciones indefinidas</a><div class="baj">Esta semana culmina el período ordinario en la Legislatura bonaerense. Sesionará el Senado y Diputados, pero la ley que buscan tumbar los intendentes no entrará en el temario. Diciembre frenético</div></td>
+        <td><span class="chip"><span class="dot c3"></span>Ambas</span></td>
+        <td>Sesión</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Otro" data-medio="Senado (prensa)" data-texto="reunión informativa sobre la responsabilidad extendida del productor en gestión ambiental de envases y embalajes contó con la participación de representantes del gobierno nacional, cámaras industriales y del sector reciclador, quienes expusieron sus aportes para avanzar en un marco normativo que promueva la economía circular y reduzca el enterramiento de residu... ">
+        <td class="tema-col"><b>26</b> · 1 medio</td>
+        <td class="num">00:00</td>
+        <td>Senado (prensa)</td>
+        <td><a href="https://www.senado.gob.ar/prensa/24654/noticias" target="_blank" rel="noopener">REUNIÓN INFORMATIVA SOBRE LA RESPONSABILIDAD EXTENDIDA DEL PRODUCTOR EN GESTIÓN AMBIENTAL DE ENVASES Y EMBALAJES</a><div class="baj">Contó con la participación de representantes del Gobierno nacional, cámaras industriales y del sector reciclador, quienes expusieron sus aportes para avanzar en un marco normativo que promueva la economía circular y reduzca el enterramiento de residu...</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Otro</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Senado" data-tipo="Proyecto" data-medio="Infobae" data-texto="sergio uñac, ricardo quintela y jorge capitanich se reunieron en chaco y avanzaron con planteos hacia la interna del pj los tres referentes peronistas estuvieron en un encuentro de dirigentes del norte grande. el senador sanjuanino reiteró su planteo de internas regionales para definir candidaturas, mientras que el riojano marcó la necesidad de un proyecto federal ">
+        <td class="tema-col"><b>27</b> · 1 medio</td>
+        <td class="num">21:32</td>
+        <td>Infobae</td>
+        <td><a href="https://www.infobae.com/politica/2026/11/24/sergio-unac-ricardo-quintela-y-jorge-capitanich-se-reunieron-en-chaco-y-avanzaron-con-planteos-hacia-la-interna-del-pj/" target="_blank" rel="noopener">Sergio Uñac, Ricardo Quintela y Jorge Capitanich se reunieron en Chaco y avanzaron con planteos hacia la interna del PJ</a><div class="baj">Los tres referentes peronistas estuvieron en un encuentro de dirigentes del Norte Grande. El senador sanjuanino reiteró su planteo de internas regionales para definir candidaturas, mientras que el riojano marcó la necesidad de un proyecto federal</div></td>
+        <td><span class="chip"><span class="dot c2"></span>Senado</span></td>
+        <td>Proyecto</td>
+      </tr>
+      <tr class="inicio-tema" data-camara="Diputados" data-tipo="Negociación política" data-medio="La Política Online" data-texto="diputados del pj denunciaron a zdero y caputo &#34;por endeudar al chaco sin ley&#34; acusan que el gobernador pidió adelantos de coparticipación y los convirtió en una deuda de más de 446 mil millones, sin pasar por la legislatura. ">
+        <td class="tema-col"><b>28</b> · 1 medio</td>
+        <td class="num">19:28</td>
+        <td>La Política Online</td>
+        <td><a href="https://www.lapoliticaonline.com/politica/diputados-del-pj-denunciaron-a-zdero-y-caputo-por-endeudar-al-chaco-sin-ley/" target="_blank" rel="noopener">Diputados del PJ denunciaron a Zdero y Caputo &#34;por endeudar al Chaco sin ley&#34;</a><div class="baj">Acusan que el gobernador pidió adelantos de coparticipación y los convirtió en una deuda de más de 446 mil millones, sin pasar por la Legislatura.</div></td>
+        <td><span class="chip"><span class="dot c1"></span>Diputados</span></td>
+        <td>Negociación política</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+
+<footer id="fuentes">
+  <div class="panel">
+    <b>Fuentes.</b> Corrida del 2026-11-24 a las 16:28 hs (hora argentina) ·
+    <span class="estado-ok">19 respondieron bien</span> · <span class="estado-mal">2 no respondieron</span>.
+    <ul>
+<li><span class="estado-mal">✕</span> <b>Diputados (agenda)</b>: https://www.hcdn.gob.ar/comisiones/agenda/: HTTPStatusError: Client error &#39;403 Forbidden&#39; for url &#39;https://www.hcdn.gob.ar/comisiones/agenda/&#39;
+For more information check:...</li><li><span class="estado-mal">✕</span> <b>Diputados (prensa)</b>: https://www.hcdn.gob.ar/prensa/: HTTPStatusError: Client error &#39;403 Forbidden&#39; for url &#39;https://www.hcdn.gob.ar/prensa/&#39;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403</li>    </ul>
+<div class="meta" style="margin-top:6px">X/Twitter: no se consultó (desactivado en cuentas_x.yaml).</div>  </div>
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // Tooltip para barras y columnas
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (ev) {
+    var el = ev.target.closest('[data-tip]');
+    if (!el) { tip.style.opacity = 0; return; }
+    tip.textContent = el.getAttribute('data-tip');
+    var x = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+    tip.style.left = x + 'px';
+    tip.style.top = (ev.clientY + 14) + 'px';
+    tip.style.opacity = 1;
+  });
+
+  // Filtros de la tabla
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#tabla tbody tr'));
+  var campos = { camara: document.getElementById('f-camara'), tipo: document.getElementById('f-tipo'),
+                 medio: document.getElementById('f-medio') };
+  var texto = document.getElementById('f-texto');
+  var cuenta = document.getElementById('cuenta');
+  function quitarTildes(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aplicar() {
+    var q = quitarTildes(texto.value.trim().toLowerCase());
+    var visibles = 0;
+    filas.forEach(function (tr) {
+      var ok = Object.keys(campos).every(function (k) { return !campos[k].value || tr.dataset[k] === campos[k].value; });
+      if (ok && q) ok = quitarTildes(tr.dataset.texto).indexOf(q) !== -1;
+      tr.hidden = !ok;
+      if (ok) visibles++;
+    });
+    cuenta.textContent = 'Mostrando ' + visibles + ' de ' + filas.length + ' notas';
+  }
+  Object.keys(campos).forEach(function (k) { campos[k].addEventListener('change', aplicar); });
+  texto.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>
